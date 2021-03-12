@@ -52,6 +52,7 @@ body {
     width: 100%;
     padding: 1em 0;
     transition: background-color 0.3s ease-out;
+    z-index: 1;
   }
   .content {
     height: 800px;

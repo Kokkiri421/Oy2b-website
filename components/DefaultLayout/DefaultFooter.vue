@@ -99,7 +99,6 @@ export default {
       margin: 0;
 
       .list-item {
-        z-index: -1;
         list-style-type: none;
         margin: 0 0 0 1.2em;
         @include _1366() {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <navigation-menu :isActive="isActiveNavigationMenu" />
 
     <div class="wrapper header">
@@ -76,6 +76,9 @@ export default {
   font-weight: 700;
   font-size: 1.2em;
   text-decoration-style: solid;
+  @include _400() {
+    font-size: 1em;
+  }
 }
 .header-menu {
   display: flex;
