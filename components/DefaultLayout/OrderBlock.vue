@@ -9,7 +9,14 @@
         </h4>
         <div class="order-block__form-container">
           <form class="order-block__form">
-            <div clas="order-block__form-item"></div>
+            <pretty-input
+              :name="'phone'"
+              :placeholder="'Телефон'"
+            ></pretty-input>
+            <pretty-input
+              :name="'phone'"
+              :placeholder="'Телефон'"
+            ></pretty-input>
           </form>
         </div>
       </div>
@@ -18,8 +25,12 @@
 </template>
 
 <script>
+import PrettyInput from '~/components/Common/PrettyInput'
 export default {
   name: 'OrderBlock',
+  components: {
+    PrettyInput,
+  },
 }
 </script>
 
