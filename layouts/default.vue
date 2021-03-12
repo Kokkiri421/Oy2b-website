@@ -1,14 +1,11 @@
 <template>
   <div class="default-layout">
-    <header
-      class="flex-grow-1 test-border"
-      :class="{ scroll_colored: scrollPosition > 0 }"
-    >
+    <header class="flex-grow-1" :class="{ scroll_colored: scrollPosition > 0 }">
       <default-header />
     </header>
-    <div class="flex-grow-1 test-border content"><Nuxt /></div>
-    <div class="flex-grow-1 test-border order">order</div>
-    <footer class="flex-grow-1 test-border">footer</footer>
+    <div class="flex-grow-1 content"><Nuxt /></div>
+    <div class="flex-grow-1 order">order</div>
+    <footer class="flex-grow-1">footer</footer>
   </div>
 </template>
 
@@ -20,6 +17,7 @@ export default {
       scrollPosition: null,
     }
   },
+
   components: {
     DefaultHeader,
   },

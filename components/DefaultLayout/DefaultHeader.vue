@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navigation-menu v-if="isActiveNavigationMenu" />
+    <navigation-menu :isActive="isActiveNavigationMenu" />
 
     <div class="wrapper header">
       <div class="header-menu">
@@ -54,6 +54,7 @@ export default {
     },
     updateIsActiveNavigationMenu() {
       this.isActiveNavigationMenu = !this.isActiveNavigationMenu
+      console.log(this.isActiveNavigationMenu)
     },
   },
   beforeMount() {
@@ -129,14 +130,14 @@ export default {
       display: none;
     }
     &__button {
-      height: 100%;
       color: #fff;
       cursor: pointer;
       background-color: transparent;
       border: 1px solid #fff;
-      font-size: 0.65em;
-      line-height: 0;
+      line-height: 1.6em;
 
+      font: 700 1em/1.4em Montserrat, Tahoma, Arial, Helvetica, sans-serif;
+      font-size: 0.6em;
       &:hover {
         background-color: #d81428;
         border-color: #d81428;

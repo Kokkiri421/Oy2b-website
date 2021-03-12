@@ -1,64 +1,77 @@
 <template>
   <div class="wrapper">
-    <transition name="slide">
-      <div class="container">
-        <nav class="navigation-menu">
-          <div class="navigation-menu__item main-menu">
-            <ul class="navigation-menu__list">
-              <li class="list-item">
-                <a class="underline-animated-link">Wi-Fi для бизнеса</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Интернет до 10Гбит/с</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Виртуальные сервисы</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Телефония</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">IT Аутсорсинг</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Облачные решения</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Видеонаблюдение</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Комплексные решения</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Операторам</a>
-              </li>
-            </ul>
+    <div class="container" :class="{ active: isActive }">
+      <nav class="navigation-menu">
+        <div class="navigation-menu__item main-menu">
+          <ul class="navigation-menu__list">
+            <li class="list-item">
+              <a class="underline-animated-link">Wi-Fi для бизнеса</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Интернет до 10Гбит/с</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Виртуальные сервисы</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Телефония</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">IT Аутсорсинг</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Облачные решения</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Видеонаблюдение</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Комплексные решения</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Операторам</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navigation-menu__item bottom-menu">
+          <ul class="navigation-menu__list">
+            <li class="list-item">
+              <a class="underline-animated-link">О компании</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Вакансии</a>
+            </li>
+            <li class="list-item">
+              <a class="underline-animated-link">Контакты</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navigation-menu__item social">
+          <div class="social-network instagram">
+            <a class="social-network__link"
+              ><img src="~/static/images/instagram.svg"
+            /></a>
           </div>
-          <div class="navigation-menu__item bottom-menu">
-            <ul class="navigation-menu__list">
-              <li class="list-item">
-                <a class="underline-animated-link">О компании</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Вакансии</a>
-              </li>
-              <li class="list-item">
-                <a class="underline-animated-link">Контакты</a>
-              </li>
-            </ul>
+          <div class="social-network vk">
+            <a class="social-network__link"
+              ><img src="~/static/images/vk.svg"
+            /></a>
           </div>
-          <div class="navigation-menu__item social">
-            <div>123456</div>
-            <div>123456</div>
-          </div>
-        </nav>
-      </div>
-    </transition>
+        </div>
+      </nav>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -66,29 +79,37 @@ export default {}
 
 .container {
   position: fixed;
-  top: 0%;
+  top: -100%;
+  transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #d81428;
   margin-left: -5em;
   width: 440px;
+  @include _1300 {
+    margin-left: -50px;
+  }
   @include _650 {
     margin-left: -20px;
     width: 320px;
-    max-height: calc(100% - 4em);
   }
 }
 .navigation-menu {
-  display: flex;
-  flex-direction: column;
   margin-top: 96px;
   padding: 2.25em 5em;
+  max-height: calc(100vh - 6em);
+
+  overflow-y: auto;
+  @include _1300 {
+    padding: 2.25em 50px;
+  }
   @include _650 {
     margin-top: 64px;
     padding: 1.25em 20px;
+    max-height: calc(100vh - 4em);
   }
 
   &__item {
     &:nth-child(n) {
-      margin-bottom: 2em;
+      margin-bottom: 3em;
     }
     &:nth-last-child(-n + 1) {
       margin-bottom: 0;
@@ -106,30 +127,33 @@ export default {}
       margin-bottom: 0.9em;
     }
   }
+
+  .social {
+    display: flex;
+    flex-direction: row;
+    .social-network {
+      &__link {
+        display: inline-block;
+        vertical-align: middle;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+    .instagram {
+      margin-right: 0.3em;
+    }
+  }
 }
 .main-menu {
   font-weight: 700;
 }
 
-.slide-enter-active {
-  transition-duration: 0.3s;
-  transition-timing-function: ease-in;
-}
-
-.slide-leave-active {
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slide-enter-to,
-.slide-leave {
-  max-height: max-content;
-  overflow: hidden;
-}
-
-.slide-enter,
-.slide-leave-to {
-  overflow: hidden;
-  max-height: 0;
+.active {
+  top: 0;
 }
 </style>
