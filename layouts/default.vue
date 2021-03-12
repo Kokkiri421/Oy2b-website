@@ -5,21 +5,25 @@
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
     <div class="flex-grow-1 order">order</div>
-    <footer class="flex-grow-1">footer</footer>
+    <footer class="flex-grow-1">
+      <default-footer />
+    </footer>
   </div>
 </template>
 
 <script>
 import DefaultHeader from '~/components/DefaultLayout/DefaultHeader'
+import DefaultFooter from '~/components/DefaultLayout/DefaultFooter'
 export default {
   data() {
     return {
-      scrollPosition: null,
+      scrollPosition: 0,
     }
   },
 
   components: {
     DefaultHeader,
+    DefaultFooter,
   },
   methods: {
     updateScroll() {
@@ -27,6 +31,7 @@ export default {
     },
   },
   mounted() {
+    this.updateScroll()
     window.addEventListener('scroll', this.updateScroll)
   },
 }
@@ -46,6 +51,7 @@ body {
     top: 0;
     width: 100%;
     padding: 1em 0;
+    transition: background-color 0.3s ease-out;
   }
   .content {
     height: 800px;
@@ -59,7 +65,6 @@ body {
 
   .test-border {
     border: 1px solid black;
-    transition: background-color 0.3s ease-out;
   }
   .flex-grow-1 {
     flex-grow: 1;
