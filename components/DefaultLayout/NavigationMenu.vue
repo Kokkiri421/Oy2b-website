@@ -79,11 +79,12 @@ export default {
 
 .container {
   position: fixed;
-  top: -100%;
+  top: -200%;
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #d81428;
   margin-left: -5em;
   width: 440px;
+
   @include _1300 {
     margin-left: -50px;
   }
@@ -95,8 +96,7 @@ export default {
 .navigation-menu {
   margin-top: 96px;
   padding: 2.25em 5em;
-  max-height: calc(100vh - 6em);
-
+  max-height: calc(100vh - 6em - 96px);
   overflow-y: auto;
   @include _1300 {
     padding: 2.25em 50px;
@@ -104,7 +104,7 @@ export default {
   @include _650 {
     margin-top: 64px;
     padding: 1.25em 20px;
-    max-height: calc(100vh - 4em);
+    max-height: calc(100vh - 4em - 64px);
   }
 
   &__item {

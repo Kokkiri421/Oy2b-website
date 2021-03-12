@@ -1,7 +1,42 @@
 <template>
   <div class="wrapper footer">
-    <div class="footer-top footer-item">top</div>
-    <div class="footer-bottom footer-item">
+    <div class="footer-top footer-item">
+      <div class="logo">
+        <a href="/"> <img src="~/static/images/red_logo.svg" /></a>
+      </div>
+      <div class="menu smallfont-400">
+        <ul class="menu__list">
+          <li class="list-item">
+            <a class="underline-animated-link">Wi-Fi для бизнеса</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Интернет до 10Гбит/с</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Виртуальные сервисы</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Телефония</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">IT Аутсорсинг</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Облачные решения</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Видеонаблюдение</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Комплексные решения</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Операторам</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom footer-item smallfont-400">
       <div class="copy">© 2021 Oyster Telecom</div>
       <div class="social">
         <div class="social-network instagram">
@@ -15,7 +50,9 @@
           /></a>
         </div>
       </div>
-      <div class="contacts"><a>Контакты</a></div>
+      <div class="contacts">
+        <a class="underline-animated-link">Контакты</a>
+      </div>
     </div>
   </div>
 </template>
@@ -37,6 +74,42 @@ export default {
 }
 .footer-top {
   border-bottom: 1px solid #dfdfdf;
+  display: flex;
+  flex-direction: row;
+  @include _600() {
+    flex-wrap: wrap;
+  }
+  .logo {
+    width: fit-content;
+    padding-right: 2em;
+  }
+  .menu {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      line-height: 40px;
+      @include _600() {
+        justify-content: flex-start;
+        line-height: 1.25em;
+        margin-top: 1em;
+      }
+      padding: 0;
+      margin: 0;
+
+      .list-item {
+        list-style-type: none;
+        margin: 0 0 0 1.2em;
+        @include _1366() {
+          margin: 0 0 0 1.95em;
+        }
+        @include _600() {
+          margin: 0 1.05em 0.5em 0;
+        }
+      }
+    }
+  }
 }
 .footer-bottom {
   display: flex;
@@ -45,15 +118,19 @@ export default {
   align-items: center;
   flex-wrap: wrap-reverse;
   .copy {
-    flex-grow: 1;
+    flex-basis: calc(100% / 3);
+    @include _600 {
+      flex-basis: auto;
+    }
     color: #999;
   }
   .social {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
+    flex-basis: calc(100% / 3);
     justify-content: center;
     @include _600 {
+      flex-basis: auto;
       justify-content: flex-end;
     }
 
@@ -68,7 +145,11 @@ export default {
         height: 36px;
         line-height: 36px;
         text-align: center;
-
+        @include _400 {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+        }
         img {
           vertical-align: middle;
         }
@@ -90,7 +171,7 @@ export default {
     }
   }
   .contacts {
-    flex-grow: 1;
+    flex-basis: calc(100% / 3);
     display: flex;
     justify-content: flex-end;
     @include _600 {
@@ -98,6 +179,26 @@ export default {
       justify-content: flex-start;
       margin: 1em 0 0.5em 0;
     }
+  }
+}
+.underline-animated-link {
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    color: #d81428;
+  }
+  &:before {
+    background: #d81428;
+  }
+  &:after {
+    background: #d81428;
+  }
+}
+
+.smallfont-400 {
+  @include _400() {
+    font-size: 0.8em;
   }
 }
 </style>

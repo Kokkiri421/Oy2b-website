@@ -138,11 +138,11 @@ export default {
 
       font: 700 1em/1.4em Montserrat, Tahoma, Arial, Helvetica, sans-serif;
       font-size: 0.6em;
+      transition: color 0.2s ease-out, background-color 0.2s ease-out,
+        border 0.2s ease-out, opacity 0.2s ease-out;
       &:hover {
         background-color: #d81428;
         border-color: #d81428;
-        transition: color 0.2s ease-out, background-color 0.2s ease-out,
-          border 0.2s ease-out, opacity 0.2s ease-out;
       }
     }
   }
