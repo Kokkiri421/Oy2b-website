@@ -67,6 +67,9 @@
           </div>
         </div>
       </div>
+      <div class="company-services">
+        <h4>Услуги связи и ИТ сервисы в Санкт‑Петербурге</h4>
+      </div>
     </div>
   </div>
 </template>
@@ -88,6 +91,8 @@ export default {
 .main-content {
   width: 100%;
   padding: 6em 0 4em;
+  display: flex;
+  flex-direction: column;
 }
 .company-info {
   line-height: 1.62em;
@@ -135,6 +140,13 @@ export default {
     .info-number {
       margin: 0 2em 2em 0;
     }
+  }
+}
+.company-services {
+  margin-top: 4em;
+  @include _800() {
+    margin-top: 0;
+    order: -1;
   }
 }
 </style>
