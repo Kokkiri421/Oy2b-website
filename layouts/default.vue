@@ -1,13 +1,19 @@
 <template>
   <div class="default-layout">
-    <header class="flex-grow-1" :class="{ scroll_colored: scrollPosition > 0 }">
+    <header
+      class="flex-grow-1"
+      :class="{
+        scroll_colored: scrollPosition > 0,
+        scroll_colored_default: defaultScrollPosition > 0,
+      }"
+    >
       <default-header />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
     <div class="flex-grow-1">
       <order-block />
     </div>
-    <footer class="flex-grow-1">
+    <footer class="flex-grow-1" ref="footer">
       <default-footer />
     </footer>
   </div>
@@ -22,6 +28,7 @@ export default {
   data() {
     return {
       scrollPosition: 0,
+      defaultScrollPosition: null,
     }
   },
 
@@ -35,8 +42,10 @@ export default {
       this.scrollPosition = window.scrollY
     },
   },
+  computed: {},
   mounted() {
-    this.updateScroll()
+    this.defaultScrollPosition = window.scrollY
+    console.log(this.defaultScrollPosition)
     window.addEventListener('scroll', this.updateScroll)
   },
 }
@@ -60,8 +69,6 @@ body {
     z-index: 1;
   }
   .content {
-    height: 800px;
-    background: #706e67;
   }
   display: flex;
   flex-direction: column;
@@ -87,8 +94,12 @@ body {
 }
 .scroll_colored {
   background-color: rgba(0, 0, 0, 0.8);
-  transition: background-color 0.3s ease-out;
 }
+.scroll_colored_default {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: none;
+}
+
 .dialog-button {
   border-radius: 4px;
   padding: 0.8em 1.8em;
