@@ -1,8 +1,9 @@
 <template>
-  <span class="running-number"
-    >{{ isInteger ? currentNumber : currentNumber.toFixed(1) }}
-    {{ checkAnimated }}</span
-  >
+  <span class="running-number">
+    {{ outputNumber }}
+
+    {{ checkAnimated }}
+  </span>
 </template>
 
 <script>
@@ -18,10 +19,22 @@ export default {
     isInteger: { type: Boolean, required: true },
   },
   computed: {
+    outputNumber: function () {
+      let output = ''
+      if (this.isInteger) {
+        output = this.currentNumber
+      } else {
+        if (this.currentNumber < 10.0) {
+          output += '0'
+        }
+        output += String(this.currentNumber.toFixed(1))
+        output += '%'
+      }
+      return output
+    },
     checkAnimated: function () {
       if (this.isAnimated) {
         this.runNumber()
-        console.log('running number')
       }
     },
   },
@@ -41,7 +54,6 @@ export default {
             this.number - this.currentNumber,
             this.number / 18
           )
-          console.log(this.currentNumber.toFixed(1))
         }
       }, 50)
     },
@@ -49,4 +61,10 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.running-number {
+  font-size: 4em;
+  line-height: 1.2em;
+  font-weight: 500;
+}
+</style>

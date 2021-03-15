@@ -16,7 +16,10 @@ export default {
       if (!this.animated && this.$refs.animatedElement) {
         if (
           window.scrollY + window.innerHeight >
-          this.$refs.animatedElement.offsetTop
+            this.$refs.animatedElement.offsetTop &&
+          this.$refs.animatedElement.offsetTop +
+            this.$refs.animatedElement.offsetHeight >
+            window.scrollY
         ) {
           this.animated = true
         }

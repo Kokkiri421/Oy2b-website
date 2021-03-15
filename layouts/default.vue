@@ -45,7 +45,6 @@ export default {
   computed: {},
   mounted() {
     this.defaultScrollPosition = window.scrollY
-    console.log(this.defaultScrollPosition)
     window.addEventListener('scroll', this.updateScroll)
   },
 }
@@ -154,6 +153,10 @@ button {
     outline: none;
     box-shadow: none;
   }
+}
+p {
+  margin: 0;
+  padding: 0;
 }
 h1 {
   font-size: 4em;
