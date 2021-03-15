@@ -1,14 +1,23 @@
 <template>
   <div class="container">
-
-      123
+    <index-hero-block> </index-hero-block>
   </div>
 </template>
 
 <script>
-export default {}
+import IndexHeroBlock from '~/components/Index/IndexHeroBlock'
+export default {
+  components: {
+    IndexHeroBlock,
+  },
+}
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.container {
+  display: flex;
+}
+.test {
+  color: red;
+}
 </style>

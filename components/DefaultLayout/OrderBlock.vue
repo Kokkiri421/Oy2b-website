@@ -64,6 +64,7 @@ export default {
       &__item {
         vertical-align: top;
         margin: 0 2% 1em 0;
+        min-width: 0;
         @include _1250() {
           display: block;
           margin: 1em 0;

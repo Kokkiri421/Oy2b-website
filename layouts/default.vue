@@ -17,6 +17,7 @@
 import DefaultHeader from '~/components/DefaultLayout/DefaultHeader'
 import DefaultFooter from '~/components/DefaultLayout/DefaultFooter'
 import OrderBlock from '~/components/DefaultLayout/OrderBlock'
+
 export default {
   data() {
     return {
@@ -143,7 +144,14 @@ button {
     box-shadow: none;
   }
 }
-
+h1 {
+  font-size: 4em;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+  @include _1300() {
+    font-size: 3em;
+  }
+}
 h4 {
   font-size: 2em;
   margin: 0 0 0.7em 0;
@@ -154,6 +162,12 @@ h4 {
   }
   @include _700() {
     font-size: 1.2em;
+  }
+}
+
+.dn-600 {
+  @include _600() {
+    display: none;
   }
 }
 </style>
