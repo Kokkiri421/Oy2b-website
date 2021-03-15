@@ -70,7 +70,7 @@ export default {
       padding: 73px 0;
     }
     @include _640() {
-      padding: 70px 0;
+      padding: 70px 0 3em;
     }
     .index-top {
       max-width: 800px;
