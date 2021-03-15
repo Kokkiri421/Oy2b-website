@@ -47,15 +47,13 @@ export default {
 .pretty-input {
   position: relative;
   display: inline-block;
-  vertical-align: top;
-  width: 23%;
-  margin: 0 2% 1em 0;
   .form-input {
     appearance: none;
     padding: 0.8em 1em;
     border: 1px solid #fff;
     border-radius: 4px;
-    min-width: 280px;
+    width: 100%;
+    min-width: 0;
     line-height: 1.6em;
     min-height: 3.2em;
     box-sizing: border-box;

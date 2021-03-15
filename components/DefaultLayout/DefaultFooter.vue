@@ -105,7 +105,7 @@ export default {
           margin: 0 0 0 1.95em;
         }
         @include _600() {
-          margin: 0 1.05em 0.5em 0;
+          margin: 0 1.05em 1em 0;
         }
       }
     }

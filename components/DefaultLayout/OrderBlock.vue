@@ -8,16 +8,26 @@
           в области бизнес провайдинга:
         </h4>
         <div class="order-block__form-container">
-          <form class="order-block__form">
+          <form class="order-block-form">
             <pretty-input
-              :name="'phone'"
-              :placeholder="'Телефон'"
+              :name="'address'"
+              :placeholder="'Адрес/Организация'"
+              class="order-block-form__item"
             ></pretty-input>
             <pretty-input
               :name="'phone'"
               :placeholder="'Телефон'"
+              class="order-block-form__item"
             ></pretty-input>
+            <div class="order-block-form__item">
+              <button class="dialog-button">Оставить заявку</button>
+            </div>
           </form>
+          <div class="order-block__privacy">
+            Нажимая кнопку «Оставить заявку», я даю своё согласие «Oyster
+            Telecom» на обработку моих
+            <a href="/privacy/">персональных данных</a>.
+          </div>
         </div>
       </div>
     </div>
@@ -45,8 +55,34 @@ export default {
     @include _600 {
       padding: 1em 1.2em;
     }
-
-    &__header {
+    .order-block-form {
+      display: flex;
+      flex-direction: row;
+      @include _1250() {
+        flex-direction: column;
+      }
+      &__item {
+        vertical-align: top;
+        margin: 0 2% 1em 0;
+        @include _1250() {
+          display: block;
+          margin: 1em 0;
+          width: 100%;
+        }
+        button {
+          @include _1250() {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &__privacy {
+      color: #999;
+      font-size: 0.8em;
+      line-height: 1.4em;
+      a {
+        color: #999;
+      }
     }
   }
 }

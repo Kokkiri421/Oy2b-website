@@ -92,6 +92,16 @@ body {
   border-radius: 4px;
   padding: 0.8em 1.8em;
   font-weight: 700;
+  background-color: #d81428;
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.6em;
+  border: none;
+  transition: color 0.2s ease-out, background-color 0.2s ease-out,
+    border 0.2s ease-out, opacity 0.2s ease-out;
+  &:hover {
+    background-color: #ec3346;
+  }
 }
 .underline-animated-link {
   display: inline;
