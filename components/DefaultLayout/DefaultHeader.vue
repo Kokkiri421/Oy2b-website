@@ -5,13 +5,13 @@
     <div class="wrapper header">
       <div class="header-menu">
         <div class="logo">
-          <a href="#" class="logo__link">
+          <NuxtLink class="logo__link" :to="'/'">
             <img
               class="logo__img"
               src="https://oy2b.ru/img/logo2x.png"
               alt="OysterTelecom"
             />
-          </a>
+          </NuxtLink>
         </div>
         <div class="menu-init">
           <button
@@ -132,14 +132,15 @@ export default {
     @include _700 {
       display: none;
     }
+    font: 700 1/1.4em Montserrat, sans-serif;
     &__button {
       color: #fff;
       cursor: pointer;
       background-color: transparent;
       border: 1px solid #fff;
+
       line-height: 1.6em;
 
-      font: 700 1em/1.4em Montserrat, Tahoma, Arial, Helvetica, sans-serif;
       font-size: 0.6em;
       transition: color 0.2s ease-out, background-color 0.2s ease-out,
         border 0.2s ease-out, opacity 0.2s ease-out;

@@ -114,6 +114,17 @@ body {
     background-color: #ec3346;
   }
 }
+.article {
+  margin-bottom: 1em;
+}
+.article:nth-last-child(-n + 1) {
+  margin-bottom: 0;
+}
+.dn-600 {
+  @include _600() {
+    display: none;
+  }
+}
 .underline-animated-link {
   display: inline;
   position: relative;
@@ -148,7 +159,12 @@ body {
     width: 50%;
   }
 }
+.nuxtlink {
+  text-decoration: none;
+}
 button {
+  font: 400 1em/1.1em Montserrat, sans-serif;
+  line-height: 1.6em;
   &:focus {
     outline: none;
     box-shadow: none;
@@ -179,12 +195,6 @@ h4 {
   }
   @include _700() {
     font-size: 1.2em;
-  }
-}
-
-.dn-600 {
-  @include _600() {
-    display: none;
   }
 }
 </style>

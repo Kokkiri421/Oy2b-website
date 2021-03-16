@@ -1,39 +1,35 @@
 <template>
   <div class="hero-block">
     <div class="wrapper">
-      <div class="index">
-        <div class="index-top">
-          <h1 class="index-top__header">
-            Комплексные услуги связи <br class="dn-600" />и IT сервисы
+      <div class="hero-block-content">
+        <div class="hero-block-top">
+          <h1 class="hero-block-top__header">
+            <slot name="header"></slot>
           </h1>
-          <div class="index-top__description dn-600">
-            Телекоммуникационные услуги и сервисы для компаний с высоким
-            трафиком, включая доступ в интернет, прокладку и обслуживание
-            оптоволоконной инфраструктуры, организацию корпоративных wi-fi
-            пространств, телефонию, IP видеонаблюдение и нейросетевую аналитику,
-            виртуализацию и перенос бизнеса в облако.
+          <div class="hero-block-top__description dn-600">
+            <slot name="description"></slot>
           </div>
         </div>
-        <div class="index-form-container">
-          <div class="index-form-container__prefix">
-            Проверьте возможность подключения:
+        <div class="hero-block-form-container">
+          <div class="hero-block-form-container__prefix">
+            <slot name="form-prefix"></slot>
           </div>
-          <form class="index-form">
+          <form class="hero-block-form">
             <pretty-input
               :name="'address'"
               :placeholder="'Адрес/Организация'"
-              class="index-form__item"
+              class="hero-block-form__item"
             ></pretty-input>
             <pretty-input
               :name="'phone'"
               :placeholder="'Телефон'"
-              class="index-form__item"
+              class="hero-block-form__item"
             ></pretty-input>
-            <div class="index-form__item">
+            <div class="hero-block-form__item">
               <button class="dialog-button">Оставить заявку</button>
             </div>
           </form>
-          <div class="index-form-container__legal">
+          <div class="hero-block-form-container__legal">
             Нажимая кнопку «Оставить заявку», я даю свое согласие на обработку
             персональных данных согласно
 
@@ -57,14 +53,12 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/index-bg.jpg');
   height: 100%;
   width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  .index {
+  .hero-block-content {
     padding: 100px 0;
     color: #ffffff;
     @include _765() {
@@ -73,7 +67,7 @@ export default {
     @include _640() {
       padding: 70px 0 3em;
     }
-    .index-top {
+    .hero-block-top {
       max-width: 800px;
       &__header {
         font-size: 3em;
@@ -89,11 +83,10 @@ export default {
         font-weight: 500;
         font-size: 16px;
         line-height: 20px;
-        margin-bottom: 2.5em;
       }
     }
-    .index-form-container {
-      .index-form {
+    .hero-block-form-container {
+      .hero-block-form {
         display: flex;
         flex-direction: row;
         @include _950() {

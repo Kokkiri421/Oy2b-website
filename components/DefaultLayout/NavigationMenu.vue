@@ -5,7 +5,12 @@
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
             <li class="list-item">
-              <a class="underline-animated-link">Wi-Fi для бизнеса</a>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/wi-fi"
+              >
+                Wi-Fi для бизнеса
+              </NuxtLink>
             </li>
             <li class="list-item">
               <a class="underline-animated-link">Интернет до 10Гбит/с</a>
@@ -125,6 +130,9 @@ export default {
       color: #fff;
       list-style-type: none;
       margin-bottom: 0.9em;
+      .nuxtlink {
+        color: #fff;
+      }
     }
   }
 

@@ -6,18 +6,18 @@
           <div class="company-info-text__container">
             <h1 class="company-info-text__header">Oyster Telecom</h1>
             <div class="company-info-text__p">
-              <p class="info-article">
+              <p class="article">
                 Oyster Telecom — компания ИТ решений для бизнеса, основанных на
                 услугах связи. Мы работаем только с юридическими лицами, что
                 позволяет придерживаться высоких стандартов качества услуг и
                 сервисов.
               </p>
-              <p class="info-article dn-600">
+              <p class="article dn-600">
                 В дополнение к основным услугам связи мы занимаемся сервисами
                 Wi-Fi и видеоаналитики, виртуализацией, аутсорсингом офисной
                 техники и серверов.
               </p>
-              <p class="info-article dn-600">
+              <p class="article dn-600">
                 Мы готовы разработать для вас индивидуальное решение , в
                 соответствии с особенностями вашего бизнеса и теми задачами, что
                 перед ним стоят.
@@ -95,7 +95,7 @@
                 >
                   <virtual-service-icon />
                 </icon>
-                Вирутальные сервисы
+                Виртуальные сервисы
               </a>
             </li>
             <li class="service-button">
@@ -241,12 +241,6 @@ export default {
       color: #999;
       @include _700() {
         font-size: 0.9em;
-      }
-      .info-article {
-        margin-bottom: 1em;
-      }
-      .info-article:nth-last-child(-n + 1) {
-        margin-bottom: 0;
       }
     }
   }
