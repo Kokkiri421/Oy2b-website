@@ -1,5 +1,9 @@
 <template>
-  <div class="content-block" @click="test">
+  <div
+    class="content-block"
+    @click="test"
+    :style="{ backgroundColor: backgroundColor }"
+  >
     <div class="content-block__header">
       <h4 class="header-content">
         <slot name="header"> </slot>
@@ -22,6 +26,12 @@ export default {
       isShown: false,
     }
   },
+  props: {
+    backgroundColor: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     test() {
       alert(1234)
@@ -39,7 +49,6 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   color: #fff;
-  background-color: #999999;
   border-radius: 6px;
   padding: 1.25em 2.25em;
   margin-bottom: 1em;
@@ -79,10 +88,14 @@ export default {
     }
   }
   &__show-more {
+    display: none;
     font-size: 0.8em;
     margin-top: 1em;
     line-height: 1em;
     border-bottom: 1px dotted;
+    @include _480() {
+      display: block;
+    }
   }
 
   &:hover {
