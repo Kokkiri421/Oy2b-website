@@ -165,6 +165,9 @@ h1 {
   @include _1300() {
     font-size: 3em;
   }
+  @include _700() {
+    font-size: 2em;
+  }
 }
 h4 {
   font-size: 2em;
