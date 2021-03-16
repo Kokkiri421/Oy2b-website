@@ -17,30 +17,40 @@
         Проверьте возможность подключения:
       </template>
     </hero-block>
-    <index-main-content> </index-main-content>
+
+    <div class="wrapper">
+      <index-main-content />
+      <order-block />
+    </div>
   </div>
 </template>
 
 <script>
-import IndexHeroBlock from '~/components/Index/IndexHeroBlock'
 import IndexMainContent from '~/components/Index/IndexMainContent'
 import HeroBlock from '~/components/Common/HeroBlock'
+import OrderBlock from '~/components/DefaultLayout/OrderBlock'
+import QuestionBlock from '~/components/Common/QuestionBlock'
 export default {
   components: {
-    IndexHeroBlock,
     IndexMainContent,
     HeroBlock,
+    OrderBlock,
+    QuestionBlock,
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/media_mixin';
 .hero-block {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/static/images/backgrounds/index-bg.jpg');
   .description {
     margin-bottom: 2.5em;
   }
+}
+.order-block {
+  flex-grow: 1;
 }
 .container {
   display: flex;

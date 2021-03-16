@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper order">
+  <div class="order">
     <div class="order-wrapper">
       <div class="order-block">
         <h4 class="order-block__header">
@@ -46,8 +46,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+
 .order-wrapper {
   padding: 3em 0;
+
   .order-block {
     background-color: #f2f2f2;
     border-radius: 6px;

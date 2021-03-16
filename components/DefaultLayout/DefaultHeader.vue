@@ -2,7 +2,7 @@
   <div class="container">
     <navigation-menu :isActive="isActiveNavigationMenu" />
 
-    <div class="wrapper header">
+    <div class="header wrapper">
       <div class="header-menu">
         <div class="logo">
           <NuxtLink class="logo__link" :to="'/'">
@@ -68,6 +68,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+.container {
+  width: 100%;
+}
 .header {
   display: flex;
   flex-direction: row;

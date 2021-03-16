@@ -10,7 +10,7 @@
     />
     <span
       class="form-input__placeholder"
-      :class="{ customized: isCustomized }"
+      :class="{ customized: isCustomized && !isQuestion }"
       >{{ placeholder }}</span
     >
   </label>
@@ -31,6 +31,10 @@ export default {
     placeholder: {
       type: String,
       required: true,
+    },
+    isQuestion: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {

@@ -110,23 +110,22 @@
           </template>
         </service-block>
       </service-list>
+      <question-block></question-block>
     </div>
   </div>
 </template>
 
 <script>
-import IndexHeroBlock from '~/components/Index/IndexHeroBlock'
-import IndexMainContent from '~/components/Index/IndexMainContent'
 import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
+import QuestionBlock from '~/components/Common/QuestionBlock'
 export default {
   components: {
-    IndexHeroBlock,
-    IndexMainContent,
     HeroBlock,
     ServiceBlock,
     ServiceList,
+    QuestionBlock,
   },
 }
 </script>

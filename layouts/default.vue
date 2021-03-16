@@ -10,9 +10,6 @@
       <default-header />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
-    <div class="flex-grow-1">
-      <order-block />
-    </div>
     <footer class="flex-grow-1" ref="footer">
       <default-footer />
     </footer>
@@ -195,6 +192,15 @@ h4 {
   }
   @include _700() {
     font-size: 1.2em;
+  }
+}
+h5 {
+  font-size: 1.5em;
+  @include _1300() {
+    font-size: 1.15em;
+  }
+  @include _700() {
+    font-size: 1.1em;
   }
 }
 </style>
