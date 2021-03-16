@@ -1,48 +1,34 @@
 <template>
-  <div class="content-block">
+  <div class="content-block" @click="test">
     <div class="content-block__header">
-      <h4 class="header-content">Wi-Fi в Офис</h4>
+      <h4 class="header-content">
+        <slot name="header"> </slot>
+      </h4>
     </div>
     <button class="content-block__button dialog-button">Заказать</button>
-    <div class="content-block__description">
-      Офисный Wi-Fi – это не только доступ в Интернет, но и эффективный
-      бизнес-инструмент.<br />
-      <br />
-      Сеть должна много уметь и быть легкоуправляемой. Мы знаем, как это
-      сделать. <br />
-      <br />
-      Бесплатно приедем, разработаем проект, всё проложим и настроим. Сделаем
-      разные зоны для клиентов и сотрудников с разграничением доступа, контролем
-      трафика и фиксированной скоростью, не зависящей от загруженности. Дадим
-      реальные IP-адреса по количеству сотрудников. Брендируем страницу
-      авторизации. Покажем, как легко менять настройки в личном кабинете с
-      интуитивно понятным интерфейсом. <br />
-
-      <p>
-        Настройка сети Wi-Fi в гостинице работа для профи. В питерском отеле для
-        супер-профи. Нужен не просто толковый проект, а с интеграцией СКС в
-        памятники архитектуры. И тут мы поднаторели.<br />
-        <br />
-        Wi-fi-точки от Ubiquiti Networks поддерживают 35-75 одновременных wi-fi-
-        пользователей в радиусе 50-60 метров и имеют множество модификаций, с
-        креплением на потолок или на стену в виде малозаметной накладки на
-        розетку. Оборудование Mikrotik отлично работает за подвесными
-        конструкциями и в перегородках.<br />
-        <br />
-        Обращайтесь и мы бесплатно предложим хорошие инженерные решения,
-        учитывающие историческую ценность здания. Настроим сеть с разделением
-        зон и лимитом пользования. Интегрируем с вашей системой управления
-        отелем. Поможем соблюсти законодательство об обязательной идентификации
-        пользователей публичных Wi-Fi-точек сделаем хотспот с авторизацией по
-        закону с доступом для иностранных граждан (смотри раздел Wi-Fi
-        авторизация). С нами штрафов не будет!
-      </p>
+    <div class="content-block__description" :class="{ expanded: isShown }">
+      <slot name="description"></slot>
     </div>
-    <div class="content-block__img">img</div>
+    <div class="content-block__show-more" v-on:click.stop="isShown = !isShown">
+      {{ isShown ? 'Скрыть' : 'Читать полностью' }}
+    </div>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      isShown: false,
+    }
+  },
+  methods: {
+    test() {
+      alert(1234)
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
@@ -57,7 +43,8 @@
   border-radius: 6px;
   padding: 1.25em 2.25em;
   margin-bottom: 1em;
-
+  line-height: 1.5em;
+  font-size: 0.95em;
   @include _480() {
     padding: 1em 1.25em;
   }
@@ -65,21 +52,50 @@
   &__header {
     display: flex;
     align-items: center;
+    padding-top: 1px;
+    border-bottom: 1px solid transparent;
     .header-content {
       margin: 0;
     }
   }
   &__button {
+    opacity: 0;
     @include _700() {
       font-size: 0.9em;
+    }
+    @include _480() {
+      opacity: 1;
+      order: 1;
+      width: 100%;
+      margin-top: 2em;
     }
   }
   &__description {
     margin-top: 0.75em;
     flex-basis: 100%;
+    @include _480() {
+      max-height: 100px;
+      overflow: hidden;
+    }
   }
-  &__image {
-    flex-basis: 100%;
+  &__show-more {
+    font-size: 0.8em;
+    margin-top: 1em;
+    line-height: 1em;
+    border-bottom: 1px dotted;
   }
+
+  &:hover {
+    cursor: pointer;
+    .content-block__header {
+      border-bottom: 1px dashed #fff;
+    }
+    .content-block__button {
+      opacity: 1;
+    }
+  }
+}
+.expanded {
+  max-height: fit-content;
 }
 </style>
