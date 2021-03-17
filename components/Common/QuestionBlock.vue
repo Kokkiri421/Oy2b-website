@@ -5,14 +5,14 @@
         Задайте любой вопрос о подключении услуг связи бесплатно
       </h4>
       <p class="article">
-        Мы бесплатно ответим на любые вопросы из области корпоративных
-        телекоммуникационных услуг.<br />
-        Поможем разобраться и оптимизировать расходы на услуги связи.
+        Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
+        корпоративных телекоммуникационных услуг.<br />
+        Поможем разобраться и&nbsp;оптимизировать расходы на&nbsp;услуги связи.
       </p>
       <h5 class="header">Наши эксперты</h5>
       <p class="article">
-        В Oyster Telecom работают технические специалисты с релевантным опытом
-        из различных технических сфер услуг для бизнеса.
+        В Oyster Telecom работают технические специалисты с&nbsp;релевантным
+        опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
       </p>
     </div>
     <div class="question-block__form-container">
@@ -24,7 +24,7 @@
             name="massage"
             cols="30"
             rows="5"
-            placeholder="Например: Как подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?"
+            placeholder="Например:\Как подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?"
           ></textarea>
         </label>
         <h4 class="question-block-form__header">Ваши контакты:</h4>
@@ -48,10 +48,25 @@
         </div>
       </form>
       <div class="question-block__privacy">
-        Нажимая кнопку «Оставить заявку», я даю своё согласие «Oyster Telecom»
-        на обработку моих
+        Нажимая кнопку «Отправить», я&nbsp;даю своё согласие
+        «Oyster&nbsp;Telecom» на&nbsp;обработку моих
         <a href="/privacy/">персональных данных</a>.
       </div>
+    </div>
+    <div class="question-block__bottom-text">
+      <p class="article">
+        Наши специалисты разработают для вас индивидуальный тарифный план,
+        в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса, количеством
+        и&nbsp;оснащенностью рабочих мест, степенью нагрузки на&nbsp;интернет
+        канал.
+      </p>
+      <p class="article">
+        <br />Конкретное решение зависит от ваших потребностей
+      </p>
+      <h5 class="header">
+        При оплате услуг связи за&nbsp;6&nbsp;месяцев -&nbsp;до&nbsp;половины
+        скорости в&nbsp;подарок!
+      </h5>
     </div>
   </div>
 </template>
@@ -69,9 +84,13 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .question-block {
+  margin-bottom: 3em;
   .article {
     line-height: 1.62em;
     color: #999;
+    @include _700() {
+      font-size: 0.9em;
+    }
   }
   .header {
     margin-top: 2em;

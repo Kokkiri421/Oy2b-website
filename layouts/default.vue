@@ -105,6 +105,7 @@ body {
   font-size: 1em;
   line-height: 1.6em;
   border: none;
+  cursor: pointer;
   transition: color 0.2s ease-out, background-color 0.2s ease-out,
     border 0.2s ease-out, opacity 0.2s ease-out;
   &:hover {
