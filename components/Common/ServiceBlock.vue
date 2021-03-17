@@ -1,7 +1,7 @@
 <template>
   <div
     class="content-block"
-    @click="test"
+    @click="scrollDown"
     :style="{ backgroundColor: backgroundColor }"
   >
     <div class="content-block__header">
@@ -9,7 +9,8 @@
         <span><slot name="header"> </slot></span>
       </h4>
     </div>
-    <button class="content-block__button dialog-button">Заказать</button>
+    <div class="content-block__button"><slot name="button"></slot></div>
+
     <div class="content-block__description" :class="{ expanded: isShown }">
       <slot name="description"></slot>
     </div>
@@ -33,8 +34,8 @@ export default {
     },
   },
   methods: {
-    test() {
-      alert(1234)
+    scrollDown() {
+      this.$emit('onClick')
     },
   },
 }
@@ -50,12 +51,13 @@ export default {
   flex-wrap: wrap;
   color: #fff;
   border-radius: 6px;
-  padding: 1.25em 2.25em;
+  padding: 1.25em 2.25em 1.75em;
   margin-bottom: 1em;
   line-height: 1.5em;
   font-size: 0.95em;
+  column-fill: balance;
   @include _480() {
-    padding: 1em 1.25em;
+    padding: 1em 1.25em 1.5em;
   }
 
   &__header {
@@ -68,7 +70,8 @@ export default {
     .header-content {
       margin: 0;
       span {
-        border-bottom: 1px solid transparent;
+        border-bottom: 1px dashed transparent;
+        transition: 0.2s border-bottom ease-out;
       }
     }
     @include _480() {
@@ -78,6 +81,7 @@ export default {
   &__button {
     opacity: 0;
     height: fit-content;
+    transition: 0.2s opacity ease-out;
     @include _700() {
       font-size: 0.9em;
     }
@@ -87,11 +91,14 @@ export default {
       width: 100%;
       margin-top: 2em;
     }
+    button {
+      width: 100%;
+    }
   }
   &__description {
     align-self: flex-end;
     margin-top: 0.75em;
-
+    width: 100%;
     @include _480() {
       max-height: 100px;
       overflow: hidden;

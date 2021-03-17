@@ -41,7 +41,9 @@ export default {
   },
   computed: {},
   mounted() {
+    console.log('mounted')
     this.defaultScrollPosition = window.scrollY
+
     window.addEventListener('scroll', this.updateScroll)
   },
 }
@@ -172,6 +174,10 @@ p {
   margin: 0;
   padding: 0;
 }
+ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
 h1 {
   font-size: 4em;
   line-height: 1.2em;
@@ -203,5 +209,8 @@ h5 {
   @include _700() {
     font-size: 1.1em;
   }
+}
+h6 {
+  font-size: 1em;
 }
 </style>

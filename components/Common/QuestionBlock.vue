@@ -1,21 +1,9 @@
 <template>
   <div class="question-block">
     <div class="question-block__top-text">
-      <h4 class="header">
-        Задайте любой вопрос о подключении услуг связи бесплатно
-      </h4>
-      <p class="article">
-        Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
-        корпоративных телекоммуникационных услуг.<br />
-        Поможем разобраться и&nbsp;оптимизировать расходы на&nbsp;услуги связи.
-      </p>
-      <h5 class="header">Наши эксперты</h5>
-      <p class="article">
-        В Oyster Telecom работают технические специалисты с&nbsp;релевантным
-        опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
-      </p>
+      <slot name="top-text"></slot>
     </div>
-    <div class="question-block__form-container">
+    <div class="question-block__form-container" ref="order">
       <form class="question-block-form">
         <h4 class="question-block-form__header">Ваш вопрос:</h4>
         <label class="question-block-form__question__container">
@@ -23,9 +11,8 @@
             class="question-block-form__question"
             name="massage"
             cols="30"
-            rows="5"
-            placeholder="Например:
-  Как подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?"
+            rows="7"
+            :placeholder="question"
           ></textarea>
         </label>
         <h4 class="question-block-form__header">Ваши контакты:</h4>
@@ -55,19 +42,7 @@
       </div>
     </div>
     <div class="question-block__bottom-text">
-      <p class="article">
-        Наши специалисты разработают для вас индивидуальный тарифный план,
-        в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса, количеством
-        и&nbsp;оснащенностью рабочих мест, степенью нагрузки на&nbsp;интернет
-        канал.
-      </p>
-      <p class="article">
-        <br />Конкретное решение зависит от ваших потребностей
-      </p>
-      <h5 class="header">
-        При оплате услуг связи за&nbsp;6&nbsp;месяцев -&nbsp;до&nbsp;половины
-        скорости в&nbsp;подарок!
-      </h5>
+      <slot name="bottom-text"></slot>
     </div>
   </div>
 </template>
@@ -78,6 +53,9 @@ export default {
   name: 'QuestionForm',
   components: {
     PrettyInput,
+  },
+  props: {
+    question: { type: String, required: true },
   },
 }
 </script>

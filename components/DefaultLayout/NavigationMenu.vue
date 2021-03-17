@@ -20,7 +20,11 @@
               >
             </li>
             <li class="list-item" @click="onClick">
-              <a class="underline-animated-link">Виртуальные сервисы</a>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/udalennyy-ofis"
+                >Виртуальные сервисы</NuxtLink
+              >
             </li>
             <li class="list-item" @click="onClick">
               <a class="underline-animated-link">Телефония</a>
