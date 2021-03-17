@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <hero-block>
+    <hero-block :is-anchor="false">
       <template v-slot:header>
         Комплексные услуги связи&nbsp;и&nbsp;IT&nbsp;сервисы
       </template>

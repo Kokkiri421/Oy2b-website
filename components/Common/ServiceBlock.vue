@@ -6,7 +6,7 @@
   >
     <div class="content-block__header">
       <h4 class="header-content">
-        <slot name="header"> </slot>
+        <span><slot name="header"> </slot></span>
       </h4>
     </div>
     <button class="content-block__button dialog-button">Заказать</button>
@@ -61,14 +61,23 @@ export default {
   &__header {
     display: flex;
     align-items: center;
+    width: fit-content;
+    max-width: calc(100% - 150px);
     padding-top: 1px;
-    border-bottom: 1px solid transparent;
+
     .header-content {
       margin: 0;
+      span {
+        border-bottom: 1px solid transparent;
+      }
+    }
+    @include _480() {
+      max-width: 100%;
     }
   }
   &__button {
     opacity: 0;
+    height: fit-content;
     @include _700() {
       font-size: 0.9em;
     }
@@ -80,8 +89,9 @@ export default {
     }
   }
   &__description {
+    align-self: flex-end;
     margin-top: 0.75em;
-    flex-basis: 100%;
+
     @include _480() {
       max-height: 100px;
       overflow: hidden;
@@ -100,8 +110,10 @@ export default {
 
   &:hover {
     cursor: pointer;
-    .content-block__header {
-      border-bottom: 1px dashed #fff;
+    .header-content {
+      span {
+        border-bottom: 1px dashed #fff;
+      }
     }
     .content-block__button {
       opacity: 1;
