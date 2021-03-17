@@ -39,10 +39,18 @@
               <a class="underline-animated-link">Видеонаблюдение</a>
             </li>
             <li class="list-item">
-              <a class="underline-animated-link">Комплексные решения</a>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/kompleksnye-resheniya"
+                >Комплексные решения</NuxtLink
+              >
             </li>
             <li class="list-item">
-              <a class="underline-animated-link">Операторам</a>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/dop-uslugi"
+                >Операторам</NuxtLink
+              >
             </li>
           </ul>
         </div>
