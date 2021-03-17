@@ -24,7 +24,7 @@
     </hero-block>
     <div class="wrapper">
       <service-list ref="next-page">
-        <service-block :background-color="'#ea172c'">
+        <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
           <template v-slot:header> Доступ в интернет </template>
           <template v-slot:description>
             <p class="article">
@@ -41,7 +41,7 @@
             </button>
           </template>
         </service-block>
-        <service-block :background-color="'#ea172c'">
+        <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
           <template v-slot:header> Канал «точка-точка» </template>
           <template v-slot:description>
             <p class="article">
@@ -59,7 +59,7 @@
             </button>
           </template>
         </service-block>
-        <service-block :background-color="'#ea172c'">
+        <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
           <template v-slot:header> Объединение офисов </template>
           <template v-slot:description>
             <p class="article">
@@ -80,7 +80,7 @@
             </button>
           </template>
         </service-block>
-        <service-block :background-color="'#ea172c'">
+        <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
           <template v-slot:header> Аренда IP адресов </template>
           <template v-slot:description>
             <p class="article">
@@ -122,7 +122,7 @@
             </button>
           </template>
         </service-block>
-        <service-block :background-color="'#ea172c'">
+        <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
           <template v-slot:header> Дополнительно </template>
           <template v-slot:description>
             <ul class="article">
@@ -141,6 +141,7 @@
         </service-block>
       </service-list>
       <question-block
+        ref="question"
         :question="'Например:\nМожно ли организовать L2 канал между офисами компании?'"
       >
         <template v-slot:top-text>
@@ -194,6 +195,11 @@ export default {
   methods: {
     scrollToContent: function () {
       this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+    },
+    scrollToOrder: function () {
+      this.$refs['question'].$refs['order'].scrollIntoView({
+        behavior: 'smooth',
+      })
     },
   },
 }

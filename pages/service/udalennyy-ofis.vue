@@ -23,8 +23,9 @@
       </template>
     </hero-block>
     <div class="wrapper">
+      <advantage-block></advantage-block>
       <service-list ref="next-page">
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Экспресс аудит </template>
           <template v-slot:description>
             <p class="article">
@@ -40,7 +41,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Виртуальные рабочие места VDI </template>
           <template v-slot:description>
             <p class="article">
@@ -60,7 +61,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Ofﬁce 365 </template>
           <template v-slot:description>
             <p class="article">
@@ -77,7 +78,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Интернет </template>
           <template v-slot:description>
             <p class="article">
@@ -93,7 +94,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Виртуальные сервера VDS </template>
           <template v-slot:description>
             <p class="article">
@@ -110,7 +111,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Терминальные сервера в облаке </template>
           <template v-slot:description>
             <p class="article">
@@ -132,7 +133,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Microsoft Teams </template>
           <template v-slot:description>
             <p class="article">
@@ -147,7 +148,7 @@
             ><button class="dialog-button">Заказать</button>
           </template>
         </service-block>
-        <service-block :background-color="'#ff7d05'">
+        <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
           <template v-slot:header> Телефония </template>
           <template v-slot:description>
             <p class="article">
@@ -166,6 +167,7 @@
         </service-block>
       </service-list>
       <question-block
+        ref="question"
         :question="'Например:\nМожно ли организовать L2 канал между офисами компании?'"
       >
         <template v-slot:top-text>
@@ -204,16 +206,23 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import AdvantageBlock from '~/components/RemoteOffice/AdvantageBlock'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    AdvantageBlock,
   },
   methods: {
     scrollToContent: function () {
       this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+    },
+    scrollToOrder: function () {
+      this.$refs['question'].$refs['order'].scrollIntoView({
+        behavior: 'smooth',
+      })
     },
   },
 }

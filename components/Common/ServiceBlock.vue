@@ -99,6 +99,7 @@ export default {
     align-self: flex-end;
     margin-top: 0.75em;
     width: 100%;
+    max-height: fit-content;
     @include _480() {
       max-height: 100px;
       overflow: hidden;

@@ -261,7 +261,6 @@ export default {
       this.$refs['question'].$refs['order'].scrollIntoView({
         behavior: 'smooth',
       })
-      console.log()
     },
   },
 }
