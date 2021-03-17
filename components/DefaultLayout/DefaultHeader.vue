@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <navigation-menu :isActive="isActiveNavigationMenu" />
+    <navigation-menu :isActive="isActiveNavigationMenu" :on-click="hideMenu" />
 
     <div class="header wrapper">
       <div class="header-menu">
-        <div class="logo">
+        <div class="logo" @click="hideMenu">
           <NuxtLink class="logo__link" :to="'/'">
             <img
               class="logo__img"
@@ -14,10 +14,7 @@
           </NuxtLink>
         </div>
         <div class="menu-init">
-          <button
-            class="menu-init__button"
-            @click="updateIsActiveNavigationMenu"
-          >
+          <button class="menu-init__button" @click="showMenu">
             <img src="~/static/images/menuIcon.svg" />
           </button>
         </div>
@@ -52,9 +49,11 @@ export default {
     updateWindowWidth() {
       this.windowWidth = window.innerWidth
     },
-    updateIsActiveNavigationMenu() {
+    showMenu() {
       this.isActiveNavigationMenu = !this.isActiveNavigationMenu
-      console.log(this.isActiveNavigationMenu)
+    },
+    hideMenu() {
+      this.isActiveNavigationMenu = false
     },
   },
   beforeMount() {

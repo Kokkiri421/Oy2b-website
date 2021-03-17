@@ -2,10 +2,10 @@
   <div class="container">
     <hero-block>
       <template v-slot:header>
-        Комплексные услуги связи <br class="dn-600" />и IT сервисы
+        Комплексные услуги связи&nbsp;и&nbsp;IT&nbsp;сервисы
       </template>
       <template v-slot:description>
-        <div class="description">
+        <div class="description dn-600">
           Телекоммуникационные услуги и сервисы для компаний с высоким трафиком,
           включая доступ в интернет, прокладку и обслуживание оптоволоконной
           инфраструктуры, организацию корпоративных wi-fi пространств,

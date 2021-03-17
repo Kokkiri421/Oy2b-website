@@ -4,7 +4,7 @@
       <nav class="navigation-menu">
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
-            <li class="list-item">
+            <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/wi-fi"
@@ -12,13 +12,17 @@
                 Wi-Fi для бизнеса
               </NuxtLink>
             </li>
-            <li class="list-item">
-              <a class="underline-animated-link">Интернет до 10Гбит/с</a>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/internet"
+                >Интернет до 10Гбит/с</NuxtLink
+              >
             </li>
-            <li class="list-item">
+            <li class="list-item" @click="onClick">
               <a class="underline-animated-link">Виртуальные сервисы</a>
             </li>
-            <li class="list-item">
+            <li class="list-item" @click="onClick">
               <a class="underline-animated-link">Телефония</a>
             </li>
             <li class="list-item">
@@ -74,6 +78,15 @@ export default {
     isActive: {
       type: Boolean,
       required: true,
+    },
+    onClick: {
+      type: Function,
+      required: true,
+    },
+  },
+  methods: {
+    stopActive: function () {
+      this.isActive = false
     },
   },
 }

@@ -6,7 +6,7 @@
           <h1 class="hero-block-top__header">
             <slot name="header"></slot>
           </h1>
-          <div class="hero-block-top__description dn-600">
+          <div class="hero-block-top__description">
             <slot name="description"></slot>
           </div>
         </div>
@@ -37,6 +37,25 @@
           </div>
         </div>
       </div>
+      <div v-if="isAnchor" class="hero-block-anchor-container">
+        <div class="hero-block-anchor" @click="scrollDown">
+          <a
+            ><svg
+              width="24"
+              height="11"
+              viewBox="0 0 24 11"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                opacity="0.7"
+                d="M1 1L12 9L23 1"
+                stroke="white"
+                stroke-width="2"
+              ></path></svg
+          ></a>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +65,17 @@ import PrettyInput from '~/components/Common/PrettyInput'
 export default {
   components: {
     PrettyInput,
+  },
+  props: {
+    isAnchor: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  methods: {
+    scrollDown() {
+      this.$emit('onClick')
+    },
   },
 }
 </script>
@@ -78,11 +108,17 @@ export default {
           font-size: 2em;
           line-height: normal;
         }
+        @include _400() {
+          font-size: 1.5em;
+        }
       }
       &__description {
         font-weight: 500;
-        font-size: 16px;
+        font-size: 1em;
         line-height: 20px;
+        @include _400() {
+          font-size: 0.9em;
+        }
       }
     }
     .hero-block-form-container {
@@ -114,6 +150,54 @@ export default {
         a {
           color: #fff;
         }
+      }
+    }
+  }
+  .hero-block-anchor-container {
+    position: relative;
+    text-align: center;
+
+    .hero-block-anchor {
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      height: 0;
+      bottom: 50px;
+      animation-name: bounce;
+      animation-timing-function: ease;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      @include _765() {
+        bottom: 37px;
+      }
+      @include _640() {
+        bottom: 2em;
+      }
+    }
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      10% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-1em);
+      }
+      50% {
+        transform: translateY(0);
+      }
+      57% {
+        transform: translateY(-0.2em);
+      }
+      64% {
+        transform: translateY(0);
+      }
+      80% {
+        transform: translateY(-0.1em);
+      }
+      100% {
+        transform: translateY(0);
       }
     }
   }

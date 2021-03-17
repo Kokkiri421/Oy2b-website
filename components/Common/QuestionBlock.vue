@@ -24,7 +24,8 @@
             name="massage"
             cols="30"
             rows="5"
-            placeholder="Например:\Как подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?"
+            placeholder="Например:
+  Как подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?"
           ></textarea>
         </label>
         <h4 class="question-block-form__header">Ваши контакты:</h4>
@@ -84,7 +85,6 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .question-block {
-  margin-bottom: 3em;
   .article {
     line-height: 1.62em;
     color: #999;
@@ -125,6 +125,9 @@ export default {
         &__container {
           flex-basis: 100%;
           margin-bottom: 1em;
+        }
+        &::placeholder {
+          line-height: 1.6em;
         }
       }
       &__item {

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <hero-block>
+    <hero-block :is-anchor="true" @onClick="scrollToContent">
       <template v-slot:header> Wi-Fi для бизнеса </template>
       <template v-slot:description>
         <div class="description">
@@ -22,11 +22,11 @@
         </div>
       </template>
       <template v-slot:form-prefix>
-        Проверьте возможность подключения:
+        Проверьте возможность подключения сервисов и услуг:
       </template>
     </hero-block>
     <div class="wrapper">
-      <service-list>
+      <service-list ref="next-page">
         <service-block :background-color="'#45d46a'">
           <template v-slot:header> Wi-Fi в офис </template>
           <template v-slot:description>
@@ -126,6 +126,11 @@ export default {
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+  },
+  methods: {
+    scrollToContent: function () {
+      this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+    },
   },
 }
 </script>
