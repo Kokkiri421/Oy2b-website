@@ -5,7 +5,7 @@
       :class="{
         scroll_colored: scrollPosition > 0,
         scroll_colored_default:
-          defaultScrollPosition > 0 && (scrollPosition > 0 || !scrollPosition),
+          defaultScrollPosition > 0 && scrollPosition === null,
       }"
     >
       <default-header />
@@ -157,6 +157,12 @@ body {
   }
   &:hover:after {
     width: 50%;
+  }
+}
+.page-content {
+  margin: 6em 0 3em;
+  @include _650() {
+    margin: 3em 0;
   }
 }
 .nuxtlink {

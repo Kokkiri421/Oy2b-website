@@ -15,12 +15,8 @@ export default {
 .service-list {
   display: block;
   column-count: 2;
-  margin: 8em 0 3em;
   @include _950() {
     column-count: 1;
-  }
-  @include _650() {
-    margin: 3em 0;
   }
 }
 </style>
