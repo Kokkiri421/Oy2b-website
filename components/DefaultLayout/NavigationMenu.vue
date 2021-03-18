@@ -97,9 +97,18 @@ export default {
     },
   },
   methods: {
-    stopActive: function () {
-      this.isActive = false
+    hideMenuOnClick: function (event) {
+      let clickArray = event.path.filter(
+        (item) =>
+          item.id === 'navigation-menu' || item.id === 'navigation-menu-button'
+      )
+      if (this.isActive && !!!clickArray.length) {
+        this.onClick()
+      }
     },
+  },
+  mounted() {
+    window.addEventListener('click', this.hideMenuOnClick)
   },
 }
 </script>

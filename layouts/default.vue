@@ -4,7 +4,8 @@
       class="flex-grow-1"
       :class="{
         scroll_colored: scrollPosition > 0,
-        scroll_colored_default: defaultScrollPosition > 0,
+        scroll_colored_default:
+          defaultScrollPosition > 0 && (scrollPosition > 0 || !scrollPosition),
       }"
     >
       <default-header />
@@ -24,7 +25,7 @@ import OrderBlock from '~/components/DefaultLayout/OrderBlock'
 export default {
   data() {
     return {
-      scrollPosition: 0,
+      scrollPosition: null,
       defaultScrollPosition: null,
     }
   },
@@ -41,7 +42,6 @@ export default {
   },
   computed: {},
   mounted() {
-    console.log('mounted')
     this.defaultScrollPosition = window.scrollY
 
     window.addEventListener('scroll', this.updateScroll)
@@ -163,7 +163,7 @@ body {
   text-decoration: none;
 }
 button {
-  font: 400 1em/1.1em Montserrat, sans-serif;
+  font: 400 1em/1.1em;
   line-height: 1.6em;
   &:focus {
     outline: none;

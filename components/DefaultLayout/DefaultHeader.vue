@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <navigation-menu :isActive="isActiveNavigationMenu" :on-click="hideMenu" />
+    <navigation-menu
+      :isActive="activeMenuStatus"
+      :on-click="hideMenu"
+      id="navigation-menu"
+    />
 
     <div class="header wrapper">
       <div class="header-menu">
@@ -14,7 +18,11 @@
           </NuxtLink>
         </div>
         <div class="menu-init">
-          <button class="menu-init__button" @click="showMenu">
+          <button
+            class="menu-init__button"
+            @click="showMenu"
+            id="navigation-menu-button"
+          >
             <img src="~/static/images/menuIcon.svg" />
           </button>
         </div>
@@ -44,6 +52,11 @@ export default {
   },
   components: {
     NavigationMenu,
+  },
+  computed: {
+    activeMenuStatus: function () {
+      return this.isActiveNavigationMenu
+    },
   },
   methods: {
     updateWindowWidth() {

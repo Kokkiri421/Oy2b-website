@@ -66,133 +66,22 @@
         </div>
       </div>
     </div>
-    <div class="company-services">
-      <h4>Услуги связи и ИТ сервисы в Санкт‑Петербурге</h4>
-      <div class="service-buttons">
-        <ul class="service-button-list">
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon :icon-name="'wifi-icon'" class="service-button__icon">
-                <wifi-icon />
-              </icon>
-              Wi-Fi для бизнеса
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon :icon-name="'internet-icon'" class="service-button__icon">
-                <internet-icon />
-              </icon>
-              Интернет до 10Гбит/с
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon
-                :icon-name="'virtual-service-icon'"
-                class="service-button__icon"
-              >
-                <virtual-service-icon />
-              </icon>
-              Виртуальные сервисы
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon :icon-name="'telephony-icon'" class="service-button__icon">
-                <telephony-icon />
-              </icon>
-              Телефония
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon
-                :icon-name="'outsource-icon'"
-                :view-box="'0 0 128 128'"
-                class="service-button__icon"
-              >
-                <outsource-icon />
-              </icon>
-              IT Аутсорсинг
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon
-                :icon-name="'cloud-service-icon'"
-                class="service-button__icon"
-              >
-                <cloud-service-icon />
-              </icon>
-              Облачные решения
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon :icon-name="'video-icon'" class="service-button__icon">
-                <video-icon />
-              </icon>
-              Видеонаблюдение
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon
-                :icon-name="'complex-solution-icon'"
-                class="service-button__icon"
-              >
-                <complex-solution-icon />
-              </icon>
-              Комплексные решения
-            </a>
-          </li>
-          <li class="service-button">
-            <a class="service-button__link">
-              <icon
-                :icon-name="'additional-service-icon'"
-                class="service-button__icon"
-              >
-                <additional-service-icon />
-              </icon>
-              Операторам
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <index-service-list></index-service-list>
   </div>
 </template>
 
 <script>
 import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
 import RunningNumber from '~/components/Common/RunningNumber'
-import Icon from '~/components/Icons/Icon'
-import WifiIcon from '~/components/Icons/WiFiIcon'
-import InternetIcon from '~/components/Icons/InternetIcon'
-import VirtualServiceIcon from '~/components/Icons/VirtualServiceIcon'
-import TelephonyIcon from '~/components/Icons/TelephonyIcon'
-import OutsourceIcon from '~/components/Icons/OutsourceIcon'
-import CloudServiceIcon from '~/components/Icons/CloudServiceIcon'
-import VideoIcon from '~/components/Icons/VideoIcon'
-import ComplexSolutionIcon from '~/components/Icons/ComplexSolutionIcon'
-import AdditionalServiceIcon from '~/components/Icons/AdditionalServiceIcon'
+
+import IndexServiceList from '~/components/Index/IndexServiceList'
 
 export default {
-  name: 'IndexCardBlock',
   components: {
     AnimateOnViewport,
     RunningNumber,
-    Icon,
-    WifiIcon,
-    InternetIcon,
-    VirtualServiceIcon,
-    TelephonyIcon,
-    OutsourceIcon,
-    CloudServiceIcon,
-    VideoIcon,
-    ComplexSolutionIcon,
-    AdditionalServiceIcon,
+
+    IndexServiceList,
   },
 }
 </script>
