@@ -35,7 +35,8 @@ export default {
 .advantage-list {
   display: flex;
   flex-direction: row;
-  margin-top: 8em;
+  margin-top: 6em;
+  margin-bottom: -2em;
   @include _900() {
     flex-direction: column;
   }

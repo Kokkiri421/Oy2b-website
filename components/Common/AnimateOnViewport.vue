@@ -1,5 +1,5 @@
 <template>
-  <div ref="animatedElement">
+  <div ref="animatedElement" class="animated-element">
     <slot :isAnimated="animated"></slot>
   </div>
 </template>

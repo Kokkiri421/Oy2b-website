@@ -4,7 +4,12 @@
     <div class="service-buttons">
       <ul class="service-button-list">
         <animate-on-viewport>
-          <li class="service-button" slot-scope="item">
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
             <a class="service-button__link">
               <icon :icon-name="'wifi-icon'" class="service-button__icon">
                 <wifi-icon />
@@ -14,86 +19,142 @@
           </li>
         </animate-on-viewport>
 
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon :icon-name="'internet-icon'" class="service-button__icon">
-              <internet-icon />
-            </icon>
-            Интернет до 10Гбит/с
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon
-              :icon-name="'virtual-service-icon'"
-              class="service-button__icon"
-            >
-              <virtual-service-icon />
-            </icon>
-            Виртуальные сервисы
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon :icon-name="'telephony-icon'" class="service-button__icon">
-              <telephony-icon />
-            </icon>
-            Телефония
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon
-              :icon-name="'outsource-icon'"
-              :view-box="'0 0 128 128'"
-              class="service-button__icon"
-            >
-              <outsource-icon />
-            </icon>
-            IT Аутсорсинг
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon
-              :icon-name="'cloud-service-icon'"
-              class="service-button__icon"
-            >
-              <cloud-service-icon />
-            </icon>
-            Облачные решения
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon :icon-name="'video-icon'" class="service-button__icon">
-              <video-icon />
-            </icon>
-            Видеонаблюдение
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon
-              :icon-name="'complex-solution-icon'"
-              class="service-button__icon"
-            >
-              <complex-solution-icon />
-            </icon>
-            Комплексные решения
-          </a>
-        </li>
-        <li class="service-button">
-          <a class="service-button__link">
-            <icon
-              :icon-name="'additional-service-icon'"
-              class="service-button__icon"
-            >
-              <additional-service-icon />
-            </icon>
-            Операторам
-          </a>
-        </li>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon :icon-name="'internet-icon'" class="service-button__icon">
+                <internet-icon />
+              </icon>
+              Интернет до 10Гбит/с
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
+                :icon-name="'virtual-service-icon'"
+                class="service-button__icon"
+              >
+                <virtual-service-icon />
+              </icon>
+              Виртуальные сервисы
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon :icon-name="'telephony-icon'" class="service-button__icon">
+                <telephony-icon />
+              </icon>
+              Телефония
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
+                :icon-name="'outsource-icon'"
+                :view-box="'0 0 128 128'"
+                class="service-button__icon"
+              >
+                <outsource-icon />
+              </icon>
+              IT Аутсорсинг
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
+                :icon-name="'cloud-service-icon'"
+                class="service-button__icon"
+              >
+                <cloud-service-icon />
+              </icon>
+              Облачные решения
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon :icon-name="'video-icon'" class="service-button__icon">
+                <video-icon />
+              </icon>
+              Видеонаблюдение
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
+                :icon-name="'complex-solution-icon'"
+                class="service-button__icon"
+              >
+                <complex-solution-icon />
+              </icon>
+              Комплексные решения
+            </a>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
+                :icon-name="'additional-service-icon'"
+                class="service-button__icon"
+              >
+                <additional-service-icon />
+              </icon>
+              Операторам
+            </a>
+          </li>
+        </animate-on-viewport>
       </ul>
     </div>
   </div>
@@ -135,6 +196,7 @@ export default {
 @import '~/assets/media_mixin';
 .company-services {
   margin-top: 4em;
+  counter-reset: service;
   @include _800() {
     margin: 0 0 3em;
     order: -1;
@@ -149,6 +211,7 @@ export default {
   margin: 0;
   padding: 0;
   .service-button {
+    opacity: 0;
     width: fit-content;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -187,6 +250,31 @@ export default {
         display: none;
       }
     }
+  }
+}
+.animated {
+  animation-name: animateIn;
+  animation-delay: inherit;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+$n: 9;
+
+@for $i from 1 through $n {
+  .animated-element:nth-child(#{$i}) {
+    animation-delay: 100ms + ($i - 1) * 50ms;
+  }
+}
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-1em);
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 </style>
