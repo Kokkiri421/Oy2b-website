@@ -27,7 +27,11 @@
               >
             </li>
             <li class="list-item" @click="onClick">
-              <a class="underline-animated-link">Телефония</a>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/telefoniya"
+                >Телефония</NuxtLink
+              >
             </li>
             <li class="list-item">
               <a class="underline-animated-link">IT Аутсорсинг</a>
