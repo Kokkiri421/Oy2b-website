@@ -106,6 +106,7 @@
             </template>
           </service-block>
         </service-list>
+        <calculator></calculator>
       </div>
       <question-block
         ref="question"
@@ -152,12 +153,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import Calculator from '~/components/ItOutsource/Calculator'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    Calculator,
   },
   methods: {
     scrollToServices: function () {
