@@ -10,7 +10,7 @@
             <slot name="description"></slot>
           </div>
         </div>
-        <div class="hero-block-form-container">
+        <div v-if="!userForm" class="hero-block-form-container">
           <div class="hero-block-form-container__prefix">
             <slot name="form-prefix"></slot>
           </div>
@@ -35,6 +35,9 @@
 
             <a href="/legal/">Политике конфиденциальности</a>.
           </div>
+        </div>
+        <div v-else>
+          <slot name="user-form"></slot>
         </div>
       </div>
       <div v-if="isAnchor" class="hero-block-anchor-container">
@@ -70,6 +73,10 @@ export default {
     isAnchor: {
       type: Boolean,
       default: true,
+    },
+    userForm: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {

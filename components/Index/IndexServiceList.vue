@@ -239,6 +239,10 @@ export default {
       letter-spacing: -1px;
       font-size: 1.25em;
       font-weight: 500;
+      @include _400() {
+        font-size: 0.95em;
+        padding: 0.66em 0.7em;
+      }
     }
     &__icon {
       width: 1.45em;

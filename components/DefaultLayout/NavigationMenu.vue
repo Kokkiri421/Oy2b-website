@@ -33,11 +33,19 @@
                 >Телефония</NuxtLink
               >
             </li>
-            <li class="list-item">
-              <a class="underline-animated-link">IT Аутсорсинг</a>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/service-it-out"
+                >IT аутсорсинг</NuxtLink
+              >
             </li>
-            <li class="list-item">
-              <a class="underline-animated-link">Облачные решения</a>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/oblachnye-resheniya"
+                >Облачные решения</NuxtLink
+              >
             </li>
             <li class="list-item">
               <a class="underline-animated-link">Видеонаблюдение</a>
