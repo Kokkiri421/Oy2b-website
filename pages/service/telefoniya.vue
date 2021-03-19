@@ -56,6 +56,29 @@
             </template>
           </service-block>
           <service-block :background-color="'#ff7a00'">
+            <template v-slot:header> Простая установка и управление </template>
+            <template v-slot:description>
+              <ul>
+                <li class="article">
+                  Установка как в облаке так и на локальном сервере, тонких
+                  клиентах, Raspberry Pi
+                </li>
+                <li class="article">
+                  Автоматические подключение и настройка телефонов и VoIP шлюзов
+                </li>
+                <li class="article">Совместимость с большинством аппаратов</li>
+                <li class="article">
+                  Возможности удаленной настройки и перезагрузки
+                </li>
+                <li class="article">Нативный интерфейс управления АТС</li>
+                <li class="article">
+                  Автоматическая установка обновлений. Легкая масштабируемость
+                </li>
+                <li class="article">Приложение на IOS и Android</li>
+              </ul>
+            </template>
+          </service-block>
+          <service-block :background-color="'#ff7a00'">
             <template v-slot:header> Мобильность </template>
             <template v-slot:description>
               <ul class="article">
@@ -76,29 +99,6 @@
                 </li>
                 <li class="article">Удаленная настройка через QR-код</li>
                 <li class="article">Полностью защищенная голосовая связь</li>
-              </ul>
-            </template>
-          </service-block>
-          <service-block :background-color="'#ff7a00'">
-            <template v-slot:header> Простая установка и управление </template>
-            <template v-slot:description>
-              <ul>
-                <li class="article">
-                  Установка как в облаке так и на локальном сервере, тонких
-                  клиентах, Raspberry Pi
-                </li>
-                <li class="article">
-                  Автоматические подключение и настройка телефонов и VoIP шлюзов
-                </li>
-                <li class="article">Совместимость с большинством аппаратов</li>
-                <li class="article">
-                  Возможности удаленной настройки и перезагрузки
-                </li>
-                <li class="article">Нативный интерфейс управления АТС</li>
-                <li class="article">
-                  Автоматическая установка обновлений. Легкая масштабируемость
-                </li>
-                <li class="article">Приложение на IOS и Android</li>
               </ul>
             </template>
           </service-block>

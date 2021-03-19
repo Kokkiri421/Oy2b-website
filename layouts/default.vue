@@ -161,7 +161,7 @@ body {
 }
 .page-content {
   margin: 6em 0 3em;
-  @include _650() {
+  @include _950() {
     margin: 3em 0;
   }
 }
