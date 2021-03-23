@@ -179,6 +179,7 @@ body {
 }
 button {
   font: 400 1em/1.1em;
+  font-family: Montserrat, sans-serif;
   line-height: 1.6em;
   &:focus {
     outline: none;
