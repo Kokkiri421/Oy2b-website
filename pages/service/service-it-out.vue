@@ -29,9 +29,9 @@
         </div>
       </template>
     </hero-block>
-    <div class="wrapper1">
-      <div class="page-content">
-        <service-list class="page-content-block wrapper" ref="next-page">
+    <div class="page-content">
+      <div class="wrapper">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
             <template v-slot:header> Обслуживание компьютеров </template>
             <template v-slot:description>
@@ -107,7 +107,7 @@
           </service-block>
         </service-list>
         <audit-form class="page-content-block"></audit-form>
-        <div class="sla wrapper page-content-block">
+        <div class="sla page-content-block">
           <h4>Стандарты обслуживания SLA</h4>
           <p class="grey-text">
             Всем вашим обращениям присваивается категория, в зависимости от
@@ -116,51 +116,75 @@
             соответствующая категория.
           </p>
         </div>
-        <calculator class="page-content-block"></calculator>
-        <ratio-form class="page-content-block"></ratio-form>
-        <div class="grey-text wrapper page-content-block">
+      </div>
+      <calculator class="page-content-block"></calculator>
+      <div class="wrapper">
+        <div class="grey-text page-content-block">
           *В калькуляторе указаны средние цены. Конечная стоимость абонентского
           обслуживания только после технического аудита.
         </div>
-        <ratio-table class="wrapper page-content-block"></ratio-table>
+        <ratio-table class="page-content-block"></ratio-table>
+        <p class="service-message page-content-block">
+          <icon :icon-name="'rouble-icon'" class="icon">
+            <rouble-icon />
+          </icon>
+          <span
+            >- стоимость услуги не входит в стоимость тарифа и рассчитывается
+            отдельно. Свяжитесь с менеджером, чтобы узнать подробности</span
+          >
+        </p>
+        <div class="advantages page-content-block">
+          <h4>Как сэкономить:</h4>
+          <advantage-list>
+            <template v-slot:advantage-list>
+              <advantage-block :style="{ '--color': '#009ee3' }">
+                <template v-slot:header>До 15%</template>
+                <template v-slot:description>
+                  <p class="article"><strong>за доверие</strong></p>
+                  <p class="article grey-text">
+                    При оплате работ за 6 или 12 месяцев мы предоставим вам
+                    скидку 10 или 15 % соответственно
+                  </p>
+                </template>
+              </advantage-block>
+              <advantage-block :style="{ '--color': '#009ee3' }">
+                <template v-slot:header>До 50%</template>
+                <template v-slot:description>
+                  <p class="article"><strong>за решительность</strong></p>
+                  <p class="article grey-text">
+                    Решиться на замену обслуживающей компании непросто, поэтому
+                    готовы предоставить скидку на первый месяц при переходе к
+                    нам от другой фирмы
+                  </p>
+                </template>
+              </advantage-block>
+              <advantage-block :style="{ '--color': '#009ee3' }">
+                <template v-slot:header>20 %</template>
+                <template v-slot:description>
+                  <p class="article"><strong>за самостоятельность</strong></p>
+                  <p class="article grey-text">
+                    Если у вас в штате есть технически подкованный специалист,
+                    который готов помогать нам работать удаленно, то мы убираем
+                    из договора бесплатные выезды, а абонплату снизим на 20%
+                  </p>
+                </template>
+              </advantage-block>
+            </template>
+          </advantage-list>
+        </div>
+        <solution-form></solution-form>
+        <p class="solution-message grey-text">
+          Сегодняшний рынок характеризуется высоким уровнем конкуренции, и успех
+          компании полностью зависит от способности предложить уникальные
+          продукты. В этой гонке выигрывают компании, которые вкладывают в свою
+          основную деятельность максимум ресурсов. Аутсорсинг ИТ дает вашему
+          бизнесу возможность получить доступ к высококвалифицированным кадрам в
+          сфере информационных технологий без серьезных затрат. Если
+          перечисленные выше преимущества для вас звучат достаточно убедительно
+          – возможно, именно сотрудничество с Oyster Telecom приведет вашу
+          компанию к повышению прибыльности
+        </p>
       </div>
-      <question-block
-        class="wrapper"
-        ref="question"
-        :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?'"
-      >
-        <template v-slot:top-text>
-          <h4 class="header">
-            Задайте любой вопрос о подключении услуг связи бесплатно
-          </h4>
-          <p class="article">
-            Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
-            корпоративных телекоммуникационных услуг.<br />
-            Поможем разобраться и&nbsp;оптимизировать расходы на&nbsp;услуги
-            связи.
-          </p>
-          <h5 class="header">Наши эксперты</h5>
-          <p class="article">
-            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
-            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
-          </p>
-        </template>
-        <template v-slot:bottom-text>
-          <p class="article">
-            Наши специалисты разработают для вас индивидуальный тарифный план,
-            в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
-            количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
-            на&nbsp;интернет канал.
-          </p>
-          <p class="article">
-            <br />Конкретное решение зависит от ваших потребностей
-          </p>
-          <h5 class="header">
-            При оплате услуг связи за&nbsp;6&nbsp;месяцев
-            -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
-          </h5>
-        </template>
-      </question-block>
     </div>
   </div>
 </template>
@@ -174,7 +198,15 @@ import Calculator from '~/components/ItOutsource/Calculator'
 import RatioForm from '~/components/ItOutsource/RatioForm'
 import AuditForm from '~/components/ItOutsource/AuditForm'
 import RatioTable from '~/components/ItOutsource/RatioTable'
+import SolutionForm from '~/components/ItOutsource/SolutionForm'
+import Icon from '~/components/Icons/Icon'
+import RoubleIcon from '~/components/Icons/RoubleIcon'
+import AdvantageBlock from '~/components/Common/AdvantageBlock'
+import AdvantageList from '~/components/Common/AdvantageList'
 export default {
+  data() {
+    return {}
+  },
   components: {
     HeroBlock,
     ServiceBlock,
@@ -184,8 +216,14 @@ export default {
     RatioForm,
     AuditForm,
     RatioTable,
+    Icon,
+    RoubleIcon,
+    AdvantageBlock,
+    AdvantageList,
+    SolutionForm,
   },
   methods: {
+    changeComputerCount(value) {},
     scrollToServices: function () {
       this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
     },
@@ -230,6 +268,14 @@ export default {
     line-height: 1.62em;
     color: #999;
     font-size: 0.9em;
+  }
+  .icon {
+    width: 1.25em;
+    height: 1.25em;
+    vertical-align: middle;
+  }
+  .solution-message {
+    font-size: 1em;
   }
 }
 .container {

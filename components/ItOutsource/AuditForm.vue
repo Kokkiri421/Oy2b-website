@@ -1,34 +1,32 @@
 <template>
-  <div class="wrapper">
-    <div class="form-background">
-      <form class="audit-form">
-        <h4 class="audit-form__header">
-          Оставьте сейчас заявку на бесплатный экспресс аудит
-        </h4>
-        <pretty-input
-          :name="'name'"
-          :placeholder="'Имя'"
-          class="audit-form__item"
-        ></pretty-input>
-        <pretty-input
-          :name="'phone'"
-          :placeholder="'Телефон'"
-          class="audit-form__item"
-        ></pretty-input>
-        <pretty-input
-          :name="'company'"
-          :placeholder="'Компания'"
-          class="audit-form__item"
-        ></pretty-input>
-        <div class="audit-form__item">
-          <button class="dialog-button">Отправить заявку</button>
-        </div>
-      </form>
-      <div class="audit-form__privacy">
-        Нажимая кнопку «Отправить&nbsp;заявку», я&nbsp;даю своё согласие
-        «Oyster&nbsp;Telecom» на&nbsp;обработку моих
-        <a href="/privacy/">персональных данных</a>.
+  <div class="form-background">
+    <form class="audit-form">
+      <h4 class="audit-form__header">
+        Оставьте сейчас заявку на бесплатный экспресс аудит
+      </h4>
+      <pretty-input
+        :name="'name'"
+        :placeholder="'Имя'"
+        class="audit-form__item"
+      ></pretty-input>
+      <pretty-input
+        :name="'phone'"
+        :placeholder="'Телефон'"
+        class="audit-form__item"
+      ></pretty-input>
+      <pretty-input
+        :name="'company'"
+        :placeholder="'Компания'"
+        class="audit-form__item"
+      ></pretty-input>
+      <div class="audit-form__item">
+        <button class="dialog-button">Отправить заявку</button>
       </div>
+    </form>
+    <div class="audit-form__privacy">
+      Нажимая кнопку «Отправить&nbsp;заявку», я&nbsp;даю своё согласие
+      «Oyster&nbsp;Telecom» на&nbsp;обработку моих
+      <a href="/privacy/">персональных данных</a>.
     </div>
   </div>
 </template>

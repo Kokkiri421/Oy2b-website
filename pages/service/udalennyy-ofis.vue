@@ -24,7 +24,32 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <advantage-block></advantage-block>
+        <advantage-list>
+          <template v-slot:advantage-list>
+            <advantage-block :style="{ '--color': '#ff7d05' }">
+              <template v-slot:header>Удобство</template>
+              <template v-slot:description
+                >Быстрое подключение к привычным системам и программам.<br />
+                Корпоративная телефония не выходя из дома.</template
+              >
+            </advantage-block>
+            <advantage-block :style="{ '--color': '#ff7d05' }">
+              <template v-slot:header>Надежность</template>
+              <template v-slot:description
+                >Доступ к локальной сети компании получают только ваши
+                сотрудники.<br />
+                Все каналы защищены от взлома и повреждений.</template
+              >
+            </advantage-block>
+            <advantage-block :style="{ '--color': '#ff7d05' }">
+              <template v-slot:header>Сервис</template>
+              <template v-slot:description
+                >Дистанционное обслуживание всей ИТ инфраструктуры.<br />
+                Личный менеджер и техническая поддержка 24/7.</template
+              >
+            </advantage-block>
+          </template>
+        </advantage-list>
         <service-list ref="next-page">
           <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
             <template v-slot:header> Экспресс аудит </template>
@@ -211,7 +236,8 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
-import AdvantageBlock from '~/components/RemoteOffice/AdvantageBlock'
+import AdvantageBlock from '~/components/Common/AdvantageBlock'
+import AdvantageList from '~/components/Common/AdvantageList'
 export default {
   components: {
     HeroBlock,
@@ -219,6 +245,7 @@ export default {
     ServiceList,
     QuestionBlock,
     AdvantageBlock,
+    AdvantageList,
   },
   methods: {
     scrollToContent: function () {

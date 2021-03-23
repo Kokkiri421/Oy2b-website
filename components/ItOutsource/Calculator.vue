@@ -1,102 +1,112 @@
 <template>
-  <div class="calculator wrapper">
-    <div class="calculator-form page-content-block">
-      <h4>
-        Калькулятор IT&nbsp;Аутсорсинга
-        <span class="dn-600">в Санкт-Петербурге</span>
-      </h4>
-      <div class="calculator-form__data" :style="chromeProgress">
-        <div class="calculator-type">
-          <div class="calculator-type__header">
-            Сколько у вас в компании компьютеров
+  <div class="calculator">
+    <div class="wrapper">
+      <div class="calculator-form page-content-block">
+        <h4>
+          Калькулятор IT&nbsp;Аутсорсинга
+          <span class="dn-600">в Санкт-Петербурге</span>
+        </h4>
+        <div class="calculator-form__data" :style="chromeProgress">
+          <div class="calculator-type">
+            <div class="calculator-type__header">
+              Сколько у вас в компании компьютеров
+            </div>
+            <div class="calculator-type__slider">
+              <label class="input-label" for="computer-count">0</label>
+              <input
+                type="range"
+                class="input-slider computer-count"
+                id="computer-count"
+                name="computer-count"
+                min="0"
+                max="100"
+                v-model="computerCount"
+              />
+              <label class="input-label" for="computer-count">100</label>
+              <input
+                type="number"
+                class="input-number"
+                name="computer-count"
+                min="0"
+                max="100"
+                step="1"
+                :value="computerCount"
+                @change="changeField($event, computerCount, 100)"
+              />
+            </div>
           </div>
-          <div class="calculator-type__slider">
-            <label class="input-label" for="computer-count">0</label>
-            <input
-              type="range"
-              class="input-slider computer-count"
-              id="computer-count"
-              name="computer-count"
-              min="0"
-              max="100"
-              v-model="computerCount"
-            />
-            <label class="input-label" for="computer-count">100</label>
-            <input
-              type="number"
-              class="input-number"
-              name="computer-count"
-              min="0"
-              max="100"
-              step="1"
-              v-model="computerCount"
-              @change="test"
-            />
+          <div class="calculator-type">
+            <div class="calculator-type__header">
+              Сколько у вас в компании серверов
+            </div>
+            <div class="calculator-type__slider">
+              <label class="input-label" for="server-count">0</label>
+              <input
+                type="range"
+                id="server-count"
+                class="input-slider server-count"
+                name="server-count"
+                min="0"
+                max="50"
+                v-model="serverCount"
+              />
+              <label class="input-label" for="computer-count">50</label>
+              <input
+                type="number"
+                class="input-number"
+                name="computer-count"
+                min="0"
+                max="50"
+                step="1"
+                :value="serverCount"
+                @change="changeField($event, serverCount, 50)"
+              />
+            </div>
           </div>
-        </div>
-        <div class="calculator-type">
-          <div class="calculator-type__header">
-            Сколько у вас в компании серверов
-          </div>
-          <div class="calculator-type__slider">
-            <label class="input-label" for="server-count">0</label>
-            <input
-              type="range"
-              id="server-count"
-              class="input-slider server-count"
-              name="server-count"
-              min="0"
-              max="50"
-              v-model="serverCount"
-            />
-            <label class="input-label" for="computer-count">50</label>
-            <input
-              type="number"
-              class="input-number"
-              name="computer-count"
-              min="0"
-              max="50"
-              step="1"
-              v-model="serverCount"
-              @change="test"
-            />
-          </div>
-        </div>
-        <div class="calculator-type">
-          <div class="calculator-type__header">
-            Сколько у вас в компании оргтехники
-          </div>
-          <div class="calculator-type__slider">
-            <label class="input-label" for="office-equipment-count">0</label>
-            <input
-              type="range"
-              class="input-slider office-equipment-count"
-              id="office-equipment-count"
-              name="office-equipment-count"
-              min="0"
-              max="100"
-              v-model="officeEquipmentCount"
-            />
-            <label class="input-label" for="office-equipment-count">100</label>
-            <input
-              type="number"
-              class="input-number"
-              name="computer-count"
-              min="0"
-              max="100"
-              step="1"
-              v-model="officeEquipmentCount"
-              @change="test"
-            />
+          <div class="calculator-type">
+            <div class="calculator-type__header">
+              Сколько у вас в компании оргтехники
+            </div>
+            <div class="calculator-type__slider">
+              <label class="input-label" for="office-equipment-count">0</label>
+              <input
+                type="range"
+                class="input-slider office-equipment-count"
+                id="office-equipment-count"
+                name="office-equipment-count"
+                min="0"
+                max="100"
+                v-model="officeEquipmentCount"
+              />
+              <label class="input-label" for="office-equipment-count"
+                >100</label
+              >
+              <input
+                type="number"
+                class="input-number"
+                name="computer-count"
+                min="0"
+                max="100"
+                step="1"
+                :value="officeEquipmentCount"
+                @change="changeField($event, officeEquipmentCount, 100)"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <ratio-form
+      :basic-price="basicPrice"
+      :expert-price="expertPrice"
+      :standard-price="standardPrice"
+    ></ratio-form>
   </div>
 </template>
 
 <script>
 import Ratio from '~/components/ItOutsource/Ratio'
+import RatioForm from '~/components/ItOutsource/RatioForm'
 export default {
   data() {
     return {
@@ -109,7 +119,8 @@ export default {
       },
     }
   },
-  components: { Ratio },
+
+  components: { Ratio, RatioForm },
   computed: {
     chromeProgress() {
       return {
@@ -118,26 +129,38 @@ export default {
         '--office-equipment-progress': `${this.officeEquipmentCount}%`,
       }
     },
+    basicPrice() {
+      return (
+        this.computerCount * 600 +
+        this.serverCount * 1500 +
+        this.officeEquipmentCount * 200
+      )
+    },
+    standardPrice() {
+      return (
+        this.computerCount * 750 +
+        this.serverCount * 1800 +
+        this.officeEquipmentCount * 300
+      )
+    },
+    expertPrice() {
+      return (
+        this.computerCount * 900 +
+        this.serverCount * 2200 +
+        this.officeEquipmentCount * 300
+      )
+    },
   },
   methods: {
-    changeRatio: function (ratio) {
-      this.currentRatio = ratio
-
-      this.scrollToRatio(3, this.currentRatio)
-    },
-    scrollToRatio: function (count, number) {
-      this.$refs['expert'].scrollLeft =
-        (this.$refs['expert'].clientWidth * number) / count
-    },
-    test: function (e) {
-      console.log(e.target.value)
+    changeField: function (e, field, max) {
       e.target.value = e.target.value.replace(/[^0-9]/g, '')
-      if (e.target.value > 100) {
-        e.target.value = 100
+      if (e.target.value > max) {
+        e.target.value = max
       } else if (e.target.value < 0) {
         e.target.value = 0
       }
-      this.computerCount = e.target.value
+      field = e.target.value
+      console.log(field)
     },
   },
   mounted() {},

@@ -79,13 +79,13 @@
           <tr>
             <th>Подменная техника</th>
             <td>
-              <icon :icon-name="'check-icon'" class="table__icon">
-                <check-icon />
+              <icon :icon-name="'rouble-icon'" class="table__icon">
+                <rouble-icon />
               </icon>
             </td>
             <td>
-              <icon :icon-name="'check-icon'" class="table__icon">
-                <check-icon />
+              <icon :icon-name="'rouble-icon'" class="table__icon">
+                <rouble-icon />
               </icon>
             </td>
             <td>
@@ -128,6 +128,7 @@
 <script>
 import Icon from '~/components/Icons/Icon'
 import CheckIcon from '~/components/Icons/CheckIcon'
+import RoubleIcon from '~/components/Icons/RoubleIcon'
 
 export default {
   data() {
@@ -143,6 +144,7 @@ export default {
   components: {
     Icon,
     CheckIcon,
+    RoubleIcon,
   },
 }
 </script>
@@ -228,6 +230,13 @@ export default {
     }
     .table-expander {
       cursor: pointer;
+      color: #069;
+      transition: background-color 0.3s ease-out, color 0.3s ease-out,
+        border-color 0.2s ease-out;
+      font-weight: 700;
+      &:hover {
+        color: #d81428;
+      }
     }
   }
 }

@@ -5,7 +5,7 @@
       <div class="ratios__types" ref="expert">
         <ratio
           class="ratio"
-          :price="100"
+          :price="basicPrice"
           :header="'Стартовый'"
           :background-color="'#97e7fc'"
           id="slide-1"
@@ -21,7 +21,7 @@
         </ratio>
         <ratio
           class="ratio"
-          :price="100"
+          :price="standardPrice"
           :header="'Cтандартный'"
           :background-color="'#4ae1ff'"
           id="slide-2"
@@ -39,7 +39,7 @@
         </ratio>
         <ratio
           class="ratio"
-          :price="100"
+          :price="expertPrice"
           :header="'Экспертный'"
           :background-color="'#00bee3'"
           id="slide-3"
@@ -83,6 +83,20 @@ export default {
       currentRatio: 2,
     }
   },
+  props: {
+    basicPrice: {
+      type: Number,
+      required: true,
+    },
+    standardPrice: {
+      type: Number,
+      required: true,
+    },
+    expertPrice: {
+      type: Number,
+      required: true,
+    },
+  },
   components: {
     Ratio,
   },
@@ -95,11 +109,13 @@ export default {
       })
     },
     checkScroll: function () {
-      this.currentRatio =
-        Math.ceil(
-          this.$refs['expert'].scrollLeft /
-            (this.$refs['expert'].scrollWidth / 3)
-        ) + 1
+      if (this.$refs['expert'].scrollLeft) {
+        this.currentRatio =
+          Math.round(
+            this.$refs['expert'].scrollLeft /
+              (this.$refs['expert'].offsetWidth / 2)
+          ) + 1
+      }
     },
   },
   computed: {},
