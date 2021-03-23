@@ -24,7 +24,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <advantage-list>
+        <advantage-list class="page-content-block">
           <template v-slot:advantage-list>
             <advantage-block :style="{ '--color': '#ff7d05' }">
               <template v-slot:header>Удобство</template>

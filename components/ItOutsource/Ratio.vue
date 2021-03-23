@@ -45,6 +45,7 @@ export default {
   .price {
     position: absolute;
     top: -1em;
+    width: 60%;
     margin-bottom: -10px;
     padding: 0.5em 1em;
     left: 50%;

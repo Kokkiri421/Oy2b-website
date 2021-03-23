@@ -177,6 +177,79 @@ body {
 .nuxtlink {
   text-decoration: none;
 }
+.table-container {
+  overflow-x: auto;
+  .table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    border: 1px solid #eee;
+    thead {
+      width: 100%;
+      th {
+        &:first-child {
+          position: sticky;
+          left: 0;
+          z-index: 2;
+          background-color: #fff;
+        }
+      }
+    }
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #fff;
+        }
+        &:nth-child(odd) {
+          background-color: #eee;
+        }
+      }
+      th {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background-color: inherit;
+      }
+      .default-hidden {
+        display: none;
+        opacity: 0;
+        transition: 1s ease-out;
+      }
+      .show {
+        display: table-row;
+        opacity: 1;
+      }
+    }
+    th,
+    td {
+      padding: 0.66em 2.12em;
+      border: 1px solid #eee;
+      text-align: center;
+      @include _900() {
+        font-size: 0.9em;
+        padding: 0.25em 0.5em;
+      }
+      @include _600() {
+        font-size: 0.8em;
+        line-height: 1.2em;
+      }
+    }
+    th {
+      text-align: left;
+      font-weight: 400;
+    }
+    &__icon {
+      width: 1.25em;
+      height: 1.25em;
+      vertical-align: middle;
+    }
+    .dialog-button {
+      padding: 0.4em 1em;
+    }
+  }
+}
 button {
   font: 400 1em/1.1em;
   font-family: Montserrat, sans-serif;

@@ -28,7 +28,7 @@
         <h4 class="service-list-header">
           4 причины выбрать телефонию от Oyster Telecom
         </h4>
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#ff7a00'">
             <template v-slot:header> Сокращение затрат </template>
             <template v-slot:description>
@@ -88,6 +88,9 @@
                 </li>
               </ul>
             </template>
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
           </service-block>
           <service-block :background-color="'#ff7a00'">
             <template v-slot:header> Простая установка и управление </template>
@@ -110,6 +113,9 @@
                 </li>
                 <li class="article">Приложение на IOS и Android</li>
               </ul>
+            </template>
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#ff7a00'">
@@ -135,45 +141,75 @@
                 <li class="article">Полностью защищенная голосовая связь</li>
               </ul>
             </template>
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
           </service-block>
         </service-list>
+        <div class="optimal-solution page-content-block">
+          <h4>Выберите оптимальное решение для вашего бизнеса</h4>
+          <p class="article">
+            Не нужно докупать дополнительные модули, дорогие аппаратные
+            расширения и разбираться в запутанном лицензировании. Три понятных
+            набора функций– одна мощная система бизнес-телефонии.
+          </p>
+        </div>
+        <div class="special-price page-content-block">
+          <h5>Как сэкономить?</h5>
+          <div class="banner">
+            <div class="text">
+              <span
+                >При подключении 10 линий вы получаете
+                <strong>25 Мбит/с интернета совершенно бесплатно</strong></span
+              >
+            </div>
+            <div class="image">
+              <div class="image-overlap">
+                <img src="~static/images/banner-image.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <question-block
+          ref="question"
+          :question="'Например:\nКак настроить переадресацию на мобильные для удаленных сотрудников?'"
+        >
+          <template v-slot:top-text>
+            <h4 class="header">Задайте любой вопрос о Телефонии бесплатно</h4>
+            <p class="article">
+              Мы бесплатно ответим на любые вопросы из области Телефонии для
+              бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными
+              и самописными CRM/ERP системами и др. . <br />
+              Поможем разобраться и оптимизировать расходы на услуги связи.
+            </p>
+            <h5 class="header">Наши эксперты</h5>
+            <p class="article">
+              В Oyster Telecom работают технические специалисты
+              с&nbsp;релевантным опытом из&nbsp;различных технических сфер услуг
+              для&nbsp;бизнеса.
+            </p>
+          </template>
+          <template v-slot:bottom-text>
+            <h6>
+              Мы создаем лучшее решение для качественной связи компании с
+              клиентами и эффективного взаимодействия между сотрудниками.
+            </h6>
+            <p class="article">
+              Специалисты Oyster Telecom знают, как необходима в офисе
+              налаженная и функциональная телефонная связь, а также знают, как
+              ее установить! Мы создадим для вас бизнес-инструмент для
+              оптимизации, статистики и аналитики. Влезем в код, изменим
+              конфигурацию, интегрируем с вашими CRM и ERP, даже если они
+              самописные. Подхватим вас на любом этапе модернизации: заменим
+              старые АТС на виртуальные, поможем подключить к мини-АТС платы
+              SIP-телефонии, подключим по SIPtrunk вашу новую облачную АТС.
+            </p>
+          </template>
+          <template v-slot:button
+            ><button class="dialog-button">Заказать</button>
+          </template>
+        </question-block>
       </div>
-      <question-block
-        ref="question"
-        :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?'"
-      >
-        <template v-slot:top-text>
-          <h4 class="header">
-            Задайте любой вопрос о подключении услуг связи бесплатно
-          </h4>
-          <p class="article">
-            Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
-            корпоративных телекоммуникационных услуг.<br />
-            Поможем разобраться и&nbsp;оптимизировать расходы на&nbsp;услуги
-            связи.
-          </p>
-          <h5 class="header">Наши эксперты</h5>
-          <p class="article">
-            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
-            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
-          </p>
-        </template>
-        <template v-slot:bottom-text>
-          <p class="article">
-            Наши специалисты разработают для вас индивидуальный тарифный план,
-            в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
-            количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
-            на&nbsp;интернет канал.
-          </p>
-          <p class="article">
-            <br />Конкретное решение зависит от ваших потребностей
-          </p>
-          <h5 class="header">
-            При оплате услуг связи за&nbsp;6&nbsp;месяцев
-            -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
-          </h5>
-        </template>
-      </question-block>
     </div>
   </div>
 </template>
@@ -228,5 +264,49 @@ export default {
 
 .fw400 {
   font-weight: 400;
+}
+.optimal-solution {
+  p {
+    color: #999;
+  }
+}
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #009ee3;
+  color: #fff;
+  padding: 1.5em 1.5em 0;
+  font-size: 1.5em;
+  line-height: 150%;
+  border-radius: 4px;
+  @include _900() {
+    flex-direction: column;
+    padding: 1em 1em 0;
+    font-size: 1.25em;
+    line-height: 125%;
+  }
+  .text {
+    max-width: calc(100% - 175px - 5em);
+    padding-bottom: 1.5em;
+    @include _900() {
+      max-width: 100%;
+    }
+  }
+  .image {
+    align-self: flex-end;
+    display: flex;
+    line-height: 0;
+    position: relative;
+    .image-overlap {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      @include _900() {
+        position: relative;
+      }
+    }
+  }
 }
 </style>
