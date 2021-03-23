@@ -56,6 +56,7 @@ body {
   font-weight: 400;
   font-size: 1em;
   line-height: 1.4em;
+  overflow-x: hidden;
 }
 .default-layout {
   header {
@@ -64,7 +65,7 @@ body {
     width: 100%;
     padding: 1em 0;
     transition: background-color 0.3s ease-out;
-    z-index: 1;
+    z-index: 100;
   }
   .content {
   }
@@ -83,6 +84,7 @@ body {
   max-width: 1300px;
   padding: 0 50px;
   margin: 0 auto;
+
   @include _900 {
     padding: 0 20px;
   }
@@ -129,14 +131,15 @@ body {
   display: inline;
   position: relative;
   &:before {
-    background: none repeat scroll 0 0 transparent;
+    background: #fff;
     bottom: 0;
     content: '';
     display: inline-block;
     height: 1px;
     left: 0;
+
     position: absolute;
-    background: #fff;
+
     transition: width 0.3s ease 0s;
     width: 0;
   }
@@ -163,6 +166,12 @@ body {
   margin: 6em 0 3em;
   @include _950() {
     margin: 3em 0;
+  }
+}
+.page-content-block {
+  margin-bottom: 3em;
+  @include _950() {
+    margin-bottom: 2em;
   }
 }
 .nuxtlink {

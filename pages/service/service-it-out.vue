@@ -29,9 +29,9 @@
         </div>
       </template>
     </hero-block>
-    <div class="wrapper">
+    <div class="wrapper1">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block wrapper" ref="next-page">
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
             <template v-slot:header> Обслуживание компьютеров </template>
             <template v-slot:description>
@@ -106,9 +106,26 @@
             </template>
           </service-block>
         </service-list>
-        <calculator></calculator>
+        <audit-form class="page-content-block"></audit-form>
+        <div class="sla wrapper page-content-block">
+          <h4>Стандарты обслуживания SLA</h4>
+          <p class="grey-text">
+            Всем вашим обращениям присваивается категория, в зависимости от
+            которой заявке назначается срок выполнения, согласованный с вами. Мы
+            гарантируем устранение неисправности за 2 часа, если у заявки
+            соответствующая категория.
+          </p>
+        </div>
+        <calculator class="page-content-block"></calculator>
+        <ratio-form class="page-content-block"></ratio-form>
+        <div class="grey-text wrapper page-content-block">
+          *В калькуляторе указаны средние цены. Конечная стоимость абонентского
+          обслуживания только после технического аудита.
+        </div>
+        <ratio-table class="wrapper page-content-block"></ratio-table>
       </div>
       <question-block
+        class="wrapper"
         ref="question"
         :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?'"
       >
@@ -154,6 +171,9 @@ import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import Calculator from '~/components/ItOutsource/Calculator'
+import RatioForm from '~/components/ItOutsource/RatioForm'
+import AuditForm from '~/components/ItOutsource/AuditForm'
+import RatioTable from '~/components/ItOutsource/RatioTable'
 export default {
   components: {
     HeroBlock,
@@ -161,6 +181,9 @@ export default {
     ServiceList,
     QuestionBlock,
     Calculator,
+    RatioForm,
+    AuditForm,
+    RatioTable,
   },
   methods: {
     scrollToServices: function () {
@@ -184,7 +207,7 @@ export default {
     margin-bottom: 1em;
   }
   &__user-form {
-    margin-top: 2em;
+    margin-top: 1em;
 
     .blue-dialog-button {
       background-color: #009ee3;
@@ -192,9 +215,21 @@ export default {
         background-color: #17b8ff;
       }
     }
+    .dialog-button {
+      margin-bottom: 1em;
+    }
     .dialog-button:nth-child(1) {
       margin-right: 1em;
     }
+  }
+}
+.page-content {
+  .sla {
+  }
+  .grey-text {
+    line-height: 1.62em;
+    color: #999;
+    font-size: 0.9em;
   }
 }
 .container {

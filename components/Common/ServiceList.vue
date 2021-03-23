@@ -15,6 +15,7 @@ export default {
 .service-list {
   display: block;
   column-count: 2;
+
   @include _950() {
     column-count: 1;
   }

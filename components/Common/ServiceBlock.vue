@@ -1,21 +1,26 @@
 <template>
-  <div
-    class="content-block"
-    @click="scrollDown"
-    :style="{ backgroundColor: backgroundColor }"
-  >
-    <div class="content-block__header">
-      <h4 class="header-content">
-        <span><slot name="header"> </slot></span>
-      </h4>
-    </div>
-    <div class="content-block__button"><slot name="button"></slot></div>
+  <div class="content-block-wrapper">
+    <div
+      class="content-block"
+      @click="scrollDown"
+      :style="{ backgroundColor: backgroundColor }"
+    >
+      <div class="content-block__header">
+        <h4 class="header-content">
+          <span><slot name="header"> </slot></span>
+        </h4>
+      </div>
+      <div class="content-block__button"><slot name="button"></slot></div>
 
-    <div class="content-block__description" :class="{ expanded: isShown }">
-      <slot name="description"></slot>
-    </div>
-    <div class="content-block__show-more" v-on:click.stop="isShown = !isShown">
-      {{ isShown ? 'Скрыть' : 'Читать полностью' }}
+      <div class="content-block__description" :class="{ expanded: isShown }">
+        <slot name="description"></slot>
+      </div>
+      <div
+        class="content-block__show-more"
+        v-on:click.stop="isShown = !isShown"
+      >
+        {{ isShown ? 'Скрыть' : 'Читать полностью' }}
+      </div>
     </div>
   </div>
 </template>
@@ -43,8 +48,14 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+.content-block-wrapper {
+  display: block;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  column-fill: balance;
+}
 .content-block {
-  break-inside: avoid-column;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -55,7 +66,7 @@ export default {
   margin-bottom: 1em;
   line-height: 1.5em;
   font-size: 0.95em;
-  column-fill: balance;
+
   @include _480() {
     padding: 1em 1.25em 1.5em;
   }
