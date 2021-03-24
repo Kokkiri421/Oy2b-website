@@ -23,11 +23,22 @@
         </thead>
         <tbody>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(0)">
-                СЕРВЕР / ОБЛАКО
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[0] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>СЕРВЕР / ОБЛАКО</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[0] }">
             <th>Простое резервное копирование</th>
@@ -148,11 +159,22 @@
             <td>2 GB</td>
           </tr>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(1)">
-                ОСНОВНЫЕ
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[1] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>ОСНОВНЫЕ</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[1] }">
             <th>Пользователи</th>
@@ -359,11 +381,22 @@
             </td>
           </tr>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(2)">
-                ДЛЯ БИЗНЕСА
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[2] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>ДЛЯ БИЗНЕСА</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[2] }">
             <th>Голосовое меню / IVR</th>
@@ -606,11 +639,22 @@
             </td>
           </tr>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(3)">
-                ВЕБ-КОНФЕРЕНЦИИ
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[3] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>WEB-КОНФЕРЕНЦИИ</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[3] }">
             <th>Показ своего экрана</th>
@@ -709,11 +753,22 @@
             </td>
           </tr>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(4)">
-                КОЛЛ-ЦЕНТР
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[4] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>КОЛЛ-ЦЕНТР</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[4] }">
             <th>Журнал вызовов</th>
@@ -1022,11 +1077,22 @@
             </td>
           </tr>
           <tr class="row-expander">
-            <td colspan="4">
+            <th colspan="2">
               <a class="table-expander" @click="changeExpanded(5)">
-                РАСШИРЕННЫЕ
+                <div class="table-expander__content">
+                  <icon
+                    :icon-name="'expand-icon'"
+                    class="expand-icon"
+                    :class="{ rotate: expanded[5] }"
+                    :view-box="'0 0 6 10'"
+                  >
+                    <expand-table-icon />
+                  </icon>
+                  <span>РАСШИРЕННЫЕ</span>
+                </div>
               </a>
-            </td>
+            </th>
+            <td colspan="3"></td>
           </tr>
           <tr class="default-hidden" :class="{ show: expanded[5] }">
             <th>Среда разработки Call Flow Designer</th>
@@ -1200,6 +1266,7 @@
 import Icon from '~/components/Icons/Icon'
 import CheckIcon from '~/components/Icons/CheckIcon'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
+import ExpandTableIcon from '~/components/Icons/ExpandTableIcon'
 
 export default {
   data() {
@@ -1217,12 +1284,15 @@ export default {
     Icon,
     CheckIcon,
     RoubleIcon,
+    ExpandTableIcon,
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+.telephony-table {
+}
 .blue-dialog-button {
   background-color: #ff7a00;
   &:hover {
@@ -1230,19 +1300,53 @@ export default {
   }
 }
 .row-expander {
-  background-color: rgb(255 122 0 / 25%) !important;
+  th {
+    background-color: #fbca9b !important;
+    border-right: none !important;
+  }
   td {
+    background-color: #fbca9b !important;
+    border-left: none !important;
     text-align: left;
   }
 }
 .table-expander {
   cursor: pointer;
-
-  transition: background-color 0.3s ease-out, color 0.3s ease-out,
-    border-color 0.2s ease-out;
+  vertical-align: center;
+  transition: fill 0.3s ease-out, background-color 0.3s ease-out,
+    color 0.3s ease-out, border-color 0.2s ease-out;
   font-weight: 700;
   &:hover {
     color: #ff7a00;
+    fill: #ff7a00;
+    @include _600() {
+      color: #000;
+      fill: #000;
+    }
+  }
+  &__content {
+    max-height: min-content;
+    display: flex;
+    overflow-x: visible;
+    flex-direction: row;
+    align-items: center;
+    line-height: normal;
+
+    .expand-icon {
+      height: 10px;
+      width: 6px;
+      transition: transform 0.2s;
+      vertical-align: middle;
+    }
+    span {
+      margin-left: 0.5em;
+      white-space: nowrap;
+    }
+  }
+  .rotate {
+    transform: rotate(90deg);
+    display: flex;
+    align-items: center;
   }
 }
 </style>

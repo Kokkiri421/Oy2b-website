@@ -23,8 +23,8 @@
         Проверьте возможность подключения сервисов и услуг:
       </template>
     </hero-block>
-    <div class="wrapper">
-      <div class="page-content">
+    <div class="page-content">
+      <div class="wrapper">
         <h4 class="service-list-header">
           4 причины выбрать телефонию от Oyster Telecom
         </h4>
@@ -157,6 +157,7 @@
             набора функций– одна мощная система бизнес-телефонии.
           </p>
         </div>
+
         <telephony-table class="page-content-block"></telephony-table>
         <div class="special-price page-content-block">
           <h5>Как сэкономить?</h5>
