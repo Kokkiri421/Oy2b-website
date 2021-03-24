@@ -1,9 +1,9 @@
 <template>
-  <span class="running-number">
+  <div class="running-number">
     {{ outputNumber }}
 
     {{ checkAnimated }}
-  </span>
+  </div>
 </template>
 
 <script>
@@ -64,8 +64,10 @@ export default {
 
 <style scoped>
 .running-number {
+  display: flex;
   font-size: 4em;
-  line-height: 1.2em;
+  line-height: 0.75em;
+  align-items: baseline;
   font-weight: 500;
 }
 </style>

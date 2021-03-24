@@ -33,4 +33,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.animated-element {
+  display: inline-block;
+  vertical-align: top;
+}
+</style>

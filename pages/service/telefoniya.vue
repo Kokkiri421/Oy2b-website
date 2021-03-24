@@ -54,6 +54,9 @@
                 <li class="article">Сокращение расходов на связь до 70%</li>
               </ul>
             </template>
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
           </service-block>
           <service-block :background-color="'#ff7a00'">
             <template v-slot:header> Интеграция с CRM </template>
@@ -154,6 +157,7 @@
             набора функций– одна мощная система бизнес-телефонии.
           </p>
         </div>
+        <telephony-table class="page-content-block"></telephony-table>
         <div class="special-price page-content-block">
           <h5>Как сэкономить?</h5>
           <div class="banner">
@@ -219,12 +223,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import TelephonyTable from '~/components/Telephony/TelephonyTable'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    TelephonyTable,
   },
   methods: {
     scrollToServices: function () {
@@ -303,8 +309,14 @@ export default {
       position: absolute;
       right: 0;
       bottom: 0;
+      text-align: right;
       @include _900() {
         position: relative;
+      }
+      img {
+        @include _600() {
+          width: calc(100% - 2em);
+        }
       }
     }
   }

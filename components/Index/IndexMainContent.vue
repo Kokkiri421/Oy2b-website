@@ -2,9 +2,9 @@
   <div class="main-content">
     <div class="company-info">
       <div class="company-info-text">
+        <h1 class="company-info-text__header">Oyster Telecom</h1>
         <div class="company-info-text__container">
-          <h1 class="company-info-text__header">Oyster Telecom</h1>
-          <div class="company-info-text__p">
+          <div class="company-info-text__p page-content-block">
             <p class="article">
               Oyster Telecom — компания ИТ решений для бизнеса, основанных на
               услугах связи. Мы работаем только с юридическими лицами, что
@@ -22,47 +22,47 @@
               перед ним стоят.
             </p>
           </div>
-        </div>
-      </div>
-      <div class="company-info-numbers">
-        <div class="info-number">
-          <div class="info-number__number">
-            <animate-on-viewport>
-              <running-number
-                slot-scope="item"
-                :number="21"
-                :is-animated="item.isAnimated"
-                :is-integer="true"
-              />
-            </animate-on-viewport>
+          <div class="company-info-numbers">
+            <div class="info-number">
+              <div class="info-number__number">
+                <animate-on-viewport>
+                  <running-number
+                    slot-scope="item"
+                    :number="21"
+                    :is-animated="item.isAnimated"
+                    :is-integer="true"
+                  />
+                </animate-on-viewport>
+              </div>
+              <div class="info-number__category">год на рынке</div>
+            </div>
+            <div class="info-number">
+              <div class="info-number__number">
+                <animate-on-viewport>
+                  <running-number
+                    slot-scope="item"
+                    :number="1400"
+                    :is-animated="item.isAnimated"
+                    :is-integer="true"
+                  />
+                </animate-on-viewport>
+              </div>
+              <div class="info-number__category">км. оптоволокна</div>
+            </div>
+            <div class="info-number">
+              <div class="info-number__number">
+                <animate-on-viewport>
+                  <running-number
+                    slot-scope="item"
+                    :number="99.8"
+                    :is-animated="item.isAnimated"
+                    :is-integer="false"
+                  />
+                </animate-on-viewport>
+              </div>
+              <div class="info-number__category">отказоустойчивость сети</div>
+            </div>
           </div>
-          <div class="info-number__category">год на рынке</div>
-        </div>
-        <div class="info-number">
-          <div class="info-number__number">
-            <animate-on-viewport>
-              <running-number
-                slot-scope="item"
-                :number="1400"
-                :is-animated="item.isAnimated"
-                :is-integer="true"
-              />
-            </animate-on-viewport>
-          </div>
-          <div class="info-number__category">км. оптоволокна</div>
-        </div>
-        <div class="info-number">
-          <div class="info-number__number">
-            <animate-on-viewport>
-              <running-number
-                slot-scope="item"
-                :number="99.8"
-                :is-animated="item.isAnimated"
-                :is-integer="false"
-              />
-            </animate-on-viewport>
-          </div>
-          <div class="info-number__category">отказоустойчивость сети</div>
         </div>
       </div>
     </div>
@@ -111,17 +111,20 @@ export default {
   .company-info-text {
     flex-basis: 100%;
     &__container {
-      max-width: 800px;
-      margin-right: 3em;
-      height: fit-content;
+      display: flex;
+      flex-direction: row;
       @include _800() {
         margin-right: 0;
+        flex-direction: column;
       }
     }
     &__header {
       margin: 0 0 0.5em;
     }
     &__p {
+      max-width: 800px;
+      margin-right: 3em;
+      height: fit-content;
       color: #999;
       @include _700() {
         font-size: 0.9em;
@@ -134,14 +137,11 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     align-self: baseline;
-    margin-top: 3em;
-    @include _800() {
-      margin-top: 2em;
-    }
-    @include _600() {
-      margin-top: 1em;
-    }
+
     .info-number {
+      &__number {
+        margin-bottom: 0.5em;
+      }
       margin: 0 2em 2em 0;
     }
   }
