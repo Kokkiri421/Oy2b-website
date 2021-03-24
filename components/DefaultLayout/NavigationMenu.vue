@@ -132,6 +132,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/scrollbar_mixin';
 
 .container {
   position: fixed;
@@ -150,6 +151,7 @@ export default {
   }
 }
 .navigation-menu {
+  @include scrollbars(10px, transparent, transparent);
   margin-top: 96px;
   padding: 2.25em 5em;
   max-height: calc(100vh - 6em - 96px);
@@ -162,7 +164,9 @@ export default {
     padding: 1.25em 20px;
     max-height: calc(100vh - 4em - 64px);
   }
-
+  &:hover {
+    @include scrollbars(10px, rgb(255, 255, 255, 0.75), transparent);
+  }
   &__item {
     &:nth-child(n) {
       margin-bottom: 3em;
@@ -186,7 +190,6 @@ export default {
       }
     }
   }
-
   .social {
     display: flex;
     flex-direction: row;

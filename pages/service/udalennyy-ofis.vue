@@ -248,11 +248,21 @@ export default {
     AdvantageList,
   },
   methods: {
-    scrollToContent: function () {
-      this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+    scrollToServices: function () {
+      window.scrollTo({
+        top:
+          this.$refs['next-page'].$el.getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
+        behavior: 'smooth',
+      })
     },
     scrollToOrder: function () {
-      this.$refs['question'].$refs['order'].scrollIntoView({
+      window.scrollTo({
+        top:
+          this.$refs['question'].$refs['order'].getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
         behavior: 'smooth',
       })
     },

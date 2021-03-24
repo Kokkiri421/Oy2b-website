@@ -106,7 +106,7 @@
             </template>
           </service-block>
         </service-list>
-        <audit-form class="page-content-block"></audit-form>
+        <audit-form class="page-content-block" ref="audit"></audit-form>
         <div class="sla page-content-block">
           <h4>Стандарты обслуживания SLA</h4>
           <p class="grey-text">
@@ -223,12 +223,21 @@ export default {
     SolutionForm,
   },
   methods: {
-    changeComputerCount(value) {},
     scrollToServices: function () {
-      this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+      window.scrollTo({
+        top:
+          this.$refs['next-page'].$el.getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
+        behavior: 'smooth',
+      })
     },
     scrollToOrder: function () {
-      this.$refs['question'].$refs['order'].scrollIntoView({
+      window.scrollTo({
+        top:
+          this.$refs['audit'].$el.getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
         behavior: 'smooth',
       })
     },
