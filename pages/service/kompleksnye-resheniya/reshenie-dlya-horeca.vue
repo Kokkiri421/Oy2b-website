@@ -1,0 +1,255 @@
+<template>
+  <div class="container">
+    <hero-block :is-anchor="true" @onClick="scrollToServices">
+      <template v-slot:header> Решение для HoReCa </template>
+      <template v-slot:description>
+        <div class="description">
+          <p class="article">
+            Наши специалисты разработают для вас индивидуальный тарифный план, в
+            соответствии с особенностями вашего бизнеса, количеством и
+            оснащенностью рабочих мест, степенью нагрузки на интернет-канал.
+            Конкретное решение зависит от ваших потребностей. Все услуги
+            адаптированы под HoReCa специфику.
+          </p>
+          <p class="article">Подключаем за 3 дня!</p>
+        </div>
+      </template>
+      <template v-slot:form-prefix>
+        Проверьте возможность подключения сервисов и услуг:
+      </template>
+    </hero-block>
+    <div class="wrapper">
+      <div class="page-content">
+        <service-list class="page-content-block" ref="next-page">
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Выделенный интернет </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>
+                  интернет канал от 5 Мбит/с до 10 Гбит/с отдельным волокном
+                </li>
+                <li>
+                  гарантированная скорость не меняется от общей загрузки сети
+                </li>
+                <li>
+                  настраиваемый firewall и разграничение доступа к определенным
+                  ресурсам
+                </li>
+                <li>
+                  реальные ip адреса по количеству рабочих мест + 4 резервных
+                </li>
+                <li>
+                  возможность расширить канал при увеличении количества
+                  посетителей
+                </li>
+              </ul>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Управляемый Wi-Fi </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>
+                  разделение зон Wi-Fi&nbsp;на&nbsp;техническую и&nbsp;гостевую
+                  с&nbsp;лимитом пользования
+                </li>
+                <li>авторизация посетителей согласно законодательству РФ</li>
+                <li>
+                  брендированная страница приветствия и удобный конструктор для
+                  ее создания
+                </li>
+                <li>
+                  личный кабинет с возможностью аналитики и статистикой
+                  подключений клиентов
+                </li>
+                <li>
+                  отдельный защищенный канал для подключения онлайн кассы и
+                  pos-терминалов
+                </li>
+              </ul>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Удобная телефония </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>возможность подключить красивый номер и номер 8-800</li>
+                <li>бесплатный многоканальный телефонный аппарат</li>
+                <li>
+                  перевод звонков и переадресация на любой другой телефонный
+                  номер
+                </li>
+                <li>режимы «не беспокоить» и «удержание на линии»</li>
+                <li>
+                  музыка на линии при удержании звонка, переводе звонка и
+                  переключении
+                </li>
+                <li>бесплатные короткие внутренние номера</li>
+              </ul>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Видеонаблюдение </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>
+                  Хранение видеоархива на операторском оборудовании в
+                  собственном Дата-Центре
+                </li>
+                <li>
+                  Доступ из любой точки мира, где есть интернет через приложение
+                  или веб-интерфейс
+                </li>
+                <li>
+                  Независимый от остальных услуг канал связи к каждой камере и
+                  оповещения о детекции
+                </li>
+                <li>
+                  Отсутствие затрат на покупку дорогостоящего ПО, оборудования и
+                  найм сотрудников
+                </li>
+                <li>Автоматический контроль за сотрудниками и объектами</li>
+              </ul>
+              <p class="article">
+                Современные системы видеонаблюдения обеспечивают не только
+                контроль в установленных местах, но и умеют анализировать
+                происходящее, собирать статистику и формировать отчеты. <br />
+
+                Если понадобится, обеспечим доступ к&nbsp;существующей системе
+                видеонаблюдения с&nbsp;помощью услуги «проброс портов».
+              </p>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Публичное ТВ </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>только легальный ТВ контент</li>
+                <li>
+                  более 80 федеральных, региональных и зарубежных каналов на
+                  любую тематику
+                </li>
+                <li>
+                  Каналы IP TV не «зависают» во время популярных передач и
+                  трансляций
+                </li>
+                <li>четкая картинка и качественный звук</li>
+                <li>отложенный просмотр</li>
+              </ul>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+          <service-block :background-color="'#0e7829'" @onClick="scrollToOrder">
+            <template v-slot:header> Поддержка </template>
+            <template v-slot:description>
+              <ul class="article">
+                <li>личный менеджер с момента подписания договора</li>
+                <li>служба поддержки 24/7</li>
+                <li>обслуживание IT и телеком обрудования вашего бизнеса</li>
+              </ul>
+            </template>
+
+            <template v-slot:button
+              ><button class="dialog-button">Заказать</button>
+            </template>
+          </service-block>
+        </service-list>
+        <question-block
+          ref="question"
+          :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID ?'"
+        >
+          <template v-slot:top-text>
+            <h5 class="header">
+              Задайте любой вопрос о подключении вашего бизнеса
+            </h5>
+            <p class="article">
+              Не нашли подходящее именно вам решение? Мы бесплатно ответим на
+              любые вопросы из области корпоративных телекоммуникационных услуг.
+              Поможем разобраться и оптимизировать расходы на услуги связи.
+            </p>
+            <h6 class="header">Наши эксперты</h6>
+            <p class="article">
+              В Oyster Telecom работают технические специалисты
+              с&nbsp;релевантным опытом из&nbsp;различных технических сфер услуг
+              для&nbsp;бизнеса.
+            </p>
+          </template>
+          <template v-slot:bottom-text>
+            <p class="article">
+              Наши специалисты разработают для вас индивидуальный тарифный план,
+              в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
+              количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
+              на&nbsp;интернет канал.
+            </p>
+            <p class="article">
+              Конкретное решение зависит от ваших потребностей
+            </p>
+            <h6 class="header">
+              При оплате услуг связи за&nbsp;6&nbsp;месяцев
+              -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
+            </h6>
+          </template>
+        </question-block>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import HeroBlock from '~/components/Common/HeroBlock'
+import ServiceBlock from '~/components/Common/ServiceBlock'
+import ServiceList from '~/components/Common/ServiceList'
+import QuestionBlock from '~/components/Common/QuestionBlock'
+export default {
+  components: {
+    HeroBlock,
+    ServiceBlock,
+    ServiceList,
+    QuestionBlock,
+  },
+  methods: {
+    scrollToServices: function () {
+      this.$refs['next-page'].$el.scrollIntoView({ behavior: 'smooth' })
+    },
+    scrollToOrder: function () {
+      this.$refs['question'].$refs['order'].scrollIntoView({
+        behavior: 'smooth',
+      })
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+@import '~/assets/media_mixin';
+.hero-block {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('~/static/images/backgrounds/reshenie-dlya-horeca-bg.jpg');
+  .description {
+    margin-bottom: 1em;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+</style>

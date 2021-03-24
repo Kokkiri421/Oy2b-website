@@ -7,10 +7,14 @@
     >
       <div class="content-block__header">
         <h4 class="header-content">
-          <span><slot name="header"> </slot></span>
+          <span :class="{ order: type === 'order', link: type === 'link' }"
+            ><slot name="header"> </slot
+          ></span>
         </h4>
       </div>
-      <div class="content-block__button"><slot name="button"></slot></div>
+      <div class="content-block__button" :class="{ block: type === 'block' }">
+        <slot name="button"></slot>
+      </div>
 
       <div class="content-block__description" :class="{ expanded: isShown }">
         <slot name="description"></slot>
@@ -36,6 +40,10 @@ export default {
     backgroundColor: {
       type: String,
       required: true,
+    },
+    type: {
+      type: String,
+      default: 'order',
     },
   },
   methods: {
@@ -74,14 +82,21 @@ export default {
   &__header {
     display: flex;
     align-items: center;
-    width: fit-content;
+
     max-width: calc(100% - 150px);
     padding-top: 1px;
 
     .header-content {
       margin: 0;
+      width: inherit;
       span {
+      }
+      .order {
         border-bottom: 1px dashed transparent;
+        transition: 0.2s border-bottom ease-out;
+      }
+      .link {
+        border-bottom: 1px solid transparent;
         transition: 0.2s border-bottom ease-out;
       }
     }
@@ -93,6 +108,7 @@ export default {
     opacity: 0;
     height: fit-content;
     transition: 0.2s opacity ease-out;
+
     @include _700() {
       font-size: 0.9em;
     }
@@ -130,14 +146,20 @@ export default {
   &:hover {
     cursor: pointer;
     .header-content {
-      span {
+      .order {
         border-bottom: 1px dashed #fff;
+      }
+      .link {
+        border-bottom: 1px solid #fff;
       }
     }
     .content-block__button {
       opacity: 1;
     }
   }
+}
+.block {
+  display: none;
 }
 .expanded {
   max-height: fit-content;

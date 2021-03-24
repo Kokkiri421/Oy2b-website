@@ -159,6 +159,15 @@
         </div>
 
         <telephony-table class="page-content-block"></telephony-table>
+        <p class="service-message page-content-block">
+          <icon :icon-name="'rouble-icon'" class="icon">
+            <rouble-icon />
+          </icon>
+          <span
+            >- стоимость услуги не входит в стоимость тарифа и рассчитывается
+            отдельно. Свяжитесь с менеджером, чтобы узнать подробности</span
+          >
+        </p>
         <div class="special-price page-content-block">
           <h5>Как сэкономить?</h5>
           <div class="banner">
@@ -225,6 +234,8 @@ import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import TelephonyTable from '~/components/Telephony/TelephonyTable'
+import RoubleIcon from '~/components/Icons/RoubleIcon'
+import Icon from '~/components/Icons/Icon'
 export default {
   components: {
     HeroBlock,
@@ -232,6 +243,8 @@ export default {
     ServiceList,
     QuestionBlock,
     TelephonyTable,
+    RoubleIcon,
+    Icon,
   },
   methods: {
     scrollToServices: function () {
@@ -260,6 +273,11 @@ export default {
   @include _1300() {
     margin-bottom: 1em;
   }
+}
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: middle;
 }
 .container {
   display: flex;

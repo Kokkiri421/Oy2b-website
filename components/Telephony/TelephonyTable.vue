@@ -1271,7 +1271,7 @@ import ExpandTableIcon from '~/components/Icons/ExpandTableIcon'
 export default {
   data() {
     return {
-      expanded: Array(6).fill(true),
+      expanded: Array(6).fill(true, 0, 1),
     }
   },
   methods: {

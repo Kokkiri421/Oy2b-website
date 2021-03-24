@@ -55,14 +55,14 @@
               >
             </li>
 
-            <li class="list-item">
+            <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya"
                 >Комплексные решения</NuxtLink
               >
             </li>
-            <li class="list-item">
+            <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/dop-uslugi"
