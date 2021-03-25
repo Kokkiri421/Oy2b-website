@@ -37,9 +37,8 @@
                     class="icon"
                     :view-box="'0 0 611.999 611.999'"
                   >
-                    <flame-icon />
-                  </icon>
-                  IT аутсорсинг
+                    <flame-icon /> </icon
+                  >IT аутсорсинг
                 </span></NuxtLink
               >
             </li>
@@ -83,27 +82,36 @@
         </div>
         <div class="navigation-menu__item bottom-menu">
           <ul class="navigation-menu__list">
-            <li class="list-item">
-              <NuxtLink class="underline-animated-link nuxtlink" to="/company"
-                >О компании</NuxtLink
+            <li class="list-item" @click="onClick">
+              <NuxtLink class="underline-animated-link nuxtlink" to="/company">
+                О компании
+              </NuxtLink>
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/vacancies"
               >
+                Вакансии
+              </NuxtLink>
             </li>
-            <li class="list-item">
-              <a class="underline-animated-link">Вакансии</a>
-            </li>
-            <li class="list-item">
-              <a class="underline-animated-link">Контакты</a>
+            <li class="list-item" @click="onClick">
+              <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
+                Контакты
+              </NuxtLink>
             </li>
           </ul>
         </div>
         <div class="navigation-menu__item social">
           <div class="social-network instagram">
-            <a class="social-network__link"
+            <a
+              class="social-network__link"
+              href="https://www.instagram.com/oysterb2b/"
               ><img src="~/static/images/instagram.svg"
             /></a>
           </div>
           <div class="social-network vk">
-            <a class="social-network__link"
+            <a class="social-network__link" href="https://vk.com/oystertelecom"
               ><img src="~/static/images/vk.svg"
             /></a>
           </div>
@@ -170,7 +178,7 @@ export default {
   }
 }
 .navigation-menu {
-  @include scrollbars(10px, transparent, transparent);
+  //@include scrollbars(10px, transparent, transparent);
   margin-top: 96px;
   padding: 2.25em 5em;
   max-height: calc(100vh - 6em - 96px);
@@ -184,7 +192,7 @@ export default {
     max-height: calc(100vh - 4em - 64px);
   }
   &:hover {
-    @include scrollbars(10px, rgb(255, 255, 255, 0.75), transparent);
+    //@include scrollbars(10px, rgb(255, 255, 255, 0.75), transparent);
   }
   &__item {
     &:nth-child(n) {
@@ -207,9 +215,14 @@ export default {
       .nuxtlink {
         color: #fff;
         .icon {
-          height: 1em;
+          height: 0.75em;
           width: 1em;
-          fill: #fff;
+          fill: #ff9d00;
+          margin-left: -1.25em;
+          margin-right: 0.25em;
+          @include _900() {
+            display: none;
+          }
         }
       }
     }

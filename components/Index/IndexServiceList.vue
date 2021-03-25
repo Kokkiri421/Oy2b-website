@@ -10,12 +10,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon :icon-name="'internet-icon'" class="service-button__icon">
-                <internet-icon />
-              </icon>
-              Интернет до 10Гбит/с
-            </a>
+            <a class="service-button__link"> Интернет до 10Гбит/с </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -25,12 +20,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon :icon-name="'wifi-icon'" class="service-button__icon">
-                <wifi-icon />
-              </icon>
-              Wi-Fi для бизнеса
-            </a>
+            <a class="service-button__link"> Wi-Fi для бизнеса </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -40,12 +30,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon :icon-name="'telephony-icon'" class="service-button__icon">
-                <telephony-icon />
-              </icon>
-              Телефония
-            </a>
+            <a class="service-button__link"> Телефония </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -55,16 +40,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon
-                :icon-name="'outsource-icon'"
-                :view-box="'0 0 128 128'"
-                class="service-button__icon"
-              >
-                <outsource-icon />
-              </icon>
-              IT Аутсорсинг
-            </a>
+            <a class="service-button__link"> IT Аутсорсинг </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -74,15 +50,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon
-                :icon-name="'virtual-service-icon'"
-                class="service-button__icon"
-              >
-                <virtual-service-icon />
-              </icon>
-              Виртуальные сервисы
-            </a>
+            <a class="service-button__link"> Виртуальные сервисы </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -92,12 +60,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon :icon-name="'video-icon'" class="service-button__icon">
-                <video-icon />
-              </icon>
-              Видеонаблюдение
-            </a>
+            <a class="service-button__link"> Видеонаблюдение </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -107,15 +70,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon
-                :icon-name="'cloud-service-icon'"
-                class="service-button__icon"
-              >
-                <cloud-service-icon />
-              </icon>
-              Облачные решения
-            </a>
+            <a class="service-button__link"> Облачные решения </a>
           </li>
         </animate-on-viewport>
 
@@ -126,15 +81,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon
-                :icon-name="'complex-solution-icon'"
-                class="service-button__icon"
-              >
-                <complex-solution-icon />
-              </icon>
-              Отрасли
-            </a>
+            <a class="service-button__link"> Отрасли </a>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -144,15 +91,7 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link">
-              <icon
-                :icon-name="'additional-service-icon'"
-                class="service-button__icon"
-              >
-                <additional-service-icon />
-              </icon>
-              Операторам
-            </a>
+            <a class="service-button__link"> Операторам </a>
           </li>
         </animate-on-viewport>
       </ul>

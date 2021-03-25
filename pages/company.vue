@@ -149,7 +149,7 @@ header {
   background: rgba(0, 0, 0, 0.8) !important;
 }
 .company {
-  padding: 10em 0;
+  padding: 8em 0;
   @include _600() {
     padding: 4em 0 1em;
   }
