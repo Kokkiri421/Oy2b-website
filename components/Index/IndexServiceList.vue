@@ -11,22 +11,6 @@
             :class="{ animated: item.isAnimated }"
           >
             <a class="service-button__link">
-              <icon :icon-name="'wifi-icon'" class="service-button__icon">
-                <wifi-icon />
-              </icon>
-              Wi-Fi для бизнеса
-            </a>
-          </li>
-        </animate-on-viewport>
-
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <a class="service-button__link">
               <icon :icon-name="'internet-icon'" class="service-button__icon">
                 <internet-icon />
               </icon>
@@ -42,13 +26,10 @@
             :class="{ animated: item.isAnimated }"
           >
             <a class="service-button__link">
-              <icon
-                :icon-name="'virtual-service-icon'"
-                class="service-button__icon"
-              >
-                <virtual-service-icon />
+              <icon :icon-name="'wifi-icon'" class="service-button__icon">
+                <wifi-icon />
               </icon>
-              Виртуальные сервисы
+              Wi-Fi для бизнеса
             </a>
           </li>
         </animate-on-viewport>
@@ -95,12 +76,12 @@
           >
             <a class="service-button__link">
               <icon
-                :icon-name="'cloud-service-icon'"
+                :icon-name="'virtual-service-icon'"
                 class="service-button__icon"
               >
-                <cloud-service-icon />
+                <virtual-service-icon />
               </icon>
-              Облачные решения
+              Виртуальные сервисы
             </a>
           </li>
         </animate-on-viewport>
@@ -128,12 +109,31 @@
           >
             <a class="service-button__link">
               <icon
+                :icon-name="'cloud-service-icon'"
+                class="service-button__icon"
+              >
+                <cloud-service-icon />
+              </icon>
+              Облачные решения
+            </a>
+          </li>
+        </animate-on-viewport>
+
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <a class="service-button__link">
+              <icon
                 :icon-name="'complex-solution-icon'"
                 class="service-button__icon"
               >
                 <complex-solution-icon />
               </icon>
-              Комплексные решения
+              Отрасли
             </a>
           </li>
         </animate-on-viewport>

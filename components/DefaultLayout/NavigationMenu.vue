@@ -7,14 +7,6 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/wi-fi"
-              >
-                Wi-Fi для бизнеса
-              </NuxtLink>
-            </li>
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
                 to="/service/internet"
                 >Интернет до 10Гбит/с</NuxtLink
               >
@@ -22,9 +14,10 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/udalennyy-ofis"
-                >Виртуальные сервисы</NuxtLink
+                to="/service/wi-fi"
               >
+                Wi-Fi для бизнеса
+              </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
@@ -37,7 +30,32 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/service-it-out"
-                >IT аутсорсинг</NuxtLink
+              >
+                <span>
+                  <icon
+                    :icon-name="'flame-icon'"
+                    class="icon"
+                    :view-box="'0 0 611.999 611.999'"
+                  >
+                    <flame-icon />
+                  </icon>
+                  IT аутсорсинг
+                </span></NuxtLink
+              >
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/udalennyy-ofis"
+                >Виртуальные сервисы</NuxtLink
+              >
+            </li>
+
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/videonablyudenie"
+                >Видеонаблюдение</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
@@ -50,16 +68,8 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/videonablyudenie"
-                >Видеонаблюдение</NuxtLink
-              >
-            </li>
-
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya"
-                >Комплексные решения</NuxtLink
+                >Отрасли</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
@@ -74,7 +84,9 @@
         <div class="navigation-menu__item bottom-menu">
           <ul class="navigation-menu__list">
             <li class="list-item">
-              <a class="underline-animated-link">О компании</a>
+              <NuxtLink class="underline-animated-link nuxtlink" to="/company"
+                >О компании</NuxtLink
+              >
             </li>
             <li class="list-item">
               <a class="underline-animated-link">Вакансии</a>
@@ -102,7 +114,14 @@
 </template>
 
 <script>
+import Icon from '~/components/Icons/Icon'
+import FlameIcon from '~/components/Icons/FlameIcon'
+
 export default {
+  components: {
+    Icon,
+    FlameIcon,
+  },
   props: {
     isActive: {
       type: Boolean,
@@ -187,6 +206,11 @@ export default {
       margin-bottom: 0.9em;
       .nuxtlink {
         color: #fff;
+        .icon {
+          height: 1em;
+          width: 1em;
+          fill: #fff;
+        }
       }
     }
   }

@@ -7,13 +7,10 @@
       <div class="menu smallfont-400">
         <ul class="menu__list">
           <li class="list-item">
-            <a class="underline-animated-link">Wi-Fi для бизнеса</a>
-          </li>
-          <li class="list-item">
             <a class="underline-animated-link">Интернет до 10Гбит/с</a>
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Виртуальные сервисы</a>
+            <a class="underline-animated-link">Wi-Fi для бизнеса</a>
           </li>
           <li class="list-item">
             <a class="underline-animated-link">Телефония</a>
@@ -22,13 +19,16 @@
             <a class="underline-animated-link">IT Аутсорсинг</a>
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Облачные решения</a>
+            <a class="underline-animated-link">Виртуальные сервисы</a>
           </li>
           <li class="list-item">
             <a class="underline-animated-link">Видеонаблюдение</a>
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Комплексные решения</a>
+            <a class="underline-animated-link">Облачные решения</a>
+          </li>
+          <li class="list-item">
+            <a class="underline-animated-link">Отрасли</a>
           </li>
           <li class="list-item">
             <a class="underline-animated-link">Операторам</a>
