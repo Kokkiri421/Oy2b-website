@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <hero-block :is-anchor="true" @onClick="scrollToContent">
+    <hero-block :is-anchor="true" @onClick="scrollToServices">
       <template v-slot:header>Виртуализация Бизнеса</template>
       <template v-slot:description>
         <div class="description">

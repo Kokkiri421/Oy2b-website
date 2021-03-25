@@ -588,7 +588,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~/assets/media_mixin';
 header {
   background: rgba(0, 0, 0, 0.8) !important;

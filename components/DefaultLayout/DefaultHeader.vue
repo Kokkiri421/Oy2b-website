@@ -32,26 +32,35 @@
           <a href="tel:+781260002030" class="phone__link">+7 (812) 600-2030</a>
         </div>
         <div class="callback">
-          <button class="dialog-button callback__button">
+          <button class="dialog-button callback__button" @click="showModal">
             Получить консультацию
           </button>
         </div>
       </div>
     </div>
+    <modal-window :show="isModalShown" @onClick="showModal"
+      ><ConsultationModalForm @onClick="showModal"
+    /></modal-window>
   </div>
 </template>
 
 <script>
 import NavigationMenu from '~/components/DefaultLayout/NavigationMenu'
+import ModalWindow from '~/components/Common/ModalWindow'
+import ConsultationModalForm from '~/components/DefaultLayout/ConsultationModalForm'
+
 export default {
   data() {
     return {
       windowWidth: null,
       isActiveNavigationMenu: false,
+      isModalShown: false,
     }
   },
   components: {
     NavigationMenu,
+    ModalWindow,
+    ConsultationModalForm,
   },
   computed: {
     activeMenuStatus: function () {
@@ -67,6 +76,9 @@ export default {
     },
     hideMenu() {
       this.isActiveNavigationMenu = false
+    },
+    showModal() {
+      this.isModalShown = !this.isModalShown
     },
   },
   beforeMount() {

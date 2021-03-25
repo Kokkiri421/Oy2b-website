@@ -10,7 +10,11 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Интернет до 10Гбит/с </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/internet"
+              >Интернет до 10Гбит/с</NuxtLink
+            >
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -20,7 +24,9 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Wi-Fi для бизнеса </a>
+            <NuxtLink class="service-button__link nuxtlink" to="/service/wi-fi">
+              Wi-Fi для бизнеса
+            </NuxtLink>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -30,7 +36,11 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Телефония </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/telefoniya"
+              >Телефония</NuxtLink
+            >
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -40,7 +50,12 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> IT Аутсорсинг </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/service-it-out"
+            >
+              IT аутсорсинг
+            </NuxtLink>
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -50,7 +65,11 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Виртуальные сервисы </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/udalennyy-ofis"
+              >Виртуальные сервисы</NuxtLink
+            >
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -60,7 +79,11 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Видеонаблюдение </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/videonablyudenie"
+              >Видеонаблюдение</NuxtLink
+            >
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -70,18 +93,11 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Облачные решения </a>
-          </li>
-        </animate-on-viewport>
-
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <a class="service-button__link"> Отрасли </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/oblachnye-resheniya"
+              >Облачные решения</NuxtLink
+            >
           </li>
         </animate-on-viewport>
         <animate-on-viewport>
@@ -91,7 +107,25 @@
             :is-animated="item.isAnimated"
             :class="{ animated: item.isAnimated }"
           >
-            <a class="service-button__link"> Операторам </a>
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/kompleksnye-resheniya"
+              >Отрасли</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/dop-uslugi"
+              >Операторам</NuxtLink
+            >
           </li>
         </animate-on-viewport>
       </ul>
@@ -178,6 +212,11 @@ export default {
       letter-spacing: -1px;
       font-size: 1.25em;
       font-weight: 500;
+      color: #000000;
+      transition: color 0.2s ease-out;
+      &:hover {
+        color: #fff;
+      }
       @include _400() {
         font-size: 0.95em;
         padding: 0.66em 0.7em;

@@ -49,7 +49,6 @@ export default {
             this.number - this.currentNumber,
             Math.floor(this.number / 18)
           )
-          console.log(this.currentNumber)
         } else {
           this.currentNumber += Math.min(
             this.number - this.currentNumber,

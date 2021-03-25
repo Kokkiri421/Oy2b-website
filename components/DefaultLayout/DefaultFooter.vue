@@ -2,36 +2,76 @@
   <div class="wrapper footer">
     <div class="footer-top footer-item">
       <div class="logo">
-        <a href="/"> <img src="~/static/images/red_logo.svg" /></a>
+        <NuxtLink class="logo__link" :to="'/'">
+          <img src="~/static/images/red_logo.svg"
+        /></NuxtLink>
       </div>
       <div class="menu smallfont-400">
         <ul class="menu__list">
           <li class="list-item">
-            <a class="underline-animated-link">Интернет до 10Гбит/с</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/internet"
+              >Интернет до 10Гбит/с</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Wi-Fi для бизнеса</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/wi-fi"
+            >
+              Wi-Fi для бизнеса
+            </NuxtLink>
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Телефония</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/telefoniya"
+              >Телефония</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">IT Аутсорсинг</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/service-it-out"
+            >
+              IT аутсорсинг
+            </NuxtLink>
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Виртуальные сервисы</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/udalennyy-ofis"
+              >Виртуальные сервисы</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Видеонаблюдение</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/videonablyudenie"
+              >Видеонаблюдение</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Облачные решения</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/oblachnye-resheniya"
+              >Облачные решения</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Отрасли</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/kompleksnye-resheniya"
+              >Отрасли</NuxtLink
+            >
           </li>
           <li class="list-item">
-            <a class="underline-animated-link">Операторам</a>
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/dop-uslugi"
+              >Операторам</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -40,18 +80,22 @@
       <div class="copy">© 2021 Oyster Telecom</div>
       <div class="social">
         <div class="social-network instagram">
-          <a class="social-network__link"
+          <a
+            class="social-network__link"
+            href="https://www.instagram.com/oysterb2b/"
             ><img src="~/static/images/instagram.svg"
           /></a>
         </div>
         <div class="social-network vk">
-          <a class="social-network__link"
+          <a class="social-network__link" href="https://vk.com/oystertelecom"
             ><img src="~/static/images/vk.svg"
           /></a>
         </div>
       </div>
       <div class="contacts">
-        <a class="underline-animated-link">Контакты</a>
+        <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
+          Контакты
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -90,9 +134,10 @@ export default {
       justify-content: flex-end;
       align-items: center;
       line-height: 40px;
+
       @include _600() {
         justify-content: flex-start;
-        line-height: 1.25em;
+        line-height: 2em;
         margin-top: 1em;
       }
       padding: 0;
@@ -105,7 +150,7 @@ export default {
           margin: 0 0 0 1.95em;
         }
         @include _600() {
-          margin: 0 4.5% 0.5em 0;
+          margin: 0 4.5% 0 0;
         }
       }
     }
@@ -184,7 +229,7 @@ export default {
 .underline-animated-link {
   transition: color 0.2s ease-out;
   cursor: pointer;
-
+  color: #000;
   &:hover {
     color: #d81428;
   }

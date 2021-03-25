@@ -26,7 +26,7 @@
     <div class="audit-form__privacy">
       Нажимая кнопку «Отправить&nbsp;заявку», я&nbsp;даю своё согласие
       «Oyster&nbsp;Telecom» на&nbsp;обработку моих
-      <a href="/privacy/">персональных данных</a>.
+      <NuxtLink to="/privacy/">персональных данных</NuxtLink>.
     </div>
   </div>
 </template>

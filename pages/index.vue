@@ -17,7 +17,6 @@
         Проверьте возможность подключения:
       </template>
     </hero-block>
-
     <div class="wrapper">
       <index-main-content />
       <order-block />

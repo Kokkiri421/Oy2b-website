@@ -29,7 +29,7 @@
           4 причины выбрать телефонию от Oyster Telecom
         </h4>
         <service-list class="page-content-block" ref="next-page">
-          <service-block :background-color="'#ff7a00'">
+          <service-block :background-color="'#ff7a00'" :type="'block'">
             <template v-slot:header> Сокращение затрат </template>
             <template v-slot:description>
               <p class="article">
@@ -58,7 +58,7 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7a00'">
+          <service-block :background-color="'#ff7a00'" :type="'block'">
             <template v-slot:header> Интеграция с CRM </template>
             <template v-slot:description>
               <p class="article">
@@ -95,7 +95,7 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7a00'">
+          <service-block :background-color="'#ff7a00'" :type="'block'">
             <template v-slot:header> Простая установка и управление </template>
             <template v-slot:description>
               <ul>
@@ -121,7 +121,7 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7a00'">
+          <service-block :background-color="'#ff7a00'" :type="'block'">
             <template v-slot:header> Мобильность </template>
             <template v-slot:description>
               <ul class="article">

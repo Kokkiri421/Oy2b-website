@@ -127,10 +127,10 @@
           </div>
         </div>
         <p class="page-content-block legal">
-          <a href="/legal/">
+          <NuxtLink class="legal-link" to="/legal/">
             Политика в&nbsp;области обработки и обеспечения безопасности
             персональных данных
-          </a>
+          </NuxtLink>
         </p>
       </div>
     </div>
@@ -143,7 +143,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~/assets/media_mixin';
 header {
   background: rgba(0, 0, 0, 0.8) !important;
@@ -199,7 +199,7 @@ header {
     }
   }
   .legal {
-    a {
+    .legal-link {
       color: #069;
       transition: color 0.3s ease-out;
       &:hover {

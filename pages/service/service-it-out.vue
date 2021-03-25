@@ -25,7 +25,12 @@
       <template v-slot:user-form>
         <div class="hero-block__user-form">
           <button class="dialog-button">Оставить заявку</button>
-          <button class="dialog-button blue-dialog-button">Калькулятор</button>
+          <button
+            class="dialog-button blue-dialog-button"
+            @click="scrollToCalculator"
+          >
+            Калькулятор
+          </button>
         </div>
       </template>
     </hero-block>
@@ -117,7 +122,7 @@
           </p>
         </div>
       </div>
-      <calculator class="page-content-block"></calculator>
+      <calculator class="page-content-block" ref="calculator"></calculator>
       <div class="wrapper">
         <div class="grey-text page-content-block">
           *В калькуляторе указаны средние цены. Конечная стоимость абонентского
@@ -227,6 +232,15 @@ export default {
       window.scrollTo({
         top:
           this.$refs['next-page'].$el.getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
+        behavior: 'smooth',
+      })
+    },
+    scrollToCalculator: function () {
+      window.scrollTo({
+        top:
+          this.$refs['calculator'].$el.getBoundingClientRect().top +
           window.pageYOffset -
           100,
         behavior: 'smooth',
