@@ -142,7 +142,8 @@ export default {
   },
   methods: {
     hideMenuOnClick: function (event) {
-      let clickArray = event.path.filter(
+      let path = event.path || (event.composedPath && event.composedPath())
+      let clickArray = path.filter(
         (item) =>
           item.id === 'navigation-menu' || item.id === 'navigation-menu-button'
       )
