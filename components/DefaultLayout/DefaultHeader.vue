@@ -12,7 +12,7 @@
           <NuxtLink class="logo__link" :to="'/'">
             <img
               class="logo__img"
-              src="https://oy2b.ru/img/logo2x.png"
+              src="~/static/images/logo.png"
               alt="OysterTelecom"
             />
           </NuxtLink>

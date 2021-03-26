@@ -5,19 +5,13 @@
       <template v-slot:description>
         <div class="description">
           <p class="article">
-            За 20 лет мы научились решать задачи любого масштаба — от
-            подключения одной автономной точки до разворачивания бесшовной Wi-Fi
-            зоны на несколько гектаров.
+            Решаем задачи любого масштаба — от подключения одной автономной
+            точки до разворачивания бесшовной Wi-Fi зоны на несколько гектаров.
           </p>
-          <p class="article">
-            Успешно реализуем проекты благодаря всемирно признанному
-            оборудованию:
-          </p>
+          <p class="article">Реализуем проекты благодаря оборудованию:</p>
           <p class="article">Ruckus, Ubiquiti Network и Mikrotik.</p>
           <p class="article">
-            Учитываем все пожелания клиента и реализуем цель так, что Вам не
-            придется переплачивать. Обеспечиваем простое управление. Гарантируем
-            скорость и надёжность.
+            Обеспечиваем простое управление. Гарантируем скорость и надёжность.
           </p>
         </div>
       </template>
@@ -27,7 +21,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#2dc354'" @onClick="scrollToOrder">
             <template v-slot:header> Wi-Fi в Офис </template>
             <template v-slot:description>
@@ -206,6 +200,14 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#2dc354'"
+          ><template v-slot:text
+            ><span
+              >При оплате услуг связи за&nbsp;6&nbsp;месяцев -&nbsp;
+              <strong>до&nbsp;половины скорости в&nbsp;подарок!</strong></span
+            ></template
+          ></special-price
+        >
       </div>
       <question-block
         ref="question"
@@ -237,10 +239,6 @@
           <p class="article">
             <br />Конкретное решение зависит от ваших потребностей
           </p>
-          <h5 class="header">
-            При оплате услуг связи за&nbsp;6&nbsp;месяцев
-            -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
-          </h5>
         </template>
       </question-block>
     </div>
@@ -252,12 +250,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {

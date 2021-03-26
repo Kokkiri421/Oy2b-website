@@ -47,7 +47,8 @@ export default {
 @import '~/assets/media_mixin';
 .modal-form {
   padding: 2em;
-  width: 650px;
+  max-width: 650px;
+
   &__item {
     border: 1px solid #dfdfdf;
     border-radius: 4px;

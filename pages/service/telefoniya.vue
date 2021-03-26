@@ -1,18 +1,14 @@
 <template>
   <div class="container">
     <hero-block :is-anchor="true" @onClick="scrollToServices">
-      <template v-slot:header> Телефония </template>
+      <template v-slot:header> Виртуальная елефония </template>
       <template v-slot:description>
         <div class="description">
-          <p class="article fw800">
-            Виртуальная телефония от Oyster Telecom это:
-          </p>
           <p class="article fw400">
-            - современный инструмент для ведения бизнеса;<br /><br />
-            - оптимальные цены на междугородние и международные звонки;<br /><br />
-            - гибкая АТС, которую легко и просто обслуживать;<br /><br />
-            - более 65 базовых функций, позволяющих настроить телефонию именно
-            под свои потребности.
+            современный инструмент для ведения бизнеса;<br /><br />
+            оптимальные цены на междугородние и международные звонки;<br /><br />
+            гибкая АТС, которую легко и просто обслуживать;<br /><br />
+            более 65 базовых функций.
           </p>
           <p class="article fw800">
             Не думайте об обслуживании Телефонии — занимайтесь бизнесом!
@@ -168,22 +164,15 @@
             отдельно. Свяжитесь с менеджером, чтобы узнать подробности</span
           >
         </p>
-        <div class="special-price page-content-block">
-          <h5>Как сэкономить?</h5>
-          <div class="banner">
-            <div class="text">
-              <span
-                >При подключении 10 линий вы получаете
-                <strong>25 Мбит/с интернета совершенно бесплатно</strong></span
-              >
-            </div>
-            <div class="image">
-              <div class="image-overlap">
-                <img src="~static/images/banner-image.png" />
-              </div>
-            </div>
-          </div>
-        </div>
+        <special-price class="page-content-block" :background-color="'#ff7a00'"
+          ><template v-slot:text
+            ><span
+              >При подключении 10 линий вы получаете
+              <strong>25 Мбит/с интернета совершенно бесплатно</strong></span
+            ></template
+          ></special-price
+        >
+
         <question-block
           ref="question"
           :question="'Например:\nКак настроить переадресацию на мобильные для удаленных сотрудников?'"
@@ -236,6 +225,7 @@ import QuestionBlock from '~/components/Common/QuestionBlock'
 import TelephonyTable from '~/components/Telephony/TelephonyTable'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
 import Icon from '~/components/Icons/Icon'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 
 export default {
   data() {
@@ -249,6 +239,7 @@ export default {
     TelephonyTable,
     RoubleIcon,
     Icon,
+    SpecialPrice,
   },
 
   methods: {
@@ -308,51 +299,6 @@ export default {
 .optimal-solution {
   p {
     color: #999;
-  }
-}
-.banner {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: #009ee3;
-  color: #fff;
-  padding: 1.5em 1.5em 0;
-  font-size: 1.5em;
-  line-height: 150%;
-  border-radius: 4px;
-  @include _900() {
-    flex-direction: column;
-    padding: 1em 1em 0;
-    font-size: 1.25em;
-    line-height: 125%;
-  }
-  .text {
-    max-width: calc(100% - 175px - 5em);
-    padding-bottom: 1.5em;
-    @include _900() {
-      max-width: 100%;
-    }
-  }
-  .image {
-    align-self: flex-end;
-    display: flex;
-    line-height: 0;
-    position: relative;
-    .image-overlap {
-      display: block;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      text-align: right;
-      @include _900() {
-        position: relative;
-      }
-      img {
-        @include _600() {
-          width: calc(100% - 2em);
-        }
-      }
-    }
   }
 }
 </style>

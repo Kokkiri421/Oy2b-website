@@ -68,5 +68,6 @@ export default {
   line-height: 0.75em;
   align-items: baseline;
   font-weight: 500;
+  color: #d81428;
 }
 </style>

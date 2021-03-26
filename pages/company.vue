@@ -143,8 +143,16 @@
         </p>
       </div>
     </div>
-    <modal-window :show="isModalShown" @onClick="showModal">
-      <img :src="require(`~/static/images/licences/${imgName}`)" />
+    <modal-window
+      class="modal-window"
+      :show="isModalShown"
+      :close-bg="true"
+      @onClick="showModal"
+    >
+      <img
+        class="modal-image"
+        :src="require(`~/static/images/licences/${imgName}`)"
+      />
     </modal-window>
   </div>
 </template>
@@ -238,6 +246,14 @@ header {
         color: #d81428;
       }
     }
+  }
+}
+.modal-image {
+  max-width: 100%;
+}
+.modal-window {
+  .modal-close {
+    background: red !important;
   }
 }
 </style>

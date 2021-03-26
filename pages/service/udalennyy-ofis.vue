@@ -50,7 +50,7 @@
             </advantage-block>
           </template>
         </advantage-list>
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
             <template v-slot:header> Экспресс аудит </template>
             <template v-slot:description>
@@ -195,6 +195,17 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#ff7d05'"
+          ><template v-slot:text
+            ><span
+              >При заключении договора&nbsp;на&nbsp;год -&nbsp;
+              <strong
+                >бесплатная настройка удаленного доступа и&nbsp;месяц
+                обслуживания в&nbsp;подарок!</strong
+              >
+            </span>
+          </template></special-price
+        >
       </div>
       <question-block
         ref="question"
@@ -221,10 +232,6 @@
             исполнение основных параметров и показателей, за соблюдение которых
             мы несем финансовую ответственность.
           </p>
-          <h6 class="header">
-            При заключении договора на год - бесплатная настройка удаленного
-            доступа и месяц обслуживания в подарок!
-          </h6>
         </template>
       </question-block>
     </div>
@@ -238,6 +245,7 @@ import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
@@ -246,6 +254,7 @@ export default {
     QuestionBlock,
     AdvantageBlock,
     AdvantageList,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {

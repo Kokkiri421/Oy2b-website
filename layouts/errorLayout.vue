@@ -1,5 +1,8 @@
 <template>
-  <div class="error-background">
+  <div class="error-background layout">
+    <header class="flex-grow-1">
+      <default-header />
+    </header>
     <nuxt />
   </div>
 </template>

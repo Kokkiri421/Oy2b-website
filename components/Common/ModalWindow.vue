@@ -9,7 +9,11 @@
       <div class="modal-content">
         <slot></slot>
       </div>
-      <div class="modal-close" @click="$emit('onClick')"></div>
+      <div
+        class="modal-close"
+        :class="{ closeBg: closeBg }"
+        @click="$emit('onClick')"
+      ></div>
     </div>
   </div>
 </template>
@@ -17,6 +21,7 @@
 <script>
 export default {
   name: 'ModalWindow',
+
   methods: {
     clickAnywhere: function (e) {
       if (e.target.className === 'modal show') {
@@ -28,6 +33,10 @@ export default {
     show: {
       type: Boolean,
       required: true,
+    },
+    closeBg: {
+      type: Boolean,
+      default: false,
     },
   },
 }
@@ -45,29 +54,40 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
   .modal-content-wrapper {
     position: relative;
+
     margin: auto auto;
     overflow: hidden;
     padding: 50px;
+    @include _700() {
+      padding: 0;
+    }
   }
   .modal-content {
     background-color: #fefefe;
     margin: auto auto;
     overflow: hidden;
+
     width: fit-content;
   }
   .modal-close {
     cursor: pointer;
     position: absolute;
     width: 50px;
-    height: 30px;
-    top: 50px;
+    height: 50px;
+    top: 36px;
     right: 0;
+    @include _700() {
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+    }
     &:hover {
       &:before {
         background-color: #d81428;
@@ -107,5 +127,11 @@ export default {
 .show {
   visibility: visible;
   opacity: 1;
+}
+.closeBg {
+  @include _700() {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="error-container">
     <div class="error">
-      <p class="error__code" v-if="error.statusCode === 404">404</p>
+      <p class="error__code" v-if="error.statusCode">{{ error.statusCode }}</p>
       <p class="error__message" v-if="error.statusCode === 404">
         Страница, которую вы&nbsp;ищете, не&nbsp;найдена.
       </p>
@@ -29,7 +29,6 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-bottom: 10em;
   align-items: center;
   .error {
     flex-grow: 1;

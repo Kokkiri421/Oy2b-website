@@ -4,14 +4,11 @@
       <template v-slot:header>Интернет до&nbsp;10Гбит/с для бизнеса</template>
       <template v-slot:description>
         <div class="description">
-          <p class="article">
-            Подключение за 3 дня по оптоволокну от 5 Мбит/с до 10 Гбит/с.
-          </p>
+          <p class="article">Подключение за 3 дня по оптоволокну</p>
           <p class="article">Статистические и динамические IP-адреса.</p>
           <p class="article">Широкий выбор дополнительных услуг и сервисов.</p>
           <p class="article">
-            Наши преимущества: гибкие тарифы, высокая надежность, техподдержка
-            24/7
+            Гибкие тарифы, высокая надежность, техподдержка 24/7
           </p>
           <p class="article">
             Конкретное решение зависит от ваших потребностей.
@@ -24,7 +21,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
             <template v-slot:header> Доступ в интернет </template>
             <template v-slot:description>
@@ -142,6 +139,14 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#ea172c'"
+          ><template v-slot:text
+            ><span
+              >При оплате услуг связи за&nbsp;6&nbsp;месяцев -&nbsp;
+              <strong>до&nbsp;половины скорости в&nbsp;подарок!</strong></span
+            ></template
+          ></special-price
+        >
       </div>
       <question-block
         ref="question"
@@ -173,10 +178,6 @@
           <p class="article">
             <br />Конкретное решение зависит от ваших потребностей
           </p>
-          <h5 class="header">
-            При оплате услуг связи за&nbsp;6&nbsp;месяцев
-            -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
-          </h5>
         </template>
       </question-block>
     </div>
@@ -188,12 +189,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {

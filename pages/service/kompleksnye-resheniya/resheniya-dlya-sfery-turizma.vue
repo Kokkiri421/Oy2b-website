@@ -175,6 +175,14 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#0e7829'"
+          ><template v-slot:text
+            ><span
+              >При оплате услуг связи за&nbsp;6&nbsp;месяцев -&nbsp;
+              <strong>до&nbsp;половины скорости в&nbsp;подарок!</strong></span
+            ></template
+          ></special-price
+        >
         <question-block
           ref="question"
           :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID ?'"
@@ -205,10 +213,6 @@
             <p class="article">
               Конкретное решение зависит от ваших потребностей
             </p>
-            <h6 class="header">
-              При оплате услуг связи за&nbsp;6&nbsp;месяцев
-              -&nbsp;до&nbsp;половины скорости в&nbsp;подарок!
-            </h6>
           </template>
         </question-block>
       </div>
@@ -221,12 +225,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {

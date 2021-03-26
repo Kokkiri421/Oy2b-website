@@ -24,7 +24,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#a652a8'" @onClick="scrollToOrder">
             <template v-slot:header> Аренда виртуального сервера </template>
             <template v-slot:description>
@@ -125,6 +125,17 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#a652a8'"
+          ><template v-slot:text
+            ><span
+              >При заключении договора на год -
+              <strong
+                >бесплатная настройка удаленного доступа и месяц обслуживания в
+                подарок!</strong
+              >.
+            </span>
+          </template></special-price
+        >
       </div>
       <question-block
         ref="question"
@@ -150,10 +161,6 @@
             исполнение основных параметров и показателей, за соблюдение которых
             мы несем финансовую ответственность.
           </p>
-          <h5 class="header">
-            При заключении договора на год - бесплатная настройка удаленного
-            доступа и месяц обслуживания в подарок!
-          </h5>
         </template>
       </question-block>
     </div>
@@ -165,12 +172,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {

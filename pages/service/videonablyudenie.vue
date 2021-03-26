@@ -7,14 +7,14 @@
           <p class="article">
             Готовое решение видеонаблюдения для бизнеса от Oyster Telecom – это:
           </p>
-          <p class="article">1) Безопасность персонала и Ваших данных</p>
-          <p class="article">2) Доступ к камерам из любой точки мира</p>
+          <p class="article">Безопасность персонала и Ваших данных</p>
+          <p class="article">Доступ к камерам из любой точки мира</p>
           <p class="article">
-            3) Автоматический контроль за сотрудниками и объектами
+            Автоматический контроль за сотрудниками и объектами
           </p>
-          <p class="article">4) Функционал, необходимый именно Вам</p>
+          <p class="article">Функционал, необходимый именно Вам</p>
           <p class="article">
-            5) Анализ информации, сбор статистики и формирование отчетов.
+            Анализ информации, сбор статистики и формирование отчетов.
           </p>
           <p class="article">
             Мы гарантируем, Вам не придется больше ни о чем беспокоится.<br /><br />
@@ -27,7 +27,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#0a78dc'" @onClick="scrollToOrder">
             <template v-slot:header> Видеоаналитика для бизнеса </template>
             <template v-slot:description>
@@ -213,6 +213,15 @@
             </template>
           </service-block>
         </service-list>
+        <special-price class="page-content-block" :background-color="'#0a78dc'"
+          ><template v-slot:text
+            ><span
+              >При необходимости, специалисты компании помогут обеспечить доступ
+              к уже существующему видеонаблюдению с помощью услуги
+              <strong>«проброс портов»</strong>.
+            </span>
+          </template></special-price
+        >
       </div>
       <question-block
         ref="question"
@@ -242,10 +251,6 @@
           <p class="article">
             Конкретное решение зависит от ваших потребностей.
           </p>
-          <h5 class="header">
-            При необходимости, специалисты компании помогут обеспечить доступ к
-            уже существующему видеонаблюдению с помощью услуги «проброс портов».
-          </h5>
         </template>
       </question-block>
     </div>
@@ -257,12 +262,14 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SpecialPrice from '~/components/Common/SpecialPrice'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SpecialPrice,
   },
   methods: {
     scrollToServices: function () {
