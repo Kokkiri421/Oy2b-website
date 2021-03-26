@@ -236,7 +236,11 @@ import QuestionBlock from '~/components/Common/QuestionBlock'
 import TelephonyTable from '~/components/Telephony/TelephonyTable'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
 import Icon from '~/components/Icons/Icon'
+
 export default {
+  data() {
+    return {}
+  },
   components: {
     HeroBlock,
     ServiceBlock,
@@ -246,6 +250,7 @@ export default {
     RoubleIcon,
     Icon,
   },
+
   methods: {
     scrollToServices: function () {
       window.scrollTo({

@@ -70,7 +70,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  layout: 'documentLayout',
+}
 </script>
 
 <style lang="scss" scoped>

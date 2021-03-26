@@ -2,7 +2,7 @@
   <div class="ratio-form wrapper">
     <h4 class="header">Выберите удобный тариф:</h4>
     <div class="ratios">
-      <div class="ratios__types" ref="expert">
+      <div class="ratios__types" ref="ratio-types">
         <ratio
           class="ratio"
           :price="basicPrice"
@@ -77,6 +77,7 @@
 
 <script>
 import Ratio from '~/components/ItOutsource/Ratio'
+
 export default {
   data() {
     return {
@@ -102,30 +103,30 @@ export default {
   },
   methods: {
     scrollCarousel: function (ratio) {
-      this.$refs['expert'].scroll({
+      this.$refs['ratio-types'].scroll({
         top: 0,
-        left: (this.$refs['expert'].scrollWidth / 3) * (ratio - 1),
+        left: (this.$refs['ratio-types'].scrollWidth / 3) * (ratio - 1),
         behavior: 'smooth',
       })
     },
     checkScroll: function () {
-      if (this.$refs['expert'].scrollLeft) {
+      if (this.$refs['ratio-types'].scrollLeft) {
         this.currentRatio =
           Math.round(
-            this.$refs['expert'].scrollLeft /
-              (this.$refs['expert'].offsetWidth / 2)
+            this.$refs['ratio-types'].scrollLeft /
+              (this.$refs['ratio-types'].offsetWidth / 2)
           ) + 1
       }
     },
   },
   computed: {},
   mounted() {
-    this.$refs['expert'].scroll({
+    this.$refs['ratio-types'].scroll({
       top: 0,
-      left: this.$refs['expert'].scrollWidth / 3,
+      left: this.$refs['ratio-types'].scrollWidth / 3,
       behavior: 'instant',
     })
-    this.$refs['expert'].addEventListener('scroll', this.checkScroll)
+    this.$refs['ratio-types'].addEventListener('scroll', this.checkScroll)
   },
 }
 </script>

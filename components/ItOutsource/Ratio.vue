@@ -1,13 +1,32 @@
 <template>
   <div class="ratio" :style="{ background: backgroundColor }">
-    <div class="price">{{ price }}&nbsp;₽</div>
+    <div class="price" @click="showModal">{{ price }}&nbsp;₽</div>
     <h4 class="header">{{ header }}</h4>
     <slot name="content"></slot>
+    <modal-window :show="isModalShown" @onClick="showModal"
+      ><TicketModalForm @onClick="showModal"
+    /></modal-window>
   </div>
 </template>
 
 <script>
+import ModalWindow from '~/components/Common/ModalWindow'
+import TicketModalForm from '~/components/Common/TicketModalForm'
 export default {
+  data() {
+    return {
+      isModalShown: false,
+    }
+  },
+  components: {
+    ModalWindow,
+    TicketModalForm,
+  },
+  methods: {
+    showModal() {
+      this.isModalShown = !this.isModalShown
+    },
+  },
   props: {
     header: {
       type: String,

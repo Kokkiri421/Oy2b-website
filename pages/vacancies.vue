@@ -419,6 +419,7 @@
 
 <script>
 export default {
+  layout: 'documentLayout',
   data() {
     return {
       expanded: Array(6).fill(false),
@@ -432,11 +433,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~/assets/media_mixin';
-header {
-  background: rgba(0, 0, 0, 0.8) !important;
-}
+
 .vacancies {
   padding: 8em 0;
   @include _600() {

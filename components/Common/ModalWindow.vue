@@ -35,19 +35,20 @@ export default {
 .modal {
   visibility: hidden;
   position: fixed;
-  z-index: 1;
+  display: flex;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
   opacity: 0;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
   .modal-content {
     background-color: #fefefe;
-    margin: 20% auto;
+    margin: auto auto;
     overflow: hidden;
     border: 1px solid #888;
     width: fit-content;

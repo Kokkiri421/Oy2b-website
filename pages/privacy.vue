@@ -96,7 +96,7 @@
 
 <script>
 export default {
-  name: 'privacy',
+  layout: 'documentLayout',
 }
 </script>
 

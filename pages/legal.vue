@@ -584,7 +584,7 @@
 
 <script>
 export default {
-  name: 'legal',
+  layout: 'documentLayout',
 }
 </script>
 

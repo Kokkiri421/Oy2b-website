@@ -91,38 +91,47 @@
             <img
               class="licence-image"
               src="~/static/images/licences/licence1.jpg"
+              @click="changeImage('licence1.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence2.jpg"
+              @click="changeImage('licence2.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence3.jpg"
+              @click="changeImage('licence3.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence4.jpg"
+              @click="changeImage('licence4.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence5.jpg"
+              @click="changeImage('licence5.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence6.jpg"
+              @click="changeImage('licence6.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence7.jpg"
+              @click="changeImage('licence7.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence8.jpg"
+              @click="changeImage('licence8.jpg')"
             />
             <img
               class="licence-image"
-              src="~/static/images/licences/licence1.jpg"
+              src="~/static/images/licences/licence9.jpg"
+              @click="changeImage('licence9.jpg')"
             />
           </div>
         </div>
@@ -134,12 +143,34 @@
         </p>
       </div>
     </div>
+    <modal-window :show="isModalShown" @onClick="showModal">
+      <img :src="require(`~/static/images/licences/${imgName}`)" />
+    </modal-window>
   </div>
 </template>
 
 <script>
+import ModalWindow from '~/components/Common/ModalWindow'
 export default {
-  name: 'company',
+  layout: 'documentLayout',
+  data() {
+    return {
+      isModalShown: false,
+      imgName: 'licence1.jpg',
+    }
+  },
+  methods: {
+    changeImage(name) {
+      this.imgName = name
+      this.showModal()
+    },
+    showModal() {
+      this.isModalShown = !this.isModalShown
+    },
+  },
+  components: {
+    ModalWindow,
+  },
 }
 </script>
 
@@ -192,6 +223,7 @@ header {
         width: 122px;
         height: 174px;
         margin-bottom: 1em;
+        cursor: pointer;
         @include _950() {
           margin-right: 1em;
         }

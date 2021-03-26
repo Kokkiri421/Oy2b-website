@@ -11,13 +11,28 @@
           </tr>
           <tr>
             <td>
-              <button class="dialog-button blue-dialog-button">Заказать</button>
+              <button
+                class="dialog-button blue-dialog-button"
+                @click="showModal"
+              >
+                Заказать
+              </button>
             </td>
             <td>
-              <button class="dialog-button blue-dialog-button">Заказать</button>
+              <button
+                class="dialog-button blue-dialog-button"
+                @click="showModal"
+              >
+                Заказать
+              </button>
             </td>
             <td>
-              <button class="dialog-button blue-dialog-button">Заказать</button>
+              <button
+                class="dialog-button blue-dialog-button"
+                @click="showModal"
+              >
+                Заказать
+              </button>
             </td>
           </tr>
         </thead>
@@ -502,6 +517,9 @@
         </tbody>
       </table>
     </div>
+    <modal-window :show="isModalShown" @onClick="showModal"
+      ><TicketModalForm @onClick="showModal"
+    /></modal-window>
   </div>
 </template>
 
@@ -509,14 +527,20 @@
 import Icon from '~/components/Icons/Icon'
 import CheckIcon from '~/components/Icons/CheckIcon'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
+import ModalWindow from '~/components/Common/ModalWindow'
+import TicketModalForm from '~/components/Common/TicketModalForm.vue'
 
 export default {
   data() {
     return {
+      isModalShown: false,
       expanded: false,
     }
   },
   methods: {
+    showModal() {
+      this.isModalShown = !this.isModalShown
+    },
     changeExpanded: function () {
       this.expanded = !this.expanded
     },
@@ -525,6 +549,8 @@ export default {
     Icon,
     CheckIcon,
     RoubleIcon,
+    ModalWindow,
+    TicketModalForm,
   },
 }
 </script>
