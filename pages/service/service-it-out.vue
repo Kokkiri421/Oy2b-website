@@ -26,7 +26,7 @@
         <div class="hero-block__user-form">
           <button class="dialog-button">Оставить заявку</button>
           <button
-            class="dialog-button blue-dialog-button"
+            class="dialog-button dialog-button-base"
             @click="scrollToCalculator"
           >
             Калькулятор
@@ -139,7 +139,7 @@
           </span>
         </p>
         <div class="advantages page-content-block">
-          <h4>Как сэкономить:</h4>
+          <h5>Как сэкономить:</h5>
           <advantage-list>
             <template v-slot:advantage-list>
               <advantage-block :style="{ '--color': '#009ee3' }">

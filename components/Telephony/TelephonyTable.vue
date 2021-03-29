@@ -12,7 +12,7 @@
           <tr>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
@@ -20,7 +20,7 @@
             </td>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
@@ -28,7 +28,7 @@
             </td>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
@@ -1318,21 +1318,17 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .telephony-table {
 }
-.blue-dialog-button {
-  background-color: #ff7a00;
-  &:hover {
-    background-color: #ff9533;
-  }
-}
+
 .row-expander {
   th {
-    background-color: #fbca9b !important;
+    background-color: $base-color-table !important;
     border-right: none !important;
   }
   td {
-    background-color: #fbca9b !important;
+    background-color: $base-color-table !important;
     border-left: none !important;
     text-align: left;
   }
@@ -1344,8 +1340,8 @@ export default {
     color 0.3s ease-out, border-color 0.2s ease-out;
   font-weight: 700;
   &:hover {
-    color: #ff7a00;
-    fill: #ff7a00;
+    color: #fff;
+    fill: #fff;
     @include _600() {
       color: #000;
       fill: #000;

@@ -3,7 +3,7 @@
     <div
       class="content-block"
       @click="scrollDown"
-      :style="{ backgroundColor: backgroundColor }"
+      :style="{ backgroundColor1: backgroundColor }"
     >
       <div class="content-block__header">
         <h4 class="header-content">
@@ -56,22 +56,25 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
+$font-color: #fff;
 .content-block-wrapper {
   display: block;
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
   page-break-inside: avoid;
   column-fill: balance;
+  padding-bottom: 1em;
 }
 .content-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  color: #fff;
+  color: $font-color;
   border-radius: 6px;
   padding: 1.25em 2.25em 1.75em;
-  margin-bottom: 1em;
+  background-color: $base-color1;
   line-height: 1.5em;
   font-size: 0.95em;
 
@@ -147,10 +150,10 @@ export default {
     cursor: pointer;
     .header-content {
       .order {
-        border-bottom: 1px dashed #fff;
+        border-bottom: 1px dashed $font-color;
       }
       .link {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $font-color;
       }
     }
     .content-block__button {

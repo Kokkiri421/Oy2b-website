@@ -31,11 +31,15 @@
             >
           </li>
           <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/service-it-out"
-            >
-              IT аутсорсинг
+            <NuxtLink class="nuxtlink" to="/service/service-it-out">
+              <icon
+                :icon-name="'flame-icon'"
+                class="icon"
+                :view-box="'0 0 611.999 611.999'"
+              >
+                <flame-icon />
+              </icon>
+              <span class="underline-animated-link">IT аутсорсинг</span>
             </NuxtLink>
           </li>
           <li class="list-item">
@@ -59,18 +63,26 @@
               >Облачные решения</NuxtLink
             >
           </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/kompleksnye-resheniya"
-              >Отрасли</NuxtLink
-            >
-          </li>
+
           <li class="list-item">
             <NuxtLink
               class="underline-animated-link nuxtlink"
               to="/service/dop-uslugi"
               >Операторам</NuxtLink
+            >
+          </li>
+          <li class="list-item">
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/ip-adresa"
+              >IP Адреса</NuxtLink
+            >
+          </li>
+          <li class="list-item">
+            <NuxtLink
+              class="underline-animated-link nuxtlink"
+              to="/service/kompleksnye-resheniya"
+              >Отрасли</NuxtLink
             >
           </li>
         </ul>
@@ -102,14 +114,20 @@
 </template>
 
 <script>
+import Icon from '~/components/Icons/Icon'
+import FlameIcon from '~/components/Icons/FlameIcon'
 export default {
   name: 'DefaultFooter',
+  components: {
+    Icon,
+    FlameIcon,
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-
+@import '~/assets/colors';
 .footer-item {
   padding: 2em 0;
   @include _1366 {
@@ -151,6 +169,17 @@ export default {
         }
         @include _600() {
           margin: 0 4.5% 0 0;
+        }
+        &:hover {
+          .icon {
+            fill: #ff9d00;
+          }
+        }
+        .icon {
+          width: 1em;
+          height: 1em;
+          fill: $red-color1;
+          transition: fill 0.3s ease-out;
         }
       }
     }

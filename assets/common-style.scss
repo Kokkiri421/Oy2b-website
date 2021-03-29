@@ -1,3 +1,4 @@
+@import '~/assets/colors';
 body {
   margin: 0;
   font-family: Montserrat, sans-serif;
@@ -54,6 +55,15 @@ body {
     background-color: #ec3346;
   }
 }
+
+.dialog-button-base {
+  background-color: $base-color1;
+  &:hover {
+    background-color: $base-color2;
+    color: #fff;
+  }
+}
+
 .article {
   margin-bottom: 1em;
 }
@@ -115,6 +125,17 @@ body {
 .nuxtlink {
   text-decoration: none;
 }
+
+.service-message {
+  @include _900() {
+    font-size: 0.9em;
+  }
+  @include _800() {
+    font-size: 0.8em;
+    line-height: 1.2em;
+  }
+}
+
 .table-container {
   overflow-x: auto;
   .table {
@@ -216,6 +237,17 @@ h1 {
     font-size: 2em;
   }
 }
+h2 {
+  font-size: 3em;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+  @include _1300() {
+    font-size: 1.75em;
+  }
+  @include _700() {
+    font-size: 1.3em;
+  }
+}
 h4 {
   font-size: 2em;
   margin: 0 0 0.7em 0;
@@ -240,3 +272,4 @@ h5 {
 h6 {
   font-size: 1em;
 }
+

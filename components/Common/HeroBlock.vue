@@ -30,10 +30,7 @@
             </div>
           </form>
           <div class="hero-block-form-container__legal">
-            Нажимая кнопку «Оставить заявку», я даю свое согласие на обработку
-            персональных данных согласно
-
-            <NuxtLink to="/legal/">Политике конфиденциальности</NuxtLink>.
+            <NuxtLink to="/legal/">Политика конфиденциальности</NuxtLink>
           </div>
         </div>
         <div v-else>
@@ -89,6 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .hero-block {
   height: 100%;
   width: 100%;
@@ -123,6 +121,7 @@ export default {
         font-weight: 500;
         font-size: 1em;
         line-height: 20px;
+        margin-bottom: 2em;
         @include _400() {
           font-size: 0.9em;
         }
@@ -137,7 +136,7 @@ export default {
         }
         &__item {
           vertical-align: top;
-          margin: 1em 1em 2em 0;
+          margin: 1em 1em 1em 0;
           min-width: 280px;
           @include _950() {
             display: block;
@@ -151,11 +150,18 @@ export default {
           }
         }
       }
-      &__legal {
+      &__prefix {
         font-size: 0.8em;
-        line-height: 1.4em;
+      }
+      &__legal {
+        font-size: 0.6em;
+        line-height: normal;
         a {
           color: #fff;
+          transition: color 0.3s ease-out;
+          &:hover {
+            color: $red-color1;
+          }
         }
       }
     }

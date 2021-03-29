@@ -114,7 +114,7 @@
               любые вопросы из области корпоративных телекоммуникационных услуг.
               Поможем разобраться и оптимизировать расходы на услуги связи.
             </p>
-            <h6 class="header">Наши эксперты</h6>
+            <h5 class="header">Наши эксперты</h5>
             <p class="article">
               В Oyster Telecom работают технические специалисты
               с&nbsp;релевантным опытом из&nbsp;различных технических сфер услуг
@@ -178,7 +178,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('~/static/images/backgrounds/kompleksnye-resheniya-bg.jpg');
   .description {
     margin-bottom: 1em;

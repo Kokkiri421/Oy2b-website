@@ -214,9 +214,9 @@
         :question="'Например:\nКак подключить POS терминалы c помощью разделения Wi-Fi на 2 SSID?'"
       >
         <template v-slot:top-text>
-          <h4 class="header">
+          <h5 class="header">
             Задайте любой вопрос о подключении услуг связи бесплатно
-          </h4>
+          </h5>
           <p class="article">
             Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
             корпоративных телекоммуникационных услуг.<br />
@@ -285,7 +285,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
     url('~/static/images/backgrounds/wi-fi-bg.jpg');
   .description {
     margin-bottom: 1em;

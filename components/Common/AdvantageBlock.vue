@@ -15,10 +15,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-$color: #ff7d05;
+@import '~/assets/colors';
+
 .advantage {
   padding-top: 1em;
-  border-top: 1px solid var(--color);
+  border-top: 1px solid $base-color1;//var(--color);
   margin-right: 3%;
   margin-bottom: 2em;
   &__header {
@@ -26,7 +27,7 @@ $color: #ff7d05;
     font-size: 2em;
     line-height: normal;
     margin-bottom: 0.3em;
-    color: var(--color);
+    color: $base-color1;//var(--color);
   }
   &__text {
     line-height: 1.4em;

@@ -1,7 +1,7 @@
 <template>
   <div class="special-price">
     <h5>Как сэкономить?</h5>
-    <div class="banner" :style="{ background: backgroundColor }">
+    <div class="banner">
       <div class="text">
         <slot name="text"></slot>
       </div>
@@ -15,7 +15,7 @@ export default {
   props: {
     backgroundColor: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 }
@@ -23,13 +23,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .special-price {
   .banner {
-    color: #fff;
+    color: #000;
     padding: 1.5em;
     font-size: 1.5em;
     line-height: 150%;
     border-radius: 4px;
+    background-color: $form-bg-color;
     @include _900() {
       padding: 1em;
       font-size: 1.25em;

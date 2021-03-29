@@ -169,7 +169,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-
+@import '~/assets/colors';
 .calculator-form {
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   padding: 30px;
@@ -235,8 +235,8 @@ export default {
     .computer-count[type='range']::-webkit-slider-runnable-track {
       background: linear-gradient(
         to right,
-        #009ee3 0%,
-        #009ee3 var(--computer-progress),
+        $base-color1 0%,
+        $base-color1 var(--computer-progress),
         #fff var(--computer-progress),
         #fff 100%
       );
@@ -245,8 +245,8 @@ export default {
     .server-count[type='range']::-webkit-slider-runnable-track {
       background: linear-gradient(
         to right,
-        #009ee3 0%,
-        #009ee3 var(--server-progress),
+        $base-color1 0%,
+        $base-color1 var(--server-progress),
         #fff var(--server-progress),
         #fff 100%
       );
@@ -255,8 +255,8 @@ export default {
     .office-equipment-count[type='range']::-webkit-slider-runnable-track {
       background: linear-gradient(
         to right,
-        #009ee3 0%,
-        #009ee3 var(--office-equipment-progress),
+        $base-color1 0%,
+        $base-color1 var(--office-equipment-progress),
         #fff var(--office-equipment-progress),
         #fff 100%
       );
@@ -284,7 +284,7 @@ input[type='range']:focus {
   outline: none;
 }
 input[type='range']::-webkit-slider-runnable-track {
-  border: 2px solid #7dd7ff;
+  border: 2px solid $base-color3;
   border-radius: 6px;
   width: 100%;
   height: 6px;
@@ -294,7 +294,7 @@ input[type='range']::-webkit-slider-thumb {
   margin-top: -6px;
   width: 14px;
   height: 14px;
-  background: #009ee3;
+  background: $base-color1;
 
   border-radius: 14px;
   cursor: pointer;
@@ -302,7 +302,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 input[type='range']::-moz-range-track {
   background: #ffffff;
-  border: 2px solid #7dd7ff;
+  border: 2px solid $base-color3;
   border-radius: 6px;
   width: 100%;
   height: 2px;
@@ -311,7 +311,7 @@ input[type='range']::-moz-range-track {
 input[type='range']::-moz-range-thumb {
   width: 14px;
   height: 14px;
-  background: #009ee3;
+  background: $base-color1;
   border: 0px solid rgba(0, 0, 0, 0);
   border: 0;
   border-radius: 14px;
@@ -328,18 +328,18 @@ input[type='range']::-ms-track {
 }
 input[type='range']::-ms-fill-lower {
   background: #fafafa;
-  border: 2px solid #7dd7ff;
+  border: 2px solid $base-color3;
   border-radius: 12px;
 }
 input[type='range']::-ms-fill-upper {
   background: #ffffff;
-  border: 2px solid #7dd7ff;
+  border: 2px solid $base-color3;
   border-radius: 12px;
 }
 input[type='range']::-ms-thumb {
   width: 14px;
   height: 14px;
-  background: #009ee3;
+  background: $base-color1;
   border: 0px solid rgba(0, 0, 0, 0);
   border: 0;
   border-radius: 14px;
@@ -362,14 +362,14 @@ input[type='range']:focus::-ms-fill-upper {
 }
 /** FF*/
 input[type='range']::-moz-range-progress {
-  background-color: #009ee3;
+  background-color: $base-color1;
 }
 input[type='range']::-moz-range-track {
   background-color: #fff;
 }
 /* IE*/
 input[type='range']::-ms-fill-lower {
-  background-color: #009ee3;
+  background-color: $base-color1;
 }
 input[type='range']::-ms-fill-upper {
   background-color: #fff;

@@ -27,20 +27,22 @@
               >
             </li>
             <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
-                to="/service/service-it-out"
-              >
-                <span>
-                  <icon
-                    :icon-name="'flame-icon'"
-                    class="icon"
-                    :view-box="'0 0 611.999 611.999'"
-                  >
-                    <flame-icon /> </icon
-                  >IT аутсорсинг
-                </span></NuxtLink
-              >
+              <NuxtLink class="nuxtlink" to="/service/service-it-out">
+                <icon
+                  :icon-name="'flame-icon'"
+                  class="icon icon-left"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon /> </icon
+                ><span class="underline-animated-link">IT Аутсорсинг</span>
+                <icon
+                  :icon-name="'flame-icon'"
+                  class="icon icon-right"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon />
+                </icon>
+              </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
@@ -67,15 +69,22 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/kompleksnye-resheniya"
-                >Отрасли</NuxtLink
+                to="/service/dop-uslugi"
+                >Операторам</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/dop-uslugi"
-                >Операторам</NuxtLink
+                to="/service/ip-adresa"
+                >IP Адреса</NuxtLink
+              >
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/kompleksnye-resheniya"
+                >Отрасли</NuxtLink
               >
             </li>
           </ul>
@@ -169,12 +178,16 @@ export default {
   background-color: #d81428;
   margin-left: -5em;
   width: 440px;
+  border-radius: 0 0 5px 5px;
 
   @include _1300 {
     margin-left: -50px;
   }
-  @include _650 {
+  @include _900 {
     margin-left: -20px;
+  }
+  @include _600 {
+    margin-left: -10px;
     width: 320px;
   }
 }
@@ -215,14 +228,28 @@ export default {
       margin-bottom: 0.9em;
       .nuxtlink {
         color: #fff;
+
         .icon {
           height: 0.75em;
           width: 1em;
           fill: #ff9d00;
-          margin-left: -1.25em;
-          margin-right: 0.25em;
+
           @include _900() {
             display: none;
+          }
+        }
+        .icon-left {
+          margin-left: -1.25em;
+          margin-right: 0.25em;
+
+          @include _900() {
+            display: none;
+          }
+        }
+        .icon-right {
+          display: none;
+          @include _900() {
+            display: inline-block;
           }
         }
       }

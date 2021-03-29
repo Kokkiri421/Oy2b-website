@@ -1,5 +1,5 @@
 <template>
-  <div class="ratio" :style="{ background: backgroundColor }">
+  <div class="ratio" >
     <div class="price" @click="showModal">{{ price }}&nbsp;₽</div>
     <h4 class="header">{{ header }}</h4>
     <slot name="content"></slot>
@@ -32,10 +32,7 @@ export default {
       type: String,
       required: true,
     },
-    backgroundColor: {
-      type: String,
-      required: true,
-    },
+
     price: {
       type: Number || String,
       required: true,
@@ -49,11 +46,12 @@ export default {
 .ratio {
   position: relative;
   padding: 1.6em 2em 3em;
-  border: 1px solid #eee;
+  //border: 1px solid #eee;
   border-radius: 6px;
   text-align: center;
   height: fit-content;
   margin-top: 2em;
+  color: #fff;
   @include _900() {
     padding: 1em;
   }

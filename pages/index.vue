@@ -2,7 +2,7 @@
   <div class="container">
     <hero-block :is-anchor="false">
       <template v-slot:header>
-        Комплексные услуги связи&nbsp;и&nbsp;IT&nbsp;сервисы
+        Комплексные услуги связи и&nbsp;IT&nbsp;сервисы
       </template>
       <template v-slot:description>
         <div class="description dn-600">

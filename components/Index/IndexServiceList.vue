@@ -54,6 +54,14 @@
               class="service-button__link nuxtlink"
               to="/service/service-it-out"
             >
+              <icon
+                :icon-name="'flame-icon'"
+                class="service-button__icon"
+                :view-box="'0 0 611.999 611.999'"
+              >
+                <flame-icon />
+              </icon>
+
               IT аутсорсинг
             </NuxtLink>
           </li>
@@ -109,8 +117,8 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
-              to="/service/kompleksnye-resheniya"
-              >Отрасли</NuxtLink
+              to="/service/dop-uslugi"
+              >Операторам</NuxtLink
             >
           </li>
         </animate-on-viewport>
@@ -123,8 +131,22 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
-              to="/service/dop-uslugi"
-              >Операторам</NuxtLink
+              to="/service/ip-adresa"
+              >IP Адреса</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/kompleksnye-resheniya"
+              >Отрасли</NuxtLink
             >
           </li>
         </animate-on-viewport>
@@ -145,6 +167,7 @@ import VideoIcon from '~/components/Icons/VideoIcon'
 import ComplexSolutionIcon from '~/components/Icons/ComplexSolutionIcon'
 import AdditionalServiceIcon from '~/components/Icons/AdditionalServiceIcon'
 import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
+import FlameIcon from '~/components/Icons/FlameIcon'
 export default {
   data() {
     return {}
@@ -161,12 +184,14 @@ export default {
     ComplexSolutionIcon,
     AdditionalServiceIcon,
     AnimateOnViewport,
+    FlameIcon,
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .company-services {
   margin-top: 4em;
   counter-reset: service;
@@ -193,13 +218,14 @@ export default {
     box-shadow: 0 0.25em 0.5em 0 rgb(0 0 0 / 10%);
     transition: box-shadow 0.3s ease-out, background-color 0.3s ease-out,
       border 0.3s ease-out, color 0.3s ease-out;
+
     &:hover {
       color: #fff;
       border-color: rgba(216, 20, 40, 0.33);
-      background-color: #d81428;
+      background-color: $red-color1;
       box-shadow: 0 0.5em 1em 0.5em rgb(216 20 40 / 30%);
       .service-button__icon {
-        fill: #fff;
+        fill: #ff9d00;
       }
     }
     @include _765() {
@@ -223,13 +249,13 @@ export default {
       }
     }
     &__icon {
-      width: 1.45em;
-      height: 1.45em;
+      width: 1em;
+      height: 1em;
       margin-right: 0.5em;
-      fill: #ccc;
+      fill: $red-color1;
       transition: fill 0.6s ease-out;
       @include _765() {
-        display: none;
+        margin-right: 0.25em;
       }
     }
   }
@@ -241,7 +267,7 @@ export default {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
-$n: 9;
+$n: 10;
 
 @for $i from 1 through $n {
   .animated-element:nth-child(#{$i}) {

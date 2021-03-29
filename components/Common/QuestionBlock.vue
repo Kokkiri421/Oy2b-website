@@ -62,6 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .question-block {
   .article {
     line-height: 1.62em;
@@ -131,10 +132,14 @@ export default {
   }
   &__privacy {
     color: #999;
-    font-size: 0.8em;
+    font-size: 0.6em;
     line-height: 1.4em;
     a {
       color: #999;
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: $red-color1;
+      }
     }
   }
 }

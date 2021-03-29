@@ -1,13 +1,12 @@
 <template>
   <div class="ratio-form wrapper">
-    <h4 class="header">Выберите удобный тариф:</h4>
+    <h5 class="header">Выберите удобный тариф:</h5>
     <div class="ratios">
       <div class="ratios__types" ref="ratio-types">
         <ratio
           class="ratio"
           :price="basicPrice"
           :header="'Стартовый'"
-          :background-color="'#97e7fc'"
           id="slide-1"
         >
           <template v-slot:content>
@@ -23,7 +22,6 @@
           class="ratio"
           :price="standardPrice"
           :header="'Cтандартный'"
-          :background-color="'#4ae1ff'"
           id="slide-2"
         >
           <template v-slot:content>
@@ -41,7 +39,6 @@
           class="ratio"
           :price="expertPrice"
           :header="'Экспертный'"
-          :background-color="'#00bee3'"
           id="slide-3"
         >
           <template v-slot:content>
@@ -137,6 +134,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .wrapper {
   @include _600() {
     padding: 0;
@@ -170,6 +168,15 @@ export default {
             margin-right: 1em;
           }
         }
+        &:nth-child(1) {
+          background-color: $base-color3;
+        }
+        &:nth-child(2) {
+          background-color: $base-color2;
+        }
+        &:nth-child(3) {
+          background-color: $base-color1;
+        }
         &:nth-last-child(-n + 1) {
           margin-right: 0;
         }
@@ -190,7 +197,7 @@ export default {
         width: 10px;
         height: 10px;
         border-radius: 20px;
-        background: #97e7fc;
+        background: $base-color3;
         margin-top: 1em;
         &:nth-child(n + 1) {
           margin-right: 0.5em;
@@ -200,7 +207,7 @@ export default {
         }
       }
       .active {
-        background: #00bee3;
+        background: $base-color1;
       }
     }
   }

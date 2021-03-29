@@ -35,7 +35,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button dialog-button-inverted-colors">
+              ><button class="dialog-button ">
                 Заказать
               </button>
             </template>
@@ -53,7 +53,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button dialog-button-inverted-colors">
+              ><button class="dialog-button ">
                 Заказать
               </button>
             </template>
@@ -74,7 +74,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button dialog-button-inverted-colors">
+              ><button class="dialog-button ">
                 Заказать
               </button>
             </template>
@@ -116,7 +116,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button dialog-button-inverted-colors">
+              ><button class="dialog-button ">
                 Заказать
               </button>
             </template>
@@ -133,7 +133,7 @@
               </ul>
             </template>
             <template v-slot:button
-              ><button class="dialog-button dialog-button-inverted-colors">
+              ><button class="dialog-button ">
                 Заказать
               </button>
             </template>
@@ -153,9 +153,9 @@
         :question="'Например:\nМожно ли организовать L2 канал между офисами компании?'"
       >
         <template v-slot:top-text>
-          <h4 class="header">
+          <h5 class="header">
             Задайте любой вопрос о подключении услуг связи бесплатно
-          </h4>
+          </h5>
           <p class="article">
             Мы&nbsp;бесплатно ответим на&nbsp;любые вопросы из&nbsp;области
             корпоративных телекоммуникационных услуг.<br />
@@ -223,6 +223,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+
 .hero-block {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/static/images/backgrounds/internet-bg.jpg');
@@ -234,12 +235,5 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.dialog-button-inverted-colors {
-  background-color: #fff;
-  color: #ea172c;
-  &:hover {
-    background-color: transparent;
-    color: #fff;
-  }
-}
+
 </style>

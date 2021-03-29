@@ -12,7 +12,7 @@
           <tr>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
@@ -20,7 +20,7 @@
             </td>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
@@ -28,7 +28,7 @@
             </td>
             <td>
               <button
-                class="dialog-button blue-dialog-button"
+                class="dialog-button dialog-button-base"
                 @click="showModal"
               >
                 Заказать
