@@ -172,6 +172,10 @@ export default {
       })
     },
   },
+  mounted() {
+    // let yamap = document.createElement('script')
+    // yamap.setAttribute('src', srcript)
+  },
 }
 </script>
 

@@ -178,17 +178,17 @@ export default {
   background-color: #d81428;
   margin-left: -5em;
   width: 440px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 6px 6px;
 
   @include _1300 {
     margin-left: -50px;
+    border-radius: 0 0 6px 0;
+
   }
-  @include _900 {
+  @include _650 {
     margin-left: -20px;
-  }
-  @include _600 {
-    margin-left: -10px;
     width: 320px;
+    border-radius: 0 0 6px 0;
   }
 }
 .navigation-menu {
