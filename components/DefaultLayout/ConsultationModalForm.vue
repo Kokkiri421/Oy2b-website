@@ -58,6 +58,7 @@ export default {
   $color1: #fff;
   $color2: #d81428;
   &__radio {
+    position: relative;
     margin: 0.5rem;
     input[type='radio'] {
       position: absolute;
@@ -66,26 +67,38 @@ export default {
         margin-right: 2em;
         &:before {
           content: '';
-          background: $color1;
+          position: absolute;
+          left: -2em;
+          width: 20px;
+          height: 20px;
           border-radius: 100%;
-          border: 1px solid darken($color1, 25%);
-          display: inline-block;
-          width: 1.4em;
-          height: 1.4em;
-          position: relative;
-          top: -0.2em;
-          margin-right: 0.5em;
-          vertical-align: top;
-          cursor: pointer;
-          text-align: center;
-          transition: all 250ms ease;
+          border: 1px solid #dfdfdf;
+          transition: border-color 0.2s ease-out;
+          z-index: 1;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          left: -1.7em;
+          top: 5px;
+          width: 12px;
+          height: 12px;
+          border-radius: 100%;
+          
+          transition: border-color 0.2s ease-out;
+          z-index: 1;
+
         }
       }
       &:checked {
         + .radio-label {
           &:before {
+            //background-color: $color2;
+            border-radius: 100%;
+            //box-shadow: inset 0 0 0 6px $color1;
+          }
+          &:after {
             background-color: $color2;
-            box-shadow: inset 0 0 0 4px $color1;
           }
         }
       }
@@ -131,6 +144,7 @@ export default {
   .radio-buttons {
     display: flex;
     flex-direction: row;
+    padding-left: 1.5em;
   }
 }
 </style>

@@ -11,7 +11,8 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.8.3",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "vue-yandex-maps": "^0.10.10"
   },
   "devDependencies": {
     "eslint-config-prettier": "^7.2.0",
@@ -25,7 +26,6 @@
     "nuxt": {
       "host": "0.0.0.0",
       "port": "3000"
-
     }
   }
 }

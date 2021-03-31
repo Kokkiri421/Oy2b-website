@@ -89,6 +89,7 @@
             </li>
           </ul>
         </div>
+        
         <div class="navigation-menu__item bottom-menu">
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
@@ -197,6 +198,7 @@ export default {
   padding: 2.25em 5em;
   max-height: calc(100vh - 6em - 96px);
   overflow-y: auto;
+  margin-bottom: 5px;
   @include _1300 {
     padding: 2.25em 50px;
   }
@@ -205,12 +207,19 @@ export default {
     padding: 1.25em 20px;
     max-height: calc(100vh - 4em - 64px);
   }
+  @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
+
   &:hover {
-    //@include scrollbars(10px, rgb(255, 255, 255, 0.75), transparent);
+     @include scrollbars(10px, rgb(0, 0, 0, 0.25), transparent);
   }
   &__item {
+    &:nth-child(1) {
+      border-bottom: 1px solid #fff;
+      margin-top:0 !important;
+    }
     &:nth-child(n) {
-      margin-bottom: 3em;
+      margin: 1.5em 0;
+      
     }
     &:nth-last-child(-n + 1) {
       margin-bottom: 0;

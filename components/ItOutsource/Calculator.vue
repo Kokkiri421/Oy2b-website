@@ -237,8 +237,8 @@ export default {
         to right,
         $base-color1 0%,
         $base-color1 var(--computer-progress),
-        #fff var(--computer-progress),
-        #fff 100%
+        $form-bg-color var(--computer-progress),
+        $form-bg-color 100%
       );
     }
 
@@ -247,8 +247,8 @@ export default {
         to right,
         $base-color1 0%,
         $base-color1 var(--server-progress),
-        #fff var(--server-progress),
-        #fff 100%
+        $form-bg-color var(--server-progress),
+        $form-bg-color 100%
       );
     }
 
@@ -257,8 +257,8 @@ export default {
         to right,
         $base-color1 0%,
         $base-color1 var(--office-equipment-progress),
-        #fff var(--office-equipment-progress),
-        #fff 100%
+        $form-bg-color var(--office-equipment-progress),
+        $form-bg-color 100%
       );
     }
   }
@@ -284,7 +284,7 @@ input[type='range']:focus {
   outline: none;
 }
 input[type='range']::-webkit-slider-runnable-track {
-  border: 2px solid $base-color3;
+  border: 1px solid #fff;
   border-radius: 6px;
   width: 100%;
   height: 6px;
@@ -302,10 +302,10 @@ input[type='range']::-webkit-slider-thumb {
 }
 input[type='range']::-moz-range-track {
   background: #ffffff;
-  border: 2px solid $base-color3;
+  border: 1px solid #fff;
   border-radius: 6px;
   width: 100%;
-  height: 2px;
+  height: 3px;
   cursor: pointer;
 }
 input[type='range']::-moz-range-thumb {
@@ -363,15 +363,17 @@ input[type='range']:focus::-ms-fill-upper {
 /** FF*/
 input[type='range']::-moz-range-progress {
   background-color: $base-color1;
+  border-radius: 6px;
+  height: 4px;
 }
 input[type='range']::-moz-range-track {
-  background-color: #fff;
+  background-color: $form-bg-color;
 }
 /* IE*/
 input[type='range']::-ms-fill-lower {
   background-color: $base-color1;
 }
 input[type='range']::-ms-fill-upper {
-  background-color: #fff;
+  background-color: $form-bg-color;
 }
 </style>

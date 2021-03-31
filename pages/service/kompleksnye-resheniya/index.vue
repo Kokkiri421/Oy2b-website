@@ -144,6 +144,7 @@ import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import SpecialPrice from '~/components/Common/SpecialPrice'
+
 export default {
   components: {
     HeroBlock,
@@ -151,6 +152,7 @@ export default {
     ServiceList,
     QuestionBlock,
     SpecialPrice,
+       
   },
   methods: {
     scrollToServices: function () {
@@ -172,10 +174,7 @@ export default {
       })
     },
   },
-  mounted() {
-    // let yamap = document.createElement('script')
-    // yamap.setAttribute('src', srcript)
-  },
+  
 }
 </script>
 

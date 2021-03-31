@@ -87,14 +87,14 @@ export default {
 @import '~/assets/media_mixin';
 .main-content {
   width: 100%;
-  padding: 6em 0 4em;
+
   display: flex;
   flex-direction: column;
   @include _950() {
-    padding: 5em 0 0;
+  
   }
   @include _640() {
-    padding: 2em 0 0;
+    
   }
 }
 .company-info {

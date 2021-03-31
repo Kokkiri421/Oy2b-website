@@ -37,7 +37,7 @@ export default {
 .modal-form {
   padding: 2em;
   max-width: 650px;
-
+  color: #000;
   &__item {
     border: 1px solid #dfdfdf;
     border-radius: 4px;

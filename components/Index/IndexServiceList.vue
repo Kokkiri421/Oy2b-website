@@ -168,6 +168,7 @@ import ComplexSolutionIcon from '~/components/Icons/ComplexSolutionIcon'
 import AdditionalServiceIcon from '~/components/Icons/AdditionalServiceIcon'
 import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
 import FlameIcon from '~/components/Icons/FlameIcon'
+
 export default {
   data() {
     return {}
@@ -185,6 +186,7 @@ export default {
     AdditionalServiceIcon,
     AnimateOnViewport,
     FlameIcon,
+
   },
 }
 </script>

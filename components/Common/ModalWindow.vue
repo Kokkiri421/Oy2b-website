@@ -54,7 +54,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-
+  border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;

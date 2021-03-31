@@ -17,9 +17,20 @@
         Проверьте возможность подключения:
       </template>
     </hero-block>
+
+    <div class="page-content">
+      <div class="wrapper">
+      <index-main-content class="page-content-block"/>
+
+      <h4>Зона присутствия сетей связи «Oyster Telecom»</h4>
+    </div>
+    <yandex-map-block></yandex-map-block>
     <div class="wrapper">
-      <index-main-content />
       <order-block />
+      
+    </div>
+    
+    
     </div>
   </div>
 </template>
@@ -29,12 +40,17 @@ import IndexMainContent from '~/components/Index/IndexMainContent'
 import HeroBlock from '~/components/Common/HeroBlock'
 import OrderBlock from '~/components/DefaultLayout/OrderBlock'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import YandexMapBlock from '~/components/Index/YandexMapBlock'
 export default {
+  data() {
+    return {}
+  },
   components: {
     IndexMainContent,
     HeroBlock,
     OrderBlock,
     QuestionBlock,
+    YandexMapBlock,
   },
 }
 </script>
@@ -44,9 +60,7 @@ export default {
 .hero-block {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/static/images/backgrounds/index-bg.jpg');
-  .description {
-    margin-bottom: 2.5em;
-  }
+
 }
 .order-block {
   flex-grow: 1;
@@ -55,4 +69,5 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 </style>

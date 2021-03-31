@@ -87,8 +87,8 @@ body {
     left: 0;
 
     position: absolute;
-
-    transition: width 0.3s ease 0s;
+  
+    transition: width 0.3s ease-out ;
     width: 0;
   }
   &:hover:before {
@@ -103,7 +103,7 @@ body {
     right: 0;
     position: absolute;
     background: #fff;
-    transition: width 0.3s ease 0s;
+    transition: width 0.3s ease-out;
     width: 0;
   }
   &:hover:after {

@@ -5,14 +5,21 @@
     height: $size;
 
   }
-
+  transition: scrollbar-color, scrollbar-face-color,  0.5s ease-out;
+  
   &::-webkit-scrollbar-thumb {
     background: $foreground-color;
     border-radius: 5px;
+    
+    
+
   }
 
   &::-webkit-scrollbar-track {
     background: $background-color;
+    margin-bottom: 10px;
+
+    
   }
 
   // For Internet Explorer
@@ -20,4 +27,8 @@
     scrollbar-face-color: $foreground-color;
     scrollbar-track-color: $background-color;
   }
+  // For Firefox
+
+  scrollbar-color:  $foreground-color $background-color;
+  scrollbar-width: $size;
 }
