@@ -2,76 +2,84 @@
   <div class="wrapper">
     <div class="contacts-page">
       <div class="page-content">
-        <h1>Контакты</h1>
-        <h4>
-          Санкт-Петербург<br />
-          Гороховая ул. 47
-        </h4>
-        <div class="page-content-block contacts-list">
-          <div class="contact">
-            <p class="contact__name">Отдел корпоративных продаж</p>
-            <a href="tel:+78126002030" class="contact__number"
-              >+7(812)600-2030</a
-            >
-            <a
-              class="contact__email underline-animated-link"
-              href="mailto:sale@oy2b.ru"
-              >sale@oy2b.ru</a
-            >
-          </div>
-          <div class="contact">
-            <p class="contact__name">Общие вопросы</p>
-            <a href="tel:+78126010666" class="contact__number"
-              >+7(812)601-0666</a
-            >
-            <a
-              class="contact__email underline-animated-link"
-              href="mailto:info@oy2b.ru"
-              >info@oy2b.ru</a
-            >
-          </div>
-          <div class="contact">
-            <p class="contact__name">Круглосуточная тех. поддержка</p>
-            <a href="tel:+78126010610" class="contact__number"
-              >+7(812)601-0610</a
-            >
-            <a
-              class="contact__email underline-animated-link"
-              href="mailto:support@oy2b.ru"
-              >support@oy2b.ru</a
-            >
-          </div>
-          <div class="contact">
-            <p class="contact__name">Отдел обслуживания</p>
-            <a href="tel:+78126010707" class="contact__number"
-              >+7(812)601-0707</a
-            >
-            <a
-              class="contact__email underline-animated-link"
-              href="mailto:sale@oy2b.ru"
-              >sale@oy2b.ru</a
-            >
-          </div>
-          <div class="contact">
-            <p class="contact__name">Отдел по работе с операторами связи</p>
-            <a href="tel:+78126010709" class="contact__number"
-              >+7(812)601-0709</a
-            >
-            <a
-              class="contact__email underline-animated-link"
-              href="mailto:oper@oy2b.ru"
-              >oper@oy2b.ru</a
-            >
+        <div class="contacts-page__content">
+          <h1>Контакты</h1>
+          <h4>
+            Санкт-Петербург<br />
+            Гороховая ул. 47
+          </h4>
+          <div class="page-content-block contacts-list">
+            <div class="contact">
+              <p class="contact__name">Отдел корпоративных продаж</p>
+              <a href="tel:+78126002030" class="contact__number"
+                >+7(812)600-2030</a
+              >
+              <a
+                class="contact__email underline-animated-link"
+                href="mailto:sale@oy2b.ru"
+                >sale@oy2b.ru</a
+              >
+            </div>
+            <div class="contact">
+              <p class="contact__name">Общие вопросы</p>
+              <a href="tel:+78126010666" class="contact__number"
+                >+7(812)601-0666</a
+              >
+              <a
+                class="contact__email underline-animated-link"
+                href="mailto:info@oy2b.ru"
+                >info@oy2b.ru</a
+              >
+            </div>
+            <div class="contact">
+              <p class="contact__name">Круглосуточная тех. поддержка</p>
+              <a href="tel:+78126010610" class="contact__number"
+                >+7(812)601-0610</a
+              >
+              <a
+                class="contact__email underline-animated-link"
+                href="mailto:support@oy2b.ru"
+                >support@oy2b.ru</a
+              >
+            </div>
+            <div class="contact">
+              <p class="contact__name">Отдел обслуживания</p>
+              <a href="tel:+78126010707" class="contact__number"
+                >+7(812)601-0707</a
+              >
+              <a
+                class="contact__email underline-animated-link"
+                href="mailto:sale@oy2b.ru"
+                >sale@oy2b.ru</a
+              >
+            </div>
+            <div class="contact">
+              <p class="contact__name">Отдел по работе с операторами связи</p>
+              <a href="tel:+78126010709" class="contact__number"
+                >+7(812)601-0709</a
+              >
+              <a
+                class="contact__email underline-animated-link"
+                href="mailto:oper@oy2b.ru"
+                >oper@oy2b.ru</a
+              >
+            </div>
           </div>
         </div>
+        <contact-yandex-map class="contacts-page-map"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import ContactYandexMap from '~/components/Contacts/ContactYandexMap'
+
 export default {
   layout: 'documentLayout',
+  components: {
+    ContactYandexMap,
+  },
 }
 </script>
 
@@ -85,6 +93,8 @@ header {
   @include _600() {
     padding: 4em 0 1em;
   }
+
+  
   .contacts-list {
     max-width: 600px;
     display: flex;
@@ -130,5 +140,21 @@ header {
       }
     }
   }
+}
+.contacts-page-map {
+  flex-grow: 1;
+  width: 700px;
+  border-radius: 6px;
+  @include _1300() {
+    width: 400px;
+  }
+  @include _900() {
+    display: none;
+  }
+}
+.page-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 </style>

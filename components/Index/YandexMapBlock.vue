@@ -1,13 +1,13 @@
 <template>
-  <section class="ymap-container">
+  <section class="ymap-container index">
     <div v-if="isMounted">
       <yandex-map
+        :zoom="11"
         :coords="coords"
         :controls="['zoomControl']"
         :scroll-zoom="false"
-        :zoom="11"
         class="map"
-        id="map"
+        id="index-map"
         @map-was-initialized="mapHandler"
       >
         <ymap-marker
@@ -29,6 +29,7 @@ import { yandexMap, ymapMarker, loadYmap } from 'vue-yandex-maps'
 export default {
   data: () => ({
     isMounted: false,
+    
     myMap: null,
     polygon: null,
     coords: [59.92783924822753, 30.36150418850785],
@@ -101,7 +102,7 @@ export default {
     markerIcon: {
       layout: 'default#image',
       imageHref: require('~/static/Icons/mapMark.svg'),
-      imageSize: [25, 25],
+      imageSize: [28, 28],
       imageOffset: [-16, -16],
     },
   }),
@@ -124,9 +125,11 @@ export default {
       `
     },
     mapHandler: function (e) {
+
       this.myMap = e
       this.myMap.geoObjects.add(this.polygon)
-      this.myMap.setBounds(this.polygon.geometry.getBounds())
+      
+      
     },
   },
   mounted() {
@@ -629,7 +632,7 @@ export default {
   font-size: 0.9em;
   line-height: 1.5em;
 }
-.ymap-container {
+#index-map {
   height: 700px;
   @include _1000() {
     height: 500px;
@@ -640,9 +643,9 @@ export default {
   [class*='ymaps-2'][class*='-ground-pane'] {
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
     /* Firefox 3.5+ */
-    -webkit-filter: grayscale(100%) !important;
+    -webkit-filter: grayscale(100%) ;
     /* Chrome 19+ & Safari 6+ */
-    filter: grayscale(100%) !important;
+    filter: grayscale(100%) ;
   }
 }
 </style>
