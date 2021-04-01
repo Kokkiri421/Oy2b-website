@@ -75,7 +75,7 @@
               )
             "
           >
-            <template v-slot:header> Решения для сферы туризма </template>
+            <template v-slot:header> Решения для сферы&nbsp;туризма </template>
             <template v-slot:description>
               <p class="article">
                 Многие операторы связи предлагают комплексные решения для

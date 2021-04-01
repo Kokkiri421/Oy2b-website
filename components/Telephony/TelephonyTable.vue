@@ -1321,19 +1321,54 @@ export default {
 @import '~/assets/colors';
 .telephony-table {
 }
-
-.row-expander {
-  th {
-    background-color: $base-color-table !important;
-    border: 1px solid #eee;
-    border-right: none !important;
-  }
-  td {
-    background-color: $base-color-table !important;
-    border-left: none !important;
-    text-align: left;
+thead {
+  tr {
+    th {
+      border: 1px solid #eee;
+    }
   }
 }
+@supports (-moz-appearance: none) {
+  .row-expander {
+    th {
+      //background-color: $base-color-table !important;
+     border: none !important;
+     //border-right: 1px solid $base-color-table !important;
+      background: linear-gradient(
+        to bottom,
+        #eee 0,
+        $base-color-table 1px,
+        $base-color-table 100%
+      ) !important;
+    }
+    td {
+      background: linear-gradient(
+        to bottom,
+        #eee  0,
+        $base-color-table 1px,
+        $base-color-table 100%
+      ) !important;
+      border: none !important;
+      //border-bottom: 1px solid #eee !important;
+      text-align: left;
+    }
+  }
+}
+@supports not (-moz-appearance: none) {
+  .row-expander {
+    th {
+      background-color: $base-color-table !important;
+      //border: 1px solid #eee;
+      border-right: 0 solid $base-color-table !important;
+    }
+    td {
+      background-color: $base-color-table !important;
+      border-left: 0 solid $base-color-table !important;
+      text-align: left;
+    }
+  }
+}
+
 .table-expander {
   cursor: pointer;
   vertical-align: center;

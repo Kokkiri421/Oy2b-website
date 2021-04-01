@@ -25,6 +25,7 @@
           >
             <img src="~/static/images/menuIcon.svg" />
           </button>
+          <desktop-menu class="menu-init__menu"/>
         </div>
       </div>
       <div class="header-contacts">
@@ -48,6 +49,7 @@
 import NavigationMenu from '~/components/DefaultLayout/NavigationMenu'
 import ModalWindow from '~/components/Common/ModalWindow'
 import ConsultationModalForm from '~/components/DefaultLayout/ConsultationModalForm'
+import DesktopMenu from '~/components/DefaultLayout/DesktopMenu'
 
 export default {
   data() {
@@ -61,6 +63,7 @@ export default {
     NavigationMenu,
     ModalWindow,
     ConsultationModalForm,
+    DesktopMenu
   },
   computed: {
     activeMenuStatus: function () {
@@ -130,12 +133,21 @@ export default {
     display: flex;
     align-items: center;
     &__button {
+      display: none;
       width: 30px;
       height: 24px;
       background: transparent;
       border: none;
       padding: 0;
       cursor: pointer;
+      @include _600 () {
+        display: block;
+      }
+    }
+    &__menu {
+      @include _600 () {
+        display: none;
+      }
     }
   }
 }
