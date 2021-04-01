@@ -178,7 +178,7 @@ export default {
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #d81428;
   margin-left: -5em;
-  width: 440px;
+  width: max-content;
   border-radius: 0 0 6px 6px;
 
   @include _1300 {

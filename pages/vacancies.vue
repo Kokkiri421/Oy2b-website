@@ -88,7 +88,7 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply"  @click="showModal">
                   Откликнуться на резюме
                 </button>
               </div>
@@ -174,7 +174,7 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply"  @click="showModal">
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -274,7 +274,7 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply"  @click="showModal">
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -355,7 +355,7 @@
                     счет работодателя
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply"  @click="showModal">
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -380,7 +380,7 @@
                     кандидатуру</i
                   >
                 </p>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply"  @click="showModal">
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -405,7 +405,7 @@
                     кандидатуру</i
                   >
                 </p>
-                <button class="dialog-button vacancy__apply">
+                <button class="dialog-button vacancy__apply" @click="showModal">
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -414,20 +414,39 @@
         </div>
       </div>
     </div>
+    <modal-window :show="isModalShown" @onClick="showModal"
+      ><vacancy-apply-modal-form @onClick="showModal"
+    /></modal-window>
   </div>
 </template>
 
 <script>
+import ModalWindow from '~/components/Common/ModalWindow'
+import VacancyApplyModalForm from '~/components/Vacancies/VacancyApplyModalForm.vue'
 export default {
   layout: 'documentLayout',
   data() {
     return {
       expanded: Array(6).fill(false),
+      isModalShown: false,
     }
   },
+  components: {
+    ModalWindow,
+    VacancyApplyModalForm,
+  },
+  computed: {
+    activeMenuStatus: function () {
+      return this.isActiveNavigationMenu
+    },
+  },
+
   methods: {
     changeExpanded: function (index) {
       this.$set(this.expanded, index, !this.expanded[index])
+    },
+    showModal() {
+      this.isModalShown = !this.isModalShown
     },
   },
 }

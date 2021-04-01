@@ -9,7 +9,6 @@
       id="contact-map"
       @map-was-initialized="mapHandler"
     >
-      
     </yandex-map>
   </section>
 </template>
@@ -21,20 +20,18 @@ export default {
   data() {
     return {
       coords: [59.927450223522, 30.323202505559],
+
       isMounted: false,
-      
     }
   },
   methods: {
     mapHandler: function (e) {
       this.myMap = e
       var myPlacemark = new ymaps.Placemark(
-        [59.927450223522, 30.323202505559],
-        {hintContent: 'ул. Гороховая 47'},
+        [59.927352, 30.322805],
+        { hintContent: 'ул. Гороховая 47' },
         {
-        
           preset: 'islands#redDotIcon',
-          
         }
       )
       this.myMap.geoObjects.add(myPlacemark)
@@ -70,5 +67,12 @@ export default {
   //   @include _700() {
   //     height: 400px;
   //   }
+}
+[class*='ymaps-2'][class*='-ground-pane'] {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+  /* Firefox 3.5+ */
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+ & Safari 6+ */
+  filter: grayscale(100%);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <label class="pretty-input">
     <input
-      type="text"
+      :type="type"
       class="form-input"
       :name="name"
       maxlength="18"
@@ -27,6 +27,10 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+    type: {
+      type: String,
+      default: 'text',
     },
     placeholder: {
       type: String,
@@ -83,5 +87,9 @@ export default {
   transform: scale(0.8) translateY(-0.8em) !important;
   color: #d81428 !important;
   background-color: #fff;
+}
+input[type="file"] { 
+  opacity: 0;
+
 }
 </style>

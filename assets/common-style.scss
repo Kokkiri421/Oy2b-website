@@ -140,23 +140,27 @@ body {
   overflow-x: auto;
   .table {
     border-collapse: collapse;
-    border-spacing: 0;
+    //border-spacing: 0;
     width: 100%;
     max-width: 100vw;
     position: relative;
     border: 1px solid #eee;
+    -moz-border-bottom-colors: red !important;
+    
     thead {
       width: 100%;
       th {
+        
         &:first-child {
           position: sticky;
           left: 0;
-          z-index: 2;
+          z-index: 3;
           background-color: #fff;
         }
       }
     }
     tbody {
+      
       tr {
         &:nth-child(even) {
           background-color: #fff;
@@ -164,11 +168,14 @@ body {
         &:nth-child(odd) {
           background-color: #eee;
         }
+        z-index: 1;
       }
       th {
-        position: sticky;
+        box-shadow: inset 0 0 0 #eee, inset 0 -1px 0 #eee;
+        border: none;
+        //position: sticky;
         left: 0;
-        z-index: 1;
+        z-index: 2;
         background-color: inherit;
       }
       .default-hidden {

@@ -1325,6 +1325,7 @@ export default {
 .row-expander {
   th {
     background-color: $base-color-table !important;
+    border: 1px solid #eee;
     border-right: none !important;
   }
   td {
