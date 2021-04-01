@@ -8,7 +8,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/internet"
-                >Интернет до 10Гбит/с</NuxtLink
+                >Интернет до&nbsp;10&nbsp;Гбит/с</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
@@ -89,7 +89,7 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="navigation-menu__item bottom-menu">
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
@@ -117,11 +117,17 @@
             <a
               class="social-network__link"
               href="https://www.instagram.com/oysterb2b/"
+              target="_blank"
+              rel="noopener noreferrer"
               ><img src="~/static/images/instagram.svg"
             /></a>
           </div>
           <div class="social-network vk">
-            <a class="social-network__link" href="https://vk.com/oystertelecom"
+            <a
+              class="social-network__link"
+              href="https://vk.com/oystertelecom"
+              target="_blank"
+              rel="noopener noreferrer"
               ><img src="~/static/images/vk.svg"
             /></a>
           </div>
@@ -178,17 +184,16 @@ export default {
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #d81428;
   margin-left: -5em;
-  width: max-content;
+  //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
 
   @include _1300 {
     margin-left: -50px;
     border-radius: 0 0 6px 0;
-
   }
   @include _650 {
     margin-left: -20px;
-    width: 320px;
+    //width: calc(320px );
     border-radius: 0 0 6px 0;
   }
 }
@@ -198,7 +203,7 @@ export default {
   padding: 2.25em 5em;
   max-height: calc(100vh - 6em - 96px);
   overflow-y: auto;
-  margin-bottom: 5px;
+  width: max-content;
   @include _1300 {
     padding: 2.25em 50px;
   }
@@ -210,16 +215,15 @@ export default {
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
 
   &:hover {
-     @include scrollbars(10px, rgb(0, 0, 0, 0.25), transparent);
+    @include scrollbars(10px, rgb(0, 0, 0, 0.25), transparent);
   }
   &__item {
     &:nth-child(1) {
       border-bottom: 1px solid #fff;
-      margin-top:0 !important;
+      margin-top: 0 !important;
     }
     &:nth-child(n) {
       margin: 1.5em 0;
-      
     }
     &:nth-last-child(-n + 1) {
       margin-bottom: 0;

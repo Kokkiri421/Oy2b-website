@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hero-block :is-anchor="true" @onClick="scrollToServices">
-      <template v-slot:header> Виртуальная елефония </template>
+      <template v-slot:header> Виртуальная телефония </template>
       <template v-slot:description>
         <div class="description">
           <p class="article fw400">

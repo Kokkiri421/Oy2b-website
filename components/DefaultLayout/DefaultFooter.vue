@@ -95,11 +95,17 @@
           <a
             class="social-network__link"
             href="https://www.instagram.com/oysterb2b/"
+            target="_blank"
+            rel="noopener noreferrer"
             ><img src="~/static/images/instagram.svg"
           /></a>
         </div>
         <div class="social-network vk">
-          <a class="social-network__link" href="https://vk.com/oystertelecom"
+          <a
+            class="social-network__link"
+            href="https://vk.com/oystertelecom"
+            target="_blank"
+            rel="noopener noreferrer"
             ><img src="~/static/images/vk.svg"
           /></a>
         </div>
