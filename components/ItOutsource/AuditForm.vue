@@ -102,6 +102,10 @@ export default {
       line-height: 1.4em;
       a {
         color: #999;
+        transition: color 0.3s ease-out;
+        &:hover {
+          color: #d81428;
+        }
       }
     }
   }

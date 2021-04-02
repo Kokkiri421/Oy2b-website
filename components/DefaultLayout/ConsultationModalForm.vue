@@ -139,6 +139,10 @@ export default {
     color: #000;
     .link {
       color: #000;
+      transition: color 0.3s ease-out;
+      &:hover {
+        color: #d81428;
+      }
     }
   }
   .radio-buttons {

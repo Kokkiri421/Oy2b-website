@@ -12,16 +12,14 @@
   position: absolute;
   display: none;
   top: 2.5em;
-  padding-top:0.5em;
+  padding-top: 0.5em;
   .desktop-menu-dropdown {
     position: relative;
     display: block;
     background-color: #fff;
     color: #000;
     border-radius: 6px;
-    padding: 1em;
-    font-size: 0.8em;
-
+    padding: 0.75em 1.5em 1em 1em;
     height: fit-content;
     line-height: 1.6em;
     box-shadow: #000;

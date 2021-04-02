@@ -163,6 +163,7 @@ $font-color: #fff;
 }
 .block {
   display: none;
+  cursor: default;
 }
 .expanded {
   max-height: fit-content;

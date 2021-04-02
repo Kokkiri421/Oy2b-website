@@ -10,8 +10,9 @@
       <div class="header-menu">
         <div class="logo" @click="hideMenu">
           <NuxtLink class="logo__link" :to="'/'">
-            <img
+            <div
               class="logo__img"
+              :class="{isActive : activeMenuStatus}"
               src="~/static/images/header-logo.svg"
               alt="OysterTelecom"
             />
@@ -20,10 +21,11 @@
         <div class="menu-init">
           <button
             class="menu-init__button"
+            :class="{isActive : activeMenuStatus}"
             @click="showMenu"
             id="navigation-menu-button"
           >
-            <img src="~/static/images/menuIcon.svg" />
+            
           </button>
           <desktop-menu class="menu-init__menu"/>
         </div>
@@ -123,9 +125,14 @@ export default {
       display: inline-block;
     }
     &__img {
+      mask: url('~/static/images/header-logo.svg') no-repeat center;
+      background-color: #fff;
+      transition: background-color 0.2s ease-out;
       height: 41px;
+      width:104px;
       @include _400 {
         height: 30px;
+        width:76px;
       }
     }
   }
@@ -133,19 +140,21 @@ export default {
     display: flex;
     align-items: center;
     &__button {
+      mask: url('~/static/images/menuIcon.svg') no-repeat center;
+      transition: background-color 0.2s ease-out;
       display: none;
       width: 30px;
       height: 24px;
-      background: transparent;
+      background-color: #fff;
       border: none;
       padding: 0;
       cursor: pointer;
-      @include _600 () {
+      @include _1100 () {
         display: block;
       }
     }
     &__menu {
-      @include _600 () {
+      @include _1100 () {
         display: none;
       }
     }
@@ -189,5 +198,8 @@ export default {
       }
     }
   }
+}
+.isActive {
+  background-color: #d81428 !important;
 }
 </style>

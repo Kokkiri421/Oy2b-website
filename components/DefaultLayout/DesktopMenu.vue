@@ -1,7 +1,16 @@
 <template>
   <div class="desktop-menu">
     <div class="menu-item" @mouseover="hoverItem(1)" @mouseleave="mouseLeave">
-      <span>Услуги</span>
+      <span>Услуги <icon
+          :icon-name="'expand-icon'"
+          class="expand-icon"
+          :class="{ rotate: hoveredItem === 1 }"
+          :view-box="'0 0 24 24'"
+
+        >
+          <menu-arrow-icon /> </icon
+      ></span>
+      
       <desktop-menu-dropdown
         @mouseover="hoverItem(1)"
         @mouseleave="mouseLeave"
@@ -73,7 +82,16 @@
       @mouseover="hoverItem(2)"
       @mouseleave="() => (hoveredItem = 0)"
     >
-      <span>Отрасли</span>
+      <span>Отрасли <icon
+          :icon-name="'expand-icon'"
+          class="expand-icon"
+          :class="{ rotate: hoveredItem === 2}"
+          :view-box="'0 0 24 24'"
+
+        >
+          <menu-arrow-icon /> </icon
+      ></span>
+
       <desktop-menu-dropdown
         @mouseover="hoverItem(2)"
         @mouseleave="mouseLeave"
@@ -84,30 +102,30 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/dop-uslugi"
-                >Операторам</NuxtLink
-              >
-            </li>
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/reshenie-dlya-horeca"
               >
-                Решение для HoReCa</NuxtLink
+                HoReCa</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh/"
-                >Решение для магазинов и точек&nbsp;продаж</NuxtLink
+                >Ритейл</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma/"
-                >Решения для сферы&nbsp;туризма</NuxtLink
+                >Туризм</NuxtLink
+              >
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/dop-uslugi"
+                >Операторы связи</NuxtLink
               >
             </li>
           </ul></template
@@ -115,7 +133,16 @@
       >
     </div>
     <div class="menu-item" @mouseover="hoverItem(3)" @mouseleave="mouseLeave">
-      <span>Компания</span>
+      <span
+        >Компания <icon
+          :icon-name="'expand-icon'"
+          class="expand-icon"
+          :class="{ rotate: hoveredItem === 3 }"
+          :view-box="'0 0 24 24'"
+
+        >
+          <menu-arrow-icon /> </icon
+      ></span>
       <desktop-menu-dropdown
         @mouseover="() => (hoveredItem = 3)"
         @mouseleave="mouseLeave"
@@ -129,7 +156,10 @@
               </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
-              <NuxtLink class="underline-animated-link nuxtlink" to="/sotrudniki">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/sotrudniki"
+              >
                 Сотрудники
               </NuxtLink>
             </li>
@@ -158,6 +188,8 @@
 import DesktopMenuDropdown from '~/components/DefaultLayout/DesktopMenuDropdown'
 import Icon from '~/components/Icons/Icon'
 import FlameIcon from '~/components/Icons/FlameIcon'
+import ExpandTableIcon from '~/components/Icons/ExpandTableIcon'
+import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 
 export default {
   data() {
@@ -170,6 +202,8 @@ export default {
     DesktopMenuDropdown,
     Icon,
     FlameIcon,
+    ExpandTableIcon,
+    MenuArrowIcon,
   },
   methods: {
     hoverItem: function (i) {
@@ -199,10 +233,31 @@ export default {
   .menu-item {
     color: #fff;
     margin-right: 1em;
+    font-size: 0.9em;
+    font-weight: 500;
     cursor: pointer;
     height: 100%;
+    .expand-icon {
+      //margin-left: 0.35em;
+      //margin-bottom: 0.2em;
+      height: 20px;
+      width: 20px;
+      
+      transition: transform 0.3s;
+      vertical-align: middle;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+    .rotate {
+      transform: rotate(180deg);
+    }
   }
   &__list {
+    font-weight: 500;
+    
     color: #000;
     list-style-type: none;
     padding: 0;

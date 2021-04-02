@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="container" :class="{ active: isActive }">
+    <div class="container" :class="{ active: isActive }" >
       <nav class="navigation-menu">
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
@@ -89,7 +89,7 @@
             </li>
           </ul>
         </div>
-
+        <div class="navigation-menu__line"></div>
         <div class="navigation-menu__item bottom-menu">
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
@@ -112,6 +112,7 @@
             </li>
           </ul>
         </div>
+        
         <div class="navigation-menu__item social">
           <div class="social-network instagram">
             <a
@@ -119,8 +120,7 @@
               href="https://www.instagram.com/oysterb2b/"
               target="_blank"
               rel="noopener noreferrer"
-              ><img src="~/static/images/instagram.svg"
-            /></a>
+            ></a>
           </div>
           <div class="social-network vk">
             <a
@@ -128,8 +128,7 @@
               href="https://vk.com/oystertelecom"
               target="_blank"
               rel="noopener noreferrer"
-              ><img src="~/static/images/vk.svg"
-            /></a>
+            ></a>
           </div>
         </div>
       </nav>
@@ -171,6 +170,9 @@ export default {
   mounted() {
     window.addEventListener('click', this.hideMenuOnClick)
   },
+  computed: {
+    
+  },
 }
 </script>
 
@@ -179,10 +181,12 @@ export default {
 @import '~/assets/scrollbar_mixin';
 
 .container {
+  box-shadow: #000;
+  box-shadow: 0 0.25em 0.5em 0 rgb(0 0 0 / 25%);
   position: fixed;
   top: -200%;
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  background-color: #d81428;
+  background-color: #fff;
   margin-left: -5em;
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
@@ -192,8 +196,9 @@ export default {
     border-radius: 0 0 6px 0;
   }
   @include _650 {
-    margin-left: -20px;
-    //width: calc(320px );
+    margin-left: -10px;
+    width: 100vw;
+    height: 100vh;
     border-radius: 0 0 6px 0;
   }
 }
@@ -203,14 +208,17 @@ export default {
   padding: 2.25em 5em;
   max-height: calc(100vh - 6em - 96px);
   overflow-y: auto;
-  width: max-content;
+  
   @include _1300 {
     padding: 2.25em 50px;
   }
   @include _650 {
+    //width: 100%;
     margin-top: 64px;
     padding: 1.25em 20px;
-    max-height: calc(100vh - 4em - 64px);
+    max-height: calc(100vh - 6em );
+    margin-left: -10px;
+   
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
 
@@ -219,7 +227,7 @@ export default {
   }
   &__item {
     &:nth-child(1) {
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid #d81428;
       margin-top: 0 !important;
     }
     &:nth-child(n) {
@@ -236,17 +244,20 @@ export default {
     .list-item {
       font-size: 1.5em;
       line-height: normal;
-      color: #fff;
+      color: #000;
       list-style-type: none;
       margin-bottom: 0.9em;
       .nuxtlink {
-        color: #fff;
-
+        &:hover {
+          .icon {
+            fill: #ff9d00;
+          }
+        }
         .icon {
           height: 0.75em;
           width: 1em;
-          fill: #ff9d00;
-
+          fill: #d81428;
+          transition: fill 0.3s ease-out;
           @include _900() {
             display: none;
           }
@@ -278,7 +289,7 @@ export default {
         width: 34px;
         height: 34px;
         line-height: 34px;
-
+        fill: #000;
         img {
           vertical-align: middle;
         }
@@ -286,6 +297,12 @@ export default {
     }
     .instagram {
       margin-right: 0.3em;
+      mask: url('~/static/images/instagram.svg') no-repeat center;
+      background-color: #000;
+    }
+    .vk {
+      mask: url('~/static/images/vk.svg') no-repeat center;
+      background-color: #000;
     }
   }
 }
@@ -295,5 +312,19 @@ export default {
 
 .active {
   top: 0;
+}
+.underline-animated-link {
+  transition: color 0.2s ease-out;
+  cursor: pointer;
+  color: #000;
+  &:hover {
+    color: #d81428;
+  }
+  &:before {
+    background: #d81428;
+  }
+  &:after {
+    background: #d81428;
+  }
 }
 </style>

@@ -5,6 +5,7 @@
     :height="512"
     :viewBox="viewBox"
     :aria-labelledby="iconName"
+    :stroke-width="stokeWidth"
   >
     <title :id="iconName" lang="en">{{ iconName }} icon</title>
     <g>
@@ -23,6 +24,10 @@ export default {
     viewBox: {
       type: String,
       default: '0 0 512 512',
+    },
+    stokeWidth: {
+      type: Number,
+      default: 1,
     },
   },
 }
