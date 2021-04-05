@@ -20,17 +20,18 @@
 
     <div class="page-content">
       <div class="wrapper">
-      <index-main-content class="page-content-block"/>
+        <index-main-content class="page-content-block" />
 
-      <h4>Зона присутствия сетей связи «Oyster Telecom»</h4>
-    </div>
-    <yandex-map-block></yandex-map-block>
-    <div class="wrapper">
-      <order-block />
-      
-    </div>
-    
-    
+        <h4 v-if="isMapShown" class="yandex-map">
+          Зона присутствия сетей связи «Oyster Telecom»
+        </h4>
+        <div ref="maptop"/>
+      </div>
+      <yandex-map-block v-if="isMapShown" class="yandex-map"></yandex-map-block>
+
+      <div ref="mapbottom" class="wrapper">
+        <order-block />
+      </div>
     </div>
   </div>
 </template>
@@ -41,9 +42,42 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import OrderBlock from '~/components/DefaultLayout/OrderBlock'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import YandexMapBlock from '~/components/Index/YandexMapBlock'
+import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
+
 export default {
   data() {
-    return {}
+    return {
+      isMapShown: false,
+      windowWidth: false,
+    }
+  },
+  methods: {
+    showInMap: function () {
+      if (
+        (this.$refs.maptop.offsetTop <= window.scrollY + window.innerHeight) &&
+        !this.isMapShown
+      ) {
+        this.isMapShown = true
+      }
+
+      // if (!this.isMapShown && this.$refs.map) {
+      //   if (
+      //     window.scrollY + window.innerHeight >
+      //       this.$refs.map.offsetTop &&
+      //     this.$refs.map.offsetTop +
+      //       this.$refs.map.offsetHeight >
+      //       window.scrollY
+      //   ) {
+
+      //     this.isMapShown = true
+      //   }
+      // }
+    },
+    updateSize() {
+      if (window.innerWidth > 900) {
+        this.windowWidth = true
+      }
+    },
   },
   components: {
     IndexMainContent,
@@ -51,6 +85,16 @@ export default {
     OrderBlock,
     QuestionBlock,
     YandexMapBlock,
+    AnimateOnViewport,
+  },
+  mounted() {
+    this.windowWidth = window.innerWidth > 900
+    window.addEventListener('resize', this.updateSize)
+    window.addEventListener('scroll', this.showMap)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateSize)
+    window.removeEventListener('scroll', this.showMap)
   },
 }
 </script>
@@ -60,7 +104,6 @@ export default {
 .hero-block {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/static/images/backgrounds/index-bg.jpg');
-
 }
 .order-block {
   flex-grow: 1;

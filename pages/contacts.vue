@@ -66,7 +66,7 @@
             </div>
           </div>
         </div>
-        <contact-yandex-map class="contacts-page-map"/>
+        <contact-yandex-map v-if="windowWidth" class="contacts-page-map"/>
       </div>
     </div>
   </div>
@@ -77,8 +77,26 @@ import ContactYandexMap from '~/components/Contacts/ContactYandexMap'
 
 export default {
   layout: 'documentLayout',
+  data() {
+    return {
+      windowWidth: false,
+    }
+  },
   components: {
     ContactYandexMap,
+  },
+  methods: {
+    updateSize() {
+      if (window.innerWidth > 900) {
+        this.windowWidth = true
+      }
+    },
+  },
+  computed: {},
+  mounted() {
+    this.windowWidth = window.innerWidth > 900 
+
+    window.addEventListener('resize', this.updateSize)
   },
 }
 </script>

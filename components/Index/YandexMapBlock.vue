@@ -6,6 +6,7 @@
         :coords="coords"
         :controls="['zoomControl']"
         :scroll-zoom="false"
+        :useObjectManager="true"
         class="map"
         id="index-map"
         @map-was-initialized="mapHandler"
@@ -29,7 +30,7 @@ import { yandexMap, ymapMarker, loadYmap } from 'vue-yandex-maps'
 export default {
   data: () => ({
     isMounted: false,
-    
+
     myMap: null,
     polygon: null,
     coords: [59.92783924822753, 30.36150418850785],
@@ -125,15 +126,13 @@ export default {
       `
     },
     mapHandler: function (e) {
-
       this.myMap = e
       this.myMap.geoObjects.add(this.polygon)
-      
-      
     },
   },
   mounted() {
     loadYmap().then(() => {
+      console.log(1234)
       this.isMounted = true
       this.polygon = new ymaps.Polygon(
         [
@@ -626,6 +625,15 @@ export default {
 
 <style lang="scss" >
 @import 'assets/media_mixin';
+.map-container {
+  height: 700px;
+  @include _1000() {
+    height: 500px;
+  }
+  @include _700() {
+    height: 400px;
+  }
+}
 .small-text {
   margin: 0;
   padding: 0;
@@ -643,9 +651,9 @@ export default {
   [class*='ymaps-2'][class*='-ground-pane'] {
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
     /* Firefox 3.5+ */
-    -webkit-filter: grayscale(100%) ;
+    -webkit-filter: grayscale(100%);
     /* Chrome 19+ & Safari 6+ */
-    filter: grayscale(100%) ;
+    filter: grayscale(100%);
   }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper">
-    <div class="container" :class="{ active: isActive }" >
+    <div
+      class="container"
+      :class="{ active: isActive }"
+      v-scroll-lock="isActive && windowWidth"
+    >
       <nav class="navigation-menu">
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
@@ -29,14 +33,14 @@
             <li class="list-item" @click="onClick">
               <NuxtLink class="nuxtlink" to="/service/service-it-out">
                 <icon
-                  :icon-name="'flame-icon'"
+                  :icon-name="'flame-icon-left'"
                   class="icon icon-left"
                   :view-box="'0 0 611.999 611.999'"
                 >
                   <flame-icon /> </icon
                 ><span class="underline-animated-link">IT Аутсорсинг</span>
                 <icon
-                  :icon-name="'flame-icon'"
+                  :icon-name="'flame-icon-right'"
                   class="icon icon-right"
                   :view-box="'0 0 611.999 611.999'"
                 >
@@ -112,7 +116,7 @@
             </li>
           </ul>
         </div>
-        
+
         <div class="navigation-menu__item social">
           <div class="social-network instagram">
             <a
@@ -141,6 +145,11 @@ import Icon from '~/components/Icons/Icon'
 import FlameIcon from '~/components/Icons/FlameIcon'
 
 export default {
+  data() {
+    return {
+      windowWidth: false,
+    }
+  },
   components: {
     Icon,
     FlameIcon,
@@ -166,13 +175,16 @@ export default {
         this.onClick()
       }
     },
+    updateSize() {
+      this.windowWidth = window.innerWidth > 650 ? false : true
+    },
   },
   mounted() {
     window.addEventListener('click', this.hideMenuOnClick)
+    this.updateSize()
+    window.addEventListener('resize', this.updateSize)
   },
-  computed: {
-    
-  },
+  computed: {},
 }
 </script>
 
@@ -188,8 +200,10 @@ export default {
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #fff;
   margin-left: -5em;
+  overflow: hidden;
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
+  max-width: calc;
 
   @include _1300 {
     margin-left: -50px;
@@ -198,17 +212,18 @@ export default {
   @include _650 {
     margin-left: -10px;
     width: 100vw;
-    height: 100vh;
-    border-radius: 0 0 6px 0;
+
+    height: 100%;
+    border-radius: 0;
   }
 }
 .navigation-menu {
   //@include scrollbars(10px, transparent, transparent);
   margin-top: 96px;
   padding: 2.25em 5em;
-  max-height: calc(100vh - 6em - 96px);
+  max-height: calc(100% - 6em - 96px);
   overflow-y: auto;
-  
+
   @include _1300 {
     padding: 2.25em 50px;
   }
@@ -216,9 +231,8 @@ export default {
     //width: 100%;
     margin-top: 64px;
     padding: 1.25em 20px;
-    max-height: calc(100vh - 6em );
+    max-height: calc(100% - 6em);
     margin-left: -10px;
-   
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
 

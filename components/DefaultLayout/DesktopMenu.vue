@@ -73,6 +73,13 @@
                 >Облачные решения</NuxtLink
               >
             </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/ip-adresa"
+                >IP Адреса</NuxtLink
+              >
+            </li>
           </ul></template
         >
       </desktop-menu-dropdown>

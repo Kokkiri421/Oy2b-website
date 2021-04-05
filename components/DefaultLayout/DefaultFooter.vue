@@ -3,8 +3,12 @@
     <div class="footer-top footer-item">
       <div class="logo">
         <NuxtLink class="logo__link" :to="'/'">
-          <img src="~/static/images/red_logo.svg"
-        /></NuxtLink>
+          <div
+            class="logo__img"
+            src="~/static/images/header-logo.svg"
+            alt="OysterTelecom"
+          />
+        </NuxtLink>
       </div>
       <div class="menu smallfont-400">
         <ul class="menu__list">
@@ -135,9 +139,9 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
 .footer-item {
-  padding: 2em 0;
+  padding: 0 0 2em 0;
   @include _1366 {
-    padding: 1em 0;
+    padding: 0 0 1em 0;
   }
 }
 .footer-top {
@@ -150,6 +154,20 @@ export default {
   .logo {
     width: fit-content;
     padding-right: 2em;
+    &__link {
+      display: inline-block;
+    }
+    &__img {
+      mask: url('~/static/images/header-logo.svg') no-repeat center;
+      background-color: $red-color1;
+      transition: background-color 0.2s ease-out;
+      height: 41px;
+      width: 104px;
+      @include _400 {
+        height: 30px;
+        width: 76px;
+      }
+    }
   }
   .menu {
     &__list {
@@ -158,11 +176,15 @@ export default {
       justify-content: flex-end;
       align-items: center;
       line-height: 40px;
-
+      padding-top: 1em;
+      @include _1366 {
+        padding-top: 0.5em;
+      }
       @include _600() {
         justify-content: flex-start;
         line-height: 2em;
         margin-top: 1em;
+        padding-top: 0em;
       }
       padding: 0;
       margin: 0;
