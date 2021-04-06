@@ -3,9 +3,9 @@
     <div
       class="container"
       :class="{ active: isActive }"
-      v-scroll-lock="isActive && windowWidth"
+    
     >
-      <nav class="navigation-menu">
+      <nav class="navigation-menu" v-scroll-lock="isActive && windowWidth"> 
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
@@ -200,38 +200,36 @@ export default {
   transition: top 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #fff;
   margin-left: -5em;
-  overflow: hidden;
+  overflow: auto;
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
   max-width: calc;
-
+  
   @include _1300 {
     margin-left: -50px;
     border-radius: 0 0 6px 0;
   }
-  @include _650 {
+  @include _600 {
     margin-left: -10px;
-    width: 100vw;
-
-    height: 100%;
+    width: calc(100vw + 10px);
     border-radius: 0;
   }
 }
 .navigation-menu {
   //@include scrollbars(10px, transparent, transparent);
-  margin-top: 96px;
+  margin-top: 64px;
   padding: 2.25em 5em;
-  max-height: calc(100% - 6em - 96px);
+  max-height: calc(100vh - 6em - 96px);
   overflow-y: auto;
 
   @include _1300 {
     padding: 2.25em 50px;
   }
-  @include _650 {
+  @include _600 {
     //width: 100%;
     margin-top: 64px;
     padding: 1.25em 20px;
-    max-height: calc(100% - 6em);
+    max-height: calc(100vh - 6em );
     margin-left: -10px;
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);

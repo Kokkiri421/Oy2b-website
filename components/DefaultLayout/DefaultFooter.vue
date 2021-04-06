@@ -139,9 +139,9 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
 .footer-item {
-  padding: 0 0 2em 0;
+  padding: 2em 0;
   @include _1366 {
-    padding: 0 0 1em 0;
+    padding: 1em 0;
   }
 }
 .footer-top {
@@ -161,6 +161,7 @@ export default {
       mask: url('~/static/images/header-logo.svg') no-repeat center;
       background-color: $red-color1;
       transition: background-color 0.2s ease-out;
+      //margin-top:  -0.5em;
       height: 41px;
       width: 104px;
       @include _400 {
@@ -176,19 +177,14 @@ export default {
       justify-content: flex-end;
       align-items: center;
       line-height: 40px;
-      padding-top: 1em;
-      @include _1366 {
-        padding-top: 0.5em;
-      }
+      
+      padding: 0;
+      margin: 0.5em 0 0;
       @include _600() {
         justify-content: flex-start;
         line-height: 2em;
         margin-top: 1em;
-        padding-top: 0em;
       }
-      padding: 0;
-      margin: 0;
-
       .list-item {
         list-style-type: none;
         margin: 0 0 0 1.2em;

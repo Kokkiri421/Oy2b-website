@@ -9,8 +9,8 @@
         <div class="ip-address-block__form-container">
           <form class="ip-address-block-form">
             <pretty-input
-              :name="'address'"
-              :placeholder="'Адрес/Организация'"
+              :name="'name'"
+              :placeholder="'Имя'"
               class="ip-address-block-form__item"
             ></pretty-input>
             <pretty-input
@@ -84,6 +84,10 @@ export default {
       line-height: 1.4em;
       a {
         color: #999;
+        transition: color 0.3s ease-out;
+        &:hover {
+          color: #d81428;
+        }
       }
     }
   }

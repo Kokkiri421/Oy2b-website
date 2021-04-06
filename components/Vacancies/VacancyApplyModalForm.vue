@@ -1,6 +1,6 @@
 <template>
   <div class="modal-form">
-    <h4>Оставить заявку</h4>
+    <h4>Откликнуться на вакансию</h4>
     <pretty-input
       :name="'name'"
       :placeholder="'Ваше Имя'"
@@ -13,11 +13,11 @@
     ></pretty-input>
     <pretty-input
       :name="'cv'"
-      :placeholder="'Резюме'"
+      :placeholder="'Загрузить резюме'"
       :type="'file'"
       class="modal-form__item"
     ></pretty-input>
-    <button class="dialog-button modal-form__button">Оставить заявку</button>
+    <button class="dialog-button modal-form__button">Оставить резюме</button>
   </div>
 </template>
 

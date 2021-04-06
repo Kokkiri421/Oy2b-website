@@ -2,8 +2,7 @@
   <div class="content-block-wrapper">
     <div
       class="content-block"
-      @click="scrollDown"
-      :style="{ backgroundColor1: backgroundColor }"
+      @click="showModal"
     >
       <div class="content-block__header">
         <h4 class="header-content">
@@ -13,7 +12,7 @@
         </h4>
       </div>
       <div class="content-block__button" :class="{ block: type === 'block' }">
-        <slot name="button"></slot>
+        <button class="dialog-button">Заказать</button>
       </div>
 
       <div class="content-block__description" :class="{ expanded: isShown }">
@@ -26,15 +25,25 @@
         {{ isShown ? 'Скрыть' : 'Читать полностью' }}
       </div>
     </div>
+    <modal-window v-if="type !== 'block'" :show="isModalShown" @onClick="showModal"
+      ><ConsultationModalForm @onClick="showModal" :id="'1'"
+    /></modal-window>
   </div>
 </template>
 
 <script>
+import ModalWindow from '~/components/Common/ModalWindow'
+import ConsultationModalForm from '~/components/DefaultLayout/ConsultationModalForm'
 export default {
   data() {
     return {
       isShown: false,
+      isModalShown: false,
     }
+  },
+  components: {
+    ModalWindow,
+    ConsultationModalForm,
   },
   props: {
     backgroundColor: {
@@ -47,8 +56,12 @@ export default {
     },
   },
   methods: {
-    scrollDown() {
-      this.$emit('onClick')
+    // scrollDown() {
+    //   this.$emit('onClick')
+    // },
+    showModal() {
+      if (this.type === 'block') return 
+      this.isModalShown = !this.isModalShown
     },
   },
 }

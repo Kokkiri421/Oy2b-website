@@ -24,7 +24,9 @@
       </template>
       <template v-slot:user-form>
         <div class="hero-block__user-form">
-          <button class="dialog-button">Оставить заявку</button>
+          <button class="dialog-button" @click="scrollToOrder">
+            Оставить заявку
+          </button>
           <button
             class="dialog-button dialog-button-base"
             @click="scrollToCalculator"
@@ -122,7 +124,19 @@
           </p>
         </div>
       </div>
-      <calculator class="page-content-block" ref="calculator"></calculator>
+      <calculator
+        class="page-content-block"
+        ref="calculator"
+        :computerCount="Number(computerCount)"
+        :serverCount="Number(serverCount)"
+        :officeEquipmentCount="Number(officeEquipmentCount)"
+        :changeComputerCount="changeComputerCount"
+        :changeServerCount="changeServerCount"
+        :changeOfficeEquipmentCount="changeOfficeEquipmentCount"
+        :basicPrice="Number(basicPrice)"
+        :standardPrice="Number(standardPrice)"
+        :expertPrice="Number(expertPrice)"
+      ></calculator>
       <div class="wrapper">
         <div class="grey-text page-content-block">
           *В калькуляторе указаны средние цены. Конечная стоимость абонентского
@@ -210,7 +224,11 @@ import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
 export default {
   data() {
-    return {}
+    return {
+      computerCount: 10,
+      serverCount: 1,
+      officeEquipmentCount: 5,
+    }
   },
   components: {
     HeroBlock,
@@ -228,6 +246,33 @@ export default {
     SolutionForm,
   },
   methods: {
+    changeComputerCount: function (e,max) {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '')
+      if (e.target.value > max) {
+        e.target.value = max
+      } else if (e.target.value < 0) {
+        e.target.value = 0
+      }
+      this.computerCount = e.target.value
+    },
+    changeServerCount: function (e,max) {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '')
+      if (e.target.value > max) {
+        e.target.value = max
+      } else if (e.target.value < 0) {
+        e.target.value = 0
+      }
+      this.serverCount = e.target.value
+    },
+    changeOfficeEquipmentCount: function (e,max) {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '')
+      if (e.target.value > max) {
+        e.target.value = max
+      } else if (e.target.value < 0) {
+        e.target.value = 0
+      }
+      this.officeEquipmentCount = e.target.value
+    },
     scrollToServices: function () {
       window.scrollTo({
         top:
@@ -254,6 +299,29 @@ export default {
           100,
         behavior: 'smooth',
       })
+    },
+  },
+  computed: {
+    basicPrice() {
+      return (
+        this.computerCount * 600 +
+        this.serverCount * 1500 +
+        this.officeEquipmentCount * 200
+      )
+    },
+    standardPrice() {
+      return (
+        this.computerCount * 750 +
+        this.serverCount * 1800 +
+        this.officeEquipmentCount * 300
+      )
+    },
+    expertPrice() {
+      return (
+        this.computerCount * 900 +
+        this.serverCount * 2200 +
+        this.officeEquipmentCount * 300
+      )
     },
   },
 }

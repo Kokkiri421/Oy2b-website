@@ -17,7 +17,7 @@
           <form class="hero-block-form">
             <pretty-input
               :name="'address'"
-              :placeholder="'Адрес/Организация'"
+              :placeholder="'Организация или Адрес'"
               class="hero-block-form__item"
             ></pretty-input>
             <pretty-input

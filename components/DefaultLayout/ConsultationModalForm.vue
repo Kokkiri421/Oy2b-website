@@ -1,6 +1,6 @@
 <template>
   <div class="modal-form">
-    <h4>Получить консультацию</h4>
+    <h4>Обсудить проект</h4>
     <pretty-input
       :name="'name'"
       :placeholder="'Ваше Имя'"
@@ -13,19 +13,19 @@
     ></pretty-input>
     <div class="radio-buttons">
       <div class="modal-form__radio">
-        <input id="ip" name="radio" type="radio" checked />
-        <label for="ip" class="radio-label">ИП</label>
+        <input :id="`ip${id}`" name="radio" type="radio" checked />
+        <label :for="`ip${id}`" class="radio-label">ИП</label>
       </div>
       <div class="modal-form__radio">
-        <input id="ul" name="radio" type="radio" />
-        <label for="ul" class="radio-label">Юр.лицо</label>
+        <input :id="`ul${id}`" name="radio" type="radio" />
+        <label :for="`ul${id}`" class="radio-label">Юр.лицо</label>
       </div>
     </div>
     <button class="dialog-button modal-form__button">
-      Получить консультацию
+      Обсудить проект
     </button>
     <div class="modal-form__privacy">
-      Нажимая кнопку «Получить консультацию», я&nbsp;даю своё согласие
+      Нажимая кнопку «Обсудить проект», я&nbsp;даю своё согласие
       «Oyster&nbsp;Telecom» на&nbsp;обработку моих
       <NuxtLink class="link" to="/privacy/" @click.native="$emit('onClick')"
         >персональных данных</NuxtLink
@@ -40,6 +40,9 @@ export default {
   components: {
     PrettyInput,
   },
+  props : {
+    id: {type:String, default:""}
+  }
 }
 </script>
 
@@ -63,12 +66,16 @@ export default {
     input[type='radio'] {
       position: absolute;
       opacity: 0;
+      left: -30px;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
       + .radio-label {
-        margin-right: 2em;
+        margin-right: 30px;
         &:before {
           content: '';
           position: absolute;
-          left: -2em;
+          left: -30px;
           width: 20px;
           height: 20px;
           border-radius: 100%;
@@ -79,7 +86,7 @@ export default {
         &::after {
           content: '';
           position: absolute;
-          left: -1.7em;
+          left: -25px;
           top: 5px;
           width: 12px;
           height: 12px;

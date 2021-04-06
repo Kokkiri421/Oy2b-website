@@ -52,7 +52,7 @@ export default {
     }
   },
   methods: {
-    showInMap: function () {
+    showMap: function () {
       if (
         (this.$refs.maptop.offsetTop <= window.scrollY + window.innerHeight) &&
         !this.isMapShown

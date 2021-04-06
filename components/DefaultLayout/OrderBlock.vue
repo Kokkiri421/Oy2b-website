@@ -11,7 +11,7 @@
           <form class="order-block-form">
             <pretty-input
               :name="'address'"
-              :placeholder="'Адрес/Организация'"
+              :placeholder="'Организация или Адрес'"
               class="order-block-form__item"
             ></pretty-input>
             <pretty-input

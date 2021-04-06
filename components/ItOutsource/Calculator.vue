@@ -20,7 +20,8 @@
                 name="computer-count"
                 min="0"
                 max="100"
-                v-model="computerCount"
+                :value="computerCount"
+                @input="changeComputerCount($event, 100)"
               />
               <label class="input-label" for="computer-count">100</label>
               <input
@@ -31,7 +32,7 @@
                 max="100"
                 step="1"
                 :value="computerCount"
-                @change="changeField($event, computerCount, 100)"
+                @change="changeComputerCount($event, 100)"
               />
             </div>
           </div>
@@ -48,7 +49,8 @@
                 name="server-count"
                 min="0"
                 max="50"
-                v-model="serverCount"
+                :value="serverCount"
+                @input="changeServerCount($event, 50)"
               />
               <label class="input-label" for="computer-count">50</label>
               <input
@@ -59,7 +61,7 @@
                 max="50"
                 step="1"
                 :value="serverCount"
-                @change="changeField($event, serverCount, 50)"
+                @input="changeServerCount($event, 50)"
               />
             </div>
           </div>
@@ -76,7 +78,8 @@
                 name="office-equipment-count"
                 min="0"
                 max="100"
-                v-model="officeEquipmentCount"
+                :value="officeEquipmentCount"
+                @input="changeOfficeEquipmentCount($event, 100)"
               />
               <label class="input-label" for="office-equipment-count"
                 >100</label
@@ -89,7 +92,7 @@
                 max="100"
                 step="1"
                 :value="officeEquipmentCount"
-                @change="changeField($event, officeEquipmentCount, 100)"
+                @input="changeOfficeEquipmentCount($event, 100)"
               />
             </div>
           </div>
@@ -110,16 +113,22 @@ import RatioForm from '~/components/ItOutsource/RatioForm'
 export default {
   data() {
     return {
-      computerCount: 10,
-      serverCount: 1,
-      officeEquipmentCount: 5,
-      currentRatio: 2,
-      recolorProgressChrome: {
-        background: 'red',
-      },
+      // computerCount: 10,
+      // serverCount: 1,
+      // officeEquipmentCount: 5,
     }
   },
-
+  props: {
+    computerCount: { type: Number, required: true },
+    serverCount: { type: Number, required: true },
+    officeEquipmentCount: { type: Number, required: true },
+    changeComputerCount: { type: Function, required: true },
+    changeServerCount: { type: Function, required: true },
+    changeOfficeEquipmentCount: { type: Function, required: true },
+    basicPrice: { type: Number, required: true },
+    standardPrice: { type: Number, required: true },
+    expertPrice: { type: Number, required: true },
+  },
   components: { Ratio, RatioForm },
   computed: {
     chromeProgress() {
@@ -129,39 +138,39 @@ export default {
         '--office-equipment-progress': `${this.officeEquipmentCount}%`,
       }
     },
-    basicPrice() {
-      return (
-        this.computerCount * 600 +
-        this.serverCount * 1500 +
-        this.officeEquipmentCount * 200
-      )
-    },
-    standardPrice() {
-      return (
-        this.computerCount * 750 +
-        this.serverCount * 1800 +
-        this.officeEquipmentCount * 300
-      )
-    },
-    expertPrice() {
-      return (
-        this.computerCount * 900 +
-        this.serverCount * 2200 +
-        this.officeEquipmentCount * 300
-      )
-    },
+    // basicPrice() {
+    //   return (
+    //     this.computerCount * 600 +
+    //     this.serverCount * 1500 +
+    //     this.officeEquipmentCount * 200
+    //   )
+    // },
+    // standardPrice() {
+    //   return (
+    //     this.computerCount * 750 +
+    //     this.serverCount * 1800 +
+    //     this.officeEquipmentCount * 300
+    //   )
+    // },
+    // expertPrice() {
+    //   return (
+    //     this.computerCount * 900 +
+    //     this.serverCount * 2200 +
+    //     this.officeEquipmentCount * 300
+    //   )
+    // },
   },
   methods: {
-    changeField: function (e, field, max) {
-      e.target.value = e.target.value.replace(/[^0-9]/g, '')
-      if (e.target.value > max) {
-        e.target.value = max
-      } else if (e.target.value < 0) {
-        e.target.value = 0
-      }
-      field = e.target.value
-      console.log(field)
-    },
+    // changeField: function (e, field, max) {
+    //   e.target.value = e.target.value.replace(/[^0-9]/g, '')
+    //   if (e.target.value > max) {
+    //     e.target.value = max
+    //   } else if (e.target.value < 0) {
+    //     e.target.value = 0
+    //   }
+    //   field = e.target.value
+    //   console.log(field)
+    // },
   },
   mounted() {},
 }
