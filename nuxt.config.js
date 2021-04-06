@@ -10,11 +10,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['~/assets/fonts/Montserrat.css'],
+  css: ['~/assets/fonts/Montserrat.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{ src: '~/plugins/ymapPlugin.js', mode: 'client' },
     { src: "~/plugins/vScrollLock.js", mode: "client" },
+    { src: "~/plugins/smoothScroll.js", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

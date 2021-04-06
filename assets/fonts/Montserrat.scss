@@ -1,22 +1,29 @@
 /* cyrillic-ext */
+@import '~/assets/media_mixin.scss';
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   src: local('Montserrat'), url('~/assets/fonts/Montserrat/Montserrat-Regular.ttf') format("truetype");
-  font-display: swap;
+  @include _650() {
+    font-display: swap;
+  }
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   src: local('Montserrat'), url('~/assets/fonts/Montserrat/Montserrat-Medium.ttf') format("truetype");
-  font-display: swap;
+  @include _650() {
+    font-display: swap;
+  }
 }
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   src: local('Montserrat'), url('~/assets/fonts/Montserrat/Montserrat-Bold.ttf') format("truetype");
-  font-display: swap;
+  @include _650() {
+    font-display: swap;
+  }
 }

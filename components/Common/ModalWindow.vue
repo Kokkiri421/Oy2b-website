@@ -60,7 +60,7 @@ export default {
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
   .modal-content-wrapper {
     position: relative;
-
+    text-align: left;
     margin: auto auto;
     overflow: hidden;
     padding: 50px;

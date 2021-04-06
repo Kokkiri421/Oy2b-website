@@ -2,6 +2,7 @@
   <div class="content-block-wrapper">
     <div
       class="content-block"
+      :style=" (type === 'block') ? {cursor: 'default'} : {cursor: 'pointer'}"
       @click="showModal"
     >
       <div class="content-block__header">

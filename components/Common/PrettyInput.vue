@@ -60,8 +60,7 @@ export default {
     padding: 0.8em 1em;
     border: 1px solid #fff;
     border-radius: 4px;
-    width: 100%;
-
+    min-width: 100%;
     line-height: 1.6em;
     min-height: 3.2em;
     box-sizing: border-box;
@@ -80,6 +79,7 @@ export default {
       transform-origin: 0 0;
       pointer-events: none;
       border-radius: 4px;
+      white-space: nowrap;
     }
   }
 }

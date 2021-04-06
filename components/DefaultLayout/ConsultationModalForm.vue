@@ -25,11 +25,7 @@
       Обсудить проект
     </button>
     <div class="modal-form__privacy">
-      Нажимая кнопку «Обсудить проект», я&nbsp;даю своё согласие
-      «Oyster&nbsp;Telecom» на&nbsp;обработку моих
-      <NuxtLink class="link" to="/privacy/" @click.native="$emit('onClick')"
-        >персональных данных</NuxtLink
-      >.
+      <NuxtLink class="link" to="/privacy/">политика конфиденциальности</NuxtLink>
     </div>
   </div>
 </template>
@@ -141,7 +137,7 @@ export default {
     margin-bottom: 0.5em;
   }
   &__privacy {
-    font-size: 0.8em;
+    font-size: 0.6em;
     line-height: 1.4em;
     color: #000;
     .link {
