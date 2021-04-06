@@ -36,9 +36,7 @@
         </div>
       </form>
       <div class="question-block__privacy">
-        Нажимая кнопку «Отправить», я&nbsp;даю своё согласие
-        «Oyster&nbsp;Telecom» на&nbsp;обработку моих
-        <NuxtLink to="/privacy/">персональных данных</NuxtLink>.
+        <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
       </div>
     </div>
     <div class="question-block__bottom-text">

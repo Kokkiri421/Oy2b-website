@@ -23,9 +23,7 @@
             </div>
           </form>
           <div class="ip-address-block__privacy">
-            Нажимая кнопку «Оставить заявку», я даю своё согласие «Oyster
-            Telecom» на обработку моих
-            <NuxtLink to="/privacy/">персональных данных</NuxtLink>.
+            <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
           </div>
         </div>
       </div>
@@ -80,7 +78,7 @@ export default {
     }
     &__privacy {
       color: #999;
-      font-size: 0.8em;
+      font-size: 0.6em;
       line-height: 1.4em;
       a {
         color: #999;

@@ -18,7 +18,7 @@
         </div>
       </template>
       <template v-slot:form-prefix>
-        Проверьте возможность подключения сервисов и услуг:
+        Заполните форму для&nbsp;связи со&nbsp;специалистом:
       </template>
     </hero-block>
     <div class="wrapper">

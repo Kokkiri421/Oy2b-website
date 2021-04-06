@@ -24,9 +24,7 @@
       </div>
     </form>
     <div class="audit-form__privacy">
-      Нажимая кнопку «Отправить&nbsp;заявку», я&nbsp;даю своё согласие
-      «Oyster&nbsp;Telecom» на&nbsp;обработку моих
-      <NuxtLink to="/privacy/">персональных данных</NuxtLink>.
+      <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
     </div>
   </div>
 </template>
@@ -98,7 +96,7 @@ export default {
     }
     &__privacy {
       color: #999;
-      font-size: 0.8em;
+      font-size: 0.6em;
       line-height: 1.4em;
       a {
         color: #999;

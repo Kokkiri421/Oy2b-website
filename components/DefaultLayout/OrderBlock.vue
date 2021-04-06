@@ -24,9 +24,7 @@
             </div>
           </form>
           <div class="order-block__privacy">
-            Нажимая кнопку «Оставить заявку», я даю своё согласие «Oyster
-            Telecom» на обработку моих
-            <NuxtLink to="/privacy/">персональных данных</NuxtLink>.
+            <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
           </div>
         </div>
       </div>
@@ -67,6 +65,7 @@ export default {
         vertical-align: top;
         margin: 0 2% 1em 0;
         min-width: 0;
+        width: fit-content;
         @include _1250() {
           display: block;
           margin: 1em 0;

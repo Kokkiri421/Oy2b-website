@@ -89,7 +89,7 @@
                   </li>
                 </ul>
                 <button class="dialog-button vacancy__apply"  @click="showModal">
-                  Откликнуться на резюме
+                  Откликнуться на вакансию
                 </button>
               </div>
             </div>
