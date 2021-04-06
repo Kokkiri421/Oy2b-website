@@ -27,7 +27,7 @@
       </div>
     </div>
     <modal-window v-if="type !== 'block'" :show="isModalShown" @onClick="showModal"
-      ><ConsultationModalForm @onClick="showModal" :id="'1'"
+      ><ConsultationModalForm @onClick="showModal" 
     /></modal-window>
   </div>
 </template>

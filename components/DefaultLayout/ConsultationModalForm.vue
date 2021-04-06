@@ -1,31 +1,33 @@
 <template>
   <div class="modal-form">
     <h4>Обсудить проект</h4>
-    <pretty-input
-      :name="'name'"
-      :placeholder="'Ваше Имя'"
-      class="modal-form__item"
-    ></pretty-input>
-    <pretty-input
-      :name="'phone'"
-      :placeholder="'Телефон'"
-      class="modal-form__item"
-    ></pretty-input>
-    <div class="radio-buttons">
-      <div class="modal-form__radio">
-        <input :id="`ip${id}`" name="radio" type="radio" checked />
-        <label :for="`ip${id}`" class="radio-label">ИП</label>
+    <form>
+      <pretty-input
+        :name="'name'"
+        :placeholder="'Ваше Имя'"
+        class="modal-form__item"
+      ></pretty-input>
+      <pretty-input
+        :name="'phone'"
+        :placeholder="'Телефон'"
+        class="modal-form__item"
+      ></pretty-input>
+      <div class="radio-buttons">
+        <div class="modal-form__radio">
+          <input id="ip" name="radio" type="radio" checked />
+          <label for="ip" class="radio-label">ИП</label>
+        </div>
+        <div class="modal-form__radio">
+          <input id="ul" name="radio" type="radio" />
+          <label for="ul" class="radio-label">Юр.лицо</label>
+        </div>
       </div>
-      <div class="modal-form__radio">
-        <input :id="`ul${id}`" name="radio" type="radio" />
-        <label :for="`ul${id}`" class="radio-label">Юр.лицо</label>
-      </div>
-    </div>
-    <button class="dialog-button modal-form__button">
-      Обсудить проект
-    </button>
+      <button class="dialog-button modal-form__button">Обсудить проект</button>
+    </form>
     <div class="modal-form__privacy">
-      <NuxtLink class="link" to="/privacy/">политика конфиденциальности</NuxtLink>
+      <NuxtLink class="link" to="/privacy/"
+        >политика конфиденциальности</NuxtLink
+      >
     </div>
   </div>
 </template>
@@ -36,9 +38,6 @@ export default {
   components: {
     PrettyInput,
   },
-  props : {
-    id: {type:String, default:""}
-  }
 }
 </script>
 
@@ -87,10 +86,9 @@ export default {
           width: 12px;
           height: 12px;
           border-radius: 100%;
-          
+
           transition: border-color 0.2s ease-out;
           z-index: 1;
-
         }
       }
       &:checked {

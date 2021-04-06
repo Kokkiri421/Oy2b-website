@@ -1,20 +1,24 @@
 <template>
   <div class="modal-form">
     <h4>Оставить заявку</h4>
-    <pretty-input
-      :name="'name'"
-      :placeholder="'Ваше Имя'"
-      class="modal-form__item"
-    ></pretty-input>
-    <pretty-input
-      :name="'phone'"
-      :placeholder="'Телефон'"
-      class="modal-form__item"
-    ></pretty-input>
+    <form>
+      <pretty-input
+        :name="'name'"
+        :placeholder="'Ваше Имя'"
+        class="modal-form__item"
+      ></pretty-input>
+      <pretty-input
+        :name="'phone'"
+        :placeholder="'Телефон'"
+        class="modal-form__item"
+      ></pretty-input>
 
-    <button class="dialog-button modal-form__button">Оставить заявку</button>
+      <button class="dialog-button modal-form__button">Оставить заявку</button>
+    </form>
     <div class="modal-form__privacy">
-      <NuxtLink class="link" to="/privacy/">политика конфиденциальности</NuxtLink>
+      <NuxtLink class="link" to="/privacy/"
+        >политика конфиденциальности</NuxtLink
+      >
     </div>
   </div>
 </template>
