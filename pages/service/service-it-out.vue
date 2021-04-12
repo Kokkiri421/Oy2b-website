@@ -25,6 +25,7 @@
       <template v-slot:user-form>
         <div class="hero-block__user-form">
           <button class="dialog-button" @click="scrollToOrder">
+            <div class="shining-button"></div>
             Оставить заявку
           </button>
           <button

@@ -1,7 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '[DEV] Oyster Telecom - оператор связи для бизнеса в Санкт-Петербурге',
+    title:
+      '[DEV] Oyster Telecom - оператор связи для бизнеса в Санкт-Петербурге',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -13,9 +14,10 @@ export default {
   css: ['~/assets/fonts/Montserrat.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/ymapPlugin.js', mode: 'client' },
-    { src: "~/plugins/vScrollLock.js", mode: "client" },
-    { src: "~/plugins/smoothScroll.js", mode: "client" },
+  plugins: [
+    { src: '~/plugins/ymapPlugin.js', mode: 'client' },
+    { src: '~/plugins/vScrollLock.js', mode: 'client' },
+    { src: '~/plugins/smoothScroll.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -23,7 +25,6 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ['@aceforth/nuxt-optimized-images'],
-
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -35,6 +36,12 @@ export default {
   pwa: {
     manifest: {
       lang: 'en',
+      name: 'Oyster Telecom',
+      short_name: 'Oyster',
+      icon: {
+        source: '~/static/favicon.ico',
+        fileName: 'favicon.ico',
+      },
     },
   },
 

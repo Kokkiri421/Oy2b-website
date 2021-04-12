@@ -19,7 +19,7 @@
               class="ip-address-block-form__item"
             ></pretty-input>
             <div class="ip-address-block-form__item">
-              <button class="dialog-button">Оставить заявку</button>
+              <button class="dialog-button"><div class="shining-button"></div>Оставить заявку</button>
             </div>
           </form>
           <div class="ip-address-block__privacy">

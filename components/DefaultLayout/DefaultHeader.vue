@@ -12,7 +12,7 @@
           <NuxtLink class="logo__link" :to="'/'">
             <div
               class="logo__img"
-              :class="{isActive : activeMenuStatus}"
+              :class="{ isActive: activeMenuStatus }"
               src="~/static/images/header-logo.svg"
               alt="OysterTelecom"
             />
@@ -21,13 +21,11 @@
         <div class="menu-init">
           <button
             class="menu-init__button"
-            :class="{isActive : activeMenuStatus}"
+            :class="{ isActive: activeMenuStatus }"
             @click="showMenu"
             id="navigation-menu-button"
-          >
-            
-          </button>
-          <desktop-menu class="menu-init__menu"/>
+          ></button>
+          <desktop-menu class="menu-init__menu" />
         </div>
       </div>
       <div class="header-contacts">
@@ -65,7 +63,7 @@ export default {
     NavigationMenu,
     ModalWindow,
     ConsultationModalForm,
-    DesktopMenu
+    DesktopMenu,
   },
   computed: {
     activeMenuStatus: function () {
@@ -97,6 +95,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+.callback {
+  position: relative;
+}
+
 .container {
   width: 100%;
 }
@@ -129,10 +131,10 @@ export default {
       background-color: #fff;
       transition: background-color 0.2s ease-out;
       height: 41px;
-      width:104px;
+      width: 104px;
       @include _400 {
         height: 30px;
-        width:76px;
+        width: 76px;
       }
     }
   }
@@ -149,12 +151,12 @@ export default {
       border: none;
       padding: 0;
       cursor: pointer;
-      @include _1100 () {
+      @include _1100() {
         display: block;
       }
     }
     &__menu {
-      @include _1100 () {
+      @include _1100() {
         display: none;
       }
     }

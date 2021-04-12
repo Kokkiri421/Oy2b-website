@@ -32,7 +32,10 @@
           class="question-block-form__item"
         ></pretty-input>
         <div class="question-block-form__item">
-          <button class="dialog-button">Отправить</button>
+          <button class="dialog-button">
+            <div class="shining-button"></div>
+            Отправить
+          </button>
         </div>
       </form>
       <div class="question-block__privacy">

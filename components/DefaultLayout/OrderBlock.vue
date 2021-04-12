@@ -20,7 +20,10 @@
               class="order-block-form__item"
             ></pretty-input>
             <div class="order-block-form__item">
-              <button class="dialog-button">Оставить заявку</button>
+              <button class="dialog-button">
+                <div class="shining-button"></div>
+                Оставить заявку
+              </button>
             </div>
           </form>
           <div class="order-block__privacy">

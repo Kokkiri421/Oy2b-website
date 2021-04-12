@@ -39,6 +39,7 @@ body {
 }
 
 .dialog-button {
+  position: relative;
   border-radius: 4px;
   padding: 0.8em 1.8em;
   font-weight: 700;
@@ -51,6 +52,44 @@ body {
   transition: color 0.2s ease-out, background-color 0.2s ease-out, border 0.2s ease-out, opacity 0.2s ease-out;
   &:hover {
     background-color: #ec3346;
+  }
+}
+
+.shining-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  top:0;
+  left: 0;
+  border-radius: 4px;
+  //opacity: 0.25;
+  &:after {
+    background: #fff;
+    content: ' ';
+    width: 20px;
+    height: 200px;
+    left: -50%;
+    top: -50px;
+    position: absolute;
+    transform: rotate(30deg);
+    animation-name: moveRight;
+    animation-timing-function: ease-out;
+    animation-duration: 6.5s;
+    animation-delay: 6s;
+    animation-iteration-count: infinite;
+  }
+  @keyframes moveRight {
+    0% {
+      left: -50%;
+    }
+    14% {
+      left: calc(150%);
+    }
+    100% {
+      left: calc(150%);
+    }
+    
   }
 }
 

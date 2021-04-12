@@ -47,7 +47,7 @@ export default {
 .modal {
   visibility: hidden;
   position: fixed;
-  display: flex;
+  display: none;
   z-index: 100;
   top: 0;
   left: 0;
@@ -125,6 +125,7 @@ export default {
   }
 }
 .show {
+  display: flex;
   visibility: visible;
   opacity: 1;
 }
