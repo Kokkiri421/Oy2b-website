@@ -2,7 +2,7 @@
   <div class="content-block-wrapper">
     <div
       class="content-block"
-      :style=" (type === 'block') ? {cursor: 'default'} : {cursor: 'pointer'}"
+      :style="type === 'block' ? { cursor: 'default' } : { cursor: 'pointer' }"
       @click="showModal"
     >
       <div class="content-block__header">
@@ -26,8 +26,11 @@
         {{ isShown ? 'Скрыть' : 'Читать полностью' }}
       </div>
     </div>
-    <modal-window v-if="type !== 'block'" :show="isModalShown" @onClick="showModal"
-      ><ConsultationModalForm @onClick="showModal" 
+    <modal-window
+      v-if="type !== 'block' && isModalShown"
+      :show="isModalShown"
+      @onClick="showModal"
+      ><ConsultationModalForm @onClick="showModal"
     /></modal-window>
   </div>
 </template>
@@ -61,7 +64,7 @@ export default {
     //   this.$emit('onClick')
     // },
     showModal() {
-      if (this.type === 'block') return 
+      if (this.type === 'block') return
       this.isModalShown = !this.isModalShown
     },
   },

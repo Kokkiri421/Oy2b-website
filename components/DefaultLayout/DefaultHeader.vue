@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <modal-window :show="isModalShown" @onClick="showModal"
+    <modal-window v-if="isModalShown" :show="isModalShown" @onClick="showModal"
       ><ConsultationModalForm @onClick="showModal"
     /></modal-window>
   </div>

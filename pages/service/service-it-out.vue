@@ -124,41 +124,38 @@
             соответствующая категория.
           </p>
         </div>
+        <calculator
+          class="page-content-block"
+          ref="calculator"
+          :computerCount="Number(computerCount)"
+          :serverCount="Number(serverCount)"
+          :netCount="Number(netCount)"
+          :phone-count="Number(phoneCount)"
+          :cctv="cctv"
+          :officeEquipmentCount="Number(officeEquipmentCount)"
+          :changeComputerCount="changeComputerCount"
+          :changeServerCount="changeServerCount"
+          :changeNetCount="changeNetCount"
+          :changeOfficeEquipmentCount="changeOfficeEquipmentCount"
+          :change-phone-count="changePhoneCount"
+          :changeCCTV="changeCCTV"
+          :basicPrice="Number(basicPrice)"
+          :standardPrice="Number(standardPrice)"
+          :expertPrice="Number(expertPrice)"
+        ></calculator>
       </div>
-      <calculator
-        class="page-content-block"
-        ref="calculator"
-        :computerCount="Number(computerCount)"
-        :serverCount="Number(serverCount)"
-        :netCount="Number(netCount)"
-        :phone-count="Number(phoneCount)"
-        :cctv="cctv"
-        :officeEquipmentCount="Number(officeEquipmentCount)"
-        :changeComputerCount="changeComputerCount"
-        :changeServerCount="changeServerCount"
-        :changeNetCount="changeNetCount"
-        :changeOfficeEquipmentCount="changeOfficeEquipmentCount"
-        :change-phone-count="changePhoneCount"
-        :changeCCTV="changeCCTV"
-        :basicPrice="Number(basicPrice)"
-        :standardPrice="Number(standardPrice)"
-        :expertPrice="Number(expertPrice)"
-      ></calculator>
+
       <div class="wrapper">
-        <div class="grey-text page-content-block">
-          *В калькуляторе указаны средние цены. Конечная стоимость абонентского
-          обслуживания только после технического аудита.
-        </div>
-        <ratio-table class="page-content-block"></ratio-table>
-        <p class="service-message page-content-block">
-          <icon :icon-name="'rouble-icon'" class="icon">
-            <rouble-icon />
-          </icon>
-          <span>
-            - стоимость услуги не входит в стоимость тарифа и рассчитывается
-            отдельно. Свяжитесь с менеджером, чтобы узнать подробности
-          </span>
-        </p>
+        <!--        <ratio-table class="page-content-block"></ratio-table>-->
+        <!--        <p class="service-message page-content-block">-->
+        <!--          <icon :icon-name="'rouble-icon'" class="icon">-->
+        <!--            <rouble-icon />-->
+        <!--          </icon>-->
+        <!--          <span>-->
+        <!--            - стоимость услуги не входит в стоимость тарифа и рассчитывается-->
+        <!--            отдельно. Свяжитесь с менеджером, чтобы узнать подробности-->
+        <!--          </span>-->
+        <!--        </p>-->
         <div class="advantages page-content-block">
           <h5>Как сэкономить:</h5>
           <advantage-list>

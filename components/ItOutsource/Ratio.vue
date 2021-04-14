@@ -1,8 +1,15 @@
 <template>
-  <div class="ratio" >
+  <div class="ratio">
     <div class="price" @click="showModal">{{ price }}&nbsp;₽</div>
     <h4 class="header">{{ header }}</h4>
-    <slot name="content"></slot>
+    <button v-if="!isContentShown" class="dialog-button" @click="showContent">
+      Состав тарифа
+    </button>
+    <div v-if="isContentShown" @click="showContent">
+      <slot name="content"></slot>
+      <!--      <button class="dialog-button">Cкрыть</button>-->
+    </div>
+
     <modal-window :show="isModalShown" @onClick="showModal"
       ><TicketModalForm @onClick="showModal"
     /></modal-window>
@@ -16,6 +23,7 @@ export default {
   data() {
     return {
       isModalShown: false,
+      isContentShown: false,
     }
   },
   components: {
@@ -25,6 +33,9 @@ export default {
   methods: {
     showModal() {
       this.isModalShown = !this.isModalShown
+    },
+    showContent() {
+      this.isContentShown = !this.isContentShown
     },
   },
   props: {
@@ -37,27 +48,38 @@ export default {
       type: Number || String,
       required: true,
     },
+    active: {
+      type: Boolean,
+      required: true,
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .ratio {
   position: relative;
-  padding: 1.6em 2em 3em;
+  padding: 1.6em 2em 1.6em;
   //border: 1px solid #eee;
   border-radius: 6px;
   text-align: center;
   height: fit-content;
   margin-top: 2em;
   color: #fff;
+  background-color: $base-color1;
+  min-width: 300px;
+  max-width: 300px;
+  &:nth-child(1) {
+    margin-top: 0;
+  }
   @include _900() {
+    max-width: 100%;
     padding: 1em;
   }
-
   .header {
-    margin: 1em 0;
+    margin: 0.5em 0;
   }
   .price {
     position: absolute;
@@ -82,6 +104,10 @@ export default {
     li {
       padding-bottom: 0.5em;
     }
+    margin-bottom: 1em;
+  }
+  .dialog-button {
+    width: 100%;
   }
 }
 </style>

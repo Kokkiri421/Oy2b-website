@@ -1,7 +1,7 @@
 <template>
   <div class="calculator">
-    <div class="wrapper">
-      <div class="calculator-form page-content-block">
+    <div class="calculator__content">
+      <div class="calculator-form">
         <h4>
           Калькулятор IT&nbsp;Аутсорсинга
           <span class="dn-600">в Санкт-Петербурге</span>
@@ -10,7 +10,9 @@
           <div class="calculator-type">
             <div class="calculator-type__header">Количество компьютеров</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="computer-count">0</label>
+              <label class="input-label" for="computer-count">{{
+                this.computerCount
+              }}</label>
               <input
                 type="range"
                 class="input-slider computer-count"
@@ -37,7 +39,9 @@
           <div class="calculator-type">
             <div class="calculator-type__header">Количество серверов</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="server-count">0</label>
+              <label class="input-label" for="server-count">
+                {{ this.serverCount }}
+              </label>
               <input
                 type="range"
                 id="server-count"
@@ -66,7 +70,9 @@
               Количество сетевого оборудования
             </div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="server-count">0</label>
+              <label class="input-label" for="net-count">{{
+                this.netCount
+              }}</label>
               <input
                 type="range"
                 id="net-count"
@@ -93,7 +99,9 @@
           <div class="calculator-type">
             <div class="calculator-type__header">Количество оргтехники</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="office-equipment-count">0</label>
+              <label class="input-label" for="office-equipment-count">{{
+                this.officeEquipmentCount
+              }}</label>
               <input
                 type="range"
                 class="input-slider office-equipment-count"
@@ -122,12 +130,14 @@
           <div class="calculator-type">
             <div class="calculator-type__header">Количество IP телефонов</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="office-equipment-count">0</label>
+              <label class="input-label" for="phone-count">{{
+                this.phoneCount
+              }}</label>
               <input
                 type="range"
                 class="input-slider phone-count"
                 id="phone-count"
-                name="office-equipment-count"
+                name="phone-count"
                 min="0"
                 max="100"
                 :value="phoneCount"
@@ -159,13 +169,13 @@
           </div>
         </div>
       </div>
+      <ratio-form
+        :basic-price="basicPrice"
+        :expert-price="expertPrice"
+        :standard-price="standardPrice"
+        :is-server="serverCount > 0"
+      ></ratio-form>
     </div>
-    <ratio-form
-      :basic-price="basicPrice"
-      :expert-price="expertPrice"
-      :standard-price="standardPrice"
-      :is-server="serverCount > 0"
-    ></ratio-form>
   </div>
 </template>
 
@@ -249,10 +259,28 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+.calculator {
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include _900() {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}
 .calculator-form {
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   padding: 30px;
   border-radius: 6px;
+  height: fit-content;
+  flex-grow: 1;
+  margin-right: 2em;
+  @include _900() {
+    margin-right: 0;
+    margin-bottom: 3em;
+  }
   @include _600() {
     padding: 20px;
   }
@@ -265,7 +293,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2em;
-  @include _900() {
+  @include _1250() {
     flex-direction: column;
     margin-bottom: 1em;
   }
@@ -274,7 +302,7 @@ export default {
   }
   &__header {
     min-width: 350px;
-    margin-right: 3em;
+    //margin-right: 3em;
     @include _600() {
       font-size: 0.8em;
       min-width: auto;
@@ -292,8 +320,11 @@ export default {
     }
     .input-label {
       color: #aaa;
+      min-width: 1.5em;
+      &:nth-child(n + 1) {
+        text-align: right;
+      }
       &:nth-child(n + 2) {
-        min-width: 1.5em;
         text-align: left;
         margin-right: 1em;
       }
@@ -375,7 +406,10 @@ export default {
     display: inline-block;
     width: 40px;
     height: 20px;
-
+    margin-left: 2.5em;
+    @include _1250() {
+      margin-top: 0.5em;
+    }
     input {
       opacity: 0;
       width: 0;

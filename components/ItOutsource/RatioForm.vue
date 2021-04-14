@@ -1,12 +1,13 @@
 <template>
-  <div class="ratio-form wrapper">
-    <h5 class="header">Выберите удобный тариф:</h5>
+  <div class="ratio-form">
+    <!--    <h5 class="header">Выберите удобный тариф:</h5>-->
     <div class="ratios">
       <div class="ratios__types" ref="ratio-types">
         <ratio
           class="ratio"
+          :active="currentRatio === 1"
           :price="basicPrice"
-          :header="'Стартовый'"
+          :header="'Cтандартный'"
           id="slide-1"
         >
           <template v-slot:content>
@@ -41,7 +42,8 @@
         <ratio
           class="ratio"
           :price="standardPrice"
-          :header="'Cтандартный'"
+          :active="currentRatio === 2"
+          :header="'VIP'"
           id="slide-2"
         >
           <template v-slot:content>
@@ -88,6 +90,7 @@
         <ratio
           class="ratio"
           :price="expertPrice"
+          :active="currentRatio === 3"
           :header="'Экспертный'"
           id="slide-3"
         >
@@ -105,23 +108,23 @@
           </template>
         </ratio>
       </div>
-      <div class="ratios__carousel-dots">
-        <a
-          class="carousel-dot"
-          :class="{ active: currentRatio === 1 }"
-          @click="scrollCarousel(1)"
-        ></a>
-        <a
-          class="carousel-dot"
-          :class="{ active: currentRatio === 2 }"
-          @click="scrollCarousel(2)"
-        ></a>
-        <a
-          class="carousel-dot"
-          :class="{ active: currentRatio === 3 }"
-          @click="scrollCarousel(3)"
-        ></a>
-      </div>
+      <!--      <div class="ratios__carousel-dots">-->
+      <!--        <a-->
+      <!--          class="carousel-dot"-->
+      <!--          :class="{ active: currentRatio === 1 }"-->
+      <!--          @click="scrollCarousel(1)"-->
+      <!--        ></a>-->
+      <!--        <a-->
+      <!--          class="carousel-dot"-->
+      <!--          :class="{ active: currentRatio === 2 }"-->
+      <!--          @click="scrollCarousel(2)"-->
+      <!--        ></a>-->
+      <!--        <a-->
+      <!--          class="carousel-dot"-->
+      <!--          :class="{ active: currentRatio === 3 }"-->
+      <!--          @click="scrollCarousel(3)"-->
+      <!--        ></a>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -201,49 +204,21 @@ export default {
   .ratios {
     &__types {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-      @include _600 {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-        &::-webkit-scrollbar {
-          display: none;
-        }
-      }
       .ratio {
         flex-grow: 1;
-        &:nth-child(n + 1) {
-          margin-right: 2em;
-          @include _900() {
-            margin-right: 1em;
+        &__active {
+          @include _600() {
+            //margin-top: 4em !important;
+            //opacity: 0.5;
           }
-        }
-        &:nth-child(1) {
-          background-color: $base-color3;
-        }
-        &:nth-child(2) {
-          background-color: $base-color2;
-        }
-        &:nth-child(3) {
-          background-color: $base-color1;
-        }
-        &:nth-last-child(-n + 1) {
-          margin-right: 0;
-        }
-        @include _600() {
-          flex-grow: 0;
-          scroll-snap-align: center;
-          min-width: 55vw;
         }
       }
     }
     &__carousel-dots {
       display: none;
-      @include _600() {
+      @include _765() {
         display: flex;
         justify-content: center;
       }
