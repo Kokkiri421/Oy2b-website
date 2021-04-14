@@ -8,9 +8,7 @@
         </h4>
         <div class="calculator-form__data" :style="chromeProgress">
           <div class="calculator-type">
-            <div class="calculator-type__header">
-              Сколько у вас в компании компьютеров
-            </div>
+            <div class="calculator-type__header">Количество компьютеров</div>
             <div class="calculator-type__slider">
               <label class="input-label" for="computer-count">0</label>
               <input
@@ -37,9 +35,7 @@
             </div>
           </div>
           <div class="calculator-type">
-            <div class="calculator-type__header">
-              Сколько у вас в компании серверов
-            </div>
+            <div class="calculator-type__header">Количество серверов</div>
             <div class="calculator-type__slider">
               <label class="input-label" for="server-count">0</label>
               <input
@@ -67,8 +63,35 @@
           </div>
           <div class="calculator-type">
             <div class="calculator-type__header">
-              Сколько у вас в компании оргтехники
+              Количество сетевого оборудования
             </div>
+            <div class="calculator-type__slider">
+              <label class="input-label" for="server-count">0</label>
+              <input
+                type="range"
+                id="net-count"
+                class="input-slider net-count"
+                name="net-count"
+                min="0"
+                max="50"
+                :value="netCount"
+                @input="changeNetCount($event, 50)"
+              />
+              <label class="input-label" for="computer-count">50</label>
+              <input
+                type="number"
+                class="input-number"
+                name="net-count"
+                min="0"
+                max="50"
+                step="1"
+                :value="netCount"
+                @input="changeNetCount($event, 50)"
+              />
+            </div>
+          </div>
+          <div class="calculator-type">
+            <div class="calculator-type__header">Количество оргтехники</div>
             <div class="calculator-type__slider">
               <label class="input-label" for="office-equipment-count">0</label>
               <input
@@ -96,6 +119,44 @@
               />
             </div>
           </div>
+          <div class="calculator-type">
+            <div class="calculator-type__header">Количество IP телефонов</div>
+            <div class="calculator-type__slider">
+              <label class="input-label" for="office-equipment-count">0</label>
+              <input
+                type="range"
+                class="input-slider phone-count"
+                id="phone-count"
+                name="office-equipment-count"
+                min="0"
+                max="100"
+                :value="phoneCount"
+                @input="changePhoneCount($event, 100)"
+              />
+              <label class="input-label" for="office-equipment-count"
+                >100</label
+              >
+              <input
+                type="number"
+                class="input-number"
+                name="phone-count"
+                min="0"
+                max="100"
+                step="1"
+                :value="phoneCount"
+                @input="changePhoneCount($event, 100)"
+              />
+            </div>
+          </div>
+          <div class="calculator-type switch-type">
+            <div class="calculator-type__header">
+              Обслуживание видеонаблюдения
+            </div>
+            <label class="calculator-type__switch">
+              <input type="checkbox" :checked="cctv" />
+              <span class="slider round"></span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -103,6 +164,7 @@
       :basic-price="basicPrice"
       :expert-price="expertPrice"
       :standard-price="standardPrice"
+      :is-server="serverCount > 0"
     ></ratio-form>
   </div>
 </template>
@@ -121,10 +183,16 @@ export default {
   props: {
     computerCount: { type: Number, required: true },
     serverCount: { type: Number, required: true },
+    netCount: { type: Number, required: true },
     officeEquipmentCount: { type: Number, required: true },
+    phoneCount: { type: Number, required: true },
+    cctv: { type: Boolean, required: true },
     changeComputerCount: { type: Function, required: true },
     changeServerCount: { type: Function, required: true },
+    changeNetCount: { type: Function, required: true },
     changeOfficeEquipmentCount: { type: Function, required: true },
+    changePhoneCount: { type: Function, required: true },
+    changeCCTV: { type: Function, required: true },
     basicPrice: { type: Number, required: true },
     standardPrice: { type: Number, required: true },
     expertPrice: { type: Number, required: true },
@@ -135,7 +203,9 @@ export default {
       return {
         '--computer-progress': `${this.computerCount}%`,
         '--server-progress': `${this.serverCount * 2}%`,
+        '--net-progress': `${this.netCount * 2}%`,
         '--office-equipment-progress': `${this.officeEquipmentCount}%`,
+        '--phone-progress': `${this.phoneCount}%`,
       }
     },
     // basicPrice() {
@@ -187,7 +257,7 @@ export default {
     padding: 20px;
   }
   &__data {
-    margin-top: 1em;
+    margin-top: 2em;
   }
 }
 .calculator-type {
@@ -261,6 +331,25 @@ export default {
       );
     }
 
+    .server-count[type='range']::-webkit-slider-runnable-track {
+      background: linear-gradient(
+        to right,
+        $base-color1 0%,
+        $base-color1 var(--server-progress),
+        $form-bg-color var(--server-progress),
+        $form-bg-color 100%
+      );
+    }
+    .net-count[type='range']::-webkit-slider-runnable-track {
+      background: linear-gradient(
+        to right,
+        $base-color1 0%,
+        $base-color1 var(--net-progress),
+        $form-bg-color var(--net-progress),
+        $form-bg-color 100%
+      );
+    }
+
     .office-equipment-count[type='range']::-webkit-slider-runnable-track {
       background: linear-gradient(
         to right,
@@ -270,9 +359,66 @@ export default {
         $form-bg-color 100%
       );
     }
+    .phone-count[type='range']::-webkit-slider-runnable-track {
+      background: linear-gradient(
+        to right,
+        $base-color1 0%,
+        $base-color1 var(--phone-progress),
+        $form-bg-color var(--phone-progress),
+        $form-bg-color 100%
+      );
+    }
+  }
+  &__switch {
+    justify-self: flex-start;
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      &:checked + .slider {
+        background-color: $base-color1;
+      }
+      &:checked + .slider:before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 16px;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+      &:before {
+        position: absolute;
+        content: '';
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        border-radius: 100%;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+    }
   }
 }
-
+.switch-type {
+  justify-content: flex-start;
+}
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;

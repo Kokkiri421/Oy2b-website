@@ -130,10 +130,16 @@
         ref="calculator"
         :computerCount="Number(computerCount)"
         :serverCount="Number(serverCount)"
+        :netCount="Number(netCount)"
+        :phone-count="Number(phoneCount)"
+        :cctv="cctv"
         :officeEquipmentCount="Number(officeEquipmentCount)"
         :changeComputerCount="changeComputerCount"
         :changeServerCount="changeServerCount"
+        :changeNetCount="changeNetCount"
         :changeOfficeEquipmentCount="changeOfficeEquipmentCount"
+        :change-phone-count="changePhoneCount"
+        :changeCCTV="changeCCTV"
         :basicPrice="Number(basicPrice)"
         :standardPrice="Number(standardPrice)"
         :expertPrice="Number(expertPrice)"
@@ -228,7 +234,10 @@ export default {
     return {
       computerCount: 10,
       serverCount: 1,
+      netCount: 1,
       officeEquipmentCount: 5,
+      phoneCount: 10,
+      cctv: false,
     }
   },
   components: {
@@ -247,32 +256,32 @@ export default {
     SolutionForm,
   },
   methods: {
-    changeComputerCount: function (e,max) {
+    changeCount(e, max) {
       e.target.value = e.target.value.replace(/[^0-9]/g, '')
       if (e.target.value > max) {
         e.target.value = max
       } else if (e.target.value < 0) {
         e.target.value = 0
       }
-      this.computerCount = e.target.value
+      return e.target.value
     },
-    changeServerCount: function (e,max) {
-      e.target.value = e.target.value.replace(/[^0-9]/g, '')
-      if (e.target.value > max) {
-        e.target.value = max
-      } else if (e.target.value < 0) {
-        e.target.value = 0
-      }
-      this.serverCount = e.target.value
+    changeComputerCount: function (e, max) {
+      this.computerCount = this.changeCount(e, max)
     },
-    changeOfficeEquipmentCount: function (e,max) {
-      e.target.value = e.target.value.replace(/[^0-9]/g, '')
-      if (e.target.value > max) {
-        e.target.value = max
-      } else if (e.target.value < 0) {
-        e.target.value = 0
-      }
-      this.officeEquipmentCount = e.target.value
+    changeServerCount: function (e, max) {
+      this.serverCount = this.changeCount(e, max)
+    },
+    changeNetCount: function (e, max) {
+      this.netCount = this.changeCount(e, max)
+    },
+    changeOfficeEquipmentCount: function (e, max) {
+      this.officeEquipmentCount = this.changeCount(e, max)
+    },
+    changePhoneCount: function (e, max) {
+      this.phoneCount = this.changeCount(e, max)
+    },
+    changeCCTV: function (e) {
+      this.cctv = e.target.checked
     },
     scrollToServices: function () {
       window.scrollTo({
@@ -304,18 +313,37 @@ export default {
   },
   computed: {
     basicPrice() {
-      return (
-        this.computerCount * 600 +
-        this.serverCount * 1500 +
-        this.officeEquipmentCount * 200
-      )
+      let discount = 0
+      let price =
+        this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
+      if (this.computerCount >= 60) {
+        discount = 30
+      } else if (this.computerCount >= 40 || this.serverCount >= 4) {
+        discount = 25
+      } else if (this.computerCount >= 25) {
+        discount = 20
+      } else if (this.computerCount >= 15 || this.serverCount >= 2) {
+        discount = 15
+      }
+      price = price * (discount / 100)
+      return Math.round(price > 10000 ? price : 10000)
     },
     standardPrice() {
-      return (
-        this.computerCount * 750 +
-        this.serverCount * 1800 +
-        this.officeEquipmentCount * 300
-      )
+      let discount = 0
+      let price =
+        this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
+      if (this.computerCount >= 60) {
+        discount = 30
+      } else if (this.computerCount >= 40 || this.serverCount >= 4) {
+        discount = 25
+      } else if (this.computerCount >= 25) {
+        discount = 20
+      } else if (this.computerCount >= 15 || this.serverCount >= 2) {
+        discount = 15
+      }
+      price =
+        price * (discount / 100) > 10000 ? price * (discount / 100) : 10000
+      return Math.round(price * 0.35 > 5000 ? price * 1.35 : price + 5000)
     },
     expertPrice() {
       return (
