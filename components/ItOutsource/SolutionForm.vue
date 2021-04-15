@@ -6,17 +6,26 @@
         <p class="article">
           Оформите заявку прямо сейчас и мы подберем для вас лучшую цену!
         </p>
+        <p class="form-error-message" v-if="errors.length > 0">
+          Заполните обязательные поля
+        </p>
         <div class="solution-block__form-container">
-          <form class="solution-block-form">
+          <form class="solution-block-form" @submit="checkForm">
             <pretty-input
               :name="'name'"
               :placeholder="'Имя'"
               class="solution-block-form__item"
+              :value="name"
+              @onInput="setName"
+              :error="errors.includes('name')"
             ></pretty-input>
             <pretty-input
               :name="'phone'"
               :placeholder="'Телефон'"
               class="solution-block-form__item"
+              :value="phone"
+              @onInput="setPhone"
+              :error="errors.includes('phone')"
             ></pretty-input>
             <div class="solution-block-form__item">
               <button class="dialog-button">
@@ -37,8 +46,39 @@
 <script>
 import PrettyInput from '~/components/Common/PrettyInput'
 export default {
+  data() {
+    return {
+      name: '',
+      phone: '',
+
+      errors: [],
+    }
+  },
   components: {
     PrettyInput,
+  },
+  methods: {
+    checkForm(e) {
+      e.preventDefault()
+      this.errors = []
+      if (!this.name) {
+        this.errors.push('name')
+      }
+      if (!this.phone) {
+        this.errors.push('phone')
+      }
+      if (this.errors.length === 0) {
+        console.log('solution form')
+        return true
+      }
+      console.log(this.errors)
+    },
+    setName(e) {
+      this.name = e.target.value
+    },
+    setPhone(e) {
+      this.phone = e.target.value
+    },
   },
 }
 </script>

@@ -1,23 +1,35 @@
 <template>
   <div class="form-background">
-    <form class="audit-form">
+    <form class="audit-form" @submit="checkForm">
       <h4 class="audit-form__header">
         Оставьте сейчас заявку на бесплатный экспресс аудит
       </h4>
+      <p class="form-error-message" v-if="errors.length > 0">
+        Заполните обязательные поля
+      </p>
       <pretty-input
         :name="'name'"
         :placeholder="'Имя'"
         class="audit-form__item"
+        :value="name"
+        @onInput="setName"
+        :error="errors.includes('name')"
       ></pretty-input>
       <pretty-input
         :name="'phone'"
         :placeholder="'Телефон'"
         class="audit-form__item"
+        :value="phone"
+        @onInput="setPhone"
+        :error="errors.includes('phone')"
       ></pretty-input>
       <pretty-input
         :name="'company'"
         :placeholder="'Компания'"
         class="audit-form__item"
+        :value="company"
+        @onInput="setCompany"
+        :error="errors.includes('company')"
       ></pretty-input>
       <div class="audit-form__item">
         <button class="dialog-button">Отправить заявку</button>
@@ -33,8 +45,45 @@
 import PrettyInput from '~/components/Common/PrettyInput'
 export default {
   name: 'AuditForm',
+  data() {
+    return {
+      name: '',
+      phone: '',
+      company: '',
+      errors: [],
+    }
+  },
   components: {
     PrettyInput,
+  },
+  methods: {
+    checkForm(e) {
+      e.preventDefault()
+      this.errors = []
+      if (!this.name) {
+        this.errors.push('name')
+      }
+      if (!this.phone) {
+        this.errors.push('phone')
+      }
+      if (!this.company) {
+        this.errors.push('company')
+      }
+      if (this.errors.length === 0) {
+        console.log('question form')
+        return true
+      }
+      console.log(this.errors)
+    },
+    setName(e) {
+      this.name = e.target.value
+    },
+    setPhone(e) {
+      this.phone = e.target.value
+    },
+    setCompany(e) {
+      this.company = e.target.value
+    },
   },
 }
 </script>

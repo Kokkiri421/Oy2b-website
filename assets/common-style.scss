@@ -89,7 +89,7 @@ body {
     100% {
       left: calc(150%);
     }
-    
+
   }
 }
 
@@ -102,6 +102,10 @@ body {
 }
 
 .article {
+  margin-bottom: 1em;
+}
+.form-error-message {
+  color: $red-color1;
   margin-bottom: 1em;
 }
 .article:nth-last-child(-n + 1) {
@@ -185,9 +189,9 @@ body {
 
     thead {
       width: 100%;
-      
+
       th {
-        
+
         &:first-child {
           position: sticky;
           left: 0;

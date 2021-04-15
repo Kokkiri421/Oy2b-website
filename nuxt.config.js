@@ -11,7 +11,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
-  css: ['~/assets/fonts/Montserrat.scss'],
+  css: ['~/assets/fonts/Montserrat.scss', '~/assets/colors.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

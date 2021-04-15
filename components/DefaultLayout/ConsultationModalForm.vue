@@ -1,24 +1,52 @@
 <template>
   <div class="modal-form">
     <h4>Обсудить проект</h4>
-    <form>
+    <p class="form-error-message" v-if="errors.length > 0">
+      Заполните обязательные поля
+    </p>
+    <form @submit="checkForm">
       <pretty-input
         :name="'name'"
         :placeholder="'Ваше Имя'"
         class="modal-form__item"
+        :value="name"
+        @onInput="setName"
+        :error="errors.includes('name')"
       ></pretty-input>
       <pretty-input
         :name="'phone'"
         :placeholder="'Телефон'"
         class="modal-form__item"
+        :value="phone"
+        @onInput="setPhone"
+        :error="errors.includes('phone')"
       ></pretty-input>
       <div class="radio-buttons">
         <div class="modal-form__radio">
-          <input id="ip" name="radio" type="radio" checked />
+          <input
+            id="ip"
+            name="radio"
+            type="radio"
+            checked
+            @change="
+              () => {
+                type = 'ip'
+              }
+            "
+          />
           <label for="ip" class="radio-label">ИП</label>
         </div>
         <div class="modal-form__radio">
-          <input id="ul" name="radio" type="radio" />
+          <input
+            id="ul"
+            name="radio"
+            type="radio"
+            @change="
+              () => {
+                type = 'ul'
+              }
+            "
+          />
           <label for="ul" class="radio-label">Юр.лицо</label>
         </div>
       </div>
@@ -35,8 +63,40 @@
 <script>
 import PrettyInput from '~/components/Common/PrettyInput'
 export default {
+  data() {
+    return {
+      name: '',
+      phone: '',
+      type: 'ip',
+      errors: [],
+    }
+  },
   components: {
     PrettyInput,
+  },
+  methods: {
+    checkForm(e) {
+      e.preventDefault()
+      this.errors = []
+      if (!this.name) {
+        this.errors.push('name')
+      }
+      if (!this.phone) {
+        this.errors.push('phone')
+      }
+      if (this.errors.length === 0) {
+        console.log('consultation form')
+        console.log(this.type)
+        return true
+      }
+      console.log(this.errors)
+    },
+    setName(e) {
+      this.name = e.target.value
+    },
+    setPhone(e) {
+      this.phone = e.target.value
+    },
   },
 }
 </script>

@@ -7,6 +7,7 @@
           class="ratio"
           :active="currentRatio === 1"
           :price="basicPrice"
+          :discount="discount"
           :header="'Cтандартный'"
           id="slide-1"
         >
@@ -43,7 +44,9 @@
           class="ratio"
           :price="standardPrice"
           :active="currentRatio === 2"
-          :header="'VIP'"
+          :discount="discount"
+          :header="'Профи'"
+          :is-popular="true"
           id="slide-2"
         >
           <template v-slot:content>
@@ -88,10 +91,12 @@
           </template>
         </ratio>
         <ratio
-          class="ratio"
+          class="ratio sysadmin-ratio"
           :price="expertPrice"
           :active="currentRatio === 3"
-          :header="'Экспертный'"
+          :discount="discount"
+          :header="'Cотрудник в штате'"
+          :button-text="'Почему дорого?'"
           id="slide-3"
         >
           <template v-slot:content>
@@ -155,6 +160,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    discount: {
+      type: Number,
+      required: true,
+    },
   },
   components: {
     Ratio,
@@ -202,7 +211,9 @@ export default {
     text-align: center;
   }
   .ratios {
+    height: 100%;
     &__types {
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -213,6 +224,16 @@ export default {
             //margin-top: 4em !important;
             //opacity: 0.5;
           }
+        }
+        .content {
+          list-style: none;
+          padding: 0;
+
+          li {
+            padding-bottom: 0.5em;
+          }
+
+          margin-bottom: 1em;
         }
       }
     }

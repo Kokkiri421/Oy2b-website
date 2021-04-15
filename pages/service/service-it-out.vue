@@ -142,6 +142,7 @@
           :basicPrice="Number(basicPrice)"
           :standardPrice="Number(standardPrice)"
           :expertPrice="Number(expertPrice)"
+          :discount="discount"
         ></calculator>
       </div>
 
@@ -234,6 +235,7 @@ export default {
       netCount: 1,
       officeEquipmentCount: 5,
       phoneCount: 10,
+      discount: 0,
       cctv: false,
     }
   },
@@ -310,36 +312,43 @@ export default {
   },
   computed: {
     basicPrice() {
-      let discount = 0
       let price =
         this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
       if (this.computerCount >= 60) {
-        discount = 30
+        this.discount = 30
       } else if (this.computerCount >= 40 || this.serverCount >= 4) {
-        discount = 25
+        this.discount = 25
       } else if (this.computerCount >= 25) {
-        discount = 20
+        this.discount = 20
       } else if (this.computerCount >= 15 || this.serverCount >= 2) {
-        discount = 15
+        this.discount = 15
+      } else {
+        this.discount = 0
       }
-      price = price * (discount / 100)
+      price = price - price * (this.discount / 100)
+      if (price === 0) return price
       return Math.round(price > 10000 ? price : 10000)
     },
     standardPrice() {
-      let discount = 0
       let price =
         this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
-      if (this.computerCount >= 60) {
-        discount = 30
-      } else if (this.computerCount >= 40 || this.serverCount >= 4) {
-        discount = 25
-      } else if (this.computerCount >= 25) {
-        discount = 20
-      } else if (this.computerCount >= 15 || this.serverCount >= 2) {
-        discount = 15
-      }
+      // if (this.computerCount >= 60) {
+      //   this.discount = 30
+      // } else if (this.computerCount >= 40 || this.serverCount >= 4) {
+      //   this.discount = 25
+      // } else if (this.computerCount >= 25) {
+      //   this.discount = 20
+      // } else if (this.computerCount >= 15 || this.serverCount >= 2) {
+      //   this.discount = 15
+      // } else {
+      //   this.discount = 0
+      // }
+      console.log(this.discount)
+      if (price === 0) return price
       price =
-        price * (discount / 100) > 10000 ? price * (discount / 100) : 10000
+        price - price * (this.discount / 100) > 10000
+          ? price - price * (this.discount / 100)
+          : 10000
       return Math.round(price * 0.35 > 5000 ? price * 1.35 : price + 5000)
     },
     expertPrice() {

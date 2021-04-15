@@ -14,16 +14,25 @@
           <div class="hero-block-form-container__prefix">
             <slot name="form-prefix"></slot>
           </div>
-          <form class="hero-block-form">
+          <p class="form-error-message" v-if="errors.length > 0">
+            Заполните обязательные поля
+          </p>
+          <form class="hero-block-form" @submit="checkForm">
             <pretty-input
-              :name="'address'"
+              :name="'company'"
               :placeholder="'Организация или Адрес'"
               class="hero-block-form__item"
+              :value="company"
+              @onInput="setCompany"
+              :error="errors.includes('company')"
             ></pretty-input>
             <pretty-input
               :name="'phone'"
               :placeholder="'Телефон'"
               class="hero-block-form__item"
+              :value="phone"
+              @onInput="setPhone"
+              :error="errors.includes('phone')"
             ></pretty-input>
             <div class="hero-block-form__item">
               <button class="dialog-button">
@@ -66,6 +75,13 @@
 <script>
 import PrettyInput from '~/components/Common/PrettyInput'
 export default {
+  data() {
+    return {
+      company: '',
+      phone: '',
+      errors: [],
+    }
+  },
   components: {
     PrettyInput,
   },
@@ -82,6 +98,28 @@ export default {
   methods: {
     scrollDown() {
       this.$emit('onClick')
+    },
+    checkForm(e) {
+      e.preventDefault()
+      this.errors = []
+
+      if (!this.company) {
+        this.errors.push('company')
+      }
+      if (!this.phone) {
+        this.errors.push('phone')
+      }
+      if (this.errors.length === 0) {
+        console.log('hero form')
+        return true
+      }
+      console.log(this.errors)
+    },
+    setCompany(e) {
+      this.company = e.target.value
+    },
+    setPhone(e) {
+      this.phone = e.target.value
     },
   },
 }
@@ -139,7 +177,7 @@ export default {
         }
         &__item {
           vertical-align: top;
-          margin: 1em 1em 1em 0;
+          margin: 0 1em 1em 0;
           min-width: 280px;
           @include _950() {
             display: block;
@@ -155,6 +193,7 @@ export default {
       }
       &__prefix {
         font-size: 0.8em;
+        margin-bottom: 1em;
       }
       &__legal {
         font-size: 0.6em;

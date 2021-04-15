@@ -2,24 +2,37 @@
   <div class="ip-address">
     <div class="ip-address-wrapper">
       <div class="ip-address-block">
-        <h4 class="ip-address-block__header">
-          Остались вопросы?
-        </h4>
-        <p class="article">Узнайте стоимость и&nbsp;получите тарифы на&nbsp;аренду или покупку IP&nbsp;адресов</p>
+        <h4 class="ip-address-block__header">Остались вопросы?</h4>
+        <p class="article">
+          Узнайте стоимость и&nbsp;получите тарифы на&nbsp;аренду или покупку
+          IP&nbsp;адресов
+        </p>
+        <p class="form-error-message" v-if="errors.length > 0">
+          Заполните обязательные поля
+        </p>
         <div class="ip-address-block__form-container">
-          <form class="ip-address-block-form">
+          <form class="ip-address-block-form" @submit="checkForm">
             <pretty-input
               :name="'name'"
               :placeholder="'Имя'"
               class="ip-address-block-form__item"
+              :value="name"
+              @onInput="setName"
+              :error="errors.includes('name')"
             ></pretty-input>
             <pretty-input
               :name="'phone'"
               :placeholder="'Телефон'"
               class="ip-address-block-form__item"
+              :value="phone"
+              @onInput="setPhone"
+              :error="errors.includes('phone')"
             ></pretty-input>
             <div class="ip-address-block-form__item">
-              <button class="dialog-button"><div class="shining-button"></div>Оставить заявку</button>
+              <button class="dialog-button">
+                <div class="shining-button"></div>
+                Оставить заявку
+              </button>
             </div>
           </form>
           <div class="ip-address-block__privacy">
@@ -35,8 +48,38 @@
 import PrettyInput from '~/components/Common/PrettyInput'
 export default {
   name: 'ip-addressBlock',
+  data() {
+    return {
+      name: '',
+      phone: '',
+      errors: [],
+    }
+  },
   components: {
     PrettyInput,
+  },
+  methods: {
+    checkForm(e) {
+      e.preventDefault()
+      this.errors = []
+      if (!this.name) {
+        this.errors.push('name')
+      }
+      if (!this.phone) {
+        this.errors.push('phone')
+      }
+      if (this.errors.length === 0) {
+        console.log('ip-adress form')
+        return true
+      }
+      console.log(this.errors)
+    },
+    setName(e) {
+      this.name = e.target.value
+    },
+    setPhone(e) {
+      this.phone = e.target.value
+    },
   },
 }
 </script>

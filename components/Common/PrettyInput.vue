@@ -3,10 +3,13 @@
     <input
       :type="type"
       class="form-input"
+      :class="{ 'form-input__error': error && !isCustomized }"
       :name="name"
-      maxlength="18"
+      maxlength="32"
       @focus="isCustomized = true"
       @blur="checkCustomized"
+      :value="value"
+      @input="$emit('onInput', $event)"
     />
     <span
       class="form-input__placeholder"
@@ -40,6 +43,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    value: {
+      type: String,
+      default: '',
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     checkCustomized(e) {
@@ -53,6 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .pretty-input {
+  @import '~/assets/colors';
   position: relative;
   display: inline-block;
   .form-input {
@@ -66,6 +78,11 @@ export default {
     box-sizing: border-box;
     resize: none;
     font: 400 1em/1.1em Montserrat, sans-serif;
+    &:focus {
+    }
+    &__error {
+      outline: $red-color1 auto 1px;
+    }
     &__placeholder {
       position: absolute;
       line-height: 1.6em;
@@ -88,8 +105,7 @@ export default {
   color: #d81428 !important;
   background-color: #fff;
 }
-input[type="file"] { 
+input[type='file'] {
   opacity: 0;
-
 }
 </style>

@@ -8,11 +8,18 @@
         </h4>
         <div class="calculator-form__data" :style="chromeProgress">
           <div class="calculator-type">
-            <div class="calculator-type__header">Количество компьютеров</div>
+            <div class="calculator-type__header">Компьютеры</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="computer-count">{{
-                this.computerCount
-              }}</label>
+              <input
+                type="number"
+                class="input-number input-label"
+                name="computer-count"
+                min="0"
+                max="100"
+                step="1"
+                :value="computerCount"
+                @change="changeComputerCount($event, 100)"
+              />
               <input
                 type="range"
                 class="input-slider computer-count"
@@ -24,24 +31,21 @@
                 @input="changeComputerCount($event, 100)"
               />
               <label class="input-label" for="computer-count">100</label>
-              <input
-                type="number"
-                class="input-number"
-                name="computer-count"
-                min="0"
-                max="100"
-                step="1"
-                :value="computerCount"
-                @change="changeComputerCount($event, 100)"
-              />
             </div>
           </div>
           <div class="calculator-type">
-            <div class="calculator-type__header">Количество серверов</div>
+            <div class="calculator-type__header">Сервера</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="server-count">
-                {{ this.serverCount }}
-              </label>
+              <input
+                type="number"
+                class="input-number input-label"
+                name="computer-count"
+                min="0"
+                max="50"
+                step="1"
+                :value="serverCount"
+                @input="changeServerCount($event, 50)"
+              />
               <input
                 type="range"
                 id="server-count"
@@ -53,55 +57,22 @@
                 @input="changeServerCount($event, 50)"
               />
               <label class="input-label" for="computer-count">50</label>
+            </div>
+          </div>
+
+          <div class="calculator-type">
+            <div class="calculator-type__header">Оргтехника</div>
+            <div class="calculator-type__slider">
               <input
                 type="number"
-                class="input-number"
+                class="input-number input-label"
                 name="computer-count"
                 min="0"
-                max="50"
+                max="100"
                 step="1"
-                :value="serverCount"
-                @input="changeServerCount($event, 50)"
+                :value="officeEquipmentCount"
+                @input="changeOfficeEquipmentCount($event, 100)"
               />
-            </div>
-          </div>
-          <div class="calculator-type">
-            <div class="calculator-type__header">
-              Количество сетевого оборудования
-            </div>
-            <div class="calculator-type__slider">
-              <label class="input-label" for="net-count">{{
-                this.netCount
-              }}</label>
-              <input
-                type="range"
-                id="net-count"
-                class="input-slider net-count"
-                name="net-count"
-                min="0"
-                max="50"
-                :value="netCount"
-                @input="changeNetCount($event, 50)"
-              />
-              <label class="input-label" for="computer-count">50</label>
-              <input
-                type="number"
-                class="input-number"
-                name="net-count"
-                min="0"
-                max="50"
-                step="1"
-                :value="netCount"
-                @input="changeNetCount($event, 50)"
-              />
-            </div>
-          </div>
-          <div class="calculator-type">
-            <div class="calculator-type__header">Количество оргтехники</div>
-            <div class="calculator-type__slider">
-              <label class="input-label" for="office-equipment-count">{{
-                this.officeEquipmentCount
-              }}</label>
               <input
                 type="range"
                 class="input-slider office-equipment-count"
@@ -115,24 +86,21 @@
               <label class="input-label" for="office-equipment-count"
                 >100</label
               >
-              <input
-                type="number"
-                class="input-number"
-                name="computer-count"
-                min="0"
-                max="100"
-                step="1"
-                :value="officeEquipmentCount"
-                @input="changeOfficeEquipmentCount($event, 100)"
-              />
             </div>
           </div>
           <div class="calculator-type">
-            <div class="calculator-type__header">Количество IP телефонов</div>
+            <div class="calculator-type__header">IP телефоны</div>
             <div class="calculator-type__slider">
-              <label class="input-label" for="phone-count">{{
-                this.phoneCount
-              }}</label>
+              <input
+                type="number"
+                class="input-number input-label"
+                name="phone-count"
+                min="0"
+                max="100"
+                step="1"
+                :value="phoneCount"
+                @input="changePhoneCount($event, 100)"
+              />
               <input
                 type="range"
                 class="input-slider phone-count"
@@ -146,16 +114,32 @@
               <label class="input-label" for="office-equipment-count"
                 >100</label
               >
+            </div>
+          </div>
+          <div class="calculator-type">
+            <div class="calculator-type__header">Сетевое оборудование</div>
+            <div class="calculator-type__slider">
               <input
                 type="number"
-                class="input-number"
-                name="phone-count"
+                class="input-number input-label"
+                name="net-count"
                 min="0"
-                max="100"
+                max="50"
                 step="1"
-                :value="phoneCount"
-                @input="changePhoneCount($event, 100)"
+                :value="netCount"
+                @input="changeNetCount($event, 50)"
               />
+              <input
+                type="range"
+                id="net-count"
+                class="input-slider net-count"
+                name="net-count"
+                min="0"
+                max="50"
+                :value="netCount"
+                @input="changeNetCount($event, 50)"
+              />
+              <label class="input-label" for="computer-count">50</label>
             </div>
           </div>
           <div class="calculator-type switch-type">
@@ -167,6 +151,13 @@
               <span class="slider round"></span>
             </label>
           </div>
+          <p class="privacy">
+            *Минимальная стоимоть обслуживания - 1000р&nbsp;в&nbsp;месяц
+          </p>
+          <p class="privacy">
+            **Конечная стоимость рассчитывается на&nbsp;основании
+            технического&nbsp;аудита
+          </p>
         </div>
       </div>
       <ratio-form
@@ -174,6 +165,7 @@
         :expert-price="expertPrice"
         :standard-price="standardPrice"
         :is-server="serverCount > 0"
+        :discount="discount"
       ></ratio-form>
     </div>
   </div>
@@ -206,6 +198,7 @@ export default {
     basicPrice: { type: Number, required: true },
     standardPrice: { type: Number, required: true },
     expertPrice: { type: Number, required: true },
+    discount: { type: Number, required: true },
   },
   components: { Ratio, RatioForm },
   computed: {
@@ -274,7 +267,7 @@ export default {
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   padding: 30px;
   border-radius: 6px;
-  height: fit-content;
+  //height: fit-content;
   flex-grow: 1;
   margin-right: 2em;
   @include _900() {
@@ -287,6 +280,13 @@ export default {
   &__data {
     margin-top: 2em;
   }
+  .privacy {
+    font-size: 0.8em;
+    color: #00000085;
+    @include _600() {
+      font-size: 0.7em;
+    }
+  }
 }
 .calculator-type {
   display: flex;
@@ -297,6 +297,7 @@ export default {
     flex-direction: column;
     margin-bottom: 1em;
   }
+
   &:nth-last-child(-n + 1) {
     margin-bottom: 1em;
   }
@@ -323,8 +324,10 @@ export default {
       min-width: 1.5em;
       &:nth-child(n + 1) {
         text-align: right;
+        min-width: 1.7em;
       }
       &:nth-child(n + 2) {
+        min-width: 1.5em;
         text-align: left;
         margin-right: 1em;
       }

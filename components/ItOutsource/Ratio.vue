@@ -1,24 +1,49 @@
 <template>
-  <div class="ratio">
-    <div class="price" @click="showModal">{{ price }}&nbsp;₽</div>
-    <h4 class="header">{{ header }}</h4>
-    <button v-if="!isContentShown" class="dialog-button" @click="showContent">
-      Состав тарифа
-    </button>
-    <div v-if="isContentShown" @click="showContent">
-      <slot name="content"></slot>
-      <!--      <button class="dialog-button">Cкрыть</button>-->
+  <div class="ratio" :class="{ popular: isPopular }">
+    <div v-if="isPopular" class="popular-mark">
+      <span>ПОПУЛЯРНЫЙ</span>
     </div>
-
-    <modal-window :show="isModalShown" @onClick="showModal"
-      ><TicketModalForm @onClick="showModal"
-    /></modal-window>
+    <div class="main-info">
+      <h4 class="header" @click="showContent">
+        <span>{{ header }}</span>
+        <icon
+          :icon-name="'expand-icon'"
+          class="expand-icon"
+          :class="{ rotate: isContentShown }"
+          :view-box="'0 0 24 24'"
+        >
+          <menu-arrow-icon />
+        </icon>
+      </h4>
+      <div class="info">
+        <div class="price">
+          <p class="normal-price" v-show="discount !== 0">{{ price }}&nbsp;₽</p>
+          <p class="discount-price">{{ price }}&nbsp;₽</p>
+        </div>
+        <button class="dialog-button" @click="showModal">
+          {{ buttonText || 'Выбрать' }}
+        </button>
+      </div>
+    </div>
+    <transition name="slide-fade">
+      <div v-if="isContentShown" @click="showContent" class="list">
+        <slot name="content"></slot>
+        <!--      <button class="dialog-button">Cкрыть</button>-->
+      </div>
+    </transition>
+    <modal-window :show="isModalShown" @onClick="showModal">
+      <TicketModalForm @onClick="showModal" />
+    </modal-window>
   </div>
 </template>
 
 <script>
 import ModalWindow from '~/components/Common/ModalWindow'
 import TicketModalForm from '~/components/Common/TicketModalForm'
+import Icon from '~/components/Icons/Icon'
+import ExpandTableIcon from '~/components/Icons/ExpandTableIcon'
+import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
+
 export default {
   data() {
     return {
@@ -29,6 +54,8 @@ export default {
   components: {
     ModalWindow,
     TicketModalForm,
+    Icon,
+    MenuArrowIcon,
   },
   methods: {
     showModal() {
@@ -43,7 +70,10 @@ export default {
       type: String,
       required: true,
     },
-
+    discount: {
+      type: Number || String,
+      required: true,
+    },
     price: {
       type: Number || String,
       required: true,
@@ -52,6 +82,14 @@ export default {
       type: Boolean,
       required: true,
     },
+    isPopular: {
+      type: Boolean,
+      default: false,
+    },
+    buttonText: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
@@ -59,55 +97,159 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+
 .ratio {
+  overflow: hidden;
   position: relative;
-  padding: 1.6em 2em 1.6em;
+  padding: 1em 2em;
   //border: 1px solid #eee;
   border-radius: 6px;
-  text-align: center;
+  //text-align: center;
   height: fit-content;
   margin-top: 2em;
-  color: #fff;
-  background-color: $base-color1;
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   min-width: 300px;
   max-width: 300px;
+
   &:nth-child(1) {
     margin-top: 0;
   }
+
   @include _900() {
     max-width: 100%;
     padding: 1em;
   }
-  .header {
-    margin: 0.5em 0;
-  }
-  .price {
+
+  .popular-mark {
     position: absolute;
-    top: -1em;
-    width: 60%;
-    margin-bottom: -10px;
-    padding: 0.5em 1em;
-    left: 50%;
-    font-size: 1.4em;
+    padding: 0.5em 4em;
+    top: 2.35em;
+    right: -4em;
+    transform: rotate(45deg);
+    background-color: #2cbf52;
+    color: #fff;
+    font-size: 0.6em;
     font-weight: 700;
-    transform: translateX(-50%);
-    background: #fff;
-    border-radius: 6px;
-    color: #2cbf52;
-    border: 1px solid #eee;
-    cursor: pointer;
-    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   }
-  .content {
-    list-style: none;
-    padding: 0;
-    li {
-      padding-bottom: 0.5em;
+
+  .main-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .header {
+      color: #444;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 2px dashed #444;
+      width: fit-content;
+      .expand-icon {
+        margin-left: 0.25em;
+        height: 25px;
+        width: 25px;
+
+        transition: transform 0.3s;
+        vertical-align: middle;
+        fill: none;
+        stroke: #444;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+      .rotate {
+        transform: rotate(180deg);
+      }
     }
-    margin-bottom: 1em;
+
+    .info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .price {
+        text-align: center;
+
+        .normal-price {
+          position: relative;
+          font-size: 1.2em;
+          font-weight: 700;
+          color: #4c4646;
+
+          &:after {
+            content: '';
+            display: block;
+            width: 90%;
+            height: 50%;
+            position: absolute;
+            top: -1px;
+            left: 5%;
+            border-bottom: 3px solid #4c4646;
+          }
+        }
+
+        .discount-price {
+          font-size: 1.4em;
+          font-weight: 700;
+          color: #2cbf52;
+        }
+
+        margin-right: 1em;
+      }
+    }
   }
+
+  .list {
+    margin-top: 2em;
+  }
+
   .dialog-button {
-    width: 100%;
+    //width: 100%;
+  }
+}
+
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active до версии 2.1.8 */ {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+.popular {
+  box-shadow: 0 0 20px 0 #2cbf5280;
+}
+.sysadmin-ratio {
+  .header {
+    font-size: 1.6em;
+    @include _1300() {
+      font-size: 1.5em;
+    }
+    @include _700() {
+      font-size: 1.2em;
+    }
+  }
+  background: #ddd;
+  .dialog-button {
+    background-color: #999;
+    font-size: 0.97em;
+    @include _900() {
+      font-size: 1em;
+    }
+    &:hover {
+      background-color: #aaa;
+    }
+  }
+  .discount-price {
+    color: #50a265 !important;
   }
 }
 </style>
