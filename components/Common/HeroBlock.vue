@@ -1,6 +1,8 @@
 <template>
   <div class="hero-block">
-    <div class="background-element"></div>
+    <div class="background-element">
+      <img src="~/static/images/licences/licence1.jpg" />
+    </div>
     <div class="wrapper">
       <div class="hero-block-content">
         <div class="hero-block-top">
@@ -52,8 +54,8 @@
       </div>
       <div v-if="isAnchor" class="hero-block-anchor-container">
         <div class="hero-block-anchor" @click="scrollDown">
-          <a
-            ><svg
+          <a>
+            <svg
               width="24"
               height="11"
               viewBox="0 0 24 11"
@@ -65,8 +67,9 @@
                 d="M1 1L12 9L23 1"
                 stroke="white"
                 stroke-width="2"
-              ></path></svg
-          ></a>
+              ></path>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
@@ -75,6 +78,7 @@
 
 <script>
 import PrettyInput from '~/components/Common/PrettyInput'
+
 export default {
   data() {
     return {
@@ -134,20 +138,52 @@ export default {
   position: relative;
   height: 100%;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+
+  .background-element {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    background: #c0dce2;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      background: #05aa01;
+      top: 105%;
+      left: -50%;
+      height: 50%;
+      width: 300%;
+      transform: rotate(10deg);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: #05aa01;
+      bottom: 0%;
+      right: -100%;
+      height: 70%;
+      width: 200%;
+      transform: rotate(-65deg);
+    }
+  }
+
   .hero-block-content {
+    position: relative;
+    z-index: 2 !important;
     padding: 100px 0;
-    color: #ffffff;
+    color: #444444;
     @include _765() {
       padding: 73px 0;
     }
     @include _640() {
       padding: 70px 0 3em;
     }
+
     .hero-block-top {
       max-width: 800px;
+
       &__header {
         font-size: 3em;
         line-height: 52px;
@@ -161,6 +197,7 @@ export default {
           font-size: 1.5em;
         }
       }
+
       &__description {
         font-weight: 500;
         font-size: 1em;
@@ -171,39 +208,60 @@ export default {
         }
       }
     }
+
     .hero-block-form-container {
+      background: #f2f2f2;
+      color: #444444;
+      border-radius: 6px;
+      padding: 1em 2em;
+      width: fit-content;
+      max-width: calc(100% - 4em);
+      @include _950() {
+        width: calc(100% - 4em);
+      }
+
       .hero-block-form {
         display: flex;
         flex-direction: row;
         @include _950() {
           display: block;
+          width: 100%;
         }
+
         &__item {
           vertical-align: top;
           margin: 0 1em 1em 0;
-          min-width: 280px;
+          width: 280px;
+
+          &:nth-last-child(-n + 1) {
+            margin-right: 0;
+          }
+
           @include _950() {
             display: block;
             margin: 1em 0;
             width: 100%;
           }
+
           button {
-            @include _950() {
-              width: 100%;
-            }
+            width: 100%;
           }
         }
       }
+
       &__prefix {
         font-size: 0.8em;
         margin-bottom: 1em;
       }
+
       &__legal {
         font-size: 0.6em;
         line-height: normal;
+
         a {
-          color: #fff;
+          color: #444444;
           transition: color 0.3s ease-out;
+
           &:hover {
             color: $red-color1;
           }
@@ -211,6 +269,7 @@ export default {
       }
     }
   }
+
   .hero-block-anchor-container {
     position: relative;
     text-align: center;
@@ -218,6 +277,7 @@ export default {
     .hero-block-anchor {
       cursor: pointer;
       position: absolute;
+      fill: #444444;
       width: 100%;
       height: 0;
       bottom: 50px;
@@ -232,6 +292,7 @@ export default {
         bottom: 2em;
       }
     }
+
     @keyframes bounce {
       0% {
         transform: translateY(0);
