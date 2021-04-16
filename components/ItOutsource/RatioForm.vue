@@ -92,7 +92,7 @@
         </ratio>
         <ratio
           class="ratio sysadmin-ratio"
-          :price="expertPrice"
+          :price="sysadminPrice"
           :active="currentRatio === 3"
           :discount="discount"
           :header="'Cотрудник в штате'"
@@ -100,15 +100,29 @@
           id="slide-3"
         >
           <template v-slot:content>
-            <ul class="content">
-              <li>Удаленная поддержка</li>
-              <li>Обслуживание ПК и серверов</li>
-              <li>Поддержка и учет лицензий ПО</li>
-              <li>Управление каталогами</li>
-              <li>Обслуживание почты и 1С</li>
-              <li>Антивирусная защита</li>
-              <li>Сопровождение поставщиков</li>
-              <li>Чистка техники 1 раз в год</li>
+            <ul class="content" v-if="sysadminCount === 1">
+              <li>Средняя ЗП — 55тыс на руки</li>
+              <li>НДФЛ(13%) — 8 220</li>
+              <li>Отличсления:</li>
+              <li>Пенсионные(22%) — 13 910</li>
+              <li>Медицинские(5,1%) — 3225</li>
+              <li>Социальные(2,9%) — 1834</li>
+              <li>Отчисления ФСС(0,2%) — 127</li>
+              <li>Минусы:</li>
+              <li>Отпуска 2 раза в год(4недели)</li>
+              <li>Возможные больничные</li>
+              <li>Необходимость контроля сотрудника</li>
+              <li>Компетенция одного человека</li>
+            </ul>
+            <ul class="content" v-if="sysadminCount === 2">
+              <li>Два сисадмина</li>
+              <li>Средняя ЗП — 40тыс на руки</li>
+              <li>НДФЛ(13%) — 5 980</li>
+              <li>Отличсления:</li>
+              <li>Пенсионные(22%) — 10 120</li>
+              <li>Медицинские(5,1%) — 2 346</li>
+              <li>Социальные(2,9%) — 1 334</li>
+              <li>Отчисления ФСС(0,2%) — 92</li>
             </ul>
           </template>
         </ratio>
@@ -152,7 +166,7 @@ export default {
       type: Number,
       required: true,
     },
-    expertPrice: {
+    sysadminPrice: {
       type: Number,
       required: true,
     },
@@ -161,6 +175,10 @@ export default {
       required: true,
     },
     discount: {
+      type: Number,
+      required: true,
+    },
+    sysadminCount: {
       type: Number,
       required: true,
     },

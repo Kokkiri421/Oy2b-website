@@ -33,7 +33,9 @@
               </template>
             </advantage-block>
             <advantage-block :style="{ '--color': '#ff7d05' }">
-              <template v-slot:header>Документы на&nbsp;русском&nbsp;языке</template>
+              <template v-slot:header
+                >Документы на&nbsp;русском&nbsp;языке</template
+              >
               <template v-slot:description
                 >Мы ведем документооборот только на русском языке</template
               >
@@ -140,7 +142,7 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-        </service-list >
+        </service-list>
       </div>
       <ip-form ref="order" />
     </div>

@@ -162,10 +162,11 @@
       </div>
       <ratio-form
         :basic-price="basicPrice"
-        :expert-price="expertPrice"
+        :sysadmin-price="sysadminPrice"
         :standard-price="standardPrice"
         :is-server="serverCount > 0"
         :discount="discount"
+        :sysadminCount="sysadminCount"
       ></ratio-form>
     </div>
   </div>
@@ -197,7 +198,8 @@ export default {
     changeCCTV: { type: Function, required: true },
     basicPrice: { type: Number, required: true },
     standardPrice: { type: Number, required: true },
-    expertPrice: { type: Number, required: true },
+    sysadminPrice: { type: Number, required: true },
+    sysadminCount: { type: Number, required: true },
     discount: { type: Number, required: true },
   },
   components: { Ratio, RatioForm },
@@ -267,7 +269,7 @@ export default {
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
   padding: 30px;
   border-radius: 6px;
-  //height: fit-content;
+  height: fit-content;
   flex-grow: 1;
   margin-right: 2em;
   @include _900() {
@@ -409,7 +411,7 @@ export default {
     display: inline-block;
     width: 40px;
     height: 20px;
-    margin-left: 2.5em;
+
     @include _1250() {
       margin-top: 0.5em;
     }

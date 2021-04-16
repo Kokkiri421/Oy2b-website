@@ -17,7 +17,7 @@
       </h4>
       <div class="info">
         <div class="price">
-          <p class="normal-price" v-show="discount !== 0">{{ price }}&nbsp;₽</p>
+          <p class="normal-price">{{ Math.floor(price * 1.1) }}&nbsp;₽</p>
           <p class="discount-price">{{ price }}&nbsp;₽</p>
         </div>
         <button class="dialog-button" @click="showModal">
@@ -29,6 +29,15 @@
       <div v-if="isContentShown" @click="showContent" class="list">
         <slot name="content"></slot>
         <!--      <button class="dialog-button">Cкрыть</button>-->
+        <div class="info">
+          <div class="price">
+            <p class="normal-price">{{ Math.floor(price * 1.1) }}&nbsp;₽</p>
+            <p class="discount-price">{{ price }}&nbsp;₽</p>
+          </div>
+          <button class="dialog-button" @click="showModal">
+            {{ buttonText || 'Выбрать' }}
+          </button>
+        </div>
       </div>
     </transition>
     <modal-window :show="isModalShown" @onClick="showModal">
@@ -49,6 +58,7 @@ export default {
     return {
       isModalShown: false,
       isContentShown: false,
+      scrollYcoord: 0,
     }
   },
   components: {
@@ -62,6 +72,14 @@ export default {
       this.isModalShown = !this.isModalShown
     },
     showContent() {
+      if (!this.isContentShown) {
+        this.scrollYcoord = window.scrollY
+      } else if (this.scrollYcoord < window.scrollY) {
+        window.scrollTo({
+          top: this.scrollYcoord,
+          behavior: 'smooth',
+        })
+      }
       this.isContentShown = !this.isContentShown
     },
   },
@@ -135,10 +153,11 @@ export default {
   }
 
   .main-info {
-    height: 100%;
+    height: calc(135px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .header {
       color: #444;
       cursor: pointer;
@@ -147,6 +166,7 @@ export default {
       align-items: center;
       border-bottom: 2px dashed #444;
       width: fit-content;
+
       .expand-icon {
         margin-left: 0.25em;
         height: 25px;
@@ -160,44 +180,9 @@ export default {
         stroke-linejoin: round;
         stroke-linecap: round;
       }
+
       .rotate {
         transform: rotate(180deg);
-      }
-    }
-
-    .info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      .price {
-        text-align: center;
-
-        .normal-price {
-          position: relative;
-          font-size: 1.2em;
-          font-weight: 700;
-          color: #4c4646;
-
-          &:after {
-            content: '';
-            display: block;
-            width: 90%;
-            height: 50%;
-            position: absolute;
-            top: -1px;
-            left: 5%;
-            border-bottom: 3px solid #4c4646;
-          }
-        }
-
-        .discount-price {
-          font-size: 1.4em;
-          font-weight: 700;
-          color: #2cbf52;
-        }
-
-        margin-right: 1em;
       }
     }
   }
@@ -208,6 +193,45 @@ export default {
 
   .dialog-button {
     //width: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: flex-end;
+
+  .price {
+    text-align: center;
+    min-width: 103px;
+    width: 103px;
+
+    .normal-price {
+      position: relative;
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #4c4646;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 90%;
+        height: 50%;
+        position: absolute;
+        top: -1px;
+        left: 5%;
+        border-bottom: 3px solid #4c4646;
+      }
+    }
+
+    .discount-price {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #2cbf52;
+    }
+
+    margin-right: 1em;
   }
 }
 
@@ -224,9 +248,11 @@ export default {
   transform: translateY(-10px);
   opacity: 0;
 }
+
 .popular {
   box-shadow: 0 0 20px 0 #2cbf5280;
 }
+
 .sysadmin-ratio {
   .header {
     font-size: 1.6em;
@@ -237,17 +263,19 @@ export default {
       font-size: 1.2em;
     }
   }
+
   background: #ddd;
+
   .dialog-button {
     background-color: #999;
-    font-size: 0.97em;
-    @include _900() {
-      font-size: 1em;
-    }
+    padding: 0.96em 1.8em;
+    font-size: 0.9em;
+
     &:hover {
       background-color: #aaa;
     }
   }
+
   .discount-price {
     color: #50a265 !important;
   }

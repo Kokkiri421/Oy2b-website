@@ -1,5 +1,6 @@
 <template>
   <div class="hero-block">
+    <div class="background-element"></div>
     <div class="wrapper">
       <div class="hero-block-content">
         <div class="hero-block-top">
@@ -128,7 +129,9 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+
 .hero-block {
+  position: relative;
   height: 100%;
   width: 100%;
   background-position: center;

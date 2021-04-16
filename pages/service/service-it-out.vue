@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hero-block :is-anchor="true" :user-form="true" @onClick="scrollToServices">
-      <template v-slot:header> Профессиональный IT&nbsp;Аутсорсинг </template>
+      <template v-slot:header> Профессиональный IT&nbsp;Аутсорсинг</template>
       <template v-slot:description>
         <div class="description">
           <p class="article">
@@ -41,7 +41,7 @@
       <div class="wrapper">
         <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
-            <template v-slot:header> Обслуживание компьютеров </template>
+            <template v-slot:header> Обслуживание компьютеров</template>
             <template v-slot:description>
               <p class="article">
                 В&nbsp;рамках обслуживания осуществляется устранение любых
@@ -55,12 +55,12 @@
                 <li>Модернизация и&nbsp;замена оборудования</li>
               </ul>
             </template>
-            <template v-slot:button
-              ><button class="dialog-button">Заказать</button>
+            <template v-slot:button>
+              <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
-            <template v-slot:header>Обслуживание серверов </template>
+            <template v-slot:header>Обслуживание серверов</template>
             <template v-slot:description>
               <p class="article">
                 Качественное обслуживание серверов&nbsp;— это отсутствие
@@ -74,12 +74,12 @@
                 <li>Модернизация и&nbsp;замена оборудования</li>
               </ul>
             </template>
-            <template v-slot:button
-              ><button class="dialog-button">Заказать</button>
+            <template v-slot:button>
+              <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
-            <template v-slot:header>Обслуживание оргтехники </template>
+            <template v-slot:header>Обслуживание оргтехники</template>
             <template v-slot:description>
               <p class="article">
                 Оргтехника должна просто работать и&nbsp;не&nbsp;«делать нервы».
@@ -92,12 +92,12 @@
                 <li>Поставляем расходные материалы</li>
               </ul>
             </template>
-            <template v-slot:button
-              ><button class="dialog-button">Заказать</button>
+            <template v-slot:button>
+              <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
-            <template v-slot:header>Удаленное рабочее место </template>
+            <template v-slot:header>Удаленное рабочее место</template>
             <template v-slot:description>
               <p class="article">
                 Организация и настройка доступа к рабочему месту и телефону
@@ -109,8 +109,8 @@
                 <li>Техническая поддержка 24/7</li>
               </ul>
             </template>
-            <template v-slot:button
-              ><button class="dialog-button">Заказать</button>
+            <template v-slot:button>
+              <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
         </service-list>
@@ -141,8 +141,9 @@
           :changeCCTV="changeCCTV"
           :basicPrice="Number(basicPrice)"
           :standardPrice="Number(standardPrice)"
-          :expertPrice="Number(expertPrice)"
+          :sysadminPrice="Number(sysadminPrice)"
           :discount="discount"
+          :sysadminCount="sysadminCount"
         ></calculator>
       </div>
 
@@ -227,6 +228,7 @@ import Icon from '~/components/Icons/Icon'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
 import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
+
 export default {
   data() {
     return {
@@ -236,6 +238,7 @@ export default {
       officeEquipmentCount: 5,
       phoneCount: 10,
       discount: 0,
+      sysadminCount: 0,
       cctv: false,
     }
   },
@@ -332,18 +335,7 @@ export default {
     standardPrice() {
       let price =
         this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
-      // if (this.computerCount >= 60) {
-      //   this.discount = 30
-      // } else if (this.computerCount >= 40 || this.serverCount >= 4) {
-      //   this.discount = 25
-      // } else if (this.computerCount >= 25) {
-      //   this.discount = 20
-      // } else if (this.computerCount >= 15 || this.serverCount >= 2) {
-      //   this.discount = 15
-      // } else {
-      //   this.discount = 0
-      // }
-      console.log(this.discount)
+
       if (price === 0) return price
       price =
         price - price * (this.discount / 100) > 10000
@@ -351,12 +343,17 @@ export default {
           : 10000
       return Math.round(price * 0.35 > 5000 ? price * 1.35 : price + 5000)
     },
-    expertPrice() {
-      return (
-        this.computerCount * 900 +
-        this.serverCount * 2200 +
-        this.officeEquipmentCount * 300
-      )
+    sysadminPrice() {
+      if (this.computerCount >= 50 && this.serverCount >= 4) {
+        this.sysadminCount = 2
+        return 59872 * 2
+      } else if (this.computerCount >= 25 && this.serverCount >= 2) {
+        this.sysadminCount = 1
+        return 82316
+      } else {
+        this.sysadminCount = 0
+        return 0
+      }
     },
   },
 }
@@ -364,46 +361,57 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+
 .hero-block {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('~/static/images/backgrounds/service-it-out-bg.jpg');
+
   .description {
     margin-bottom: 1em;
   }
+
   &__user-form {
     margin-top: 1em;
 
     .blue-dialog-button {
       background-color: #009ee3;
+
       &:hover {
         background-color: #17b8ff;
       }
     }
+
     .dialog-button {
       margin-bottom: 1em;
     }
+
     .dialog-button:nth-child(1) {
       margin-right: 1em;
     }
   }
 }
+
 .page-content {
   .sla {
   }
+
   .grey-text {
     line-height: 1.62em;
     color: #999;
     font-size: 0.9em;
   }
+
   .icon {
     width: 1.25em;
     height: 1.25em;
     vertical-align: middle;
   }
+
   .solution-message {
     font-size: 1em;
   }
 }
+
 .container {
   display: flex;
   flex-direction: column;
