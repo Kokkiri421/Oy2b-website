@@ -23,15 +23,28 @@
         <index-main-content class="page-content-block" />
         <specialits-content class="page-content-block" />
         <call-us-block class="page-content-block" />
-        <h4 v-if="isMapShown" class="yandex-map">
+        <analysis-form class="page-content-block" />
+        <h4 class="yandex-map-header" @click="changeExpandMap">
           Зона присутствия сетей связи «Oyster Telecom»
+          <icon
+            :icon-name="'expand-icon'"
+            class="expand-icon"
+            :class="{ rotate: expandMap }"
+            :view-box="'0 0 24 24'"
+          >
+            <menu-arrow-icon />
+          </icon>
         </h4>
         <div ref="maptop" />
       </div>
-      <yandex-map-block v-if="isMapShown" class="yandex-map"></yandex-map-block>
+
+      <yandex-map-block
+        v-if="isMapShown && expandMap"
+        class="yandex-map"
+      ></yandex-map-block>
 
       <div ref="mapbottom" class="wrapper">
-        <order-block />
+        <!--        <order-block />-->
       </div>
     </div>
   </div>
@@ -46,15 +59,37 @@ import YandexMapBlock from '~/components/Index/YandexMapBlock'
 import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
 import SpecialitsContent from '~/components/Index/SpecialitsContent'
 import CallUsBlock from '~/components/Index/CallUsBlock'
+import Icon from '~/components/Icons/Icon'
+import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
+import AnalysisForm from '~/components/Index/AnalysisForm'
 
 export default {
   data() {
     return {
       isMapShown: false,
       windowWidth: false,
+      expandMap: false,
     }
   },
+
+  components: {
+    IndexMainContent,
+    HeroBlock,
+    OrderBlock,
+    QuestionBlock,
+    YandexMapBlock,
+    AnimateOnViewport,
+    SpecialitsContent,
+    CallUsBlock,
+    Icon,
+    MenuArrowIcon,
+    AnalysisForm,
+  },
+
   methods: {
+    changeExpandMap() {
+      this.expandMap = !this.expandMap
+    },
     showMap: function () {
       if (
         this.$refs.maptop.offsetTop <= window.scrollY + window.innerHeight &&
@@ -69,16 +104,7 @@ export default {
       }
     },
   },
-  components: {
-    IndexMainContent,
-    HeroBlock,
-    OrderBlock,
-    QuestionBlock,
-    YandexMapBlock,
-    AnimateOnViewport,
-    SpecialitsContent,
-    CallUsBlock,
-  },
+
   mounted() {
     this.windowWidth = window.innerWidth > 900
     window.addEventListener('resize', this.updateSize)
@@ -94,8 +120,8 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/index-bg.jpg');
+  //background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  //  url('~/static/images/backgrounds/index-bg.jpg');
 }
 .order-block {
   flex-grow: 1;
@@ -103,5 +129,26 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
+}
+.yandex-map-header {
+  cursor: pointer;
+  .expand-icon {
+    margin-left: 0.25em;
+    margin-bottom: 0.1em;
+    height: 25px;
+    width: 25px;
+
+    transition: transform 0.3s;
+    vertical-align: middle;
+    fill: none;
+    stroke: #444;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  .rotate {
+    transform: rotate(180deg);
+  }
 }
 </style>

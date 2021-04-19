@@ -5,14 +5,18 @@
       :on-click="hideMenu"
       id="navigation-menu"
     />
-
     <div class="header wrapper">
       <div class="header-menu">
         <div class="logo" @click="hideMenu">
           <NuxtLink class="logo__link" :to="'/'">
             <div
               class="logo__img"
-              :class="{ isActive: activeMenuStatus }"
+              :class="{
+                isActive: activeMenuStatus,
+                scroll_colored_bg: scrollPosition > 0,
+                scroll_colored_bg_default:
+                  defaultScrollPosition > 0 && scrollPosition === null,
+              }"
               src="~/static/images/header-logo.svg"
               alt="OysterTelecom"
             />
@@ -21,19 +25,48 @@
         <div class="menu-init">
           <button
             class="menu-init__button"
-            :class="{ isActive: activeMenuStatus }"
+            :class="{
+              isActive: activeMenuStatus,
+              scroll_colored_bg: scrollPosition > 0,
+              scroll_colored_bg_default:
+                defaultScrollPosition > 0 && scrollPosition === null,
+            }"
             @click="showMenu"
             id="navigation-menu-button"
           ></button>
-          <desktop-menu class="menu-init__menu" />
+          <desktop-menu
+            class="menu-init__menu"
+            :class="{
+              scroll_colored: scrollPosition > 0,
+              scroll_colored_default:
+                defaultScrollPosition > 0 && scrollPosition === null,
+            }"
+          />
         </div>
       </div>
       <div class="header-contacts">
         <div class="phone">
-          <a href="tel:+781260002030" class="phone__link">+7 (812) 600-2030</a>
+          <a
+            href="tel:+781260002030"
+            :class="{
+              scroll_colored: scrollPosition > 0,
+              scroll_colored_default:
+                defaultScrollPosition > 0 && scrollPosition === null,
+            }"
+            class="phone__link"
+            >+7 (812) 600-2030</a
+          >
         </div>
         <div class="callback">
-          <button class="dialog-button callback__button" @click="showModal">
+          <button
+            class="dialog-button callback__button"
+            :class="{
+              scroll_colored: scrollPosition > 0,
+              scroll_colored_default:
+                defaultScrollPosition > 0 && scrollPosition === null,
+            }"
+            @click="showModal"
+          >
             Получить консультацию
           </button>
         </div>
@@ -57,6 +90,8 @@ export default {
       windowWidth: null,
       isActiveNavigationMenu: false,
       isModalShown: false,
+      scrollPosition: null,
+      defaultScrollPosition: null,
     }
   },
   components: {
@@ -71,6 +106,9 @@ export default {
     },
   },
   methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+    },
     updateWindowWidth() {
       this.windowWidth = window.innerWidth
     },
@@ -88,6 +126,8 @@ export default {
     this.windowWidth = window.innerWidth
   },
   mounted() {
+    this.defaultScrollPosition = window.scrollY
+    window.addEventListener('scroll', this.updateScroll)
     window.addEventListener('resize', this.updateWindowWidth)
   },
 }
@@ -95,6 +135,23 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
+.scroll_colored {
+  color: #fff !important;
+  stroke: #fff !important;
+  border-color: #fff !important;
+}
+.scroll_colored_default {
+  color: #fff !important;
+  stroke: #fff !important;
+  border-color: #fff !important;
+}
+.scroll_colored_bg {
+  background-color: #fff !important;
+}
+.scroll_colored_bg_default {
+  background-color: #fff !important;
+}
 .callback {
   position: relative;
 }
@@ -115,6 +172,7 @@ export default {
   }
 }
 .header-menu {
+  color: $header-color !important;
   display: flex;
   flex-direction: row;
   z-index: 1;
@@ -128,8 +186,8 @@ export default {
     }
     &__img {
       mask: url('~/static/images/header-logo.svg') no-repeat center;
-      background-color: #fff;
-      transition: background-color 0.2s ease-out;
+      background-color: $header-color;
+      transition: background-color 0.3s ease-out;
       height: 41px;
       width: 104px;
       @include _400 {
@@ -143,11 +201,11 @@ export default {
     align-items: center;
     &__button {
       mask: url('~/static/images/menuIcon.svg') no-repeat center;
-      transition: background-color 0.2s ease-out;
+      transition: background-color 0.3s ease-out;
       display: none;
       width: 30px;
       height: 24px;
-      background-color: #fff;
+      background-color: $header-color;
       border: none;
       padding: 0;
       cursor: pointer;
@@ -156,6 +214,10 @@ export default {
       }
     }
     &__menu {
+      background-color: transparent;
+      color: $header-color;
+      stroke: $header-color;
+      transition: 0.3s color ease-out, 0.3s stroke ease-out;
       @include _1100() {
         display: none;
       }
@@ -170,7 +232,9 @@ export default {
     &__link {
       display: flex;
       align-items: center;
-      color: #fff;
+      color: $header-color;
+      background-color: transparent;
+      transition: 0.3s color ease-out;
       cursor: default;
       text-decoration: none;
       height: 100%;
@@ -184,10 +248,10 @@ export default {
     }
     font: 700 1/1.4em Montserrat, sans-serif;
     &__button {
-      color: #fff;
+      color: $header-color;
       cursor: pointer;
       background-color: transparent;
-      border: 1px solid #fff;
+      border: 1px solid $header-color;
 
       line-height: 1.6em;
 
@@ -196,7 +260,8 @@ export default {
         border 0.2s ease-out, opacity 0.2s ease-out;
       &:hover {
         background-color: #d81428;
-        border-color: #d81428;
+        border-color: #d81428 !important;
+        color: #fff;
       }
     }
   }

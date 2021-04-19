@@ -52,20 +52,13 @@
       <div v-if="isAnchor" class="hero-block-anchor-container">
         <div class="hero-block-anchor" @click="scrollDown">
           <a>
-            <svg
-              width="24"
-              height="11"
-              viewBox="0 0 24 11"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+            <icon
+              :icon-name="'expand-icon'"
+              class="expand-icon"
+              :view-box="'0 0 24 24'"
             >
-              <path
-                opacity="0.7"
-                d="M1 1L12 9L23 1"
-                stroke="white"
-                stroke-width="2"
-              ></path>
-            </svg>
+              <menu-arrow-icon />
+            </icon>
           </a>
         </div>
       </div>
@@ -75,6 +68,8 @@
 
 <script>
 import PrettyInput from '~/components/Common/PrettyInput'
+import Icon from '~/components/Icons/Icon'
+import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 
 export default {
   data() {
@@ -86,6 +81,8 @@ export default {
   },
   components: {
     PrettyInput,
+    Icon,
+    MenuArrowIcon,
   },
   props: {
     isAnchor: {
@@ -132,42 +129,39 @@ export default {
 @import '~/assets/colors';
 
 .hero-block {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   height: 100%;
   width: 100%;
-
-  .background-element1 {
+  background-color: $light-blue-color;
+  z-index: 1;
+  &:before {
+    //background-size: cover;
+    content: '';
     position: absolute;
-    height: inherit;
-    width: inherit;
-    background: #c0dce2;
-    overflow: hidden;
-    transform: rotate(30deg);
-    top: -50%;
-    //&:before {
-    //  content: '';
-    //  position: absolute;
-    //  background: #05aa01;
-    //  top: 105vh;
-    //  left: -50vw;
-    //  height: 50vh;
-    //  width: 300vw;
-    //  transform: rotate(10deg);
-    //}
-    //
-    //&:after {
-    //  content: '';
-    //  position: absolute;
-    //  background: #05aa01;
-    //  bottom: 0vh;
-    //  right: -100vw;
-    //  height: 70vh;
-    //  width: 200vw;
-    //  transform: rotate(-65deg);
-    //}
+    //width: 100px;
+    //height: 100px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 45vh 0 0 80vw;
+    border-color: transparent transparent transparent $bg-color;
+  }
+  &:after {
+    //background-size: cover;
+    content: '';
+    position: absolute;
+    //width: 100px;
+    //height: 100px;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 25vh 20vw;
+    border-color: transparent transparent $bg-color transparent;
+    z-index: -1;
   }
 
   .hero-block-content {
@@ -278,7 +272,18 @@ export default {
     .hero-block-anchor {
       cursor: pointer;
       position: absolute;
-      fill: #444444;
+      .expand-icon {
+        height: 35px;
+        width: 35px;
+
+        transition: transform 0.3s;
+        vertical-align: middle;
+        fill: none;
+        stroke: $text-color;
+        stroke-width: 3px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
       width: 100%;
       height: 0;
       bottom: 50px;

@@ -4,38 +4,40 @@
       Решаем самые сложные и&nbsp;нестандартные задачи,
       которые&nbsp;у&nbsp;вас&nbsp;возникают.
     </h4>
-    <div class="specialits-content">
-      <div class="specialits-content__header">
-        <h4 class="thin-header">Наши специалисты<br />уже более 20 лет:</h4>
-        <span class="green-marks">> > > > > > > > > > > ></span>
-      </div>
-      <div class="specialits-content__item">
-        <h4 class="thin-header">создают</h4>
-        <span class="specialits-content__text">
-          корпоративные решения, которые<br />обеспечивают проектам развитие,
-          функциональность и&nbsp;производительность
-        </span>
-      </div>
-      <div class="specialits-content__item">
-        <h4 class="thin-header">реализовывают</h4>
-        <span class="specialits-content__text">
-          удобную и надёжную инфраструктуру любой сложности
-          с&nbsp;круглосуточной поддержкой
-        </span>
-      </div>
-      <div class="specialits-content__item">
-        <h4 class="thin-header">обеспечивают</h4>
-        <span class="specialits-content__text">
-          непрерывность предоставляемых услуг и&nbsp;сервисов
-        </span>
-      </div>
-    </div>
+    <advantage-list class="page-content-block">
+      <template v-slot:advantage-list>
+        <advantage-block>
+          <template v-slot:header>Cоздают</template>
+          <template v-slot:description
+            >Корпоративные решения, которые<br />обеспечивают проектам развитие,
+            функциональность и&nbsp;производительность</template
+          >
+        </advantage-block>
+        <advantage-block>
+          <template v-slot:header>Реализовывают</template>
+          <template v-slot:description
+            >Удобную и надёжную инфраструктуру любой сложности
+            с&nbsp;круглосуточной поддержкой.</template
+          >
+        </advantage-block>
+        <advantage-block>
+          <template v-slot:header>Обеспечивают</template>
+          <template v-slot:description
+            >непрерывность предоставляемых услуг и&nbsp;сервисов</template
+          >
+        </advantage-block>
+      </template>
+    </advantage-list>
   </div>
 </template>
 
 <script>
+import AdvantageList from '~/components/Common/AdvantageList'
+import AdvantageBlock from '~/components/Common/AdvantageBlock'
+
 export default {
   name: 'SpecialitsContent',
+  components: { AdvantageList, AdvantageBlock },
 }
 </script>
 

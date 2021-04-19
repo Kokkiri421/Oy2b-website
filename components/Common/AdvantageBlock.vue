@@ -1,6 +1,8 @@
 <template>
   <div class="advantage">
-    <div class="advantage__header"><slot name="header"></slot></div>
+    <h4 class="advantage__header">
+      <slot name="header"></slot>
+    </h4>
     <div class="advantage__text">
       <slot name="description"></slot>
     </div>
@@ -18,29 +20,33 @@ export default {
 @import '~/assets/colors';
 
 .advantage {
-  padding-top: 1em;
-  border-top: 1px solid $base-color1;//var(--color);
+  //border-top: 1px solid $base-color1; //var(--color);
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 6px;
   margin-right: 3%;
   margin-bottom: 2em;
+  @include _650() {
+    margin-bottom: 1em;
+  }
   &__header {
     font-weight: 700;
-    font-size: 2em;
+    //font-size: 2em;
     line-height: normal;
     margin-bottom: 0.3em;
-    color: $base-color1;//var(--color);
+    color: $green-color1; //var(--color);
   }
   &__text {
     line-height: 1.4em;
   }
   &:nth-last-child(-n + 1) {
     margin-right: 0;
-    @include _900() {
+    @include _1000() {
       margin-bottom: 0;
     }
   }
-  @include _900() {
-    border-top: none;
-    padding-top: 0;
+  @include _1000() {
+    margin-right: 0;
   }
 }
 </style>

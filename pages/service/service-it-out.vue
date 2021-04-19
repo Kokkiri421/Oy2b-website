@@ -40,7 +40,11 @@
     <div class="page-content">
       <div class="wrapper">
         <service-list class="page-content-block" ref="next-page">
-          <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
+          <service-block
+            class="service-block"
+            :background-color="'#e5edec'"
+            @onClick="scrollToOrder"
+          >
             <template v-slot:header> Обслуживание компьютеров</template>
             <template v-slot:description>
               <p class="article">
@@ -59,7 +63,11 @@
               <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
+          <service-block
+            class="service-block"
+            :background-color="'#f2f2f2'"
+            @onClick="scrollToOrder"
+          >
             <template v-slot:header>Обслуживание серверов</template>
             <template v-slot:description>
               <p class="article">
@@ -78,7 +86,11 @@
               <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
+          <service-block
+            class="service-block"
+            :background-color="'#f2f2f2'"
+            @onClick="scrollToOrder"
+          >
             <template v-slot:header>Обслуживание оргтехники</template>
             <template v-slot:description>
               <p class="article">
@@ -96,7 +108,11 @@
               <button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#08b4ff'" @onClick="scrollToOrder">
+          <service-block
+            class="service-block"
+            :background-color="'#e5edec'"
+            @onClick="scrollToOrder"
+          >
             <template v-slot:header>Удаленное рабочее место</template>
             <template v-slot:description>
               <p class="article">
@@ -363,9 +379,6 @@ export default {
 @import '~/assets/media_mixin';
 
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/service-it-out-bg.jpg');
-
   .description {
     margin-bottom: 1em;
   }

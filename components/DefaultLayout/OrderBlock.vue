@@ -55,8 +55,8 @@ export default {
     background-color: #f2f2f2;
     border-radius: 6px;
     padding: 2.75em 3em;
-    @include _600 {
-      padding: 1em 1.2em;
+    @include _650 {
+      padding: 1.5em;
     }
     .order-block-form {
       display: flex;

@@ -16,7 +16,7 @@ export default {
   display: flex;
   flex-direction: row;
 
-  @include _900() {
+  @include _1000() {
     flex-direction: column;
   }
 }

@@ -186,7 +186,6 @@ export default {
     AdditionalServiceIcon,
     AnimateOnViewport,
     FlameIcon,
-
   },
 }
 </script>
@@ -210,7 +209,9 @@ export default {
   list-style: none;
   margin: 0;
   padding: 0;
+
   .service-button {
+    background-color: #fff;
     opacity: 0;
     width: fit-content;
     border: 1px solid #ccc;

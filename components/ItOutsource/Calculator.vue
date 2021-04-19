@@ -295,7 +295,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2em;
-  @include _1250() {
+  @include _1300() {
     flex-direction: column;
     margin-bottom: 1em;
   }
@@ -412,7 +412,7 @@ export default {
     width: 40px;
     height: 20px;
 
-    @include _1250() {
+    @include _1300() {
       margin-top: 0.5em;
     }
     input {

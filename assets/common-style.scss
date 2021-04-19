@@ -6,6 +6,8 @@ body {
   font-size: 1em;
   line-height: 1.4em;
   overflow-x: hidden;
+  color: $text-color;
+  background: #f9f9f9;
 }
 .layout {
   header {
@@ -272,6 +274,9 @@ ul {
   margin: 0;
   padding-left: 1.2em;
 }
+h1,h2,h3,h4,h5 {
+  color: $header-color;
+}
 h1 {
   font-size: 4em;
   line-height: 1.2em;
@@ -307,9 +312,9 @@ h4 {
   }
 }
 h5 {
-  font-size: 1.5em;
+  font-size: 1.75em;
   @include _1300() {
-    font-size: 1.15em;
+    font-size: 1.25em;
   }
   @include _700() {
     font-size: 1.1em;

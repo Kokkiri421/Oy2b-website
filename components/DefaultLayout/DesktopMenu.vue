@@ -1,16 +1,17 @@
 <template>
   <div class="desktop-menu">
     <div class="menu-item" @mouseover="hoverItem(1)" @mouseleave="mouseLeave">
-      <span>Услуги <icon
+      <span
+        >Услуги
+        <icon
           :icon-name="'expand-icon'"
           class="expand-icon"
           :class="{ rotate: hoveredItem === 1 }"
           :view-box="'0 0 24 24'"
-
         >
           <menu-arrow-icon /> </icon
       ></span>
-      
+
       <desktop-menu-dropdown
         @mouseover="hoverItem(1)"
         @mouseleave="mouseLeave"
@@ -89,12 +90,13 @@
       @mouseover="hoverItem(2)"
       @mouseleave="() => (hoveredItem = 0)"
     >
-      <span>Отрасли <icon
+      <span
+        >Отрасли
+        <icon
           :icon-name="'expand-icon'"
           class="expand-icon"
-          :class="{ rotate: hoveredItem === 2}"
+          :class="{ rotate: hoveredItem === 2 }"
           :view-box="'0 0 24 24'"
-
         >
           <menu-arrow-icon /> </icon
       ></span>
@@ -141,12 +143,12 @@
     </div>
     <div class="menu-item" @mouseover="hoverItem(3)" @mouseleave="mouseLeave">
       <span
-        >Компания <icon
+        >Компания
+        <icon
           :icon-name="'expand-icon'"
           class="expand-icon"
           :class="{ rotate: hoveredItem === 3 }"
           :view-box="'0 0 24 24'"
-
         >
           <menu-arrow-icon /> </icon
       ></span>
@@ -189,7 +191,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 import DesktopMenuDropdown from '~/components/DefaultLayout/DesktopMenuDropdown'
@@ -238,7 +239,7 @@ export default {
   display: flex;
   flex-direction: row;
   .menu-item {
-    color: #fff;
+    //color: #fff;
     margin-right: 1em;
     font-size: 0.9em;
     font-weight: 500;
@@ -249,11 +250,11 @@ export default {
       //margin-bottom: 0.2em;
       height: 20px;
       width: 20px;
-      
+
       transition: transform 0.3s;
       vertical-align: middle;
       fill: none;
-      stroke: #fff;
+      //stroke: #fff;
       stroke-width: 2px;
       stroke-linejoin: round;
       stroke-linecap: round;
@@ -264,7 +265,7 @@ export default {
   }
   &__list {
     font-weight: 500;
-    
+
     color: #000;
     list-style-type: none;
     padding: 0;
