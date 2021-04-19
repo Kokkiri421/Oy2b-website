@@ -5,7 +5,7 @@
     </div>
     <div class="analysis__form-container" ref="order">
       <h4 class="analysis-form__header">
-        Проанализируем вашу ситуацию и дадим рекомендации
+        Проанализируем вашу ситуацию и дадим персональные рекомендации
       </h4>
       <p class="form-error-message" v-if="errors.length > 0">
         Заполните обязательные поля
@@ -119,7 +119,7 @@ export default {
   }
 
   &__form-container {
-    background-color: $header-color;
+    background-color: $text-color;
     border-radius: 6px;
     padding: 1.5em 3em;
     margin: 3em 0;
@@ -189,12 +189,12 @@ export default {
   }
 
   &__privacy {
-    color: #999;
+    color: #fff;
     font-size: 0.6em;
     line-height: 1.4em;
 
     a {
-      color: #999;
+      color: #fff;
       transition: color 0.3s ease-out;
 
       &:hover {

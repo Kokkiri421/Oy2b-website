@@ -130,15 +130,13 @@
             </template>
           </service-block>
         </service-list>
-        <audit-form class="page-content-block" ref="audit"></audit-form>
+        <analysis-form class="page-content-block" ref="audit"></analysis-form>
         <div class="sla page-content-block">
-          <h4>Стандарты обслуживания SLA</h4>
-          <p class="grey-text">
-            Всем вашим обращениям присваивается категория, в зависимости от
-            которой заявке назначается срок выполнения, согласованный с вами. Мы
-            гарантируем устранение неисправности за 2 часа, если у заявки
-            соответствующая категория.
-          </p>
+          <h4>
+            Гарантируем юридическую ответственность в&nbsp;случае нарушения
+            показателей&nbsp;SLA
+          </h4>
+          <sla-block class="page-content-block" />
         </div>
         <calculator
           class="page-content-block"
@@ -175,7 +173,7 @@
         <!--          </span>-->
         <!--        </p>-->
         <div class="advantages page-content-block">
-          <h5>Как сэкономить:</h5>
+          <h4>Как сэкономить:</h4>
           <advantage-list>
             <template v-slot:advantage-list>
               <advantage-block :style="{ '--color': '#009ee3' }">
@@ -213,8 +211,25 @@
             </template>
           </advantage-list>
         </div>
-        <solution-form></solution-form>
-        <p class="solution-message grey-text">
+        <price-form class="page-content-block"></price-form>
+        <div class="bottom-info page-content-block">
+          <h4 class="bottom-info__left-block">
+            Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
+            до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
+            инфраструктуры
+          </h4>
+          <div class="bottom-info__right-block">
+            <h5>Позвоните нам или оставьте заявку на сайте:</h5>
+            <p>
+              Обсудим все детали вашего проекта, зададим важные вопросы, дадим
+              свои рекомендации. В случае необходимости быстро подпишем NDA
+              (соглашение о неразглашении конфиденциальной информации). Если
+              обслуживание Вашей инфраструктуры требует детальной оценки, Вам
+              будет предложен бесплатный аудит.
+            </p>
+          </div>
+        </div>
+        <p class="article solution-message">
           Сегодняшний рынок характеризуется высоким уровнем конкуренции, и успех
           компании полностью зависит от способности предложить уникальные
           продукты. В этой гонке выигрывают компании, которые вкладывают в свою
@@ -224,6 +239,13 @@
           перечисленные выше преимущества для вас звучат достаточно убедительно
           – возможно, именно сотрудничество с Oyster Telecom приведет вашу
           компанию к повышению прибыльности
+        </p>
+        <p class="article solution-message">
+          Аутсорсинг ИТ дает вашему бизнесу возможность получить доступ к
+          высококвалифицированным кадрам в сфере информационных технологий без
+          серьезных затрат. Если перечисленные выше преимущества для вас звучат
+          достаточно убедительно – возможно, именно сотрудничество с Oyster
+          Telecom приведет вашу компанию к повышению прибыльности.
         </p>
       </div>
     </div>
@@ -239,11 +261,13 @@ import Calculator from '~/components/ItOutsource/Calculator'
 import RatioForm from '~/components/ItOutsource/RatioForm'
 import AuditForm from '~/components/ItOutsource/AuditForm'
 import RatioTable from '~/components/ItOutsource/RatioTable'
-import SolutionForm from '~/components/ItOutsource/SolutionForm'
+import PriceForm from '~/components/ItOutsource/PriceForm'
 import Icon from '~/components/Icons/Icon'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
 import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
+import AnalysisForm from '~/components/Common/AnalysisForm'
+import SlaBlock from '~/components/ItOutsource/SlaBlock'
 
 export default {
   data() {
@@ -259,6 +283,7 @@ export default {
     }
   },
   components: {
+    SlaBlock,
     HeroBlock,
     ServiceBlock,
     ServiceList,
@@ -271,7 +296,8 @@ export default {
     RoubleIcon,
     AdvantageBlock,
     AdvantageList,
-    SolutionForm,
+    PriceForm,
+    AnalysisForm,
   },
   methods: {
     changeCount(e, max) {
@@ -363,12 +389,9 @@ export default {
       if (this.computerCount >= 50 && this.serverCount >= 4) {
         this.sysadminCount = 2
         return 59872 * 2
-      } else if (this.computerCount >= 25 && this.serverCount >= 2) {
+      } else {
         this.sysadminCount = 1
         return 82316
-      } else {
-        this.sysadminCount = 0
-        return 0
       }
     },
   },
@@ -377,6 +400,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 
 .hero-block {
   .description {
@@ -422,6 +446,23 @@ export default {
 
   .solution-message {
     font-size: 1em;
+  }
+  .bottom-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @include _1300() {
+      flex-direction: column;
+    }
+    &__right-block {
+      margin-left: 2em;
+      @include _1300() {
+        margin-left: 0;
+      }
+      padding: 1em;
+      border-radius: 6px;
+      background-color: $form-bg-color;
+    }
   }
 }
 

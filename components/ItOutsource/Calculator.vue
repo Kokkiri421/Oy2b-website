@@ -4,7 +4,7 @@
       <div class="calculator-form">
         <h4>
           Калькулятор IT&nbsp;Аутсорсинга
-          <span class="dn-600">в Санкт-Петербурге</span>
+          <span class="dn-600">в Санкт&#8209;Петербурге</span>
         </h4>
         <div class="calculator-form__data" :style="chromeProgress">
           <div class="calculator-type">

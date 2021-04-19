@@ -274,7 +274,7 @@ ul {
   margin: 0;
   padding-left: 1.2em;
 }
-h1,h2,h3,h4,h5 {
+h1,h2,h3,h4,h5,h6 {
   color: $header-color;
 }
 h1 {
@@ -300,7 +300,7 @@ h2 {
   }
 }
 h4 {
-  font-size: 2em;
+  font-size: 1.7em;
   margin: 0 0 0.7em 0;
   font-weight: 600;
   line-height: normal;
@@ -312,7 +312,8 @@ h4 {
   }
 }
 h5 {
-  font-size: 1.75em;
+  margin: 0 0 0.7em 0;
+  font-size: 1.4em;
   @include _1300() {
     font-size: 1.25em;
   }
@@ -321,5 +322,6 @@ h5 {
   }
 }
 h6 {
+  margin: 0 0 0.7em 0;
   font-size: 1em;
 }

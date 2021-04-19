@@ -4,9 +4,14 @@
       <span>ПОПУЛЯРНЫЙ</span>
     </div>
     <div class="main-info">
-      <h4 class="header" @click="showContent">
+      <h4
+        class="header"
+        :class="{ employee: ratioType === 'employee' }"
+        @click="showContent"
+      >
         <span>{{ header }}</span>
         <icon
+          v-if="ratioType === 'ratio'"
           :icon-name="'expand-icon'"
           class="expand-icon"
           :class="{ rotate: isContentShown }"
@@ -17,11 +22,13 @@
       </h4>
       <div class="info">
         <div class="price">
-          <p class="normal-price">{{ Math.floor(price * 1.1) }}&nbsp;₽</p>
+          <p v-if="ratioType === 'ratio'" class="normal-price">
+            {{ Math.floor(price * 1.1) }}&nbsp;₽
+          </p>
           <p class="discount-price">{{ price }}&nbsp;₽</p>
         </div>
         <button class="dialog-button" @click="showModal">
-          {{ buttonText || 'Выбрать' }}
+          {{ buttonText }}
         </button>
       </div>
     </div>
@@ -31,11 +38,10 @@
         <!--      <button class="dialog-button">Cкрыть</button>-->
         <div class="info">
           <div class="price">
-            <p class="normal-price">{{ Math.floor(price * 1.1) }}&nbsp;₽</p>
             <p class="discount-price">{{ price }}&nbsp;₽</p>
           </div>
           <button class="dialog-button" @click="showModal">
-            {{ buttonText || 'Выбрать' }}
+            {{ buttonText }}
           </button>
         </div>
       </div>
@@ -72,6 +78,7 @@ export default {
       this.isModalShown = !this.isModalShown
     },
     showContent() {
+      if (this.ratioType !== 'ratio') return
       if (!this.isContentShown) {
         this.scrollYcoord = window.scrollY
       } else if (this.scrollYcoord < window.scrollY) {
@@ -106,7 +113,11 @@ export default {
     },
     buttonText: {
       type: String,
-      default: '',
+      default: 'Выбрать',
+    },
+    ratioType: {
+      type: String,
+      default: 'ratio',
     },
   },
 }
@@ -119,7 +130,7 @@ export default {
 .ratio {
   overflow: hidden;
   position: relative;
-  padding: 1em 2em;
+  padding: 0.5em 2em;
   //border: 1px solid #eee;
   border-radius: 6px;
   //text-align: center;
@@ -156,7 +167,7 @@ export default {
     height: calc(135px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     .header {
       color: #444;
@@ -279,5 +290,9 @@ export default {
   .discount-price {
     color: #50a265 !important;
   }
+}
+.employee {
+  border-bottom: none !important;
+  cursor: default;
 }
 </style>

@@ -95,6 +95,7 @@
           :price="sysadminPrice"
           :active="currentRatio === 3"
           :discount="discount"
+          :ratioType="'employee'"
           :header="'Cотрудник в штате'"
           :button-text="'Почему дорого?'"
           id="slide-3"

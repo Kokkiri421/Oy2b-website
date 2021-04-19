@@ -201,10 +201,10 @@ export default {
     position: absolute;
     height: 100%;
     background-color: $light-blue-color;
-    width: 100%;
+    width: 1000%;
     top: 0;
     z-index: -1;
-    left: -25%;
+    left: -925%;
   }
 }
 .right {
@@ -214,10 +214,10 @@ export default {
     position: absolute;
     height: 100%;
     background-color: $light-blue-color;
-    width: 100%;
+    width: 1000%;
     top: 0;
     z-index: -1;
-    right: -25%;
+    right: -925%;
   }
 }
 </style>
