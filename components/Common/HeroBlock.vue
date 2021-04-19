@@ -1,8 +1,5 @@
 <template>
   <div class="hero-block">
-    <div class="background-element">
-      <img src="~/static/images/licences/licence1.jpg" />
-    </div>
     <div class="wrapper">
       <div class="hero-block-content">
         <div class="hero-block-top">
@@ -135,43 +132,47 @@ export default {
 @import '~/assets/colors';
 
 .hero-block {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
   height: 100%;
   width: 100%;
 
-  .background-element {
+  .background-element1 {
     position: absolute;
     height: inherit;
     width: inherit;
     background: #c0dce2;
     overflow: hidden;
-
-    &:before {
-      content: '';
-      position: absolute;
-      background: #05aa01;
-      top: 105%;
-      left: -50%;
-      height: 50%;
-      width: 300%;
-      transform: rotate(10deg);
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      background: #05aa01;
-      bottom: 0%;
-      right: -100%;
-      height: 70%;
-      width: 200%;
-      transform: rotate(-65deg);
-    }
+    transform: rotate(30deg);
+    top: -50%;
+    //&:before {
+    //  content: '';
+    //  position: absolute;
+    //  background: #05aa01;
+    //  top: 105vh;
+    //  left: -50vw;
+    //  height: 50vh;
+    //  width: 300vw;
+    //  transform: rotate(10deg);
+    //}
+    //
+    //&:after {
+    //  content: '';
+    //  position: absolute;
+    //  background: #05aa01;
+    //  bottom: 0vh;
+    //  right: -100vw;
+    //  height: 70vh;
+    //  width: 200vw;
+    //  transform: rotate(-65deg);
+    //}
   }
 
   .hero-block-content {
     position: relative;
-    z-index: 2 !important;
+    //z-index: 2 !important;
     padding: 100px 0;
     color: #444444;
     @include _765() {

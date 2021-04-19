@@ -21,11 +21,12 @@
     <div class="page-content">
       <div class="wrapper">
         <index-main-content class="page-content-block" />
-
+        <specialits-content class="page-content-block" />
+        <call-us-block class="page-content-block" />
         <h4 v-if="isMapShown" class="yandex-map">
           Зона присутствия сетей связи «Oyster Telecom»
         </h4>
-        <div ref="maptop"/>
+        <div ref="maptop" />
       </div>
       <yandex-map-block v-if="isMapShown" class="yandex-map"></yandex-map-block>
 
@@ -43,6 +44,8 @@ import OrderBlock from '~/components/DefaultLayout/OrderBlock'
 import QuestionBlock from '~/components/Common/QuestionBlock'
 import YandexMapBlock from '~/components/Index/YandexMapBlock'
 import AnimateOnViewport from '~/components/Common/AnimateOnViewport'
+import SpecialitsContent from '~/components/Index/SpecialitsContent'
+import CallUsBlock from '~/components/Index/CallUsBlock'
 
 export default {
   data() {
@@ -54,24 +57,11 @@ export default {
   methods: {
     showMap: function () {
       if (
-        (this.$refs.maptop.offsetTop <= window.scrollY + window.innerHeight) &&
+        this.$refs.maptop.offsetTop <= window.scrollY + window.innerHeight &&
         !this.isMapShown
       ) {
         this.isMapShown = true
       }
-
-      // if (!this.isMapShown && this.$refs.map) {
-      //   if (
-      //     window.scrollY + window.innerHeight >
-      //       this.$refs.map.offsetTop &&
-      //     this.$refs.map.offsetTop +
-      //       this.$refs.map.offsetHeight >
-      //       window.scrollY
-      //   ) {
-
-      //     this.isMapShown = true
-      //   }
-      // }
     },
     updateSize() {
       if (window.innerWidth > 900) {
@@ -86,6 +76,8 @@ export default {
     QuestionBlock,
     YandexMapBlock,
     AnimateOnViewport,
+    SpecialitsContent,
+    CallUsBlock,
   },
   mounted() {
     this.windowWidth = window.innerWidth > 900
@@ -112,5 +104,4 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
 </style>
