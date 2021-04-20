@@ -20,7 +20,7 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <index-main-content class="page-content-block" />
+        <index-main-content />
         <specialits-content class="page-content-block" />
         <call-us-block class="page-content-block" />
         <analysis-form class="page-content-block" />

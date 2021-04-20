@@ -124,21 +124,14 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
 .question-block {
-  .article {
-    line-height: 1.62em;
-    color: #999;
-    @include _700() {
-      font-size: 0.9em;
-    }
-  }
   .header {
     margin-top: 2em;
     margin-bottom: 1em;
   }
   &__form-container {
-    background-color: #f2f2f2;
+    background-color: $form-bg-color;
     border-radius: 6px;
-    padding: 2.75em 3em;
+    padding: 1em;
     margin: 3em 0;
     @include _600 {
       padding: 1em 1.2em;
@@ -174,11 +167,11 @@ export default {
       }
       &__item {
         vertical-align: top;
-        margin: 0 2% 1em 0;
-        width: 23.5%;
+        margin: 0 1em 1em 0;
+        width: calc(25% - 0.75em);
         @include _1250() {
           display: block;
-          margin: 1em 0;
+          margin: 0 0 1em;
           width: 100%;
         }
         button {

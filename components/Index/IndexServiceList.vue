@@ -194,10 +194,11 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
 .company-services {
-  margin-top: 4em;
+  h4 {
+    margin: 0;
+  }
   counter-reset: service;
   @include _800() {
-    margin: 0 0 3em;
     order: -1;
   }
 }
@@ -214,11 +215,11 @@ export default {
     background-color: #fff;
     opacity: 0;
     width: fit-content;
-    border: 1px solid #ccc;
+    border: 1px solid #aaa;
     border-radius: 4px;
-    margin: 0 1em 1em 0;
+    margin: 1em 1em 0 0;
     cursor: pointer;
-    box-shadow: 0 0.25em 0.5em 0 rgb(0 0 0 / 10%);
+    //box-shadow: 0 0.25em 0.5em 0 rgb(0 0 0 / 10%);
     transition: box-shadow 0.3s ease-out, background-color 0.3s ease-out,
       border 0.3s ease-out, color 0.3s ease-out;
 
@@ -232,23 +233,17 @@ export default {
       }
     }
     @include _765() {
-      margin: 0 0.5em 0.5em 0;
+      margin: 0.5em 0.5em 0 0;
     }
     &__link {
       display: inline-flex;
       align-items: center;
-      padding: 1em 1.4em;
-      letter-spacing: -1px;
-      font-size: 1.25em;
+      padding: 1em;
+      color: $text-color;
       font-weight: 500;
-      color: #000000;
       transition: color 0.2s ease-out;
       &:hover {
         color: #fff;
-      }
-      @include _400() {
-        font-size: 0.95em;
-        padding: 0.66em 0.7em;
       }
     }
     &__icon {

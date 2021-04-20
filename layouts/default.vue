@@ -14,6 +14,12 @@
     <footer class="flex-grow-1" ref="footer">
       <default-footer />
     </footer>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
   </div>
 </template>
 
@@ -49,11 +55,22 @@ export default {
 <style lang="scss">
 @import '~/assets/media_mixin';
 @import '~/assets/common-style';
+.layout {
+  position: relative;
+}
 .scroll_colored {
   background-color: rgba(0, 0, 0, 0.8);
 }
 .scroll_colored_default {
   background-color: rgba(0, 0, 0, 0.8);
   transition: none;
+}
+.lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  //background-color: #009ee3;
+  z-index: -1;
 }
 </style>

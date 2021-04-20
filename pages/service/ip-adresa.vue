@@ -195,13 +195,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-.hero-block {
-  //background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-  //  url('~/static/images/backgrounds/wi-fi-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
-}
+
 .container {
   display: flex;
   flex-direction: column;

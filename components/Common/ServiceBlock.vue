@@ -7,7 +7,6 @@
         cursor: type === 'block' ? 'default' : 'pointer',
       }"
       :class="this.isLeftAlign ? 'left' : 'right'"
-      @click="showModal"
     >
       <div class="content-block__header">
         <h4 class="header-content">
@@ -17,7 +16,7 @@
         </h4>
       </div>
       <div class="content-block__button" :class="{ block: type === 'block' }">
-        <button class="dialog-button">Заказать</button>
+        <button @click="showModal" class="dialog-button">Заказать</button>
       </div>
 
       <div class="content-block__description" :class="{ expanded: isShown }">
@@ -98,7 +97,7 @@ export default {
     color: $text-color;
     background-color: $light-blue-color;
     border-radius: 6px;
-    padding: 1.25em 2.25em 1.75em;
+    padding: 1em;
     line-height: 1.5em;
     font-size: 0.95em;
 
@@ -186,13 +185,27 @@ export default {
     }
   }
 }
+.dialog-button {
+  @include _480() {
+    background-color: transparent;
+    color: $text-color;
+    border: 1px solid $text-color;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out,
+      border 0.2s ease-out, opacity 0.2s ease-out;
 
+    &:hover {
+      background-color: #ec3346;
+      border-color: #ec3346;
+      color: #fff;
+    }
+  }
+}
 .block {
   display: none;
   cursor: default;
 }
 .expanded {
-  max-height: fit-content;
+  max-height: fit-content !important;
 }
 .left {
   position: relative;

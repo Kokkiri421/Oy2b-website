@@ -4,9 +4,6 @@
       <template v-slot:header> Видеонаблюдение </template>
       <template v-slot:description>
         <div class="description">
-          <p class="article">
-            Готовое решение видеонаблюдения для бизнеса от Oyster Telecom – это:
-          </p>
           <p class="article">Безопасность персонала и Ваших данных</p>
           <p class="article">Доступ к камерам из любой точки мира</p>
           <p class="article">
@@ -15,9 +12,6 @@
           <p class="article">Функционал, необходимый именно Вам</p>
           <p class="article">
             Анализ информации, сбор статистики и формирование отчетов.
-          </p>
-          <p class="article">
-            Мы гарантируем, Вам не придется больше ни о чем беспокоится.<br /><br />
           </p>
         </div>
       </template>
@@ -297,11 +291,6 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/videonablyudenie-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
   &__user-form {
     margin-top: 2em;
 

@@ -7,23 +7,23 @@
     <advantage-list class="page-content-block">
       <template v-slot:advantage-list>
         <advantage-block>
-          <template v-slot:header>Cоздают</template>
+          <template v-slot:header>Cоздаём</template>
           <template v-slot:description
             >Корпоративные решения, которые<br />обеспечивают проектам развитие,
             функциональность и&nbsp;производительность</template
           >
         </advantage-block>
         <advantage-block>
-          <template v-slot:header>Реализовывают</template>
+          <template v-slot:header>Реализовываем</template>
           <template v-slot:description
             >Удобную и надёжную инфраструктуру любой сложности
             с&nbsp;круглосуточной поддержкой.</template
           >
         </advantage-block>
         <advantage-block>
-          <template v-slot:header>Обеспечивают</template>
+          <template v-slot:header>Обеспечиваем</template>
           <template v-slot:description
-            >непрерывность предоставляемых услуг и&nbsp;сервисов</template
+            >Непрерывность предоставляемых услуг и&nbsp;сервисов</template
           >
         </advantage-block>
       </template>
@@ -54,29 +54,6 @@ export default {
     line-height: 1em;
     margin-bottom: 0.25em;
   }
-  &__header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-basis: 27%;
-    margin-right: 2em;
-    height: 168px;
-    @include _1250() {
-      flex-basis: calc(50% - 1em);
-    }
-    @include _765() {
-      flex-basis: 100%;
-      margin-right: 0;
-      margin-bottom: 1em;
-      height: calc(200px - 6em);
-    }
-    .green-marks {
-      font-size: 2em;
-      color: #2cbf52;
-      margin-bottom: 0.5em;
-      font-weight: 700;
-    }
-  }
   &__text {
     font-size: 1.2em;
     @include _765() {
@@ -87,10 +64,10 @@ export default {
     flex-basis: 30%;
     border-radius: 6px;
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
-    margin-right: 2em;
-    height: calc(200px - 4em);
+    margin-right: 1em;
+    height: calc(200px);
+    box-sizing: border-box;
     padding: 1em 1em;
-    margin-bottom: 2em;
     @include _1250() {
       flex-basis: calc(50% - 3em);
     }
@@ -98,7 +75,7 @@ export default {
       flex-basis: 100%;
       margin-right: 0;
       margin-bottom: 1em;
-      height: calc(200px - 6em);
+      //height: calc(200px - 6em);
     }
     &:nth-child(even) {
       @include _1250() {

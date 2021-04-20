@@ -207,11 +207,6 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/service-it-out-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
   &__user-form {
     margin-top: 2em;
 

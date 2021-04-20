@@ -1,12 +1,11 @@
 <template>
   <div class="container">
     <hero-block :is-anchor="true" @onClick="scrollToServices">
-      <template v-slot:header>Интернет до&nbsp;10Гбит/с для бизнеса</template>
+      <template v-slot:header>Интернет до&nbsp;10Гбит/с</template>
       <template v-slot:description>
         <div class="description">
           <p class="article">Подключение за 3 дня по оптоволокну</p>
           <p class="article">Статистические и динамические IP-адреса.</p>
-          <p class="article">Широкий выбор дополнительных услуг и сервисов.</p>
           <p class="article">
             Гибкие тарифы, высокая надежность, техподдержка 24/7
           </p>
@@ -35,9 +34,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button ">
-                Заказать
-              </button>
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
@@ -53,9 +50,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button ">
-                Заказать
-              </button>
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
@@ -74,9 +69,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button ">
-                Заказать
-              </button>
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
@@ -116,9 +109,7 @@
               </p>
             </template>
             <template v-slot:button
-              ><button class="dialog-button ">
-                Заказать
-              </button>
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
           <service-block :background-color="'#ea172c'" @onClick="scrollToOrder">
@@ -133,9 +124,7 @@
               </ul>
             </template>
             <template v-slot:button
-              ><button class="dialog-button ">
-                Заказать
-              </button>
+              ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
         </service-list>
@@ -224,16 +213,8 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 
-.hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/internet-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
-}
 .container {
   display: flex;
   flex-direction: column;
 }
-
 </style>

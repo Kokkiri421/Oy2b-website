@@ -1,10 +1,10 @@
 <template>
   <div class="main-content">
-    <div class="company-info">
+    <div class="company-info page-content-block">
       <div class="company-info-text">
         <h1 class="company-info-text__header">Oyster Telecom</h1>
         <div class="company-info-text__container">
-          <div class="company-info-text__p page-content-block">
+          <div class="company-info-text__p">
             <p class="article">
               Работаем только с юридическими лицами, что позволяет
               придерживаться высоких стандартов качества услуг и сервисов.
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <index-service-list></index-service-list>
+    <index-service-list class="page-content-block"></index-service-list>
   </div>
 </template>
 
@@ -91,14 +91,11 @@ export default {
   display: flex;
   flex-direction: column;
   @include _950() {
-  
   }
   @include _640() {
-    
   }
 }
 .company-info {
-  line-height: 1.62em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -122,10 +119,6 @@ export default {
       max-width: 800px;
       margin-right: 3em;
       height: fit-content;
-      color: #999;
-      @include _700() {
-        font-size: 0.9em;
-      }
     }
   }
   .company-info-numbers {
@@ -140,14 +133,13 @@ export default {
         margin-bottom: 0.5em;
       }
       margin: 0 2em 2em 0;
+      &:nth-last-child(-n + 1) {
+        margin-right: 0;
+      }
+      @include _800() {
+        margin: 2em 2em 0 0;
+      }
     }
-  }
-}
-.company-services {
-  margin-top: 4em;
-  @include _800() {
-    margin: 0 0 3em;
-    order: -1;
   }
 }
 

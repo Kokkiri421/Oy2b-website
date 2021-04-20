@@ -128,27 +128,25 @@ export default {
 @import '~/assets/colors';
 
 .ratio {
+  box-sizing: border-box;
   overflow: hidden;
   position: relative;
-  padding: 0.5em 2em;
+  padding: 1em;
   //border: 1px solid #eee;
   border-radius: 6px;
   //text-align: center;
-  height: fit-content;
-  margin-top: 2em;
-  color: #000;
+  //height: fit-content;
+  margin-top: 1em;
   background-color: #fff;
-  box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
-  min-width: 300px;
-  max-width: 300px;
+  //box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+  width: 350px;
 
   &:nth-child(1) {
     margin-top: 0;
   }
 
   @include _900() {
-    max-width: 100%;
-    padding: 1em;
+    width: 100%;
   }
 
   .popular-mark {
@@ -164,13 +162,11 @@ export default {
   }
 
   .main-info {
-    height: calc(135px);
+    height: calc(140px - 2em);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
+    justify-content: space-between;
     .header {
-      color: #444;
       cursor: pointer;
       display: flex;
       flex-direction: row;
@@ -220,19 +216,19 @@ export default {
 
     .normal-price {
       position: relative;
-      font-size: 1.2em;
-      font-weight: 700;
-      color: #4c4646;
+      //font-size: 1.2em;
+      font-weight: 400;
+      //color: #4c4646;
 
       &:after {
         content: '';
         display: block;
-        width: 90%;
+        width: 70%;
         height: 50%;
         position: absolute;
         top: -1px;
-        left: 5%;
-        border-bottom: 3px solid #4c4646;
+        left: 15%;
+        border-bottom: 1px solid $text-color;
       }
     }
 

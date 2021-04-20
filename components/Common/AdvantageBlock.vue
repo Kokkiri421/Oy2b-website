@@ -24,11 +24,9 @@ export default {
   background-color: #fff;
   padding: 1em;
   border-radius: 6px;
-  margin-right: 3%;
-  margin-bottom: 2em;
-  @include _650() {
-    margin-bottom: 1em;
-  }
+  margin-right: 1em;
+  //margin-bottom: 2em;
+
   &__header {
     font-weight: 700;
     //font-size: 2em;
@@ -47,6 +45,7 @@ export default {
   }
   @include _1000() {
     margin-right: 0;
+    margin-bottom: 1em;
   }
 }
 </style>

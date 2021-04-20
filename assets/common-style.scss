@@ -1,13 +1,15 @@
 @import "~/assets/colors";
+@import "~/assets/media_mixin";
 body {
   margin: 0;
   font-family: Montserrat, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1em;
-  line-height: 1.4em;
+  line-height: 1.3em;
   overflow-x: hidden;
   color: $text-color;
   background: #f9f9f9;
+
 }
 .layout {
   header {
@@ -29,14 +31,14 @@ body {
 
 .wrapper {
   max-width: 1300px;
-  padding: 0 50px;
+  padding: 0 4em;
   margin: 0 auto;
 
   @include _900 {
-    padding: 0 20px;
+    padding: 0 2em;
   }
   @include _600 {
-    padding: 0 10px;
+    padding: 0 1em;
   }
 }
 
@@ -301,7 +303,7 @@ h2 {
 }
 h4 {
   font-size: 1.7em;
-  margin: 0 0 0.7em 0;
+  margin: 0 0 0.5em 0;
   font-weight: 600;
   line-height: normal;
   @include _1300() {
@@ -312,13 +314,15 @@ h4 {
   }
 }
 h5 {
-  margin: 0 0 0.7em 0;
-  font-size: 1.4em;
+  font-size: 1.7em;
+  margin: 0 0 0.5em 0;
+  font-weight: 600;
+  line-height: normal;
   @include _1300() {
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
   @include _700() {
-    font-size: 1.1em;
+    font-size: 1.2em;
   }
 }
 h6 {

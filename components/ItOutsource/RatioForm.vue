@@ -235,9 +235,9 @@ export default {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       .ratio {
-        flex-grow: 1;
+        //flex-grow: 1;
         &__active {
           @include _600() {
             //margin-top: 4em !important;

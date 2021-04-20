@@ -36,13 +36,21 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
 .sla-block {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  @include _900() {
+    flex-direction: column;
+  }
   &__item {
     border-radius: 6px;
-    padding: 2em 1em;
-    margin-right: 2em;
+    padding: 1em;
+    margin-right: 1em;
+    @include _900() {
+      margin: 0 0 1em;
+    }
     &:nth-child(even) {
       background-color: $form-bg-color;
     }
@@ -50,7 +58,7 @@ export default {
       background-color: $light-blue-color;
     }
     &:nth-last-child(-n + 1) {
-      margin-right: 0;
+      margin: 0;
     }
   }
 }

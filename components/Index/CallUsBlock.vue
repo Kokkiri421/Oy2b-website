@@ -55,7 +55,7 @@ export default {
 .call-us-block {
   position: relative;
   background-color: $light-blue-color;
-  padding: 1em 1.5em;
+  padding: 1em;
   border-radius: 6px;
   &:before {
     content: '';
@@ -89,9 +89,7 @@ export default {
     .article {
       margin: 1em 0 0;
       flex-basis: 100%;
-      font-size: 1.2em;
       @include _900() {
-        font-size: 1em;
         margin: 1em 0 1em;
       }
     }

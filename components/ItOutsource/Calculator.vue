@@ -259,6 +259,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
     @include _900() {
       flex-direction: column;
       justify-content: flex-start;
@@ -266,15 +267,18 @@ export default {
   }
 }
 .calculator-form {
-  box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
-  padding: 30px;
+  //box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
+  background: #fff;
+  box-sizing: border-box;
+  padding: 1em;
   border-radius: 6px;
-  height: fit-content;
+  height: 452px;
   flex-grow: 1;
-  margin-right: 2em;
+  margin-right: 1em;
   @include _900() {
     margin-right: 0;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
+    height: fit-content;
   }
   @include _600() {
     padding: 20px;
@@ -294,7 +298,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 2em;
+  margin-bottom: 1.6em;
   @include _1300() {
     flex-direction: column;
     margin-bottom: 1em;

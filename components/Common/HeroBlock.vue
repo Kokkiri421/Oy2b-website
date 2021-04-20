@@ -129,51 +129,33 @@ export default {
 @import '~/assets/colors';
 
 .hero-block {
-  position: relative;
-  height: 100%;
   width: 100%;
-  background-color: $light-blue-color;
-  z-index: 1;
-  &:before {
-    //background-size: cover;
-    content: '';
-    position: absolute;
-    //width: 100px;
-    //height: 100px;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 45vh 0 0 80vw;
-    border-color: transparent transparent transparent $bg-color;
-  }
-  &:after {
-    //background-size: cover;
-    content: '';
-    position: absolute;
-    //width: 100px;
-    //height: 100px;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0 25vh 20vw;
-    border-color: transparent transparent $bg-color transparent;
-    z-index: -1;
-  }
+  background-image: url('~/static/images/backgrounds/heroblock-bg.png');
+  //background-position: b
+  //background-position: -25vw -12 vw;
+  background-position: bottom 10px right;
 
+  background-repeat: no-repeat;
+  background-size: cover;
+  .wrapper {
+    height: 100%;
+  }
   .hero-block-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 650px;
     position: relative;
-    //z-index: 2 !important;
-    padding: 100px 0;
+    z-index: 1;
+    padding: 6em 0;
     color: #444444;
     @include _765() {
       padding: 73px 0;
     }
-    @include _640() {
+    @include _650() {
       padding: 70px 0 3em;
+      height: fit-content;
     }
 
     .hero-block-top {
@@ -182,7 +164,7 @@ export default {
       &__header {
         font-size: 3em;
         line-height: 52px;
-        margin: 0 0 0.75em;
+        margin: 0 0 1em;
 
         @include _600() {
           font-size: 2em;
@@ -194,10 +176,7 @@ export default {
       }
 
       &__description {
-        font-weight: 500;
-        font-size: 1em;
-        line-height: 20px;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
         @include _400() {
           font-size: 0.9em;
         }
@@ -205,19 +184,21 @@ export default {
     }
 
     .hero-block-form-container {
-      background: #f2f2f2;
-      color: #444444;
+      box-sizing: border-box;
+      background: $form-bg-color;
+      color: $text-color;
       border-radius: 6px;
-      padding: 1em 2em;
+      padding: 1em;
       width: fit-content;
-      max-width: calc(100% - 4em);
+      max-width: calc(100%);
       @include _950() {
-        width: calc(100% - 4em);
+        width: calc(100%);
       }
 
       .hero-block-form {
         display: flex;
         flex-direction: row;
+        margin-bottom: 1em;
         @include _950() {
           display: block;
           width: 100%;
@@ -225,7 +206,7 @@ export default {
 
         &__item {
           vertical-align: top;
-          margin: 0 1em 1em 0;
+          margin-right: 1em;
           width: 280px;
 
           &:nth-last-child(-n + 1) {
@@ -268,7 +249,7 @@ export default {
   .hero-block-anchor-container {
     position: relative;
     text-align: center;
-
+    z-index: 1;
     .hero-block-anchor {
       cursor: pointer;
       position: absolute;

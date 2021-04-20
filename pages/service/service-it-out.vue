@@ -403,10 +403,6 @@ export default {
 @import '~/assets/colors';
 
 .hero-block {
-  .description {
-    margin-bottom: 1em;
-  }
-
   &__user-form {
     margin-top: 1em;
 
@@ -431,13 +427,6 @@ export default {
 .page-content {
   .sla {
   }
-
-  .grey-text {
-    line-height: 1.62em;
-    color: #999;
-    font-size: 0.9em;
-  }
-
   .icon {
     width: 1.25em;
     height: 1.25em;
@@ -455,7 +444,7 @@ export default {
       flex-direction: column;
     }
     &__right-block {
-      margin-left: 2em;
+      margin-left: 1em;
       @include _1300() {
         margin-left: 0;
       }

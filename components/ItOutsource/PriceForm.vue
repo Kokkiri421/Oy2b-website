@@ -3,18 +3,18 @@
     <div class="price__top-text">
       <slot name="top-text"></slot>
     </div>
-    <div class="price__form-container" ref="order">
-      <h4 class="price-form__header">
-        Проанализируем вашу ситуацию и дадим персональные рекомендации
+    <div class="form-container" ref="order">
+      <h4 class="name-phone-company-form__header">
+        Давайте прямо сейчас рассчитаем стоимость работ
       </h4>
       <p class="form-error-message" v-if="errors.length > 0">
         Заполните обязательные поля
       </p>
-      <form class="price-form" @submit="checkForm">
+      <form class="name-phone-company-form" @submit="checkForm">
         <pretty-input
           :name="'name'"
           :placeholder="'Имя'"
-          class="price-form__item"
+          class="name-phone-company-form__item"
           :value="name"
           @onInput="setName"
           :error="errors.includes('name')"
@@ -22,7 +22,7 @@
         <pretty-input
           :name="'phone'"
           :placeholder="'Телефон'"
-          class="price-form__item"
+          class="name-phone-company-form__item"
           :value="phone"
           @onInput="setPhone"
           :error="errors.includes('phone')"
@@ -30,12 +30,12 @@
         <pretty-input
           :name="'company'"
           :placeholder="'Компания'"
-          class="price-form__item"
+          class="name-phone-company-form__item"
           :value="company"
           @onInput="setCompany"
           :error="errors.includes('company')"
         ></pretty-input>
-        <div class="price-form__item">
+        <div class="name-phone-company-form__item">
           <button class="dialog-button">
             <div class="shining-button"></div>
             Отправить
@@ -118,45 +118,21 @@ export default {
     margin-bottom: 1em;
   }
 
-  &__form-container {
+  .form-container {
     background-color: $light-blue-color;
     border-radius: 6px;
-    padding: 1.5em 3em;
-    margin: 3em 0;
+    padding: 1em;
+    //margin: 3em 0;
     @include _650 {
-      padding: 1.5em;
     }
 
-    .price-form {
+    .name-phone-company-form {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-
+      margin-bottom: 1em;
       &__header {
         flex-basis: 100%;
-        color: $text-color;
-      }
-
-      &__question {
-        appearance: none;
-        padding: 0.8em 1em;
-        border: 2px solid transparent;
-        border-radius: 4px;
-        width: 100%;
-        line-height: 1.6em;
-        min-height: 3.2em;
-        box-sizing: border-box;
-        resize: none;
-        font: 400 1em/1.1em Montserrat, sans-serif;
-
-        &__container {
-          flex-basis: 100%;
-          margin-bottom: 1em;
-        }
-
-        &::placeholder {
-          line-height: 1.6em;
-        }
       }
 
       &__error {
@@ -165,11 +141,11 @@ export default {
 
       &__item {
         vertical-align: top;
-        margin: 0 2% 1em 0;
-        width: 23.5%;
+        margin: 0 1em 0 0;
+        width: calc(25% - 0.75em);
         @include _1250() {
           display: block;
-          margin: 1em 0;
+          margin: 0 0 1em;
           width: 100%;
         }
 
@@ -178,7 +154,7 @@ export default {
         }
 
         &:nth-last-child(-n + 1) {
-          margin-right: 0;
+          margin: 0;
         }
       }
 
@@ -189,7 +165,7 @@ export default {
   }
 
   &__privacy {
-    color: $text-color;
+    color: #fff;
     font-size: 0.6em;
     line-height: 1.4em;
 

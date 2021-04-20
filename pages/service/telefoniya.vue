@@ -194,8 +194,9 @@
           </template>
           <template v-slot:bottom-text>
             <h5>
-              Мы создаем лучшее решение для&nbsp;качественной связи компании с&nbsp;
-              клиентами и эффективного взаимодействия между сотрудниками.
+              Мы создаем лучшее решение для&nbsp;качественной связи компании
+              с&nbsp; клиентами и эффективного взаимодействия между
+              сотрудниками.
             </h5>
             <p class="article">
               Специалисты Oyster Telecom знают, как необходима в офисе
@@ -267,13 +268,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-.hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/telefoniya-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
-}
+
 .service-list-header {
   margin-bottom: 2em;
   @include _1300() {

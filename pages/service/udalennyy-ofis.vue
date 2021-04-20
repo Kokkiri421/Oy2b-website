@@ -281,13 +281,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-.hero-block {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('~/static/images/backgrounds/index-bg.jpg');
-  .description {
-    margin-bottom: 1em;
-  }
-}
+
 .container {
   display: flex;
   flex-direction: column;
