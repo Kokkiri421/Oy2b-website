@@ -143,7 +143,7 @@ export default {
         vertical-align: top;
         margin: 0 1em 0 0;
         width: calc(25% - 0.75em);
-        @include _1250() {
+        @include _1000() {
           display: block;
           margin: 0 0 1em;
           width: 100%;
@@ -158,7 +158,7 @@ export default {
         }
       }
 
-      @include _1250() {
+      @include _1000() {
         flex-direction: column;
       }
     }

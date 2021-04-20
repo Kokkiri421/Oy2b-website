@@ -73,28 +73,27 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 .modal-form {
-  padding: 2em;
+  padding: 1em;
   max-width: 650px;
-  color: #000;
   &__item {
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
     margin-bottom: 1em;
   }
   &__button {
     width: 100%;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   }
   &__privacy {
     font-size: 0.6em;
     line-height: 1.4em;
-    color: #000;
+    color: $text-color;
 
     .link {
-      color: #000;
+      color: $text-color;
       transition: color 0.3s ease-out;
       &:hover {
         color: #d81428;

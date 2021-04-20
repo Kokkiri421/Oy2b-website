@@ -23,6 +23,7 @@ export default {
     { src: '~/plugins/ymapPlugin.js', mode: 'client' },
     { src: '~/plugins/vScrollLock.js', mode: 'client' },
     { src: '~/plugins/smoothScroll.js', mode: 'client' },
+    { src: '~/plugins/vMask.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

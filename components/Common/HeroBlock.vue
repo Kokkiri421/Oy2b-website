@@ -109,7 +109,7 @@ export default {
         this.errors.push('phone')
       }
       if (this.errors.length === 0) {
-        console.log('hero form')
+        console.log(this.phone)
         return true
       }
       console.log(this.errors)

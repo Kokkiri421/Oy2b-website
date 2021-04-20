@@ -143,8 +143,8 @@
             </template>
           </service-block>
         </service-list>
+        <ip-form ref="order" />
       </div>
-      <ip-form ref="order" />
     </div>
   </div>
 </template>

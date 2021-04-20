@@ -168,21 +168,24 @@ export default {
       }
       &__item {
         vertical-align: top;
-        margin: 0 1em 1em 0;
+        margin: 0 1em 0 0;
         width: calc(25% - 0.75em);
-        @include _1250() {
+        @include _1000() {
           display: block;
           margin: 0 0 1em;
           width: 100%;
         }
+
         button {
           width: 100%;
         }
+
         &:nth-last-child(-n + 1) {
-          margin-right: 0;
+          margin: 0;
         }
       }
-      @include _1250() {
+
+      @include _1000() {
         flex-direction: column;
       }
     }
@@ -191,6 +194,7 @@ export default {
     color: #999;
     font-size: 0.6em;
     line-height: 1.4em;
+    margin-top: 1em;
     a {
       color: #999;
       transition: color 0.3s ease-out;

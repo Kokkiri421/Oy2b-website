@@ -211,13 +211,13 @@
             </template>
           </advantage-list>
         </div>
+        <h4 class="bottom-info__left-block">
+          Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
+          до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
+          инфраструктуры
+        </h4>
         <price-form class="page-content-block"></price-form>
         <div class="bottom-info page-content-block">
-          <h4 class="bottom-info__left-block">
-            Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
-            до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
-            инфраструктуры
-          </h4>
           <div class="bottom-info__right-block">
             <h5>Позвоните нам или оставьте заявку на сайте:</h5>
             <p>
@@ -444,10 +444,6 @@ export default {
       flex-direction: column;
     }
     &__right-block {
-      margin-left: 1em;
-      @include _1300() {
-        margin-left: 0;
-      }
       padding: 1em;
       border-radius: 6px;
       background-color: $form-bg-color;

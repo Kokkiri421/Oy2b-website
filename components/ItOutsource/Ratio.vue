@@ -47,7 +47,8 @@
       </div>
     </transition>
     <modal-window :show="isModalShown" @onClick="showModal">
-      <TicketModalForm @onClick="showModal" />
+      <TicketModalForm @onClick="showModal" v-if="ratioType === 'ratio'" />
+      <sysadmin-salary-modal v-else :sysadmin-count="sysadminCount" />
     </modal-window>
   </div>
 </template>
@@ -58,6 +59,7 @@ import TicketModalForm from '~/components/Common/TicketModalForm'
 import Icon from '~/components/Icons/Icon'
 import ExpandTableIcon from '~/components/Icons/ExpandTableIcon'
 import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
+import SysadminSalaryModal from '~/components/Common/SysadminSalaryModal'
 
 export default {
   data() {
@@ -72,6 +74,7 @@ export default {
     TicketModalForm,
     Icon,
     MenuArrowIcon,
+    SysadminSalaryModal,
   },
   methods: {
     showModal() {
@@ -118,6 +121,10 @@ export default {
     ratioType: {
       type: String,
       default: 'ratio',
+    },
+    sysadminCount: {
+      type: Number,
+      required: false,
     },
   },
 }
@@ -210,7 +217,7 @@ export default {
   justify-self: flex-end;
 
   .price {
-    text-align: center;
+    text-align: left;
     min-width: 103px;
     width: 103px;
 
@@ -227,7 +234,7 @@ export default {
         height: 50%;
         position: absolute;
         top: -1px;
-        left: 15%;
+        left: -5%;
         border-bottom: 1px solid $text-color;
       }
     }
@@ -257,7 +264,7 @@ export default {
 }
 
 .popular {
-  box-shadow: 0 0 20px 0 #2cbf5280;
+  box-shadow: 0 0 20px 0 rgba(44, 191, 82, 0.5);
 }
 
 .sysadmin-ratio {

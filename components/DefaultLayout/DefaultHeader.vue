@@ -15,7 +15,8 @@
                 isActive: activeMenuStatus,
                 scroll_colored_bg: scrollPosition > 0,
                 scroll_colored_bg_default:
-                  defaultScrollPosition > 0 && scrollPosition === null,
+                  (defaultScrollPosition > 0 && scrollPosition === null) ||
+                  defaultColored,
               }"
               src="~/static/images/header-logo.svg"
               alt="OysterTelecom"
@@ -29,7 +30,8 @@
               isActive: activeMenuStatus,
               scroll_colored_bg: scrollPosition > 0,
               scroll_colored_bg_default:
-                defaultScrollPosition > 0 && scrollPosition === null,
+                (defaultScrollPosition > 0 && scrollPosition === null) ||
+                defaultColored,
             }"
             @click="showMenu"
             id="navigation-menu-button"
@@ -39,7 +41,8 @@
             :class="{
               scroll_colored: scrollPosition > 0,
               scroll_colored_default:
-                defaultScrollPosition > 0 && scrollPosition === null,
+                (defaultScrollPosition > 0 && scrollPosition === null) ||
+                defaultColored,
             }"
           />
         </div>
@@ -51,7 +54,8 @@
             :class="{
               scroll_colored: scrollPosition > 0,
               scroll_colored_default:
-                defaultScrollPosition > 0 && scrollPosition === null,
+                (defaultScrollPosition > 0 && scrollPosition === null) ||
+                defaultColored,
             }"
             class="phone__link"
             >+7 (812) 600-2030</a
@@ -63,7 +67,8 @@
             :class="{
               scroll_colored: scrollPosition > 0,
               scroll_colored_default:
-                defaultScrollPosition > 0 && scrollPosition === null,
+                (defaultScrollPosition > 0 && scrollPosition === null) ||
+                defaultColored,
             }"
             @click="showModal"
           >
@@ -81,7 +86,7 @@
 <script>
 import NavigationMenu from '~/components/DefaultLayout/NavigationMenu'
 import ModalWindow from '~/components/Common/ModalWindow'
-import ConsultationModalForm from '~/components/DefaultLayout/ConsultationModalForm'
+import ConsultationModalForm from '~/components/Common/ConsultationModalForm'
 import DesktopMenu from '~/components/DefaultLayout/DesktopMenu'
 
 export default {
@@ -99,6 +104,12 @@ export default {
     ModalWindow,
     ConsultationModalForm,
     DesktopMenu,
+  },
+  props: {
+    defaultColored: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     activeMenuStatus: function () {
@@ -186,7 +197,7 @@ export default {
     }
     &__img {
       mask: url('~/static/images/header-logo.svg') no-repeat center;
-      background-color: $header-color;
+      background-color: $red-color1;
       transition: background-color 0.3s ease-out;
       height: 41px;
       width: 104px;

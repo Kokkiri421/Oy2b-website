@@ -623,7 +623,7 @@ header {
       position: relative;
       list-style-type: none;
       height: 100%;
-      color: #999;
+
       margin-bottom: 1em;
       margin-left: 1.5em;
 
@@ -639,11 +639,6 @@ header {
     }
   }
   .article {
-    line-height: 1.62em;
-    color: #999;
-    @include _700() {
-      font-size: 0.9em;
-    }
   }
   .header {
     margin-bottom: 1em;

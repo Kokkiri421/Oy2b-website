@@ -1830,7 +1830,6 @@ header {
       position: relative;
       list-style-type: none;
       height: 100%;
-      color: #999;
       margin-top: 0.5em;
       margin-left: 1.5em;
 
@@ -1846,11 +1845,6 @@ header {
     }
   }
   .article {
-    line-height: 1.62em;
-    color: #999;
-    @include _700() {
-      font-size: 0.9em;
-    }
   }
   .header {
     margin-bottom: 1em;
@@ -1885,7 +1879,6 @@ table {
   }
   tbody {
     td {
-      color: #999;
       padding: 0.66em 1em;
       border: 1px solid #eee;
       border-collapse: collapse;

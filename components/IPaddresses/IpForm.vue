@@ -88,15 +88,10 @@ export default {
 @import '~/assets/media_mixin';
 
 .ip-address-wrapper {
-  padding: 3em 0;
-
   .ip-address-block {
     background-color: #f2f2f2;
     border-radius: 6px;
-    padding: 2.75em 3em;
-    @include _600 {
-      padding: 1em 1.2em;
-    }
+    padding: 1em;
     .ip-address-block-form {
       display: flex;
       flex-direction: row;
@@ -105,11 +100,11 @@ export default {
       }
       &__item {
         vertical-align: top;
-        margin: 0 2% 1em 0;
+        margin: 0 1em 1em 0;
         min-width: 0;
         @include _1250() {
           display: block;
-          margin: 1em 0;
+          margin: 0 0 1em;
           width: 100%;
         }
         button {

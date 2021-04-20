@@ -40,7 +40,7 @@
 
 <script>
 import ModalWindow from '~/components/Common/ModalWindow'
-import ConsultationModalForm from '~/components/DefaultLayout/ConsultationModalForm'
+import ConsultationModalForm from '~/components/Common/ConsultationModalForm'
 export default {
   data() {
     return {
@@ -102,8 +102,6 @@ export default {
     background-color: $light-blue-color;
     border-radius: 6px;
     padding: 1em;
-    line-height: 1.5em;
-    font-size: 0.95em;
 
     @include _480() {
       padding: 1em 1.25em 1.5em;

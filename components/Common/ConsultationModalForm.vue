@@ -104,11 +104,11 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .modal-form {
-  padding: 2em;
+  padding: 1em;
   max-width: 650px;
 
   &__item {
-    border: 1px solid #dfdfdf;
+    border: 1px solid #ccc;
     border-radius: 4px;
     width: 100%;
     margin-bottom: 1em;

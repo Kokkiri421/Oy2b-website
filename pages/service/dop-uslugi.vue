@@ -28,7 +28,7 @@
     </hero-block>
     <div class="wrapper">
       <div class="page-content">
-        <service-list ref="next-page">
+        <service-list class="page-content-block" ref="next-page">
           <service-block :background-color="'#777'" @onClick="scrollToOrder">
             <template v-slot:header> Пропуск трафика </template>
             <template v-slot:description>

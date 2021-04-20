@@ -5,6 +5,7 @@
       class="form-input"
       :class="{ 'form-input__error': error && !isCustomized }"
       :name="name"
+      v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
       maxlength="32"
       @focus="isCustomized = true"
       @blur="checkCustomized"
@@ -26,6 +27,7 @@ export default {
       isCustomized: false,
     }
   },
+
   props: {
     name: {
       type: String,

@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header class="flex-grow-1 colored-header">
-      <default-header />
+      <default-header :default-colored="true" />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
     <footer class="flex-grow-1" ref="footer">

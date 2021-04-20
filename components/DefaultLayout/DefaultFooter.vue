@@ -1,123 +1,125 @@
 <template>
-  <div class="wrapper footer">
-    <div class="footer-top footer-item">
-      <div class="logo">
-        <NuxtLink class="logo__link" :to="'/'">
-          <div
-            class="logo__img"
-            src="~/static/images/header-logo.svg"
-            alt="OysterTelecom"
-          />
-        </NuxtLink>
-      </div>
-      <div class="menu smallfont-400">
-        <ul class="menu__list">
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/internet"
-              >Интернет до 10Гбит/с</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/wi-fi"
-            >
-              Wi-Fi для бизнеса
-            </NuxtLink>
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/telefoniya"
-              >Телефония</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink class="nuxtlink" to="/service/service-it-out">
-              <icon
-                :icon-name="'flame-icon'"
-                class="icon"
-                :view-box="'0 0 611.999 611.999'"
+  <div class="footer">
+    <div class="wrapper">
+      <div class="footer-top footer-item">
+        <div class="logo">
+          <NuxtLink class="logo__link" :to="'/'">
+            <div
+              class="logo__img"
+              src="~/static/images/header-logo.svg"
+              alt="OysterTelecom"
+            />
+          </NuxtLink>
+        </div>
+        <div class="menu smallfont-400">
+          <ul class="menu__list">
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/internet"
+                >Интернет до 10Гбит/с</NuxtLink
               >
-                <flame-icon />
-              </icon>
-              <span class="underline-animated-link">IT аутсорсинг</span>
-            </NuxtLink>
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/udalennyy-ofis"
-              >Виртуальные сервисы</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/videonablyudenie"
-              >Видеонаблюдение</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/oblachnye-resheniya"
-              >Облачные решения</NuxtLink
-            >
-          </li>
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/wi-fi"
+              >
+                Wi-Fi для бизнеса
+              </NuxtLink>
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/telefoniya"
+                >Телефония</NuxtLink
+              >
+            </li>
+            <li class="list-item">
+              <NuxtLink class="nuxtlink" to="/service/service-it-out">
+                <icon
+                  :icon-name="'flame-icon'"
+                  class="icon"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon />
+                </icon>
+                <span class="underline-animated-link">IT аутсорсинг</span>
+              </NuxtLink>
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/udalennyy-ofis"
+                >Виртуальные сервисы</NuxtLink
+              >
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/videonablyudenie"
+                >Видеонаблюдение</NuxtLink
+              >
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/oblachnye-resheniya"
+                >Облачные решения</NuxtLink
+              >
+            </li>
 
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/dop-uslugi"
-              >Операторам</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/ip-adresa"
-              >IP Адреса</NuxtLink
-            >
-          </li>
-          <li class="list-item">
-            <NuxtLink
-              class="underline-animated-link nuxtlink"
-              to="/service/kompleksnye-resheniya"
-              >Отрасли</NuxtLink
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom footer-item smallfont-400">
-      <div class="copy">© 2021 Oyster Telecom</div>
-      <div class="social">
-        <div class="social-network instagram">
-          <a
-            class="social-network__link"
-            href="https://www.instagram.com/oysterb2b/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><img src="~/static/images/instagram.svg"
-          /></a>
-        </div>
-        <div class="social-network vk">
-          <a
-            class="social-network__link"
-            href="https://vk.com/oystertelecom"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><img src="~/static/images/vk.svg"
-          /></a>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/dop-uslugi"
+                >Операторам</NuxtLink
+              >
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/ip-adresa"
+                >IP Адреса</NuxtLink
+              >
+            </li>
+            <li class="list-item">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/kompleksnye-resheniya"
+                >Отрасли</NuxtLink
+              >
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="contacts">
-        <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
-          Контакты
-        </NuxtLink>
+      <div class="footer-bottom footer-item smallfont-400">
+        <div class="copy">© 2021 Oyster Telecom</div>
+        <div class="social">
+          <div class="social-network instagram">
+            <a
+              class="social-network__link"
+              href="https://www.instagram.com/oysterb2b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="~/static/images/instagram.svg"
+            /></a>
+          </div>
+          <div class="social-network vk">
+            <a
+              class="social-network__link"
+              href="https://vk.com/oystertelecom"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><img src="~/static/images/vk.svg"
+            /></a>
+          </div>
+        </div>
+        <div class="contacts">
+          <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
+            Контакты
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
@@ -138,6 +140,10 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+
+.footer {
+  position: relative;
+}
 .footer-item {
   padding: 2em 0;
   @include _1366 {
@@ -177,7 +183,7 @@ export default {
       justify-content: flex-end;
       align-items: center;
       line-height: 40px;
-      
+
       padding: 0;
       margin: 0.5em 0 0;
       @include _600() {

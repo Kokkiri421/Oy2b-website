@@ -1,7 +1,7 @@
 <template>
   <div class="error-background layout">
     <header class="flex-grow-1">
-      <default-header />
+      <default-header :default-colored="true" />
     </header>
     <nuxt />
   </div>

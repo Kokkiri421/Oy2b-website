@@ -95,37 +95,12 @@
           :price="sysadminPrice"
           :active="currentRatio === 3"
           :discount="discount"
+          :sysadmin-count="sysadminCount"
           :ratioType="'employee'"
           :header="'Cотрудник в штате'"
           :button-text="'Почему дорого?'"
           id="slide-3"
         >
-          <template v-slot:content>
-            <ul class="content" v-if="sysadminCount === 1">
-              <li>Средняя ЗП — 55тыс на руки</li>
-              <li>НДФЛ(13%) — 8 220</li>
-              <li>Отличсления:</li>
-              <li>Пенсионные(22%) — 13 910</li>
-              <li>Медицинские(5,1%) — 3225</li>
-              <li>Социальные(2,9%) — 1834</li>
-              <li>Отчисления ФСС(0,2%) — 127</li>
-              <li>Минусы:</li>
-              <li>Отпуска 2 раза в год(4недели)</li>
-              <li>Возможные больничные</li>
-              <li>Необходимость контроля сотрудника</li>
-              <li>Компетенция одного человека</li>
-            </ul>
-            <ul class="content" v-if="sysadminCount === 2">
-              <li>Два сисадмина</li>
-              <li>Средняя ЗП — 40тыс на руки</li>
-              <li>НДФЛ(13%) — 5 980</li>
-              <li>Отличсления:</li>
-              <li>Пенсионные(22%) — 10 120</li>
-              <li>Медицинские(5,1%) — 2 346</li>
-              <li>Социальные(2,9%) — 1 334</li>
-              <li>Отчисления ФСС(0,2%) — 92</li>
-            </ul>
-          </template>
         </ratio>
       </div>
       <!--      <div class="ratios__carousel-dots">-->
@@ -260,7 +235,7 @@ export default {
       display: none;
       @include _765() {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
       }
       .carousel-dot {
         width: 10px;

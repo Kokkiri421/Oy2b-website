@@ -19,7 +19,11 @@
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
+    <div class="footer-bg"></div>
   </div>
 </template>
 
@@ -55,9 +59,24 @@ export default {
 <style lang="scss">
 @import '~/assets/media_mixin';
 @import '~/assets/common-style';
+
 .layout {
   height: 100%;
   position: relative;
+}
+.footer-bg {
+  position: absolute;
+  width: 100%;
+  height: 700px;
+  bottom: 0;
+  background-image: url('~/static/images/backgrounds/heroblock-bg.png');
+  //background-position: b
+  //background-position: -25vw -12 vw;
+  background-position: bottom 250px left;
+  transform: rotate(180deg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 .scroll_colored {
   background-color: rgba(0, 0, 0, 0.8);
@@ -67,11 +86,29 @@ export default {
   transition: none;
 }
 .lines {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
-  //background-color: #009ee3;
-  z-index: -1;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+  margin: 0 auto;
+  z-index: -2;
+  .line {
+    width: 1px;
+    background: #eee;
+    &:nth-child(1) {
+      background: transparent;
+    }
+    &:nth-last-child(-n + 1) {
+      background: transparent;
+    }
+  }
 }
 </style>

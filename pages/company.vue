@@ -206,11 +206,6 @@ header {
         margin-bottom: 4em;
       }
       .article {
-        line-height: 1.62em;
-        color: #999;
-        @include _700() {
-          font-size: 0.9em;
-        }
       }
     }
     &__images {
