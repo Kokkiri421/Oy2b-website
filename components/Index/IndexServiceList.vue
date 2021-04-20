@@ -215,7 +215,7 @@ export default {
     background-color: #fff;
     opacity: 0;
     width: fit-content;
-    border: 1px solid #aaa;
+    border: 1px solid #ddd;
     border-radius: 4px;
     margin: 1em 1em 0 0;
     cursor: pointer;
@@ -227,7 +227,7 @@ export default {
       color: #fff;
       border-color: rgba(216, 20, 40, 0.33);
       background-color: $red-color1;
-      box-shadow: 0 0.5em 1em 0.5em rgb(216 20 40 / 30%);
+      //box-shadow: 0 0.5em 1em 0.5em rgb(216 20 40 / 30%);
       .service-button__icon {
         fill: #ff9d00;
       }

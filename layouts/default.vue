@@ -56,6 +56,7 @@ export default {
 @import '~/assets/media_mixin';
 @import '~/assets/common-style';
 .layout {
+  height: 100%;
   position: relative;
 }
 .scroll_colored {

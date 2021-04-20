@@ -145,7 +145,7 @@
             </template>
           </service-block>
         </service-list>
-        <div class="optimal-solution page-content-block">
+        <div class="optimal-solution">
           <h4>Выберите оптимальное решение для вашего бизнеса</h4>
           <p class="article">
             Не нужно докупать дополнительные модули, дорогие аппаратные
@@ -154,7 +154,7 @@
           </p>
         </div>
 
-        <telephony-table class="page-content-block"></telephony-table>
+        <telephony-table class="telephony-table"></telephony-table>
         <p class="service-message page-content-block">
           <icon :icon-name="'rouble-icon'" class="icon">
             <rouble-icon />
@@ -269,12 +269,6 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 
-.service-list-header {
-  margin-bottom: 2em;
-  @include _1300() {
-    margin-bottom: 1em;
-  }
-}
 .icon {
   width: 1.25em;
   height: 1.25em;
@@ -285,15 +279,13 @@ export default {
   flex-direction: column;
 }
 .fw800 {
-  font-weight: 800;
+  font-weight: 600;
 }
 
-.fw400 {
-  font-weight: 400;
-}
 .optimal-solution {
-  p {
-    color: #999;
-  }
+  margin-bottom: 1em;
+}
+.telephony-table {
+  margin-bottom: 1em;
 }
 </style>

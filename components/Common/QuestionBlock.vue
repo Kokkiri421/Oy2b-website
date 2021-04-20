@@ -125,16 +125,17 @@ export default {
 @import '~/assets/colors';
 .question-block {
   .header {
-    margin-top: 2em;
-    margin-bottom: 1em;
   }
   &__form-container {
     background-color: $form-bg-color;
     border-radius: 6px;
     padding: 1em;
-    margin: 3em 0;
+    margin: 2em 0;
+    @include _950() {
+      margin: 2em 0;
+    }
     @include _600 {
-      padding: 1em 1.2em;
+      padding: 1em;
     }
     .question-block-form {
       display: flex;
@@ -145,15 +146,15 @@ export default {
       }
       &__question {
         appearance: none;
-        padding: 0.8em 1em;
+        padding: 1em;
         border: 2px solid transparent;
         border-radius: 4px;
         width: 100%;
-        line-height: 1.6em;
+        line-height: 1.2em;
         min-height: 3.2em;
         box-sizing: border-box;
         resize: none;
-        font: 400 1em/1.1em Montserrat, sans-serif;
+        font: 500 1em/1.2em Montserrat, sans-serif;
         &__container {
           flex-basis: 100%;
           margin-bottom: 1em;

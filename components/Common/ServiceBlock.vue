@@ -71,9 +71,13 @@ export default {
       if (this.type === 'block') return
       this.isModalShown = !this.isModalShown
     },
+    setAlign() {
+      this.isLeftAlign = this.$el.offsetLeft < window.innerWidth / 2
+    },
   },
   mounted() {
-    this.isLeftAlign = this.$el.offsetLeft < window.innerWidth / 2
+    this.setAlign()
+    window.addEventListener('resize', this.setAlign)
   },
 }
 </script>
@@ -135,6 +139,9 @@ export default {
       height: fit-content;
       transition: 0.2s opacity ease-out;
 
+      @include _950() {
+        opacity: 1;
+      }
       @include _700() {
         font-size: 0.9em;
       }
@@ -186,7 +193,7 @@ export default {
   }
 }
 .dialog-button {
-  @include _480() {
+  @include _950() {
     background-color: transparent;
     color: $text-color;
     border: 1px solid $text-color;

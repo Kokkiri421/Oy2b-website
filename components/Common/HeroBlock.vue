@@ -49,19 +49,19 @@
           <slot name="user-form"></slot>
         </div>
       </div>
-      <div v-if="isAnchor" class="hero-block-anchor-container">
-        <div class="hero-block-anchor" @click="scrollDown">
-          <a>
-            <icon
-              :icon-name="'expand-icon'"
-              class="expand-icon"
-              :view-box="'0 0 24 24'"
-            >
-              <menu-arrow-icon />
-            </icon>
-          </a>
-        </div>
-      </div>
+      <!--      <div v-if="isAnchor" class="hero-block-anchor-container">-->
+      <!--        <div class="hero-block-anchor" @click="scrollDown">-->
+      <!--          <a>-->
+      <!--            <icon-->
+      <!--              :icon-name="'expand-icon'"-->
+      <!--              class="expand-icon"-->
+      <!--              :view-box="'0 0 24 24'"-->
+      <!--            >-->
+      <!--              <menu-arrow-icon />-->
+      <!--            </icon>-->
+      <!--          </a>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -150,6 +150,9 @@ export default {
     z-index: 1;
     padding: 6em 0;
     color: #444444;
+    @include _950() {
+      height: 750px;
+    }
     @include _765() {
       padding: 73px 0;
     }
@@ -226,8 +229,10 @@ export default {
       }
 
       &__prefix {
-        font-size: 0.8em;
         margin-bottom: 1em;
+        @include _400() {
+          font-size: 0.9em;
+        }
       }
 
       &__legal {

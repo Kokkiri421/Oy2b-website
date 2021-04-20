@@ -135,6 +135,7 @@ export default {
       margin: 0 2em 2em 0;
       &:nth-last-child(-n + 1) {
         margin-right: 0;
+        margin-bottom: 0;
       }
       @include _800() {
         margin: 2em 2em 0 0;
