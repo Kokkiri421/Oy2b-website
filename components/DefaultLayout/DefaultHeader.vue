@@ -141,6 +141,10 @@ export default {
     window.addEventListener('scroll', this.updateScroll)
     window.addEventListener('resize', this.updateWindowWidth)
   },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.updateScroll)
+    window.removeEventListener('resize', this.updateWindowWidth)
+  },
 }
 </script>
 
@@ -216,7 +220,7 @@ export default {
       display: none;
       width: 30px;
       height: 24px;
-      background-color: $header-color;
+      background-color: $red-color1;
       border: none;
       padding: 0;
       cursor: pointer;

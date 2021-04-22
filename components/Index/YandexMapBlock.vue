@@ -122,7 +122,7 @@ export default {
         <p class="small-text">Техническое обслуживание серверов</p>
         <p class="small-text">Размещение сервера</p>
         <p class="small-text">Кроссировка</p>
-        
+
       `
     },
     mapHandler: function (e) {
@@ -132,7 +132,6 @@ export default {
   },
   mounted() {
     loadYmap().then(() => {
-      console.log(1234)
       this.isMounted = true
       this.polygon = new ymaps.Polygon(
         [
@@ -623,7 +622,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import 'assets/media_mixin';
 .map-container {
   height: 700px;

@@ -13,22 +13,29 @@ export default {
   },
   methods: {
     isToAnimate: function () {
-      if (!this.animated && this.$refs.animatedElement) {
-        if (
-          window.scrollY + window.innerHeight >
-            this.$refs.animatedElement.offsetTop &&
-          this.$refs.animatedElement.offsetTop +
-            this.$refs.animatedElement.offsetHeight >
-            window.scrollY
-        ) {
-          this.animated = true
+      setTimeout(() => {
+        if (!this.animated && this.$refs.animatedElement) {
+          if (
+            window.scrollY + window.innerHeight >
+              this.$refs.animatedElement.offsetTop &&
+            this.$refs.animatedElement.offsetTop +
+              this.$refs.animatedElement.offsetHeight >
+              window.scrollY
+          ) {
+            this.animated = true
+          }
         }
-      }
+      }, 100)
     },
   },
   mounted() {
     this.isToAnimate()
     window.addEventListener('scroll', this.isToAnimate)
+    window.addEventListener('resize', this.isToAnimate)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.isToAnimate)
+    window.removeEventListener('resize', this.isToAnimate)
   },
 }
 </script>

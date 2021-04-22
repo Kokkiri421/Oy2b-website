@@ -256,6 +256,7 @@ export default {
         }
         img {
           vertical-align: middle;
+          width: 18px;
         }
       }
     }
@@ -268,10 +269,20 @@ export default {
         #d6249f 60%,
         #285aeb 90%
       );
+      a {
+        img {
+          height: 18px;
+        }
+      }
     }
     .vk {
       margin-left: 0.5em;
       background: #4c6c91;
+      a {
+        img {
+          height: 12px;
+        }
+      }
     }
   }
   .contacts {

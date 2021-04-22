@@ -72,12 +72,16 @@ export default {
       this.isModalShown = !this.isModalShown
     },
     setAlign() {
-      this.isLeftAlign = this.$el.offsetLeft < window.innerWidth / 2
+      this.isLeftAlign =
+        this.$el.offsetLeft + this.$el.offsetWidth / 2 < window.innerWidth / 2
     },
   },
   mounted() {
     this.setAlign()
     window.addEventListener('resize', this.setAlign)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setAlign)
   },
 }
 </script>
@@ -102,6 +106,7 @@ export default {
     background-color: $light-blue-color;
     border-radius: 6px;
     padding: 1em;
+    box-sizing: border-box;
 
     @include _480() {
       padding: 1em 1.25em 1.5em;
@@ -223,6 +228,9 @@ export default {
     top: 0;
     z-index: -1;
     left: -925%;
+    @include _950() {
+      left: -525%;
+    }
   }
 }
 .right {
@@ -236,6 +244,9 @@ export default {
     top: 0;
     z-index: -1;
     right: -925%;
+    @include _950() {
+      right: -525%;
+    }
   }
 }
 </style>

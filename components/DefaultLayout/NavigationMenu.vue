@@ -1,11 +1,7 @@
 <template>
   <div class="wrapper">
-    <div
-      class="container"
-      :class="{ active: isActive }"
-    
-    >
-      <nav class="navigation-menu" v-scroll-lock="isActive && windowWidth"> 
+    <div class="container" :class="{ active: isActive }">
+      <nav class="navigation-menu" v-scroll-lock="isActive && windowWidth">
         <div class="navigation-menu__item main-menu">
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
@@ -184,6 +180,10 @@ export default {
     this.updateSize()
     window.addEventListener('resize', this.updateSize)
   },
+  beforeDestroy() {
+    window.removeEventListener('click', this.hideMenuOnClick)
+    window.removeEventListener('resize', this.updateSize)
+  },
   computed: {},
 }
 </script>
@@ -204,7 +204,7 @@ export default {
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
   max-width: calc;
-  
+
   @include _1300 {
     margin-left: -50px;
     border-radius: 0 0 6px 0;
@@ -229,7 +229,7 @@ export default {
     //width: 100%;
     margin-top: 64px;
     padding: 1.25em 20px;
-    max-height: calc(100vh - 6em );
+    max-height: calc(100vh - 6em);
     margin-left: -10px;
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);

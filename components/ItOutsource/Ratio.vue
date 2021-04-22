@@ -152,7 +152,7 @@ export default {
     margin-top: 0;
   }
 
-  @include _900() {
+  @include _1300() {
     width: 100%;
   }
 

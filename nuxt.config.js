@@ -36,8 +36,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/axios',
   ],
-
+  axios: {
+    // extra config e.g
+    headers: { Authorization: 'Basic FD566FDA9F77376AADBF7A47EA5D9' },
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {

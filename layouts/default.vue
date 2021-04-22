@@ -90,25 +90,34 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   position: absolute;
-  width: 100%;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 1300px;
+  @include _900() {
+    width: calc(900px - 5em);
+    max-width: calc(100vw - 5em);
+  }
+  @include _600() {
+    width: calc(600px - 3em);
+    max-width: calc(100vw - 3em);
+  }
   height: 100%;
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
-
   text-align: center;
   margin: 0 auto;
   z-index: -2;
   .line {
     width: 1px;
+    height: 100%;
     background: #eee;
-    &:nth-child(1) {
-      background: transparent;
-    }
-    &:nth-last-child(-n + 1) {
-      background: transparent;
-    }
+    //&:nth-child(1) {
+    //  background: transparent;
+    //}
+    //&:nth-last-child(-n + 1) {
+    //  background: transparent;
+    //}
   }
 }
 </style>

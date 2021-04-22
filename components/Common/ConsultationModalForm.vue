@@ -75,9 +75,14 @@ export default {
     PrettyInput,
   },
   methods: {
-    checkForm(e) {
+    async checkForm(e) {
       e.preventDefault()
       this.errors = []
+      let phone = this.phone
+        .replace('+7(', '')
+        .replace(')', '')
+        .replace('-', '')
+        .replace('-', '')
       if (!this.name) {
         this.errors.push('name')
       }
@@ -85,8 +90,20 @@ export default {
         this.errors.push('phone')
       }
       if (this.errors.length === 0) {
-        console.log('consultation form')
-        console.log(this.type)
+        let fullname = this.name.split(' ')
+        let body = {
+          contact: {
+            name: fullname[0],
+            surname: fullname[1] || '.',
+            phones: [{ phone: phone }],
+          },
+          description: `Тип формы: Обсудить проект\nТип клиента: ${
+            this.type === 'ip' ? 'ИП' : 'Юр. Лицо'
+          }\n`,
+        }
+        let response = await this.$axios
+          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .then((res) => console.log(res.data))
         return true
       }
       console.log(this.errors)

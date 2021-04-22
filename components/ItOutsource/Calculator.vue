@@ -260,7 +260,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
 
-    @include _900() {
+    @include _1300() {
       flex-direction: column;
       justify-content: flex-start;
     }
@@ -275,7 +275,7 @@ export default {
   height: 452px;
   flex-grow: 1;
   margin-right: 1em;
-  @include _900() {
+  @include _1300() {
     margin-right: 0;
     margin-bottom: 1em;
     height: fit-content;

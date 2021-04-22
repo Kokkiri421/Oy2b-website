@@ -1,12 +1,13 @@
 <template>
+  <!--  -->
   <label class="pretty-input">
     <input
       :type="type"
       class="form-input"
       :class="{ 'form-input__error': error && !isCustomized }"
       :name="name"
-      v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
       maxlength="32"
+      v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
       @focus="isCustomized = true"
       @blur="checkCustomized"
       :value="value"

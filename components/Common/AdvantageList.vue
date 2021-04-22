@@ -18,6 +18,7 @@ export default {
 
   @include _1000() {
     flex-direction: column;
+    box-sizing: border-box;
   }
 }
 </style>

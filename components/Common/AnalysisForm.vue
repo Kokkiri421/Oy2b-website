@@ -69,20 +69,36 @@ export default {
   },
 
   methods: {
-    checkForm(e) {
+    async checkForm(e) {
       e.preventDefault()
       this.errors = []
+      let phone = this.phone
+        .replace('+7(', '')
+        .replace(')', '')
+        .replace('-', '')
+        .replace('-', '')
       if (!this.name) {
         this.errors.push('name')
       }
-      if (!this.phone) {
+      if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       }
       if (!this.company) {
         this.errors.push('company')
       }
       if (this.errors.length === 0) {
-        console.log('analysis form')
+        let fullname = this.name.split(' ')
+        let body = {
+          contact: {
+            name: fullname[0],
+            surname: fullname[1] || '.',
+            phones: [{ phone: phone }],
+          },
+          description: `Тип формы: Персональные рекомендации\nКомпания: ${this.company}`,
+        }
+        let response = await this.$axios
+          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .then((res) => console.log(res.data))
         return true
       }
       console.log(this.errors)

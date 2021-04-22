@@ -86,23 +86,39 @@ export default {
     question: { type: String, required: true },
   },
   methods: {
-    checkForm(e) {
+    async checkForm(e) {
       e.preventDefault()
       this.errors = []
+      let phone = this.phone
+        .replace('+7(', '')
+        .replace(')', '')
+        .replace('-', '')
+        .replace('-', '')
       if (!this.userQuestion) {
         this.errors.push('question')
       }
       if (!this.name) {
         this.errors.push('name')
       }
-      if (!this.phone) {
+      if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       }
       if (!this.company) {
         this.errors.push('company')
       }
       if (this.errors.length === 0) {
-        console.log('question form')
+        let fullname = this.name.split(' ')
+        let body = {
+          contact: {
+            name: fullname[0],
+            surname: fullname[1] || '.',
+            phones: [{ phone: phone }],
+          },
+          description: `Тип формы: Обсудить проект\nКомпания: ${this.company}\n, Вопрос: ${this.userQuestion}\n`,
+        }
+        let response = await this.$axios
+          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .then((res) => console.log(res.data))
         return true
       }
       console.log(this.errors)
@@ -130,13 +146,11 @@ export default {
     background-color: $form-bg-color;
     border-radius: 6px;
     padding: 1em;
-    margin: 2em 0;
+    margin: 3em 0;
     @include _950() {
       margin: 2em 0;
     }
-    @include _600 {
-      padding: 1em;
-    }
+
     .question-block-form {
       display: flex;
       flex-direction: row;

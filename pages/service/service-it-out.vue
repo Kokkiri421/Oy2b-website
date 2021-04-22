@@ -211,11 +211,14 @@
             </template>
           </advantage-list>
         </div>
-        <h4 class="bottom-info__left-block">
-          Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
-          до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
-          инфраструктуры
-        </h4>
+        <div class="page-content-block">
+          <h4 class="bottom-info__left-block">
+            Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
+            до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
+            инфраструктуры
+          </h4>
+        </div>
+
         <price-form class="page-content-block"></price-form>
         <div class="bottom-info page-content-block">
           <div class="bottom-info__right-block">
@@ -442,6 +445,8 @@ export default {
     justify-content: center;
     @include _1300() {
       flex-direction: column;
+    }
+    &__left-block {
     }
     &__right-block {
       padding: 1em;

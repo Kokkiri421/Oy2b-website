@@ -4,21 +4,19 @@
       <template v-slot:header> IP Адреса </template>
       <template v-slot:description>
         <div class="description">
+          <p class="article">IP-Адреса IPv4 и IPv6 из собственных подсетей.</p>
           <p class="article">
-            IP-Адреса IPv4&nbsp;и&nbsp;IPv6 из&nbsp;собственных подсетей.
+            Имея статус LIR в RIPE мы предлагаем своим клиентам наиболее
+            выгодные условия обслуживания.
           </p>
           <p class="article">
-            Имея статус LIR&nbsp;в&nbsp;RIPE мы&nbsp;предлагаем своим клиентам
-            наиболее выгодные условия обслуживания.
+            Все адреса будут зарегистрированы на вашу организацию.
           </p>
-          <p class="article">
-            Все адреса будут зарегистрированы на&nbsp;вашу&nbsp;организацию.
-          </p>
-          <p class="article">На рынке с&nbsp;2000 года.</p>
+          <p class="article">На рынке с 2000 года.</p>
         </div>
       </template>
       <template v-slot:form-prefix>
-        Заполните форму для&nbsp;связи со&nbsp;специалистом:
+        Заполните форму для связи со специалистом:
       </template>
     </hero-block>
     <div class="wrapper">
@@ -33,17 +31,15 @@
               </template>
             </advantage-block>
             <advantage-block :style="{ '--color': '#ff7d05' }">
-              <template v-slot:header
-                >Документы на&nbsp;русском&nbsp;языке</template
-              >
+              <template v-slot:header>Документы на русском языке</template>
               <template v-slot:description
                 >Мы ведем документооборот только на русском языке</template
               >
             </advantage-block>
             <advantage-block :style="{ '--color': '#ff7d05' }">
-              <template v-slot:header>Оформление под&nbsp;ключ</template>
+              <template v-slot:header>Оформление под ключ</template>
               <template v-slot:description
-                >Мы поможем принять и&nbsp;оформить сеть под&nbsp;себя</template
+                >Мы поможем принять и оформить сеть под себя</template
               >
             </advantage-block>
           </template>
@@ -52,18 +48,16 @@
           <service-block :background-color="'#2dc354'" @onClick="scrollToOrder">
             <template v-slot:header> Аренда IP Адресов: </template>
             <template v-slot:description>
-              <p class="article">IPv4-адреса из&nbsp;собственных PA-блоков</p>
+              <p class="article">IPv4-адреса из собственных PA-блоков</p>
               <p class="article">
-                Каждый IP перед активацией проверяется на&nbsp;присутствие
-                в&nbsp;«черных&nbsp; списках»
+                Каждый IP перед активацией проверяется на присутствие в «черных
+                списках»
               </p>
               <p class="article">
-                Бухгалтерские документы в&nbsp;соответствии с&nbsp;требованиями
-                законодательства&nbsp;РФ&nbsp;(счет,&nbsp;акт,&nbsp;счет-фактура).
+                Бухгалтерские документы в соответствии с требованиями
+                законодательства РФ (счет, акт, счет-фактура).
               </p>
-              <p class="article">
-                В&nbsp;запросах whois отображаются ваши&nbsp;данные
-              </p>
+              <p class="article">В запросах whois отображаются ваши данные</p>
               <p class="article">
                 В стоимость входит поддержка и сопровождение данных объектов в
                 базе RIPE, помощь и консультирование в использовании базы данных
@@ -82,15 +76,14 @@
             <template v-slot:description>
               <p class="article">
                 Консультационные услуги по анонсирвоанию вашей автономной
-                системы (AS) или блока IP-адресов по&nbsp;протоколу&nbsp;BGP
-                в&nbsp;РФ&nbsp;или&nbsp;ЕС.
+                системы (AS) или блока IP-адресов по протоколу BGP в РФ или ЕС.
               </p>
               <p class="article">
-                Подача заявки от&nbsp;вашего имени на&nbsp;регистрацию АС
+                Подача заявки от вашего имени на регистрацию АС
               </p>
               <p class="article">Помощь в оплате взносов</p>
               <p class="article">
-                Поддержка квалифицированными специалистами&nbsp;24/7/365
+                Поддержка квалифицированными специалистами 24/7/365
               </p>
             </template>
             <template v-slot:button
@@ -101,25 +94,22 @@
             <template v-slot:header> Покупка IP Адресов: </template>
             <template v-slot:description>
               <p class="article">
-                Мы располагаем базой подсетей IPv4-адресов, из&nbsp;которой
-                возможно оперативно подобрать предложение
-                под&nbsp;ваш&nbsp;бюджет.
+                Мы располагаем базой подсетей IPv4-адресов, из которой возможно
+                оперативно подобрать предложение под ваш бюджет.
               </p>
               <p class="article">
-                Каждый IP перед активацией проверяется на&nbsp;присутствие
-                в&nbsp;«черных&nbsp; списках»
+                Каждый IP перед активацией проверяется на присутствие в «черных
+                списках»
               </p>
               <p class="article">
-                Бухгалтерские документы в&nbsp;соответствии с&nbsp;требованиями
-                законодательства&nbsp;РФ&nbsp;(счет,&nbsp;акт,&nbsp;счет-фактура).
+                Бухгалтерские документы в соответствии с требованиями
+                законодательства РФ (счет, акт, счет-фактура).
               </p>
-              <p class="article">
-                В&nbsp;запросах whois отображаются ваши&nbsp;данные
-              </p>
+              <p class="article">В запросах whois отображаются ваши данные</p>
               <p class="article">
                 <b
-                  >Купите IPv4 адреса и&nbsp;получите полный контроль
-                  над&nbsp;вашими объектами</b
+                  >Купите IPv4 адреса и получите полный контроль над вашими
+                  объектами</b
                 >
               </p>
             </template>
@@ -131,12 +121,10 @@
             <template v-slot:header> Дополнительно: </template>
             <template v-slot:description>
               <p class="article">
-                Перенос блоков IPv4, IPv6 или&nbsp;AS от&nbsp;другого&nbsp;LIR
+                Перенос блоков IPv4, IPv6 или AS от другого LIR
               </p>
-              <p class="article">Поддержка блоков IPv4&nbsp;и&nbsp;IPv6</p>
-              <p class="article">
-                Покупка ваших блоков, сетей, подсетей&nbsp;IPv4
-              </p>
+              <p class="article">Поддержка блоков IPv4 и IPv6</p>
+              <p class="article">Покупка ваших блоков, сетей, подсетей IPv4</p>
             </template>
             <template v-slot:button
               ><button class="dialog-button">Заказать</button>

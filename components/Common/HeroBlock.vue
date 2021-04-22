@@ -98,18 +98,31 @@ export default {
     scrollDown() {
       this.$emit('onClick')
     },
-    checkForm(e) {
+    async checkForm(e) {
       e.preventDefault()
       this.errors = []
-
+      let phone = this.phone
+        .replace('+7(', '')
+        .replace(')', '')
+        .replace('-', '')
+        .replace('-', '')
       if (!this.company) {
         this.errors.push('company')
       }
-      if (!this.phone) {
+      if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
-      }
-      if (this.errors.length === 0) {
-        console.log(this.phone)
+      } else if (this.errors.length === 0) {
+        let body = {
+          contact: {
+            name: 'Новый',
+            surname: 'Контакт',
+            phones: [{ phone: phone }],
+          },
+          description: `Тип формы: Связь со специалистом\nКомпания или адрес: ${this.company}\n`,
+        }
+        let response = await this.$axios
+          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .then((res) => console.log(res.data))
         return true
       }
       console.log(this.errors)
@@ -131,10 +144,9 @@ export default {
 .hero-block {
   width: 100%;
   background-image: url('~/static/images/backgrounds/heroblock-bg.png');
-  //background-position: b
-  //background-position: -25vw -12 vw;
-  background-position: bottom 10px right;
-
+  //////
+  //background-position: bottom 2rem right;
+  background-position: bottom 1em right;
   background-repeat: no-repeat;
   background-size: cover;
   .wrapper {
