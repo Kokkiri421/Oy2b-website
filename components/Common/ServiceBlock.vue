@@ -6,7 +6,10 @@
       :style="{
         cursor: type === 'block' ? 'default' : 'pointer',
       }"
-      :class="this.isLeftAlign ? 'left' : 'right'"
+      :class="[
+        this.isLeftAlign ? 'left' : 'right',
+        this.isGrey ? 'grey' : 'blue',
+      ]"
     >
       <div class="content-block__header">
         <h4 class="header-content">
@@ -61,6 +64,10 @@ export default {
     type: {
       type: String,
       default: 'order',
+    },
+    isGrey: {
+      type: Boolean,
+      default: false,
     },
   },
   methods: {
@@ -247,6 +254,15 @@ export default {
     @include _950() {
       right: -525%;
     }
+  }
+}
+.grey {
+  background-color: $form-bg-color !important;
+  &:before {
+    background-color: $form-bg-color !important;
+  }
+  &:after {
+    background-color: $form-bg-color !important;
   }
 }
 </style>

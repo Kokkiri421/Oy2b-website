@@ -72,7 +72,7 @@ export default {
   background-image: url('~/static/images/backgrounds/heroblock-bg.png');
   //background-position: b
   //background-position: -25vw -12 vw;
-  background-position: bottom 250px left;
+  background-position: bottom 300px left;
   transform: rotate(180deg);
   background-repeat: no-repeat;
   background-size: cover;

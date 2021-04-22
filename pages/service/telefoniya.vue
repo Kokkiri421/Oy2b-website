@@ -54,7 +54,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7a00'" :type="'block'">
+          <service-block
+            :background-color="'#ff7a00'"
+            :type="'block'"
+            :is-grey="true"
+          >
             <template v-slot:header> Интеграция с CRM </template>
             <template v-slot:description>
               <p class="article">
@@ -91,7 +95,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7a00'" :type="'block'">
+          <service-block
+            :background-color="'#ff7a00'"
+            :type="'block'"
+            :is-grey="true"
+          >
             <template v-slot:header> Простая установка и управление </template>
             <template v-slot:description>
               <ul>
@@ -173,46 +181,45 @@
           ></special-price
         >
 
-        <question-block
-          ref="question"
-          :question="'Например:\nКак настроить переадресацию на мобильные для удаленных сотрудников?'"
-        >
-          <template v-slot:top-text>
-            <h5 class="header">Задайте любой вопрос о Телефонии бесплатно</h5>
-            <p class="article">
-              Мы бесплатно ответим на любые вопросы из области Телефонии для
-              бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными
-              и самописными CRM/ERP системами и др. . <br />
-              Поможем разобраться и оптимизировать расходы на услуги связи.
-            </p>
-            <h5 class="header">Наши эксперты</h5>
-            <p class="article">
-              В Oyster Telecom работают технические специалисты
-              с&nbsp;релевантным опытом из&nbsp;различных технических сфер услуг
-              для&nbsp;бизнеса.
-            </p>
-          </template>
-          <template v-slot:bottom-text>
-            <h5>
-              Мы создаем лучшее решение для&nbsp;качественной связи компании
-              с&nbsp; клиентами и эффективного взаимодействия между
-              сотрудниками.
-            </h5>
-            <p class="article">
-              Специалисты Oyster Telecom знают, как необходима в офисе
-              налаженная и функциональная телефонная связь, а также знают, как
-              ее установить! Мы создадим для вас бизнес-инструмент для
-              оптимизации, статистики и аналитики. Влезем в код, изменим
-              конфигурацию, интегрируем с вашими CRM и ERP, даже если они
-              самописные. Подхватим вас на любом этапе модернизации: заменим
-              старые АТС на виртуальные, поможем подключить к мини-АТС платы
-              SIP-телефонии, подключим по SIPtrunk вашу новую облачную АТС.
-            </p>
-          </template>
-          <template v-slot:button
-            ><button class="dialog-button">Заказать</button>
-          </template>
-        </question-block>
+        <div class="sla page-content-block">
+          <h4>
+            Гарантируем юридическую ответственность в&nbsp;случае нарушения
+            показателей&nbsp;SLA
+          </h4>
+          <sla-block class="page-content-block" />
+        </div>
+        <div class="page-content-block">
+          <h4 class="header">Задайте любой вопрос о Телефонии бесплатно</h4>
+          <p class="article">
+            Мы бесплатно ответим на любые вопросы из области Телефонии для
+            бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными и
+            самописными CRM/ERP системами и др. . <br />
+            Поможем разобраться и оптимизировать расходы на услуги связи.
+          </p>
+          <h4 class="header">Наши эксперты</h4>
+          <p class="article">
+            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
+            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
+          </p>
+        </div>
+        <call-us-block class="page-content-block" />
+        <price-form class="page-content-block"></price-form>
+        <div class="bottom-text">
+          <h5>
+            Мы создаем лучшее решение для&nbsp;качественной связи компании
+            с&nbsp; клиентами и эффективного взаимодействия между сотрудниками.
+          </h5>
+          <p class="article">
+            Специалисты Oyster Telecom знают, как необходима в офисе налаженная
+            и функциональная телефонная связь, а также знают, как ее установить!
+            Мы создадим для вас бизнес-инструмент для оптимизации, статистики и
+            аналитики. Влезем в код, изменим конфигурацию, интегрируем с вашими
+            CRM и ERP, даже если они самописные. Подхватим вас на любом этапе
+            модернизации: заменим старые АТС на виртуальные, поможем подключить
+            к мини-АТС платы SIP-телефонии, подключим по SIPtrunk вашу новую
+            облачную АТС.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -227,6 +234,9 @@ import TelephonyTable from '~/components/Telephony/TelephonyTable'
 import RoubleIcon from '~/components/Icons/RoubleIcon'
 import Icon from '~/components/Icons/Icon'
 import SpecialPrice from '~/components/Common/SpecialPrice'
+import SlaBlock from '~/components/ItOutsource/SlaBlock'
+import CallUsBlock from '~/components/Index/CallUsBlock'
+import PriceForm from '~/components/ItOutsource/PriceForm'
 
 export default {
   data() {
@@ -241,6 +251,9 @@ export default {
     RoubleIcon,
     Icon,
     SpecialPrice,
+    SlaBlock,
+    CallUsBlock,
+    PriceForm,
   },
 
   methods: {

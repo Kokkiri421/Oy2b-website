@@ -4,9 +4,15 @@
       <slot name="top-text"></slot>
     </div>
     <div class="form-container" ref="order">
-      <h4 class="name-phone-company-form__header">
-        Давайте прямо сейчас рассчитаем стоимость работ
-      </h4>
+      <div class="form-container__top">
+        <h4 class="name-phone-company-form__header">
+          Давайте прямо сейчас рассчитаем стоимость работ
+        </h4>
+        <div class="image-container">
+          <img class="image" src="~/static/images/block-images/call-us.png" />
+        </div>
+      </div>
+
       <p class="form-error-message" v-if="errors.length > 0">
         Заполните обязательные поля
       </p>
@@ -129,11 +135,6 @@ export default {
     }
   }
 
-  .header {
-    margin-top: 2em;
-    margin-bottom: 1em;
-  }
-
   .form-container {
     background-color: $light-blue-color;
     border-radius: 6px;
@@ -141,14 +142,21 @@ export default {
     //margin: 3em 0;
     @include _650 {
     }
-
+    &__top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
     .name-phone-company-form {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       margin-bottom: 1em;
       &__header {
-        flex-basis: 100%;
+        max-width: calc(100% - 150px - 1em);
+        @include _650() {
+          max-width: 100%;
+        }
       }
 
       &__error {
@@ -192,6 +200,20 @@ export default {
       &:hover {
         color: $red-color1;
       }
+    }
+  }
+  .image-container {
+    height: 100%;
+    width: 150px;
+    position: relative;
+    .image {
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      bottom: -45px;
+    }
+    @include _650() {
+      display: none;
     }
   }
 }

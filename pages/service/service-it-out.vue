@@ -67,6 +67,7 @@
             class="service-block"
             :background-color="'#f2f2f2'"
             @onClick="scrollToOrder"
+            :is-grey="true"
           >
             <template v-slot:header>Обслуживание серверов</template>
             <template v-slot:description>
@@ -90,6 +91,7 @@
             class="service-block"
             :background-color="'#f2f2f2'"
             @onClick="scrollToOrder"
+            :is-grey="true"
           >
             <template v-slot:header>Обслуживание оргтехники</template>
             <template v-slot:description>

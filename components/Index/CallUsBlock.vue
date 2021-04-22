@@ -3,9 +3,9 @@
     <div class="call-us-block">
       <div class="call-us-block__content">
         <h4>Позвоните нам или&nbsp;оставьте заявку на&nbsp;сайте:</h4>
-        <button class="dialog-button" @click="showModal">
-          Оставить заявку
-        </button>
+        <div class="image-container">
+          <img class="image" src="~/static/images/block-images/call-us.png" />
+        </div>
         <p class="article">
           Обсудим все детали вашего проекта, зададим важные вопросы, дадим
           свои&nbsp;рекомендации.<br />
@@ -54,14 +54,14 @@ export default {
 @import '~/assets/colors';
 .call-us-block {
   position: relative;
-  background-color: $light-blue-color;
+  background-color: $form-bg-color;
   padding: 1em;
   border-radius: 6px;
   &:before {
     content: '';
     position: absolute;
     height: 100%;
-    background-color: $light-blue-color;
+    background-color: $form-bg-color;
     width: 1000%;
     top: 0;
     z-index: -1;
@@ -72,10 +72,11 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+
     h4 {
       margin-bottom: 0;
-      max-width: calc(100% - 220px);
+      max-width: calc(100% - 150px - 1em);
       @include _650() {
         max-width: 100%;
       }
@@ -92,6 +93,20 @@ export default {
       @include _900() {
         margin: 1em 0 1em;
       }
+    }
+  }
+  .image-container {
+    height: 100%;
+    width: 150px;
+    position: relative;
+    .image {
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      bottom: -20px;
+    }
+    @include _650() {
+      display: none;
     }
   }
 }

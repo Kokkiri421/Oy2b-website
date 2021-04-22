@@ -71,7 +71,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#2dc354'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#2dc354'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Регистрация AS: </template>
             <template v-slot:description>
               <p class="article">
@@ -90,7 +94,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#2dc354'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#2dc354'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Покупка IP Адресов: </template>
             <template v-slot:description>
               <p class="article">
@@ -131,7 +139,40 @@
             </template>
           </service-block>
         </service-list>
-        <ip-form ref="order" />
+        <div class="sla page-content-block">
+          <h4>
+            Гарантируем юридическую ответственность в&nbsp;случае нарушения
+            показателей&nbsp;SLA
+          </h4>
+          <sla-block class="page-content-block" />
+        </div>
+        <div class="page-content-block">
+          <h4 class="header">Задайте любой вопрос о Телефонии бесплатно</h4>
+          <p class="article">
+            Мы бесплатно ответим на любые вопросы из области Телефонии для
+            бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными и
+            самописными CRM/ERP системами и др. . <br />
+            Поможем разобраться и оптимизировать расходы на услуги связи.
+          </p>
+          <h4 class="header">Наши эксперты</h4>
+          <p class="article">
+            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
+            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
+          </p>
+        </div>
+        <call-us-block class="page-content-block" />
+        <price-form class="page-content-block"></price-form>
+        <div class="bottom-text">
+          <p class="article">
+            Наши специалисты разработают для вас индивидуальный тарифный план,
+            в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
+            количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
+            на&nbsp;интернет канал.
+          </p>
+          <p class="article">
+            <br />Конкретное решение зависит от ваших потребностей
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -146,6 +187,9 @@ import SpecialPrice from '~/components/Common/SpecialPrice'
 import AdvantageList from '~/components/Common/AdvantageList'
 import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import IpForm from '~/components/IPaddresses/IpForm'
+import SlaBlock from '~/components/ItOutsource/SlaBlock'
+import CallUsBlock from '~/components/Index/CallUsBlock'
+import PriceForm from '~/components/ItOutsource/PriceForm'
 
 export default {
   components: {
@@ -157,6 +201,9 @@ export default {
     AdvantageList,
     AdvantageBlock,
     IpForm,
+    SlaBlock,
+    CallUsBlock,
+    PriceForm,
   },
   methods: {
     scrollToServices: function () {

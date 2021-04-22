@@ -67,7 +67,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#ff7d05'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Виртуальные рабочие места VDI </template>
             <template v-slot:description>
               <p class="article">
@@ -105,7 +109,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#ff7d05'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Интернет </template>
             <template v-slot:description>
               <p class="article">
@@ -121,7 +129,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#ff7d05'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Виртуальные сервера VDS </template>
             <template v-slot:description>
               <p class="article">
@@ -161,7 +173,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#ff7d05'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#ff7d05'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Microsoft Teams </template>
             <template v-slot:description>
               <p class="article">
@@ -206,35 +222,40 @@
             </span>
           </template></special-price
         >
-        <question-block
-          ref="question"
-          :question="'Например:\nМожно ли организовать L2 канал между офисами компании?'"
-        >
-          <template v-slot:top-text>
-            <h5 class="header">Задайте любой ИТ вопрос бесплатно</h5>
-            <p class="article">
-              Мы бесплатно ответим на любые вопросы из области Корпоративного
-              ИТ, связанные с настройкой сетей и рабочих мест, серверов и
-              облаков.
-              <br />
-              Поможем разобраться&nbsp; и оптимизировать расходы на ИТ.
-            </p>
-            <h5 class="header">Наши эксперты</h5>
-            <p class="article">
-              В Oyster Telecom работают технические специалисты
-              с&nbsp;релевантным опытом из&nbsp;различных технических сфер услуг
-              для&nbsp;бизнеса.
-            </p>
-          </template>
-          <template v-slot:bottom-text>
-            <p class="article">
-              Для всех клиентов виртуальных сервисов мы предоставляем детальное
-              соглашение об уровне обслуживания (SLA), гарантирующее точное
-              исполнение основных параметров и показателей, за соблюдение
-              которых мы несем финансовую ответственность.
-            </p>
-          </template>
-        </question-block>
+        <div class="sla page-content-block">
+          <h4>
+            Гарантируем юридическую ответственность в&nbsp;случае нарушения
+            показателей&nbsp;SLA
+          </h4>
+          <sla-block class="page-content-block" />
+        </div>
+        <div class="page-content-block">
+          <h4 class="header">Задайте любой вопрос о Телефонии бесплатно</h4>
+          <p class="article">
+            Мы бесплатно ответим на любые вопросы из области Телефонии для
+            бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными и
+            самописными CRM/ERP системами и др. . <br />
+            Поможем разобраться и оптимизировать расходы на услуги связи.
+          </p>
+          <h4 class="header">Наши эксперты</h4>
+          <p class="article">
+            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
+            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
+          </p>
+        </div>
+        <call-us-block class="page-content-block" />
+        <price-form class="page-content-block"></price-form>
+        <div class="bottom-text">
+          <p class="article">
+            Наши специалисты разработают для вас индивидуальный тарифный план,
+            в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
+            количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
+            на&nbsp;интернет канал.
+          </p>
+          <p class="article">
+            <br />Конкретное решение зависит от ваших потребностей
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -248,6 +269,9 @@ import QuestionBlock from '~/components/Common/QuestionBlock'
 import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
 import SpecialPrice from '~/components/Common/SpecialPrice'
+import SlaBlock from '~/components/ItOutsource/SlaBlock'
+import CallUsBlock from '~/components/Index/CallUsBlock'
+import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
   components: {
     HeroBlock,
@@ -257,6 +281,9 @@ export default {
     AdvantageBlock,
     AdvantageList,
     SpecialPrice,
+    SlaBlock,
+    CallUsBlock,
+    PriceForm,
   },
   methods: {
     scrollToServices: function () {

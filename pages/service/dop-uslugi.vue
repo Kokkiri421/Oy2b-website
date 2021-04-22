@@ -50,7 +50,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#777'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#777'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Аренда IP адресов </template>
             <template v-slot:description>
               <p class="article">
@@ -99,7 +103,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#777'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#777'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Аренда каналов связи </template>
             <template v-slot:description>
               <p class="article">
@@ -134,7 +142,11 @@
               ><button class="dialog-button">Заказать</button>
             </template>
           </service-block>
-          <service-block :background-color="'#777'" @onClick="scrollToOrder">
+          <service-block
+            :background-color="'#777'"
+            @onClick="scrollToOrder"
+            :is-grey="true"
+          >
             <template v-slot:header> Последняя миля </template>
             <template v-slot:description>
               <p class="article">
@@ -169,19 +181,40 @@
             </template>
           </service-block>
         </service-list>
-        <question-block
-          ref="question"
-          :question="'Например:\nКакова цена сети / 23 512 IPv4?'"
-        >
-          <template v-slot:top-text>
-            <h5 class="header">Задайте любой вопрос о B2O сотрудничестве</h5>
-            <p class="article">
-              Мы бесплатно ответим на любые вопросы из области межоператорских
-              услуг.
-            </p>
-          </template>
-          <template v-slot:bottom-text> </template>
-        </question-block>
+        <div class="sla page-content-block">
+          <h4>
+            Гарантируем юридическую ответственность в&nbsp;случае нарушения
+            показателей&nbsp;SLA
+          </h4>
+          <sla-block class="page-content-block" />
+        </div>
+        <div class="page-content-block">
+          <h4 class="header">Задайте любой вопрос о Телефонии бесплатно</h4>
+          <p class="article">
+            Мы бесплатно ответим на любые вопросы из области Телефонии для
+            бизнеса, Виртуальных АТС, Коллтрекинга, интеграциями с популярными и
+            самописными CRM/ERP системами и др. . <br />
+            Поможем разобраться и оптимизировать расходы на услуги связи.
+          </p>
+          <h4 class="header">Наши эксперты</h4>
+          <p class="article">
+            В Oyster Telecom работают технические специалисты с&nbsp;релевантным
+            опытом из&nbsp;различных технических сфер услуг для&nbsp;бизнеса.
+          </p>
+        </div>
+        <call-us-block class="page-content-block" />
+        <price-form class="page-content-block"></price-form>
+        <div class="bottom-text">
+          <p class="article">
+            Наши специалисты разработают для вас индивидуальный тарифный план,
+            в&nbsp;соответствии с &nbsp;особенностями вашего бизнеса,
+            количеством и&nbsp;оснащенностью рабочих мест, степенью нагрузки
+            на&nbsp;интернет канал.
+          </p>
+          <p class="article">
+            <br />Конкретное решение зависит от ваших потребностей
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -192,12 +225,18 @@ import HeroBlock from '~/components/Common/HeroBlock'
 import ServiceBlock from '~/components/Common/ServiceBlock'
 import ServiceList from '~/components/Common/ServiceList'
 import QuestionBlock from '~/components/Common/QuestionBlock'
+import SlaBlock from '~/components/ItOutsource/SlaBlock'
+import CallUsBlock from '~/components/Index/CallUsBlock'
+import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
   components: {
     HeroBlock,
     ServiceBlock,
     ServiceList,
     QuestionBlock,
+    SlaBlock,
+    CallUsBlock,
+    PriceForm,
   },
   methods: {
     scrollToServices: function () {
