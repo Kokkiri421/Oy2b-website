@@ -1327,13 +1327,16 @@ thead {
       border: 1px solid #eee;
     }
   }
+  td {
+    background: #fff;
+  }
 }
 @supports (-moz-appearance: none) {
   .row-expander {
     th {
       //background-color: $base-color-table !important;
-     border: none !important;
-     //border-right: 1px solid $base-color-table !important;
+      border: none !important;
+      //border-right: 1px solid $base-color-table !important;
       background: linear-gradient(
         to bottom,
         #eee 0,
@@ -1344,7 +1347,7 @@ thead {
     td {
       background: linear-gradient(
         to bottom,
-        #eee  0,
+        #eee 0,
         $base-color-table 1px,
         $base-color-table 100%
       ) !important;

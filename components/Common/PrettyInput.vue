@@ -11,7 +11,7 @@
       @focus="isCustomized = true"
       @blur="checkCustomized"
       :value="value"
-      @input="$emit('onInput', $event)"
+      @input="input($event)"
     />
     <span
       class="form-input__placeholder"
@@ -57,16 +57,15 @@ export default {
   },
   methods: {
     checkCustomized(e) {
+      console.log(e.target.value.length)
+      console.log(this.value.length)
       if (e.target.value.length === 0) {
         this.isCustomized = false
       }
     },
-  },
-  computed: {
-    computedCustomized() {
-      if (!this.value) {
-        this.isCustomized = false
-      }
+    input(e) {
+      this.checkCustomized(e)
+      this.$emit('onInput', e)
     },
   },
 }

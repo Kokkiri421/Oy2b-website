@@ -9,7 +9,10 @@
           Давайте прямо сейчас рассчитаем стоимость работ
         </h4>
         <div class="image-container">
-          <img class="image" src="~/static/images/block-images/call-us.png" />
+          <img
+            class="image"
+            src="~/static/images/block-images/calculator.png"
+          />
         </div>
       </div>
 
@@ -224,9 +227,10 @@ export default {
     position: relative;
     .image {
       position: absolute;
-      width: 150px;
-      height: 100px;
+      width: 125px;
+      height: 110px;
       bottom: -45px;
+      left: 10px;
     }
     @include _650() {
       display: none;

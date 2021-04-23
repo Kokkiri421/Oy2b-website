@@ -63,19 +63,18 @@ export default {
 .layout {
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 .footer-bg {
   position: absolute;
-  width: 100%;
-  height: 700px;
-  bottom: 0;
-  background-image: url('~/static/images/backgrounds/heroblock-bg.png');
-  //background-position: b
-  //background-position: -25vw -12 vw;
-  background-position: bottom 300px left;
-  transform: rotate(180deg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 2080px;
+  height: 1078px;
+  transform: rotate(-180deg);
+  mask: url('~/static/images/backgrounds/bg.svg') no-repeat center;
+  //////
+  bottom: -700px;
+  left: -200px;
+  background-color: $form-bg-color;
   z-index: -1;
 }
 .scroll_colored {
@@ -91,15 +90,12 @@ export default {
   justify-content: space-between;
   position: absolute;
   box-sizing: border-box;
-  width: 100vw;
-  max-width: 1300px;
+  width: calc(100vw - 20em);
   @include _900() {
-    width: calc(900px - 5em);
-    max-width: calc(100vw - 5em);
+    width: calc(100vw - 5em);
   }
   @include _600() {
-    width: calc(600px - 3em);
-    max-width: calc(100vw - 3em);
+    width: calc(100vw - 3em);
   }
   height: 100%;
   top: 50%;

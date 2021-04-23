@@ -1,5 +1,6 @@
 <template>
   <div class="hero-block">
+    <div class="hero-block__background"></div>
     <div class="wrapper">
       <div class="hero-block-content">
         <div class="hero-block-top">
@@ -147,12 +148,17 @@ export default {
 
 .hero-block {
   width: 100%;
-  background-image: url('~/static/images/backgrounds/heroblock-bg.png');
-  //////
-  //background-position: bottom 2rem right;
-  background-position: bottom 1em right;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  &__background {
+    position: absolute;
+    width: 2080px;
+    height: 1078px;
+    mask: url('~/static/images/backgrounds/bg.svg') no-repeat center;
+    //////
+    top: -450px;
+    right: -150px;
+    background-color: $light-blue-color;
+  }
   .wrapper {
     height: 100%;
   }
