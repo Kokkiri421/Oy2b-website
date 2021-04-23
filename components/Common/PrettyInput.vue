@@ -18,7 +18,6 @@
       @blur="
         (e) => {
           isFocused = false
-          checkCustomized(e)
         }
       "
       :value="value"
@@ -27,7 +26,7 @@
     <span
       class="form-input__placeholder"
       :class="{
-        customized: isCustomized && !isQuestion && isFocused && !file,
+        customized: (value || isFocused) && !isQuestion && !file,
         file: file,
       }"
       >{{ file || placeholder }}</span
@@ -76,7 +75,9 @@ export default {
   },
   methods: {
     checkCustomized(e) {
-      if ((!e.target.value || !this.value) && !this.isFocused) {
+      if (e.target.value) {
+        this.isCustomized = true
+      } else {
         this.isCustomized = false
       }
     },
