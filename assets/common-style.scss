@@ -117,6 +117,14 @@ body {
   color: $red-color1;
   margin-bottom: 1em;
 }
+.form-success-message {
+  color: $text-color;
+  margin-bottom: 1em;
+}
+.form-placeholder-message {
+  color: transparent;
+  margin-bottom: 1em;
+}
 .article:nth-last-child(-n + 1) {
   margin-bottom: 0;
 }

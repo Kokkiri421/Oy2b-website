@@ -37,6 +37,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
   ],
   axios: {
     // extra config e.g

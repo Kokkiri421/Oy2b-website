@@ -16,6 +16,9 @@
       <p class="form-error-message" v-if="errors.length > 0">
         Заполните обязательные поля
       </p>
+      <p class="form-success-message" v-else-if="success">
+        Заявка удачно отправлена
+      </p>
       <form class="name-phone-company-form" @submit="checkForm">
         <pretty-input
           :name="'name'"
@@ -67,6 +70,7 @@ export default {
       name: '',
       phone: '',
       company: '',
+      success: false,
       errors: [],
     }
   },
@@ -75,7 +79,7 @@ export default {
   },
 
   methods: {
-    checkForm(e) {
+    async checkForm(e) {
       e.preventDefault()
       this.errors = []
       let phone = this.phone
@@ -94,17 +98,25 @@ export default {
       }
       if (this.errors.length === 0) {
         let fullname = this.name.split(' ')
-        let result = {
+        let routename = this.$store.state.routeNames[this.$route.path]
+        let body = {
+          dev: process.env.APP_ENV === 'dev',
           contact: {
             name: fullname[0],
             surname: fullname[1] || '.',
-
             phones: [{ phone: phone }],
           },
-
-          description: `Компания: ${this.company}\n`,
+          description: `Тип формы: ${routename}. Рассчёт стоимости работ\nКопмания: ${this.company}`,
         }
-        console.log(result)
+        let response = await this.$axios
+          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .then((res) => console.log(res.data))
+          .then(() => {
+            this.phone = ''
+            this.name = ''
+            this.company = ''
+            this.setSuccess()
+          })
         return true
       }
       console.log(this.errors)
@@ -117,6 +129,10 @@ export default {
     },
     setCompany(e) {
       this.company = e.target.value
+    },
+    setSuccess() {
+      this.success = true
+      setTimeout(() => (this.success = false), 2000)
     },
   },
 }

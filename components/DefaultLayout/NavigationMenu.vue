@@ -83,8 +83,23 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/kompleksnye-resheniya"
-                >Отрасли</NuxtLink
+                to="/service/kompleksnye-resheniya/reshenie-dlya-horeca"
+              >
+                HoReCa</NuxtLink
+              >
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh"
+                >Ритейл</NuxtLink
+              >
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma"
+                >Туризм</NuxtLink
               >
             </li>
           </ul>
@@ -172,7 +187,7 @@ export default {
       }
     },
     updateSize() {
-      this.windowWidth = window.innerWidth > 650 ? false : true
+      this.windowWidth = window.innerWidth >= 900 ? false : true
     },
   },
   mounted() {
@@ -203,15 +218,21 @@ export default {
   overflow: auto;
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
-  max-width: calc;
 
   @include _1300 {
-    margin-left: -50px;
+    margin-left: -4em;
     border-radius: 0 0 6px 0;
   }
+  @include _900 {
+    margin-left: -3em;
+    width: calc(100vw + 3em);
+    height: 100vh;
+    border-radius: 0;
+  }
   @include _600 {
-    margin-left: -10px;
-    width: calc(100vw + 10px);
+    margin-left: -1em;
+    width: calc(100vw);
+    height: 100vh;
     border-radius: 0;
   }
 }
@@ -219,18 +240,25 @@ export default {
   //@include scrollbars(10px, transparent, transparent);
   margin-top: 64px;
   padding: 2.25em 5em;
-  max-height: calc(100vh - 6em - 96px);
+  max-height: calc(100vh - 4em);
   overflow-y: auto;
 
   @include _1300 {
     padding: 2.25em 50px;
   }
+  @include _900 {
+    //width: 100%;
+    margin-top: 4em;
+    padding: 1em 3.4em;
+    max-height: calc(100vh - 6em);
+
+    //margin-left: 2em;
+  }
   @include _600 {
     //width: 100%;
-    margin-top: 64px;
-    padding: 1.25em 20px;
+    margin-top: 4em;
+    padding: 1em;
     max-height: calc(100vh - 6em);
-    margin-left: -10px;
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
 

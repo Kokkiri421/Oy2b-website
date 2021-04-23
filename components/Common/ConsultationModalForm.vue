@@ -4,6 +4,9 @@
     <p class="form-error-message" v-if="errors.length > 0">
       Заполните обязательные поля
     </p>
+    <p class="form-success-message" v-else-if="success">
+      Заявка удачно отправлена
+    </p>
     <form @submit="checkForm">
       <pretty-input
         :name="'name'"
@@ -27,7 +30,7 @@
             id="ip"
             name="radio"
             type="radio"
-            checked
+            :checked="type === 'ip'"
             @change="
               () => {
                 type = 'ip'
@@ -41,6 +44,7 @@
             id="ul"
             name="radio"
             type="radio"
+            :checked="type === 'ul'"
             @change="
               () => {
                 type = 'ul'
@@ -68,6 +72,7 @@ export default {
       name: '',
       phone: '',
       type: 'ip',
+      success: false,
       errors: [],
     }
   },
@@ -91,19 +96,29 @@ export default {
       }
       if (this.errors.length === 0) {
         let fullname = this.name.split(' ')
+        let routename = this.$store.state.routeNames[this.$route.path]
         let body = {
+          dev: process.env.APP_ENV === 'dev',
           contact: {
             name: fullname[0],
             surname: fullname[1] || '.',
             phones: [{ phone: phone }],
           },
-          description: `Тип формы: Обсудить проект\nТип клиента: ${
+          description: `Тип формы: ${
+            routename || 'Другая форма (Компания, SLA или проч.)'
+          }. Обсудить проект\nТип клиента: ${
             this.type === 'ip' ? 'ИП' : 'Юр. Лицо'
           }\n`,
         }
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
           .then((res) => console.log(res.data))
+          .then(() => {
+            this.phone = ''
+            this.name = ''
+            this.type = 'ip'
+            this.setSuccess()
+          })
         return true
       }
       console.log(this.errors)
@@ -113,6 +128,10 @@ export default {
     },
     setPhone(e) {
       this.phone = e.target.value
+    },
+    setSuccess() {
+      this.success = true
+      setTimeout(() => (this.success = false), 2000)
     },
   },
 }

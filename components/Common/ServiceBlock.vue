@@ -121,7 +121,7 @@ export default {
 
     &__header {
       display: flex;
-      align-items: center;
+      align-items: baseline;
 
       max-width: calc(100% - 150px);
       padding-top: 1px;
@@ -236,7 +236,9 @@ export default {
     z-index: -1;
     left: -925%;
     @include _950() {
-      left: -525%;
+      width: 100vw;
+      left: 50%;
+      transform: translate(-50%, 0);
     }
   }
 }
@@ -252,7 +254,9 @@ export default {
     z-index: -1;
     right: -925%;
     @include _950() {
-      right: -525%;
+      width: 100vw;
+      left: 50%;
+      transform: translate(-50%, 0);
     }
   }
 }

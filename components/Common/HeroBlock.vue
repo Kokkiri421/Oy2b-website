@@ -17,6 +17,10 @@
           <p class="form-error-message" v-if="errors.length > 0">
             Заполните обязательные поля
           </p>
+          <p class="form-success-message" v-else-if="success">
+            Заявка удачно отправлена
+          </p>
+          <p class="form-placeholder-message" v-else></p>
           <form class="hero-block-form" @submit="checkForm">
             <pretty-input
               :name="'company'"
@@ -48,20 +52,8 @@
         <div v-else>
           <slot name="user-form"></slot>
         </div>
+        <img class="photo" src="~/static/images/block-images/heroblock.png" />
       </div>
-      <!--      <div v-if="isAnchor" class="hero-block-anchor-container">-->
-      <!--        <div class="hero-block-anchor" @click="scrollDown">-->
-      <!--          <a>-->
-      <!--            <icon-->
-      <!--              :icon-name="'expand-icon'"-->
-      <!--              class="expand-icon"-->
-      <!--              :view-box="'0 0 24 24'"-->
-      <!--            >-->
-      <!--              <menu-arrow-icon />-->
-      <!--            </icon>-->
-      <!--          </a>-->
-      <!--        </div>-->
-      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -77,6 +69,7 @@ export default {
       company: '',
       phone: '',
       errors: [],
+      success: false,
     }
   },
   components: {
@@ -112,17 +105,24 @@ export default {
       if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       } else if (this.errors.length === 0) {
+        let routename = this.$store.state.routeNames[this.$route.path]
         let body = {
+          dev: process.env.APP_ENV === 'dev',
           contact: {
             name: 'Новый',
             surname: 'Контакт',
             phones: [{ phone: phone }],
           },
-          description: `Тип формы: Связь со специалистом\nКомпания или адрес: ${this.company}\n`,
+          description: `Тип формы: ${routename}. Проверка адреса\nКомпания или адрес: ${this.company}\n`,
         }
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
           .then((res) => console.log(res.data))
+          .then(() => {
+            this.phone = ''
+            this.company = ''
+            this.setSuccess()
+          })
         return true
       }
       console.log(this.errors)
@@ -132,6 +132,10 @@ export default {
     },
     setPhone(e) {
       this.phone = e.target.value
+    },
+    setSuccess() {
+      this.success = true
+      setTimeout(() => (this.success = false), 2000)
     },
   },
 }
@@ -323,6 +327,17 @@ export default {
         transform: translateY(0);
       }
     }
+  }
+  .photo {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    right: 0;
+    bottom: 35%;
+    @include _1250() {
+      display: none;
+    }
+    margin-right: -5em;
   }
 }
 </style>

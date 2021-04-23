@@ -57,7 +57,14 @@ export default {
   },
   methods: {
     checkCustomized(e) {
-      if (!e.target.value) {
+      if (e.target.value.length === 0) {
+        this.isCustomized = false
+      }
+    },
+  },
+  computed: {
+    computedCustomized() {
+      if (!this.value) {
         this.isCustomized = false
       }
     },

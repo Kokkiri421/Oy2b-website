@@ -119,14 +119,14 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh/"
+                to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh"
                 >Ритейл</NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
-                to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma/"
+                to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma"
                 >Туризм</NuxtLink
               >
             </li>
