@@ -5,18 +5,32 @@
       :type="type"
       class="form-input"
       :class="{ 'form-input__error': error && !isCustomized }"
+      ref="pretty-input"
       :name="name"
       maxlength="32"
       v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
-      @focus="isCustomized = true"
-      @blur="checkCustomized"
+      @focus="
+        () => {
+          isFocused = true
+          isCustomized = true
+        }
+      "
+      @blur="
+        (e) => {
+          isFocused = false
+          checkCustomized(e)
+        }
+      "
       :value="value"
       @input="input($event)"
     />
     <span
       class="form-input__placeholder"
-      :class="{ customized: isCustomized && !isQuestion }"
-      >{{ placeholder }}</span
+      :class="{
+        customized: isCustomized && !isQuestion && isFocused && !file,
+        file: file,
+      }"
+      >{{ file || placeholder }}</span
     >
   </label>
 </template>
@@ -26,6 +40,7 @@ export default {
   data() {
     return {
       isCustomized: false,
+      isFocused: false,
     }
   },
 
@@ -48,7 +63,11 @@ export default {
     },
     value: {
       type: String,
-      default: '',
+      default: null,
+    },
+    file: {
+      type: String,
+      default: null,
     },
     error: {
       type: Boolean,
@@ -57,23 +76,21 @@ export default {
   },
   methods: {
     checkCustomized(e) {
-      console.log(e.target.value.length)
-      console.log(this.value.length)
-      if (e.target.value.length === 0) {
+      if ((!e.target.value || !this.value) && !this.isFocused) {
         this.isCustomized = false
       }
     },
     input(e) {
-      this.checkCustomized(e)
       this.$emit('onInput', e)
+      this.checkCustomized(e)
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/colors';
 .pretty-input {
-  @import '~/assets/colors';
   position: relative;
   display: inline-block;
   .form-input {
@@ -114,6 +131,9 @@ export default {
   transform: scale(0.8) translateY(-0.8em) !important;
   color: #d81428 !important;
   background-color: #fff;
+}
+.file {
+  color: $text-color !important;
 }
 input[type='file'] {
   opacity: 0;
