@@ -117,7 +117,8 @@ export default {
           description: `Тип формы: ${routename}. Проверка адреса\nКомпания или адрес: ${this.company}\n`,
         }
         let response = await this.$axios
-          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          // .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
           .then(() => {
             this.phone = ''

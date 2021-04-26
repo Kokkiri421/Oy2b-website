@@ -1,6 +1,15 @@
 <template>
   <div class="modal-form">
     <h4>Откликнуться на вакансию</h4>
+    <p class="form-error-message" v-if="errors.length > 0">
+      Заполните обязательные поля
+    </p>
+    <p class="form-error-message" v-else-if="errors.length > 0">
+      Заполните обязательные поля
+    </p>
+    <p class="form-success-message" v-else-if="success">
+      Заявка успешно отправлена
+    </p>
     <form @submit="checkForm">
       <pretty-input
         :name="'name'"
@@ -68,37 +77,31 @@ export default {
       if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       }
-      if (!this.cv) {
+      if (!this.cv || this.cv.size > 5015055) {
         this.errors.push('cv')
       }
+
       if (this.errors.length === 0) {
         let fullname = this.name.split(' ')
-        let routename = this.$store.state.routeNames[this.$route.path]
-        let body = {
-          dev: process.env.APP_ENV === 'dev',
-          contact: {
-            name: fullname[0],
-            vacancy: this.vacancyName,
-            surname: fullname[1] || '.',
-            phones: [{ phone: phone }],
-            cv: this.cv,
-          },
-          //description: `Тип формы: ${routename}. Рассчёт стоимости работ\nКопмания: ${this.company}`,
-        }
-        console.log(body.contact)
-        this.phone = ''
-        this.name = ''
-        this.cv = null
-        this.setSuccess()
-        // let response = await this.$axios
-        //   .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
-        //   .then((res) => console.log(res.data))
-        //   .then(() => {
-        //     this.phone = ''
-        //     this.name = ''
-        //     this.company = ''
-        //     this.setSuccess()
-        //   })
+        let form = new FormData()
+        form.append('dev', process.env.APP_ENV === 'dev')
+        form.append('name', fullname[0])
+        form.append('surname', fullname[1] || '.')
+        form.append('phone', this.phone)
+        form.append('cv', this.cv)
+        let response = await this.$axios
+          .post('http://89.104.118.224:3000/vacancy', form, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then((res) => console.log(res.data))
+          .then(() => {
+            this.phone = ''
+            this.name = ''
+            this.cv = null
+            this.setSuccess()
+          })
         return true
       }
       console.log(this.errors)
@@ -114,7 +117,7 @@ export default {
     },
     setSuccess() {
       this.success = true
-      setTimeout(() => (this.success = false), 2000)
+      setTimeout(() => (this.success = false), 5000)
     },
   },
 }
