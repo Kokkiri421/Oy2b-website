@@ -164,14 +164,14 @@
                 О компании
               </NuxtLink>
             </li>
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
-                to="/sotrudniki"
-              >
-                Сотрудники
-              </NuxtLink>
-            </li>
+            <!--            <li class="list-item" @click="onClick">-->
+            <!--              <NuxtLink-->
+            <!--                class="underline-animated-link nuxtlink"-->
+            <!--                to="/sotrudniki"-->
+            <!--              >-->
+            <!--                Сотрудники-->
+            <!--              </NuxtLink>-->
+            <!--            </li>-->
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"

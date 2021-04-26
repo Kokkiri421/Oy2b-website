@@ -189,11 +189,6 @@
           <sla-block class="page-content-block" />
         </div>
         <div class="page-content-block">
-          <h4 class="header">Задайте любой вопрос о B2O сотрудничестве</h4>
-          <p class="article">
-            Мы бесплатно ответим на любые вопросы из области межоператорских
-            услуг.
-          </p>
           <h4 class="header">Наши эксперты</h4>
           <p class="article">
             В Oyster Telecom работают технические специалисты с&nbsp;релевантным

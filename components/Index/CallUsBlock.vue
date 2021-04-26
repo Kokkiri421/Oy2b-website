@@ -2,7 +2,7 @@
   <div>
     <div class="call-us-block">
       <div class="call-us-block__content">
-        <h4>Позвоните нам или&nbsp;оставьте заявку на&nbsp;сайте:</h4>
+        <h4>Позвоните нам на номер +7(812)&nbsp;600&#8209;20&#8209;30</h4>
         <div class="image-container">
           <img class="image" src="~/static/images/block-images/call-us.png" />
         </div>
@@ -57,16 +57,16 @@ export default {
   background-color: $form-bg-color;
   padding: 1em;
   border-radius: 6px;
-  &:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    background-color: $form-bg-color;
-    width: 1000%;
-    top: 0;
-    z-index: -1;
-    left: -925%;
-  }
+  //&:before {
+  //  content: '';
+  //  position: absolute;
+  //  height: 100%;
+  //  background-color: $form-bg-color;
+  //  width: 1000%;
+  //  top: 0;
+  //  z-index: -1;
+  //  left: -925%;
+  //}
   &__content {
     display: flex;
     flex-direction: row;

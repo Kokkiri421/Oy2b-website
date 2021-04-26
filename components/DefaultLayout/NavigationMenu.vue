@@ -225,14 +225,14 @@ export default {
   }
   @include _900 {
     margin-left: -3em;
-    width: calc(100vw + 3em);
-    height: 100vh;
+    width: calc(100% + 3em);
+    height: 100%;
     border-radius: 0;
   }
   @include _600 {
     margin-left: -1em;
-    width: calc(100vw);
-    height: 100vh;
+    width: calc(100%);
+    height: 100%;
     border-radius: 0;
   }
 }
@@ -240,7 +240,7 @@ export default {
   //@include scrollbars(10px, transparent, transparent);
   margin-top: 64px;
   padding: 2.25em 5em;
-  max-height: calc(100vh - 4em);
+  max-height: calc(100% - 4em);
   overflow-y: auto;
 
   @include _1300 {
@@ -250,7 +250,7 @@ export default {
     //width: 100%;
     margin-top: 4em;
     padding: 1em 3.4em;
-    max-height: calc(100vh - 6em);
+    max-height: calc(100% - 6em);
 
     //margin-left: 2em;
   }
@@ -258,7 +258,7 @@ export default {
     //width: 100%;
     margin-top: 4em;
     padding: 1em;
-    max-height: calc(100vh - 6em);
+    max-height: calc(100% - 6em);
   }
   @include scrollbars(10px, rgb(0, 0, 0, 0), transparent);
 

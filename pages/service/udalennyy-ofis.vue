@@ -5,16 +5,13 @@
       <template v-slot:description>
         <div class="description">
           <p class="article">
-            Поможем настроить ИТ-инфраструктуру так, чтобы ваша компания
-            работала еще эффективнее. Обеспечим безопасность данных.
-          </p>
-          <p class="article">
-            Мы про сервис уровня B2B - быстрый и безопасный комплексный переход
-            вашего бизнеса «в облако».
-          </p>
-          <p class="article">
+            Обеспечим безопасность данных. <br />
+            Настроим ИТ-инфраструктуру так, чтобы вы работали еще эффективнее.
+            <br />
+            Обеспечим быстрый комплексный переход вашего бизнеса «в облако».
+            <br />
             Быть готовым к любой реальности и подготовить своих
-            клиентов/партнеров - первоочередная задача Oyster Telecom.
+            клиентов/партнеров - первоочередная задача Oyster&nbsp;Telecom.
           </p>
         </div>
       </template>
@@ -211,6 +208,7 @@
             </template>
           </service-block>
         </service-list>
+        <virtual-calculator-form class="page-content-block" />
         <special-price class="page-content-block" :background-color="'#ff7d05'"
           ><template v-slot:text
             ><span
@@ -230,13 +228,6 @@
           <sla-block class="page-content-block" />
         </div>
         <div class="page-content-block">
-          <h4 class="header">Задайте любой ИТ вопрос бесплатно</h4>
-          <p class="article">
-            Мы бесплатно ответим на любые вопросы из области Корпоративного ИТ,
-            связанные с настройкой сетей и рабочих мест, серверов и облаков.
-            <br />
-            Поможем разобраться&nbsp; и оптимизировать расходы на ИТ.
-          </p>
           <h4 class="header">Наши эксперты</h4>
           <p class="article">
             В Oyster Telecom работают технические специалисты с&nbsp;релевантным
@@ -272,6 +263,7 @@ import SpecialPrice from '~/components/Common/SpecialPrice'
 import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
+import VirtualCalculatorForm from '~/components/VirtualService/VirtualCalculatorForm'
 export default {
   components: {
     HeroBlock,
@@ -284,6 +276,7 @@ export default {
     SlaBlock,
     CallUsBlock,
     PriceForm,
+    VirtualCalculatorForm,
   },
   methods: {
     scrollToServices: function () {

@@ -5,20 +5,18 @@
       <template v-slot:description>
         <div class="description">
           <p class="article">
-            Эффективное решение задач, связанных с техническим обеспечением
-            работы вашего бизнеса.
-          </p>
-          <p class="article">
-            Создание и настройка рабочих мест и переадресация корпоративных
-            звонков на сотовые и домашние номера.
-          </p>
-          <p class="article">
-            Полное или частичное делегирование работ по обслуживанию
-            компьютерной техники, сетей и программного обеспечения.
-          </p>
-          <p class="article">
-            Используйте новейшие технологии и сервисы, без дополнительных
-            вложений — развивайтесь вместе с Oyster Telecom!
+            Эффективное решение задач по обеспечению работы вашего бизнеса.
+            <br />
+            Гарантия качества обслуживания и юридической ответственности по
+            SLA.<br />
+            Создание и настройка рабочих мест, офисной и удаленной
+            инфраструктуры.<br />
+            Делегирование работ по обслуживанию компьютеров, сетей и
+            программного обеспечения.<br />
+            Вся стоимость на оказываемые услуги конечна и не требует
+            дополнительных вложений.<br />
+            Новейшие технологии и сервисы, без дополнительных затрат - это
+            Oyster&nbsp;Telecom.
           </p>
         </div>
       </template>
@@ -223,16 +221,7 @@
 
         <price-form class="page-content-block"></price-form>
         <div class="bottom-info page-content-block">
-          <div class="bottom-info__right-block">
-            <h5>Позвоните нам или оставьте заявку на сайте:</h5>
-            <p>
-              Обсудим все детали вашего проекта, зададим важные вопросы, дадим
-              свои рекомендации. В случае необходимости быстро подпишем NDA
-              (соглашение о неразглашении конфиденциальной информации). Если
-              обслуживание Вашей инфраструктуры требует детальной оценки, Вам
-              будет предложен бесплатный аудит.
-            </p>
-          </div>
+          <call-us-block />
         </div>
         <p class="article solution-message">
           Сегодняшний рынок характеризуется высоким уровнем конкуренции, и успех
@@ -273,6 +262,7 @@ import AdvantageBlock from '~/components/Common/AdvantageBlock'
 import AdvantageList from '~/components/Common/AdvantageList'
 import AnalysisForm from '~/components/Common/AnalysisForm'
 import SlaBlock from '~/components/ItOutsource/SlaBlock'
+import CallUsBlock from '~/components/Index/CallUsBlock'
 
 export default {
   data() {
@@ -303,6 +293,7 @@ export default {
     AdvantageList,
     PriceForm,
     AnalysisForm,
+    CallUsBlock,
   },
   methods: {
     changeCount(e, max) {
@@ -409,8 +400,12 @@ export default {
 
 .hero-block {
   &__user-form {
-    margin-top: 1em;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    @include _600() {
+      flex-direction: column;
+    }
     .blue-dialog-button {
       background-color: #009ee3;
 
@@ -418,13 +413,14 @@ export default {
         background-color: #17b8ff;
       }
     }
-
     .dialog-button {
-      margin-bottom: 1em;
+      width: fit-content;
     }
-
     .dialog-button:nth-child(1) {
       margin-right: 1em;
+      @include _600() {
+        margin-bottom: 1em;
+      }
     }
   }
 }
