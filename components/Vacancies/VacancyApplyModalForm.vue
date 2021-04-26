@@ -47,7 +47,12 @@ export default {
   components: {
     PrettyInput,
   },
-
+  props: {
+    vacancyName: {
+      type: String,
+      default: '',
+    },
+  },
   methods: {
     async checkForm(e) {
       e.preventDefault()
@@ -73,6 +78,7 @@ export default {
           dev: process.env.APP_ENV === 'dev',
           contact: {
             name: fullname[0],
+            vacancy: this.vacancyName,
             surname: fullname[1] || '.',
             phones: [{ phone: phone }],
             cv: this.cv,
@@ -105,7 +111,6 @@ export default {
     },
     setCV(e) {
       this.cv = Object(e.target.files[0])
-      console.log(this.cv)
     },
     setSuccess() {
       this.success = true

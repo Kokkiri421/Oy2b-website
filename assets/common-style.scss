@@ -118,7 +118,13 @@ body {
   margin-bottom: 1em;
 }
 .form-success-message {
-  color: $text-color;
+  box-sizing: border-box;
+  padding: 1em;
+  font-weight: 800;
+  width: 100%;
+  border-radius: 4px;
+  background: $base-color1;
+  color:#fff;
   margin-bottom: 1em;
 }
 .form-placeholder-message {

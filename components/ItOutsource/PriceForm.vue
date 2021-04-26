@@ -20,7 +20,7 @@
         Заполните обязательные поля
       </p>
       <p class="form-success-message" v-else-if="success">
-        Заявка удачно отправлена
+        Заявка успешно отправлена
       </p>
       <form class="name-phone-company-form" @submit="checkForm">
         <pretty-input
@@ -135,7 +135,7 @@ export default {
     },
     setSuccess() {
       this.success = true
-      setTimeout(() => (this.success = false), 2000)
+      setTimeout(() => (this.success = false), 5000)
     },
   },
 }

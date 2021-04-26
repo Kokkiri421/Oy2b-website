@@ -88,7 +88,10 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply"  @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="showModal('Ведущий инженер отдела подключений')"
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -174,7 +177,10 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply"  @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="showModal('Менеджер по работе с клиентами')"
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -274,7 +280,10 @@
                     практика вывода на рынок инновационных продуктов и решений).
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply"  @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="showModal('Менеджер по работе с бизнес - центрами')"
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -355,7 +364,10 @@
                     счет работодателя
                   </li>
                 </ul>
-                <button class="dialog-button vacancy__apply"  @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="showModal('Менеджер по рекламе и маркетингу')"
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -380,7 +392,10 @@
                     кандидатуру</i
                   >
                 </p>
-                <button class="dialog-button vacancy__apply"  @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="showModal('Менеджер корпоративных продаж')"
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -405,7 +420,12 @@
                     кандидатуру</i
                   >
                 </p>
-                <button class="dialog-button vacancy__apply" @click="showModal">
+                <button
+                  class="dialog-button vacancy__apply"
+                  @click="
+                    showModal('Технолог по строительству кабельных сетей')
+                  "
+                >
                   Откликнуться на вакансию
                 </button>
               </div>
@@ -415,7 +435,9 @@
       </div>
     </div>
     <modal-window :show="isModalShown" @onClick="showModal"
-      ><vacancy-apply-modal-form @onClick="showModal"
+      ><vacancy-apply-modal-form
+        @onClick="showModal"
+        :vacancy-name="vacancyName"
     /></modal-window>
   </div>
 </template>
@@ -429,6 +451,7 @@ export default {
     return {
       expanded: Array(6).fill(false),
       isModalShown: false,
+      vacancyName: '',
     }
   },
   components: {
@@ -445,7 +468,8 @@ export default {
     changeExpanded: function (index) {
       this.$set(this.expanded, index, !this.expanded[index])
     },
-    showModal() {
+    showModal(name = '') {
+      this.vacancyName = name
       this.isModalShown = !this.isModalShown
     },
   },

@@ -19,7 +19,7 @@
             Заполните обязательные поля
           </p>
           <p class="form-success-message" v-else-if="success">
-            Заявка удачно отправлена
+            Заявка успешно отправлена
           </p>
           <p class="form-placeholder-message" v-else></p>
           <form class="hero-block-form" @submit="checkForm">
@@ -136,7 +136,7 @@ export default {
     },
     setSuccess() {
       this.success = true
-      setTimeout(() => (this.success = false), 2000)
+      setTimeout(() => (this.success = false), 5000)
     },
   },
 }
@@ -149,6 +149,7 @@ export default {
 .hero-block {
   width: 100%;
   position: relative;
+  box-sizing: border-box;
   &__background {
     position: absolute;
     width: 2080px;

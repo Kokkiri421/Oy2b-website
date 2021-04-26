@@ -5,7 +5,7 @@
       Заполните обязательные поля
     </p>
     <p class="form-success-message" v-else-if="success">
-      Заявка удачно отправлена
+      Заявка успешно отправлена
     </p>
     <form @submit="checkForm">
       <pretty-input
@@ -96,7 +96,7 @@ export default {
     },
     setSuccess() {
       this.success = true
-      setTimeout(() => (this.success = false), 2000)
+      setTimeout(() => (this.success = false), 5000)
     },
   },
 }
@@ -108,6 +108,7 @@ export default {
 .modal-form {
   padding: 1em;
   max-width: 650px;
+  box-sizing: border-box;
   &__item {
     border: 1px solid #ccc;
     border-radius: 4px;
