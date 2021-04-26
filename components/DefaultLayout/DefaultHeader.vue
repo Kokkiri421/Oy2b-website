@@ -192,7 +192,7 @@ export default {
   flex-direction: row;
   z-index: 1;
   .logo {
-    margin-right: 40px;
+    margin-right: 2.1em;
     @include _400 {
       margin-right: 0.5em;
     }
@@ -203,11 +203,11 @@ export default {
       mask: url('~/static/images/header-logo.svg') no-repeat center;
       background-color: $red-color1;
       transition: background-color 0.3s ease-out;
-      height: 41px;
-      width: 104px;
+      height: 2.1em;
+      width: 5.4em;
       @include _400 {
-        height: 30px;
-        width: 76px;
+        height: 2em;
+        width: 5em;
       }
     }
   }

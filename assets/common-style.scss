@@ -2,6 +2,9 @@
 @import "~/assets/media_mixin";
 html {
   font-size: 16px;
+  @include _4k() {
+    font-size: 32px;
+  }
 }
 body {
   height: 100vh;
@@ -36,6 +39,9 @@ body {
 
 .wrapper {
   max-width: 1300px;
+  @include _4k() {
+    max-width: 2600px;
+  }
   padding: 0 4em;
   margin: 0 auto;
 

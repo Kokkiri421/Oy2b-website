@@ -169,13 +169,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
-    height: 650px;
+    height: 41em;
     position: relative;
     z-index: 1;
     padding: 6em 0;
     color: #444444;
     @include _950() {
-      height: 750px;
+      height: 47em;
     }
     @include _765() {
       padding: 73px 0;
@@ -186,11 +186,11 @@ export default {
     }
 
     .hero-block-top {
-      max-width: 800px;
+      max-width: 50em;
 
       &__header {
         font-size: 3em;
-        line-height: 52px;
+        line-height: 1em;
         margin: 0 0 1em;
 
         @include _600() {
@@ -234,7 +234,7 @@ export default {
         &__item {
           vertical-align: top;
           margin-right: 1em;
-          width: 280px;
+          width: 18em;
 
           &:nth-last-child(-n + 1) {
             margin-right: 0;

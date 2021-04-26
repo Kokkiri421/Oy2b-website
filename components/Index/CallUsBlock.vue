@@ -76,7 +76,7 @@ export default {
 
     h4 {
       margin-bottom: 0;
-      max-width: calc(100% - 150px - 1em);
+      max-width: calc(100% - 11em);
       @include _650() {
         max-width: 100%;
       }
@@ -97,13 +97,13 @@ export default {
   }
   .image-container {
     height: 100%;
-    width: 150px;
+    width: 10em;
     position: relative;
     .image {
       position: absolute;
-      width: 150px;
-      height: 100px;
-      bottom: -20px;
+      width: 10em;
+      height: 6.5em;
+      bottom: -1.25em;
     }
     @include _650() {
       display: none;

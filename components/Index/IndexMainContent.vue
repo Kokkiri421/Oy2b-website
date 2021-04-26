@@ -116,7 +116,7 @@ export default {
       margin: 0 0 0.5em;
     }
     &__p {
-      max-width: 800px;
+      max-width: 50em;
       margin-right: 3em;
       height: fit-content;
     }
