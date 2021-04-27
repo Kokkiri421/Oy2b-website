@@ -39,7 +39,7 @@
           :error="errors.includes('company')"
         ></pretty-input>
         <div class="name-phone-company-form__item">
-          <button class="dialog-button">
+          <button class="dialog-button" :disabled="success">
             <div class="shining-button"></div>
             Отправить
           </button>
@@ -103,15 +103,17 @@ export default {
           },
           description: `Тип формы: ${routename}. Персональные рекомендации\nКомпания: ${this.company}`,
         }
+        let responseBot = await this.$axios
+          .post('http://87.249.36.157:3005/ticket', body)
+          .then((res) => console.log(res.data))
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          //.post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
-          .then(() => {
-            this.phone = ''
-            this.name = ''
-            this.company = ''
-            this.setSuccess()
-          })
+        await this.setSuccess()
+        this.name = ''
+        this.phone = ''
+        this.company = ''
         return true
       }
       console.log(this.errors)

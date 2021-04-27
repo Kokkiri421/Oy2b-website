@@ -28,7 +28,7 @@ export default {
 .error-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   align-items: center;
   .error {
     flex-grow: 1;

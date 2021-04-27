@@ -36,7 +36,9 @@
         @onInput="setCV"
         :error="errors.includes('cv')"
       ></pretty-input>
-      <button class="dialog-button modal-form__button">Оставить резюме</button>
+      <button class="dialog-button modal-form__button" :disabled="success">
+        Оставить резюме
+      </button>
     </form>
   </div>
 </template>

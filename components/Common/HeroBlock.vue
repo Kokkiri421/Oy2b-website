@@ -40,7 +40,7 @@
               :error="errors.includes('phone')"
             ></pretty-input>
             <div class="hero-block-form__item">
-              <button class="dialog-button">
+              <button class="dialog-button" :disabled="success">
                 <div class="shining-button"></div>
                 Оставить заявку
               </button>
@@ -71,6 +71,7 @@ export default {
       phone: '',
       errors: [],
       success: false,
+      isClicked: false,
     }
   },
   components: {
@@ -93,6 +94,8 @@ export default {
       this.$emit('onClick')
     },
     async checkForm(e) {
+      if (this.isClicked) return
+      this.isClicked = true
       e.preventDefault()
       this.errors = []
       let phone = this.phone
@@ -117,17 +120,16 @@ export default {
           description: `Тип формы: ${routename}. Проверка адреса\nКомпания или адрес: ${this.company}\n`,
         }
         let responseBot = await this.$axios
-          .post('http://89.104.118.224:3000/ticket', body)
+          .post('http://87.249.36.157:3005/ticket', body)
           .then((res) => console.log(res.data))
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
           //.post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
-          .then(() => {
-            this.phone = ''
-            this.company = ''
-          })
         await this.setSuccess()
+        this.phone = ''
+        this.company = ''
+        this.isClicked = false
         return true
       }
       console.log(this.errors)

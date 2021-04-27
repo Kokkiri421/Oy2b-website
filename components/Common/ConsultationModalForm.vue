@@ -54,7 +54,9 @@
           <label for="ul" class="radio-label">Юр.лицо</label>
         </div>
       </div>
-      <button class="dialog-button modal-form__button">Обсудить проект</button>
+      <button class="dialog-button modal-form__button" :disabled="success">
+        Обсудить проект
+      </button>
     </form>
     <div class="modal-form__privacy">
       <NuxtLink class="link" to="/privacy/"
@@ -82,6 +84,7 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault()
+
       if (this.success) return
       this.errors = []
       let phone = this.phone
@@ -111,15 +114,16 @@ export default {
             this.type === 'ip' ? 'ИП' : 'Юр. Лицо'
           }\n`,
         }
+        let responseBot = await this.$axios
+          .post('http://87.249.36.157:3005/ticket', body)
+          .then((res) => console.log(res.data))
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
           .then((res) => console.log(res.data))
-          .then(() => {
-            this.phone = ''
-            this.name = ''
-            this.type = 'ip'
-            this.setSuccess()
-          })
+        await this.setSuccess()
+        this.name = ''
+        this.phone = ''
+        this.company = ''
         return true
       }
       console.log(this.errors)

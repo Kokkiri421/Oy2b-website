@@ -25,7 +25,9 @@
         :error="errors.includes('phone')"
       ></pretty-input>
 
-      <button class="dialog-button modal-form__button">Оставить заявку</button>
+      <button class="dialog-button modal-form__button" :disabled="success">
+        Оставить заявку
+      </button>
     </form>
     <div class="modal-form__privacy">
       <NuxtLink class="link" to="/privacy/"
@@ -110,14 +112,17 @@ export default {
               : ''
           }`,
         }
+        let responseBot = await this.$axios
+          .post('http://87.249.36.157:3005/ticket', body)
+          .then((res) => console.log(res.data))
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          //.post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
-          .then(() => {
-            this.phone = ''
-            this.name = ''
-            this.setSuccess()
-          })
+        await this.setSuccess()
+        this.name = ''
+        this.phone = ''
+        this.company = ''
         return true
       }
       console.log(this.errors)
