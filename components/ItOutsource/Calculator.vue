@@ -1,156 +1,169 @@
 <template>
   <div class="calculator">
     <div class="calculator__content">
-      <div class="calculator-form">
-        <h4>
-          Калькулятор IT&nbsp;Аутсорсинга
-          <span class="dn-600">в Санкт&#8209;Петербурге</span>
-        </h4>
-        <div class="calculator-form__data" :style="chromeProgress">
-          <div class="calculator-type">
-            <div class="calculator-type__header">Компьютеры</div>
-            <div class="calculator-type__slider">
-              <input
-                type="number"
-                class="input-number input-label"
-                name="computer-count"
-                min="0"
-                max="100"
-                step="1"
-                :value="computerCount"
-                @change="changeComputerCount($event, 100)"
-              />
-              <input
-                type="range"
-                class="input-slider computer-count"
-                id="computer-count"
-                name="computer-count"
-                min="0"
-                max="100"
-                :value="computerCount"
-                @input="changeComputerCount($event, 100)"
-              />
-              <label class="input-label" for="computer-count">100</label>
+      <div class="calculator__container">
+        <div class="calculator-form">
+          <h4>
+            Калькулятор IT&nbsp;Аутсорсинга
+            <span class="dn-600">в Санкт&#8209;Петербурге</span>
+          </h4>
+          <div class="calculator-form__data" :style="chromeProgress">
+            <div class="calculator-type">
+              <div class="calculator-type__header">Компьютеры</div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="computer-count"
+                  min="0"
+                  max="100"
+                  step="1"
+                  :value="computerCount"
+                  @change="changeComputerCount($event, 100)"
+                />
+                <input
+                  type="range"
+                  class="input-slider computer-count"
+                  id="computer-count"
+                  name="computer-count"
+                  min="0"
+                  max="100"
+                  :value="computerCount"
+                  @input="changeComputerCount($event, 100)"
+                />
+                <label class="input-label" for="computer-count">100</label>
+              </div>
             </div>
-          </div>
-          <div class="calculator-type">
-            <div class="calculator-type__header">Сервера</div>
-            <div class="calculator-type__slider">
-              <input
-                type="number"
-                class="input-number input-label"
-                name="computer-count"
-                min="0"
-                max="50"
-                step="1"
-                :value="serverCount"
-                @input="changeServerCount($event, 50)"
-              />
-              <input
-                type="range"
-                id="server-count"
-                class="input-slider server-count"
-                name="server-count"
-                min="0"
-                max="50"
-                :value="serverCount"
-                @input="changeServerCount($event, 50)"
-              />
-              <label class="input-label" for="computer-count">50</label>
+            <div class="calculator-type">
+              <div class="calculator-type__header">Сервера</div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="computer-count"
+                  min="0"
+                  max="50"
+                  step="1"
+                  :value="serverCount"
+                  @input="changeServerCount($event, 50)"
+                />
+                <input
+                  type="range"
+                  id="server-count"
+                  class="input-slider server-count"
+                  name="server-count"
+                  min="0"
+                  max="50"
+                  :value="serverCount"
+                  @input="changeServerCount($event, 50)"
+                />
+                <label class="input-label" for="computer-count">50</label>
+              </div>
             </div>
-          </div>
+            <div class="calculator-type">
+              <div class="calculator-type__header">
+                Управляемое сетевое оборудование
+              </div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="net-count"
+                  min="0"
+                  max="50"
+                  step="1"
+                  :value="netCount"
+                  @input="changeNetCount($event, 50)"
+                />
+                <input
+                  type="range"
+                  id="net-count"
+                  class="input-slider net-count"
+                  name="net-count"
+                  min="0"
+                  max="50"
+                  :value="netCount"
+                  @input="changeNetCount($event, 50)"
+                />
+                <label class="input-label" for="computer-count">50</label>
+              </div>
+            </div>
+            <div class="calculator-type">
+              <div class="calculator-type__header">Оргтехника</div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="computer-count"
+                  min="0"
+                  max="100"
+                  step="1"
+                  :value="officeEquipmentCount"
+                  @input="changeOfficeEquipmentCount($event, 100)"
+                />
+                <input
+                  type="range"
+                  class="input-slider office-equipment-count"
+                  id="office-equipment-count"
+                  name="office-equipment-count"
+                  min="0"
+                  max="100"
+                  :value="officeEquipmentCount"
+                  @input="changeOfficeEquipmentCount($event, 100)"
+                />
+                <label class="input-label" for="office-equipment-count"
+                  >100</label
+                >
+              </div>
+            </div>
+            <div class="calculator-type">
+              <div class="calculator-type__header">IP телефоны</div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="phone-count"
+                  min="0"
+                  max="100"
+                  step="1"
+                  :value="phoneCount"
+                  @input="changePhoneCount($event, 100)"
+                />
+                <input
+                  type="range"
+                  class="input-slider phone-count"
+                  id="phone-count"
+                  name="phone-count"
+                  min="0"
+                  max="100"
+                  :value="phoneCount"
+                  @input="changePhoneCount($event, 100)"
+                />
+                <label class="input-label" for="office-equipment-count"
+                  >100</label
+                >
+              </div>
+            </div>
 
-          <div class="calculator-type">
-            <div class="calculator-type__header">Оргтехника</div>
-            <div class="calculator-type__slider">
-              <input
-                type="number"
-                class="input-number input-label"
-                name="computer-count"
-                min="0"
-                max="100"
-                step="1"
-                :value="officeEquipmentCount"
-                @input="changeOfficeEquipmentCount($event, 100)"
-              />
-              <input
-                type="range"
-                class="input-slider office-equipment-count"
-                id="office-equipment-count"
-                name="office-equipment-count"
-                min="0"
-                max="100"
-                :value="officeEquipmentCount"
-                @input="changeOfficeEquipmentCount($event, 100)"
-              />
-              <label class="input-label" for="office-equipment-count"
-                >100</label
-              >
+            <div class="calculator-type switch-type">
+              <div class="calculator-type__header">
+                Обслуживание видеонаблюдения
+              </div>
+              <label class="calculator-type__switch">
+                <input type="checkbox" :checked="cctv" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="calculator-type switch-type">
+              <div class="calculator-type__header">Точки доступа</div>
+              <label class="calculator-type__switch">
+                <input type="checkbox" :checked="accessPoints" />
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
-          <div class="calculator-type">
-            <div class="calculator-type__header">IP телефоны</div>
-            <div class="calculator-type__slider">
-              <input
-                type="number"
-                class="input-number input-label"
-                name="phone-count"
-                min="0"
-                max="100"
-                step="1"
-                :value="phoneCount"
-                @input="changePhoneCount($event, 100)"
-              />
-              <input
-                type="range"
-                class="input-slider phone-count"
-                id="phone-count"
-                name="phone-count"
-                min="0"
-                max="100"
-                :value="phoneCount"
-                @input="changePhoneCount($event, 100)"
-              />
-              <label class="input-label" for="office-equipment-count"
-                >100</label
-              >
-            </div>
-          </div>
-          <div class="calculator-type">
-            <div class="calculator-type__header">Сетевое оборудование</div>
-            <div class="calculator-type__slider">
-              <input
-                type="number"
-                class="input-number input-label"
-                name="net-count"
-                min="0"
-                max="50"
-                step="1"
-                :value="netCount"
-                @input="changeNetCount($event, 50)"
-              />
-              <input
-                type="range"
-                id="net-count"
-                class="input-slider net-count"
-                name="net-count"
-                min="0"
-                max="50"
-                :value="netCount"
-                @input="changeNetCount($event, 50)"
-              />
-              <label class="input-label" for="computer-count">50</label>
-            </div>
-          </div>
-          <div class="calculator-type switch-type">
-            <div class="calculator-type__header">
-              Обслуживание видеонаблюдения
-            </div>
-            <label class="calculator-type__switch">
-              <input type="checkbox" :checked="cctv" />
-              <span class="slider round"></span>
-            </label>
-          </div>
+        </div>
+        <div class="calculator__privacy">
           <p class="privacy">
             *Минимальная стоимость обслуживания - 5000р&nbsp;в&nbsp;месяц
           </p>
@@ -158,8 +171,10 @@
             **Конечная стоимость рассчитывается на&nbsp;основании
             технического&nbsp;аудита
           </p>
+          <p class="privacy">***Видеонаблюдение рассчитывается отдельно</p>
         </div>
       </div>
+
       <ratio-form
         :basic-price="basicPrice"
         :sysadmin-price="sysadminPrice"
@@ -190,6 +205,7 @@ export default {
     officeEquipmentCount: { type: Number, required: true },
     phoneCount: { type: Number, required: true },
     cctv: { type: Boolean, required: true },
+    accessPoints: { type: Boolean, required: true },
     changeComputerCount: { type: Function, required: true },
     changeServerCount: { type: Function, required: true },
     changeNetCount: { type: Function, required: true },
@@ -211,6 +227,17 @@ export default {
         '--net-progress': `${this.netCount * 2}%`,
         '--office-equipment-progress': `${this.officeEquipmentCount}%`,
         '--phone-progress': `${this.phoneCount}%`,
+      }
+    },
+    getCalculatorInfo() {
+      return {
+        computerCount: this.computerCount,
+        serverCount: this.serverCount,
+        officeEquipmentCount: this.officeEquipmentCount,
+        phoneCount: this.phoneCount,
+        netCount: this.netCount,
+        cctv: this.cctv,
+        accessPoints: this.accessPoints,
       }
     },
     // basicPrice() {
@@ -265,6 +292,23 @@ export default {
       justify-content: flex-start;
     }
   }
+  &__container {
+    flex-grow: 1;
+  }
+  &__privacy {
+    margin-top: 1em;
+    @include _1300() {
+      margin-bottom: 1em;
+    }
+    .privacy {
+      font-size: 0.8em;
+      color: #00000085;
+
+      @include _600() {
+        font-size: 0.7em;
+      }
+    }
+  }
 }
 .calculator-form {
   //box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%);
@@ -285,13 +329,6 @@ export default {
   }
   &__data {
     margin-top: 2em;
-  }
-  .privacy {
-    font-size: 0.8em;
-    color: #00000085;
-    @include _600() {
-      font-size: 0.7em;
-    }
   }
 }
 .calculator-type {
@@ -336,6 +373,7 @@ export default {
         min-width: 1.5em;
         text-align: left;
         margin-right: 1em;
+        color: #ddd;
       }
     }
     .input-number {

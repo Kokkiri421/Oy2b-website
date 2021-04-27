@@ -69,7 +69,7 @@ export default {
     overflow: hidden;
     padding: 50px;
     @include _700() {
-      padding: 0;
+      padding: 1em;
     }
   }
   .modal-content {
@@ -87,10 +87,10 @@ export default {
     top: 36px;
     right: 0;
     @include _700() {
-      top: 10px;
-      right: 10px;
-      width: 30px;
-      height: 30px;
+      top: 1.5em;
+      right: 1.5em;
+      width: 2em;
+      height: 2em;
     }
     &:hover {
       &:before {

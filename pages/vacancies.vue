@@ -439,6 +439,7 @@
         @onClick="showModal"
         :vacancy-name="vacancyName"
     /></modal-window>
+    <div class="header-bg"></div>
   </div>
 </template>
 
@@ -446,7 +447,6 @@
 import ModalWindow from '~/components/Common/ModalWindow'
 import VacancyApplyModalForm from '~/components/Vacancies/VacancyApplyModalForm.vue'
 export default {
-  layout: 'documentLayout',
   data() {
     return {
       expanded: Array(6).fill(false),

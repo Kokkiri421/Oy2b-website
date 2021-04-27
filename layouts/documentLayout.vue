@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header class="flex-grow-1 colored-header">
-      <default-header :default-colored="true" />
+      <default-header :default-colored="false" />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
     <footer class="flex-grow-1" ref="footer">
@@ -36,9 +36,9 @@ export default {
 <style lang="scss">
 @import '~/assets/media_mixin';
 @import '~/assets/common-style';
-.colored-header {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+//.colored-header {
+//  background-color: rgba(0, 0, 0, 0.8);
+//}
 .header-bg {
   position: absolute;
   width: 2080px;

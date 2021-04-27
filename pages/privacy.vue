@@ -91,17 +91,17 @@
         </li>
       </ol>
     </div>
+    <div class="header-bg"></div>
   </div>
 </template>
 
 <script>
-export default {
-  layout: 'documentLayout',
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 header {
   background: rgba(0, 0, 0, 0.8) !important;
 }
@@ -121,7 +121,7 @@ header {
   }
   .article {
     line-height: 1.62em;
-    color: #999;
+    color: $text-color;
     @include _700() {
       font-size: 0.9em;
     }

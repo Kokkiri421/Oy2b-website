@@ -59,6 +59,7 @@ export default {
   methods: {
     checkForm(e) {
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       if (!this.name) {
         this.errors.push('name')

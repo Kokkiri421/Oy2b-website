@@ -82,6 +82,7 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       let phone = this.phone
         .replace('+7(', '')

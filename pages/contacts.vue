@@ -66,9 +66,10 @@
             </div>
           </div>
         </div>
-        <contact-yandex-map v-if="windowWidth" class="contacts-page-map"/>
+        <contact-yandex-map v-if="windowWidth" class="contacts-page-map" />
       </div>
     </div>
+    <div class="header-bg"></div>
   </div>
 </template>
 
@@ -76,7 +77,7 @@
 import ContactYandexMap from '~/components/Contacts/ContactYandexMap'
 
 export default {
-  layout: 'documentLayout',
+  //layout: 'documentLayout',
   data() {
     return {
       windowWidth: false,
@@ -94,7 +95,7 @@ export default {
   },
   computed: {},
   mounted() {
-    this.windowWidth = window.innerWidth > 900 
+    this.windowWidth = window.innerWidth > 900
 
     window.addEventListener('resize', this.updateSize)
   },
@@ -112,9 +113,8 @@ header {
     padding: 4em 0 1em;
   }
 
-  
   .contacts-list {
-    max-width: 600px;
+    max-width: 38em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

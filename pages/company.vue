@@ -154,13 +154,13 @@
         :src="require(`~/static/images/licences/${imgName}`)"
       />
     </modal-window>
+    <div class="header-bg"></div>
   </div>
 </template>
 
 <script>
 import ModalWindow from '~/components/Common/ModalWindow'
 export default {
-  layout: 'documentLayout',
   data() {
     return {
       isModalShown: false,

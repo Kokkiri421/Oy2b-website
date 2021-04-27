@@ -1,27 +1,30 @@
 <template>
-  <div class="sla-block">
-    <div class="sla-block__item">
-      <h4 class="header">99,9% SLA</h4>
-      <p class="content">Высокая доступность и финансовая ответственность</p>
-    </div>
-    <div class="sla-block__item">
-      <h4 class="header">Нужные услуги</h4>
-      <p class="content">
-        Никаких лишних услуг, только то что необходимо для решения задач
-      </p>
-    </div>
-    <div class="sla-block__item">
-      <h4 class="header">До 2 часов</h4>
-      <p class="content">
-        Решение самой серьёзной проблемы, если у заявки соответствующая
-        категория
-      </p>
-    </div>
-    <div class="sla-block__item">
-      <h4 class="header">Срочность</h4>
-      <p class="content">
-        Начнём работать сразу после обращения в случае чрезвычайной ситуации
-      </p>
+  <div>
+    <h4>Гарантированная ответственность в случае нарушения показателей SLA</h4>
+    <div class="sla-block">
+      <div class="sla-block__item">
+        <h4 class="header">99,9% SLA</h4>
+        <p class="content">Высокая доступность и финансовая ответственность</p>
+      </div>
+      <div class="sla-block__item">
+        <h4 class="header">Нужные услуги</h4>
+        <p class="content">
+          Никаких лишних услуг, только то что необходимо для решения задач
+        </p>
+      </div>
+      <div class="sla-block__item">
+        <h4 class="header">До 2 часов</h4>
+        <p class="content">
+          Решение самой серьёзной проблемы, если у заявки соответствующая
+          категория
+        </p>
+      </div>
+      <div class="sla-block__item">
+        <h4 class="header">Срочность</h4>
+        <p class="content">
+          Начнём работать сразу после обращения в случае чрезвычайной ситуации
+        </p>
+      </div>
     </div>
   </div>
 </template>

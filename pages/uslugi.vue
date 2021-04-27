@@ -1225,20 +1225,18 @@
         </li>
       </ol>
     </div>
+    <div class="header-bg"></div>
   </div>
 </template>
 
 <script>
-export default {
-  layout: 'documentLayout',
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-header {
-  background: rgba(0, 0, 0, 0.8) !important;
-}
+@import '~/assets/colors';
+
 .legal-page {
   max-width: 800px;
   padding: 8em 0;
@@ -1255,7 +1253,7 @@ header {
     padding-left: 0.5em;
     h6 {
       margin-bottom: 1em;
-      color: #000;
+      color: $header-color;
     }
     ol {
       display: block;
@@ -1269,7 +1267,7 @@ header {
       position: relative;
       list-style-type: none;
       height: 100%;
-      color: #999;
+      color: $text-color;
       margin-top: 0.5em;
       margin-left: 1.5em;
 
@@ -1286,7 +1284,7 @@ header {
   }
   .article {
     line-height: 1.62em;
-    color: #999;
+    color: $text-color;
     @include _700() {
       font-size: 0.9em;
     }

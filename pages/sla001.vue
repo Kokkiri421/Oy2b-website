@@ -1776,20 +1776,18 @@
         </li>
       </ol>
     </div>
+    <div class="header-bg"></div>
   </div>
 </template>
 
 <script>
-export default {
-  layout: 'documentLayout',
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
-header {
-  background: rgba(0, 0, 0, 0.8) !important;
-}
+@import '~/assets/colors';
+
 .legal-page {
   max-width: 800px;
   padding: 8em 0;
@@ -1806,7 +1804,7 @@ header {
     padding-left: 0.5em;
     h6 {
       margin-bottom: 1em;
-      color: #000;
+      color: $header-color;
     }
     ol {
       display: block;
@@ -1848,9 +1846,9 @@ header {
   }
   .header {
     margin-bottom: 1em;
-    color: #000;
+    color: $header-color;
     &::before {
-      color: #000;
+      color: $header-color;
     }
   }
   .header-li {

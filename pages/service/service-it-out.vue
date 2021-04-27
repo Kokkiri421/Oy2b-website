@@ -43,7 +43,7 @@
             :background-color="'#e5edec'"
             @onClick="scrollToOrder"
           >
-            <template v-slot:header> Обслуживание компьютеров</template>
+            <template v-slot:header> Обслуживание рабочих мест</template>
             <template v-slot:description>
               <p class="article">
                 В&nbsp;рамках обслуживания осуществляется устранение любых
@@ -51,10 +51,10 @@
                 регулярных профилактических работ.
               </p>
               <ul class="article">
-                <li>Диагностика и&nbsp;устранение неисправностей</li>
+                <li>Диагностика и&nbsp;устранение неисправностей ПК</li>
                 <li>Установка и&nbsp;настройка ПО</li>
                 <li>Создание новых рабочих мест</li>
-                <li>Модернизация и&nbsp;замена оборудования</li>
+                <li>Модернизация оборудования</li>
               </ul>
             </template>
             <template v-slot:button>
@@ -75,10 +75,11 @@
                 вашей информационной системы.
               </p>
               <ul class="article">
-                <li>Обслуживание аппаратной части серверов</li>
-                <li>Настройка программной части и&nbsp;мониторинг</li>
-                <li>Актуализация ПО</li>
-                <li>Модернизация и&nbsp;замена оборудования</li>
+                <li>Настройка и Обслуживание Windows & Unix серверов</li>
+                <li>Восстановление работоспособности</li>
+                <li>Поддержка облачных решений</li>
+                <li>Управление средами виртуализации</li>
+                <li>Резервное копирование и восстановление данных</li>
               </ul>
             </template>
             <template v-slot:button>
@@ -91,17 +92,14 @@
             @onClick="scrollToOrder"
             :is-grey="true"
           >
-            <template v-slot:header>Обслуживание оргтехники</template>
+            <template v-slot:header>Обслуживание Сетей</template>
             <template v-slot:description>
-              <p class="article">
-                Оргтехника должна просто работать и&nbsp;не&nbsp;«делать нервы».
-              </p>
               <ul class="article">
-                <li>Диагностируем и&nbsp;устраняем неисправности</li>
-                <li>Выполняем профилактическое обслуживание</li>
-                <li>Вводим в&nbsp;эксплуатацию новое оборудование</li>
-                <li>Сопровождаем в&nbsp;сервис-центрах</li>
-                <li>Поставляем расходные материалы</li>
+                <li>Диагностика неполадок в работе сети</li>
+                <li>Поддержание сетевой безопасности</li>
+                <li>Настройка и обновление оборудования</li>
+                <li>Проектирование сетей</li>
+                <li>Организация связи между отдельными подразделениями</li>
               </ul>
             </template>
             <template v-slot:button>
@@ -113,16 +111,18 @@
             :background-color="'#e5edec'"
             @onClick="scrollToOrder"
           >
-            <template v-slot:header>Удаленное рабочее место</template>
+            <template v-slot:header
+              >Мониторинг ИТ&#8209;Инфраструктуры</template
+            >
             <template v-slot:description>
               <p class="article">
                 Организация и настройка доступа к рабочему месту и телефону
                 ваших сотрудников из любой точки мира.
               </p>
               <ul class="article">
-                <li>Оперативная настройка новых рабочих мест</li>
-                <li>Переадресация на сотовые и домашние телефонные номера</li>
-                <li>Техническая поддержка 24/7</li>
+                <li>Подключение к единой системе мониторинга Исполнителя</li>
+                <li>Мониторинг Инфраструктуры Заказчика</li>
+                <li>Уведомление об инцидентах</li>
               </ul>
             </template>
             <template v-slot:button>
@@ -146,6 +146,7 @@
           :netCount="Number(netCount)"
           :phone-count="Number(phoneCount)"
           :cctv="cctv"
+          :access-points="accessPoints"
           :officeEquipmentCount="Number(officeEquipmentCount)"
           :changeComputerCount="changeComputerCount"
           :changeServerCount="changeServerCount"
@@ -214,8 +215,7 @@
         <div class="page-content-block">
           <h4 class="bottom-info__left-block">
             Вы получаете все в&nbsp;одном месте от&nbsp;постановки бизнес задачи
-            до&nbsp; бесперебойной работы всей офисной и&nbsp;удаленной
-            инфраструктуры
+            до&nbsp;бесперебойной работы всего вашего ИТ&nbsp;оборудования
           </h4>
         </div>
 
@@ -275,6 +275,7 @@ export default {
       discount: 0,
       sysadminCount: 0,
       cctv: false,
+      accessPoints: false,
     }
   },
   components: {
@@ -354,7 +355,7 @@ export default {
   computed: {
     basicPrice() {
       let price =
-        this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
+        this.computerCount * 900 + this.serverCount * 2600 + this.netCount * 680
       if (this.computerCount >= 60) {
         this.discount = 30
       } else if (this.computerCount >= 40 || this.serverCount >= 4) {
@@ -368,17 +369,17 @@ export default {
       }
       price = price - price * (this.discount / 100)
       if (price === 0) return price
-      return Math.round(price > 10000 ? price : 10000)
+      return Math.round(price > 5000 ? price : 5000)
     },
     standardPrice() {
       let price =
-        this.computerCount * 680 + this.serverCount * 2600 + this.netCount * 680
+        this.computerCount * 900 + this.serverCount * 2600 + this.netCount * 680
 
       if (price === 0) return price
       price =
-        price - price * (this.discount / 100) > 10000
+        price - price * (this.discount / 100) > 5000
           ? price - price * (this.discount / 100)
-          : 10000
+          : 5000
       return Math.round(price * 0.35 > 5000 ? price * 1.35 : price + 5000)
     },
     sysadminPrice() {

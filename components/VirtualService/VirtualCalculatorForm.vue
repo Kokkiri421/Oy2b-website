@@ -458,11 +458,9 @@ export default {
   border-radius: 6px;
 
   flex-grow: 1;
-  margin-right: 1em;
-  @include _1300() {
-    margin-right: 0;
-    height: fit-content;
-  }
+
+  margin-right: 0;
+  height: fit-content;
 
   &__data {
     margin-top: 2em;

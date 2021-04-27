@@ -1,6 +1,6 @@
 <template>
   <div class="modal-form">
-    <h4>Откликнуться на вакансию</h4>
+    <h4 class="modal-form__header">Откликнуться на&nbsp;вакансию</h4>
     <p class="form-error-message" v-if="errors.length > 0">
       Заполните обязательные поля
     </p>
@@ -65,6 +65,7 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       let phone = this.phone
         .replace('+7(', '')
@@ -130,6 +131,11 @@ export default {
   padding: 1em;
   max-width: 650px;
   color: $text-color;
+  &__header {
+    @include _700() {
+      max-width: calc(100% - 3em);
+    }
+  }
   &__item {
     border: 1px solid #dfdfdf;
     border-radius: 4px;

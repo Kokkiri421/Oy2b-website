@@ -579,6 +579,7 @@
         Телефон: +7(812)600-2030
       </p>
     </div>
+    <div class="header-bg"></div>
   </div>
 </template>
 
@@ -590,6 +591,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 header {
   background: rgba(0, 0, 0, 0.8) !important;
 }
@@ -609,7 +611,7 @@ header {
     padding-left: 0.5em;
     h6 {
       margin-bottom: 1em;
-      color: #000;
+      color: $header-color;
     }
     ol {
       display: block;

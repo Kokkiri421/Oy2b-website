@@ -1,13 +1,14 @@
 @import "~/assets/colors";
 @import "~/assets/media_mixin";
 html {
+  height: 100%;
   font-size: 16px;
   @include _4k() {
-    font-size: 32px;
+    //font-size: 32px;
   }
 }
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -32,6 +33,7 @@ body {
   }
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   .flex-grow-1 {
     flex-grow: 1;
   }
@@ -304,12 +306,12 @@ body {
   justify-content: space-between;
   position: absolute;
   box-sizing: border-box;
-  width: calc(100vw - 20em);
+  width: calc(1300px);
   @include _900() {
-    width: calc(100vw - 5em);
+    width: calc(100vw - 4em);
   }
   @include _600() {
-    width: calc(100vw - 3em);
+    width: calc(100vw - 2em);
   }
   height: 100%;
   top: 50%;

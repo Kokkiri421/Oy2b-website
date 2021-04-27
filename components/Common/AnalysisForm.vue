@@ -5,7 +5,7 @@
     </div>
     <div class="form-container" ref="order">
       <h4 class="name-phone-company-form__header">
-        Проанализируем вашу ситуацию и дадим персональные рекомендации
+        Проверим Инфраструктуру и подготовим персональные рекомендации
       </h4>
       <p class="form-error-message" v-if="errors.length > 0">
         Заполните обязательные поля
@@ -75,6 +75,7 @@ export default {
   methods: {
     async checkForm(e) {
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       let phone = this.phone
         .replace('+7(', '')

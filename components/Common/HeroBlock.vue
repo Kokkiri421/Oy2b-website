@@ -53,7 +53,7 @@
         <div v-else>
           <slot name="user-form"></slot>
         </div>
-        <img class="photo" src="~/static/images/block-images/heroblock.png" />
+        <img class="photo" src="~/static/images/123.png" />
       </div>
     </div>
   </div>

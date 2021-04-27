@@ -49,9 +49,13 @@ export default {
   components: {
     PrettyInput,
   },
+  props: {
+    price: { type: Number, default: 0 },
+  },
   methods: {
     async checkForm(e) {
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       let phone = this.phone
         .replace('+7(', '')
@@ -74,7 +78,9 @@ export default {
             surname: fullname[1] || '.',
             phones: [{ phone: phone }],
           },
-          description: `Тип формы: ${routename}. Оставить заявку\n`,
+          description: `Тип формы: ${routename}. Оставить заявку\n${
+            this.price ? 'Цена: ' + this.price : ''
+          }`,
         }
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)

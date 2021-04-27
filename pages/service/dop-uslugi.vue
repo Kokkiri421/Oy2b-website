@@ -182,10 +182,6 @@
           </service-block>
         </service-list>
         <div class="sla page-content-block">
-          <h4>
-            Гарантируем юридическую ответственность в&nbsp;случае нарушения
-            показателей&nbsp;SLA
-          </h4>
           <sla-block class="page-content-block" />
         </div>
         <div class="page-content-block">

@@ -47,7 +47,11 @@
       </div>
     </transition>
     <modal-window :show="isModalShown" @onClick="showModal">
-      <TicketModalForm @onClick="showModal" v-if="ratioType === 'ratio'" />
+      <TicketModalForm
+        @onClick="showModal"
+        v-if="ratioType === 'ratio'"
+        :price="price"
+      />
       <sysadmin-salary-modal v-else :sysadmin-count="sysadminCount" />
     </modal-window>
   </div>

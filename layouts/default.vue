@@ -1,7 +1,6 @@
 <template>
   <div class="layout">
     <header
-      class="flex-grow-1"
       :class="{
         scroll_colored: scrollPosition > 0,
         scroll_colored_default:
@@ -11,7 +10,7 @@
       <default-header />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
-    <footer class="flex-grow-1" ref="footer">
+    <footer ref="footer">
       <default-footer />
     </footer>
     <div class="lines">
