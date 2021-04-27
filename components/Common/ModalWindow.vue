@@ -52,7 +52,7 @@ export default {
   visibility: hidden;
   position: fixed;
   display: none;
-  z-index: 100;
+  z-index: 2000;
   top: 0;
   left: 0;
   width: 100%;
@@ -63,6 +63,7 @@ export default {
   opacity: 0;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
   .modal-content-wrapper {
+    z-index: 1;
     position: relative;
     text-align: left;
     margin: auto auto;
@@ -132,6 +133,7 @@ export default {
   display: flex;
   visibility: visible;
   opacity: 1;
+  z-index: 199;
 }
 .closeBg {
   @include _700() {

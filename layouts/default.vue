@@ -66,7 +66,6 @@ export default {
   overflow: hidden;
 }
 .content {
-  z-index: 2;
 }
 
 .scroll_colored {

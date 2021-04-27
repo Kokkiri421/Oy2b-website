@@ -75,6 +75,20 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
+              to="/service/dop-uslugi"
+              >Операторам</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
               to="/service/udalennyy-ofis"
               >Виртуальные сервисы</NuxtLink
             >
@@ -103,34 +117,6 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
-              to="/service/oblachnye-resheniya"
-              >Облачные решения</NuxtLink
-            >
-          </li>
-        </animate-on-viewport>
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <NuxtLink
-              class="service-button__link nuxtlink"
-              to="/service/dop-uslugi"
-              >Операторам</NuxtLink
-            >
-          </li>
-        </animate-on-viewport>
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <NuxtLink
-              class="service-button__link nuxtlink"
               to="/service/ip-adresa"
               >IP Адреса</NuxtLink
             >
@@ -145,8 +131,51 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
-              to="/service/kompleksnye-resheniya"
-              >Отрасли</NuxtLink
+              to="/service/oblachnye-resheniya"
+              >Облачные решения</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/kompleksnye-resheniya/reshenie-dlya-horeca"
+            >
+              HoReCa</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh"
+              >Ритейл</NuxtLink
+            >
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
+              to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma"
+              >Туризм</NuxtLink
             >
           </li>
         </animate-on-viewport>
@@ -207,10 +236,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  //justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
-
+  @include _765() {
+    margin: 0 -1em 0 0;
+  }
   .service-button {
     background-color: #fff;
     opacity: 0;

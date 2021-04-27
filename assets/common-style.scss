@@ -19,6 +19,7 @@ body {
   background: #f9f9f9;
 
 }
+
 .layout {
   height: 100%;
   header {
@@ -27,7 +28,7 @@ body {
     width: 100%;
     padding: 1em 0;
     transition: background-color 0.3s ease-out;
-    z-index: 100;
+    z-index: 2;
   }
   .content {
   }
@@ -183,7 +184,7 @@ body {
   }
 }
 .page-content {
-  z-index: 2;
+  z-index: 1;
   margin: 3em 0 ;
   @include _950() {
     margin: 2em 0;

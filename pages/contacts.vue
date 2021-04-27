@@ -104,6 +104,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+@import '~/assets/colors';
 header {
   background: rgba(0, 0, 0, 0.8) !important;
 }
@@ -126,14 +127,14 @@ header {
       flex-basis: 50%;
       margin-bottom: 2em;
       &__name {
-        color: #999999;
+        color: $text-color;
         margin-bottom: 0.5em;
       }
       &__number {
         width: fit-content;
         display: block;
         text-decoration: none;
-        color: #000;
+        color: $header-color;
         font-weight: 700;
         font-size: 1.15em;
         margin-bottom: 0.5em;

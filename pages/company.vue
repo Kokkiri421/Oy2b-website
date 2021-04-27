@@ -146,7 +146,6 @@
     <modal-window
       class="modal-window"
       :show="isModalShown"
-      :close-bg="true"
       @onClick="showModal"
     >
       <img
@@ -245,6 +244,7 @@ header {
 }
 .modal-image {
   max-width: 100%;
+  z-index: 120;
 }
 .modal-window {
   .modal-close {
