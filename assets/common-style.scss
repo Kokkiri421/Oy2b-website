@@ -307,7 +307,7 @@ body {
   justify-content: space-between;
   position: absolute;
   box-sizing: border-box;
-  width: calc(1300px);
+  width: calc(100vw - 12em);
   @include _900() {
     width: calc(100vw - 4em);
   }

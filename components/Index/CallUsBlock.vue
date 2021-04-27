@@ -2,10 +2,15 @@
   <div>
     <div class="call-us-block">
       <div class="call-us-block__content">
-        <h4>Позвоните нам на номер +7(812)&nbsp;600&#8209;20&#8209;30</h4>
-        <div class="image-container">
-          <img class="image" src="~/static/images/block-images/call-us.png" />
-        </div>
+        <h4>
+          Позвоните нам
+          <a href="tel:+78126002030" class="phone"
+            >+7(812)&nbsp;600&#8209;20&#8209;30</a
+          >
+        </h4>
+        <!--        <div class="image-container">-->
+        <!--          <img class="image" src="~/static/images/block-images/call-us.png" />-->
+        <!--        </div>-->
         <p class="article">
           Обсудим все детали вашего проекта, зададим важные вопросы, дадим
           свои&nbsp;рекомендации.<br />
@@ -108,6 +113,10 @@ export default {
     @include _650() {
       display: none;
     }
+  }
+  .phone {
+    color: $header-color;
+    text-decoration: none;
   }
 }
 </style>

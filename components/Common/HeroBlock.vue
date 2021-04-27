@@ -53,7 +53,7 @@
         <div v-else>
           <slot name="user-form"></slot>
         </div>
-        <img class="photo" src="~/static/images/123.png" />
+        <!--        <img class="photo" src="~/static/images/123.png" />-->
       </div>
     </div>
   </div>
@@ -116,15 +116,18 @@ export default {
           },
           description: `Тип формы: ${routename}. Проверка адреса\nКомпания или адрес: ${this.company}\n`,
         }
+        let responseBot = await this.$axios
+          .post('http://89.104.118.224:3000/ticket', body)
+          .then((res) => console.log(res.data))
         let response = await this.$axios
           .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
-          .post('http://89.104.118.224:3000/ticket', body)
+          //.post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
           .then(() => {
             this.phone = ''
             this.company = ''
-            this.setSuccess()
           })
+        await this.setSuccess()
         return true
       }
       console.log(this.errors)
@@ -160,6 +163,7 @@ export default {
     top: -450px;
     right: -150px;
     background-color: $light-blue-color;
+    z-index: -1;
   }
   .wrapper {
     height: 100%;

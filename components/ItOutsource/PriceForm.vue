@@ -8,12 +8,12 @@
         <h4 class="name-phone-company-form__header">
           Давайте прямо сейчас рассчитаем стоимость работ
         </h4>
-        <div class="image-container">
-          <img
-            class="image"
-            src="~/static/images/block-images/calculator.png"
-          />
-        </div>
+        <!--        <div class="image-container">-->
+        <!--          <img-->
+        <!--            class="image"-->
+        <!--            src="~/static/images/block-images/calculator.png"-->
+        <!--          />-->
+        <!--        </div>-->
       </div>
 
       <p class="form-error-message" v-if="errors.length > 0">

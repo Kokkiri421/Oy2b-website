@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <hero-block :is-anchor="true" @onClick="scrollToServices">
+    <hero-block :is-anchor="true" :user-form="true" @onClick="scrollToServices">
       <template v-slot:header>Виртуализация Бизнеса</template>
       <template v-slot:description>
         <div class="description">
@@ -15,8 +15,22 @@
           </p>
         </div>
       </template>
-      <template v-slot:form-prefix>
-        Проверьте возможность подключения сервисов и услуг:
+      <!--      <template v-slot:form-prefix>-->
+      <!--        Проверьте возможность подключения сервисов и услуг:-->
+      <!--      </template>-->
+      <template v-slot:user-form>
+        <div class="hero-block__user-form">
+          <button class="dialog-button" @click="scrollToOrder">
+            <div class="shining-button"></div>
+            Оставить заявку
+          </button>
+          <button
+            class="dialog-button dialog-button-base"
+            @click="scrollToCalculator"
+          >
+            Калькулятор
+          </button>
+        </div>
       </template>
     </hero-block>
     <div class="wrapper">
@@ -208,7 +222,7 @@
             </template>
           </service-block>
         </service-list>
-        <virtual-calculator-form class="page-content-block" />
+        <virtual-calculator-form class="page-content-block" ref="calculator" />
         <special-price class="page-content-block" :background-color="'#ff7d05'"
           ><template v-slot:text
             ><span
@@ -231,7 +245,7 @@
           </p>
         </div>
         <call-us-block class="page-content-block" />
-        <price-form class="page-content-block"></price-form>
+        <price-form class="page-content-block" ref="order"></price-form>
         <div class="bottom-text">
           <p class="article">
             Наши специалисты разработают для вас индивидуальный тарифный план,
@@ -287,7 +301,16 @@ export default {
     scrollToOrder: function () {
       window.scrollTo({
         top:
-          this.$refs['question'].$refs['order'].getBoundingClientRect().top +
+          this.$refs['order'].$el.getBoundingClientRect().top +
+          window.pageYOffset -
+          100,
+        behavior: 'smooth',
+      })
+    },
+    scrollToCalculator: function () {
+      window.scrollTo({
+        top:
+          this.$refs['calculator'].$el.getBoundingClientRect().top +
           window.pageYOffset -
           100,
         behavior: 'smooth',
@@ -299,7 +322,32 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+.hero-block {
+  &__user-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    @include _600() {
+      flex-direction: column;
+    }
+    .blue-dialog-button {
+      background-color: #009ee3;
 
+      &:hover {
+        background-color: #17b8ff;
+      }
+    }
+    .dialog-button {
+      width: fit-content;
+    }
+    .dialog-button:nth-child(1) {
+      margin-right: 1em;
+      @include _600() {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
 .container {
   display: flex;
   flex-direction: column;

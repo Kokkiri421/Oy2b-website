@@ -119,7 +119,9 @@
             </div>
           </div>
           <div class="calculator-type radio-type">
-            <div class="calculator-type__header">Ежедневный бэкап</div>
+            <div class="calculator-type__header">
+              Ежедневный бэкап, глубина хранения
+            </div>
             <div class="radio-buttons">
               <div class="calculator-form__radio">
                 <input
@@ -147,9 +149,7 @@
                     }
                   "
                 />
-                <label for="7" class="radio-label"
-                  >Глубина хранения 7 дней</label
-                >
+                <label for="7" class="radio-label">7 дней</label>
               </div>
               <div class="calculator-form__radio">
                 <input
@@ -163,9 +163,7 @@
                     }
                   "
                 />
-                <label for="14" class="radio-label"
-                  >Глубина хранения 14 дней</label
-                >
+                <label for="14" class="radio-label">14 дней</label>
               </div>
               <div class="calculator-form__radio">
                 <input
@@ -179,9 +177,7 @@
                     }
                   "
                 />
-                <label for="28" class="radio-label"
-                  >Глубина хранения 28 дней</label
-                >
+                <label for="28" class="radio-label">28 дней</label>
               </div>
             </div>
           </div>
@@ -203,54 +199,63 @@
           <!--            технического&nbsp;аудита-->
           <!--          </p>-->
         </div>
-      </div>
-      <div class="form-container" ref="order">
-        <div class="form-container__top">
-          <h4 class="name-phone-company-form__header">Рассчитать стоимость</h4>
+        <div class="price-form-button">
+          <button class="dialog-button" @click="setVisiblePriceForm">
+            Рассчитать стоимость
+          </button>
         </div>
-
-        <p class="form-error-message" v-if="errors.length > 0">
-          Заполните обязательные поля
-        </p>
-        <p class="form-success-message" v-else-if="success">
-          Заявка успешно отправлена
-        </p>
-        <form class="name-phone-company-form" @submit="checkForm">
-          <pretty-input
-            :name="'name'"
-            :placeholder="'Имя'"
-            class="name-phone-company-form__item"
-            :value="name"
-            @onInput="setName"
-            :error="errors.includes('name')"
-          ></pretty-input>
-          <pretty-input
-            :name="'phone'"
-            :placeholder="'Телефон'"
-            class="name-phone-company-form__item"
-            :value="phone"
-            @onInput="setPhone"
-            :error="errors.includes('phone')"
-          ></pretty-input>
-          <pretty-input
-            :name="'company'"
-            :placeholder="'Компания'"
-            class="name-phone-company-form__item"
-            :value="company"
-            @onInput="setCompany"
-            :error="errors.includes('company')"
-          ></pretty-input>
-          <div class="name-phone-company-form__item">
-            <button class="dialog-button">
-              <div class="shining-button1"></div>
-              Отправить
-            </button>
+      </div>
+      <transition name="fade">
+        <div v-if="isVisiblePriceForm" class="form-container" ref="order">
+          <div class="form-container__top">
+            <h4 class="name-phone-company-form__header">
+              Рассчитать стоимость
+            </h4>
           </div>
-        </form>
-        <div class="price__privacy">
-          <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
+
+          <p class="form-error-message" v-if="errors.length > 0">
+            Заполните обязательные поля
+          </p>
+          <p class="form-success-message" v-else-if="success">
+            Заявка успешно отправлена
+          </p>
+          <form class="name-phone-company-form" @submit="checkForm">
+            <pretty-input
+              :name="'name'"
+              :placeholder="'Имя'"
+              class="name-phone-company-form__item"
+              :value="name"
+              @onInput="setName"
+              :error="errors.includes('name')"
+            ></pretty-input>
+            <pretty-input
+              :name="'phone'"
+              :placeholder="'Телефон'"
+              class="name-phone-company-form__item"
+              :value="phone"
+              @onInput="setPhone"
+              :error="errors.includes('phone')"
+            ></pretty-input>
+            <pretty-input
+              :name="'company'"
+              :placeholder="'Компания'"
+              class="name-phone-company-form__item"
+              :value="company"
+              @onInput="setCompany"
+              :error="errors.includes('company')"
+            ></pretty-input>
+            <div class="name-phone-company-form__item">
+              <button class="dialog-button">
+                <div class="shining-button1"></div>
+                Отправить
+              </button>
+            </div>
+          </form>
+          <div class="price__privacy">
+            <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -273,6 +278,7 @@ export default {
       company: '',
       success: false,
       errors: [],
+      isVisiblePriceForm: false,
       // serverCount: 1,
       // officeEquipmentCount: 5,
     }
@@ -361,6 +367,9 @@ export default {
       this.success = true
       setTimeout(() => (this.success = false), 5000)
     },
+    setVisiblePriceForm() {
+      this.isVisiblePriceForm = !this.isVisiblePriceForm
+    },
   },
   mounted() {},
 }
@@ -447,6 +456,22 @@ export default {
   &__content {
     flex-direction: column;
     justify-content: flex-start;
+    .price-form-button {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-end;
+      .dialog-button {
+        //width: calc(25% - 3em / 4);
+        @include _600() {
+          flex-grow: 1;
+        }
+      }
+      @include _600() {
+        margin-top: 2em;
+      }
+    }
   }
 }
 
@@ -479,8 +504,14 @@ export default {
 
   &__radio {
     position: relative;
-    margin: 0.5rem;
 
+    margin-right: 1.5em;
+    @include _1300() {
+      margin-top: 0.5em;
+    }
+    &:nth-last-child(-n + 1) {
+      margin-right: 0;
+    }
     input[type='radio'] {
       position: absolute;
       opacity: 0;
@@ -491,7 +522,10 @@ export default {
 
       + .radio-label {
         margin-right: 1em;
-
+        @include _600() {
+          font-size: 0.8em;
+          min-width: auto;
+        }
         &:before {
           content: '';
           position: absolute;
@@ -609,6 +643,7 @@ export default {
       }
 
       &:nth-child(n + 2) {
+        color: #ddd;
         min-width: 1.5em;
         text-align: left;
         margin-right: 1em;
@@ -863,7 +898,15 @@ input[type='range']::-ms-fill-upper {
 
 .radio-buttons {
   display: flex;
-  flex-direction: column;
-  padding-left: 1.5em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 2em;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
 </style>

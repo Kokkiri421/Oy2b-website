@@ -6,12 +6,12 @@
         <div class="text">
           <slot name="text"></slot>
         </div>
-        <div class="image-container">
-          <img
-            class="image"
-            src="~/static/images/block-images/special-price.png"
-          />
-        </div>
+        <!--        <div class="image-container">-->
+        <!--          <img-->
+        <!--            class="image"-->
+        <!--            src="~/static/images/block-images/special-price.png"-->
+        <!--          />-->
+        <!--        </div>-->
       </div>
     </div>
   </div>

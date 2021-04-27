@@ -65,6 +65,9 @@ export default {
   position: relative;
   overflow: hidden;
 }
+.content {
+  z-index: 2;
+}
 
 .scroll_colored {
   background-color: rgba(0, 0, 0, 0.8);
