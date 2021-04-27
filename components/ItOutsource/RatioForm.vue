@@ -8,7 +8,8 @@
           :active="currentRatio === 1"
           :price="basicPrice"
           :discount="discount"
-          :header="'Cтандартный'"
+          :header="'Тариф стандарт'"
+          :calculator-info="calculatorInfo"
           id="slide-1"
         >
           <template v-slot:content>
@@ -46,8 +47,9 @@
           :price="standardPrice"
           :active="currentRatio === 2"
           :discount="discount"
-          :header="'Профи'"
+          :header="'Тариф профи'"
           :is-popular="true"
+          :calculator-info="calculatorInfo"
           id="slide-2"
         >
           <template v-slot:content>
@@ -157,6 +159,10 @@ export default {
     sysadminCount: {
       type: Number,
       required: true,
+    },
+    calculatorInfo: {
+      type: Object,
+      default: null,
     },
   },
   components: {

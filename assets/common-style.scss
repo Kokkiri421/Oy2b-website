@@ -183,6 +183,7 @@ body {
   }
 }
 .page-content {
+  z-index: 2;
   margin: 3em 0 ;
   @include _950() {
     margin: 2em 0;

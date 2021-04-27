@@ -132,10 +132,6 @@
         </service-list>
         <analysis-form class="page-content-block" ref="audit"></analysis-form>
         <div class="sla page-content-block">
-          <h4>
-            Гарантируем юридическую ответственность в&nbsp;случае нарушения
-            показателей&nbsp;SLA
-          </h4>
           <sla-block class="page-content-block" />
         </div>
         <calculator
@@ -143,6 +139,7 @@
           ref="calculator"
           :computerCount="Number(computerCount)"
           :serverCount="Number(serverCount)"
+          :virtualServerCount="Number(virtualServerCount)"
           :netCount="Number(netCount)"
           :phone-count="Number(phoneCount)"
           :cctv="cctv"
@@ -150,6 +147,7 @@
           :officeEquipmentCount="Number(officeEquipmentCount)"
           :changeComputerCount="changeComputerCount"
           :changeServerCount="changeServerCount"
+          :changeVirtualServerCount="changeVirtualServerCount"
           :changeNetCount="changeNetCount"
           :changeOfficeEquipmentCount="changeOfficeEquipmentCount"
           :change-phone-count="changePhoneCount"
@@ -269,6 +267,7 @@ export default {
     return {
       computerCount: 10,
       serverCount: 1,
+      virtualServerCount: 2,
       netCount: 1,
       officeEquipmentCount: 5,
       phoneCount: 10,
@@ -311,6 +310,9 @@ export default {
     },
     changeServerCount: function (e, max) {
       this.serverCount = this.changeCount(e, max)
+    },
+    changeVirtualServerCount: function (e, max) {
+      this.virtualServerCount = this.changeCount(e, max)
     },
     changeNetCount: function (e, max) {
       this.netCount = this.changeCount(e, max)

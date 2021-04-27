@@ -61,6 +61,32 @@
               </div>
             </div>
             <div class="calculator-type">
+              <div class="calculator-type__header">Виртуальные сервера</div>
+              <div class="calculator-type__slider">
+                <input
+                  type="number"
+                  class="input-number input-label"
+                  name="virtual-server-count"
+                  min="0"
+                  max="50"
+                  step="1"
+                  :value="virtualServerCount"
+                  @input="changeVirtualServerCount($event, 50)"
+                />
+                <input
+                  type="range"
+                  id="virtual-server-count"
+                  class="input-slider virtual-server-count"
+                  name="virtual-server-count"
+                  min="0"
+                  max="50"
+                  :value="virtualServerCount"
+                  @input="changeVirtualServerCount($event, 50)"
+                />
+                <label class="input-label" for="computer-count">50</label>
+              </div>
+            </div>
+            <div class="calculator-type">
               <div class="calculator-type__header">
                 Управляемое сетевое оборудование
               </div>
@@ -145,21 +171,23 @@
               </div>
             </div>
 
-            <div class="calculator-type switch-type">
-              <div class="calculator-type__header">
-                Обслуживание видеонаблюдения
+            <div class="calculator-type switches">
+              <div class="calculator-type switch-type">
+                <div class="calculator-type__header">
+                  Обслуживание видеонаблюдения
+                </div>
+                <label class="calculator-type__switch">
+                  <input type="checkbox" :checked="cctv" />
+                  <span class="slider round"></span>
+                </label>
               </div>
-              <label class="calculator-type__switch">
-                <input type="checkbox" :checked="cctv" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div class="calculator-type switch-type">
-              <div class="calculator-type__header">Точки доступа</div>
-              <label class="calculator-type__switch">
-                <input type="checkbox" :checked="accessPoints" />
-                <span class="slider round"></span>
-              </label>
+              <div class="calculator-type switch-type">
+                <div class="calculator-type__header">Точки доступа</div>
+                <label class="calculator-type__switch">
+                  <input type="checkbox" :checked="accessPoints" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
             </div>
           </div>
         </div>
@@ -182,6 +210,7 @@
         :is-server="serverCount > 0"
         :discount="discount"
         :sysadminCount="sysadminCount"
+        :calculator-info="getCalculatorInfo"
       ></ratio-form>
     </div>
   </div>
@@ -201,6 +230,7 @@ export default {
   props: {
     computerCount: { type: Number, required: true },
     serverCount: { type: Number, required: true },
+    virtualServerCount: { type: Number, required: true },
     netCount: { type: Number, required: true },
     officeEquipmentCount: { type: Number, required: true },
     phoneCount: { type: Number, required: true },
@@ -208,6 +238,7 @@ export default {
     accessPoints: { type: Boolean, required: true },
     changeComputerCount: { type: Function, required: true },
     changeServerCount: { type: Function, required: true },
+    changeVirtualServerCount: { type: Function, required: true },
     changeNetCount: { type: Function, required: true },
     changeOfficeEquipmentCount: { type: Function, required: true },
     changePhoneCount: { type: Function, required: true },
@@ -224,6 +255,7 @@ export default {
       return {
         '--computer-progress': `${this.computerCount}%`,
         '--server-progress': `${this.serverCount * 2}%`,
+        '--virtual-server-progress': `${this.virtualServerCount * 2}%`,
         '--net-progress': `${this.netCount * 2}%`,
         '--office-equipment-progress': `${this.officeEquipmentCount}%`,
         '--phone-progress': `${this.phoneCount}%`,
@@ -233,6 +265,7 @@ export default {
       return {
         computerCount: this.computerCount,
         serverCount: this.serverCount,
+        virtualServerCount: this.virtualServerCount,
         officeEquipmentCount: this.officeEquipmentCount,
         phoneCount: this.phoneCount,
         netCount: this.netCount,
@@ -418,6 +451,15 @@ export default {
         $form-bg-color 100%
       );
     }
+    .virtual-server-count[type='range']::-webkit-slider-runnable-track {
+      background: linear-gradient(
+        to right,
+        $base-color1 0%,
+        $base-color1 var(--virtual-server-progress),
+        $form-bg-color var(--virtual-server-progress),
+        $form-bg-color 100%
+      );
+    }
     .net-count[type='range']::-webkit-slider-runnable-track {
       background: linear-gradient(
         to right,
@@ -497,8 +539,23 @@ export default {
     }
   }
 }
+.switches {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 .switch-type {
   justify-content: flex-start;
+  &:nth-last-child(-n + 1) {
+    margin-left: 1em;
+    .calculator-type__header {
+      min-width: fit-content !important;
+      margin-right: 3em;
+      @include _1300() {
+        margin-right: 0;
+      }
+    }
+  }
 }
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {

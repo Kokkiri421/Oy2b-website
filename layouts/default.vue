@@ -49,6 +49,7 @@ export default {
   },
   computed: {},
   mounted() {
+    setTimeout(() => {}, 5000)
     this.defaultScrollPosition = window.scrollY
 
     window.addEventListener('scroll', this.updateScroll)

@@ -51,6 +51,7 @@ export default {
   },
   props: {
     price: { type: Number, default: 0 },
+    calculatorInfo: { type: Object, default: null },
   },
   methods: {
     async checkForm(e) {
@@ -79,7 +80,34 @@ export default {
             phones: [{ phone: phone }],
           },
           description: `Тип формы: ${routename}. Оставить заявку\n${
-            this.price ? 'Цена: ' + this.price : ''
+            this.price ? 'Цена: ' + this.price + '\n' : ''
+          }${
+            this.calculatorInfo
+              ? 'Кол-во компьютеров: ' +
+                this.calculatorInfo.computerCount +
+                '\n' +
+                'Кол-во серверов: ' +
+                this.calculatorInfo.serverCount +
+                '\n' +
+                'Кол-во виртуальных серверов: ' +
+                this.calculatorInfo.virtualServerCount +
+                '\n' +
+                'Кол-во сетевого оборудования: ' +
+                this.calculatorInfo.netCount +
+                '\n' +
+                'Кол-во оргтехники: ' +
+                this.calculatorInfo.officeEquipmentCount +
+                '\n' +
+                'Кол-во IP-телефонов: ' +
+                this.calculatorInfo.phoneCount +
+                '\n' +
+                'Обслуживание видеонаблюдения: ' +
+                (this.calculatorInfo.cctv ? 'да' : 'нет') +
+                '\n' +
+                'Точки доступа: ' +
+                (this.calculatorInfo.accessPoints ? 'да' : 'нет') +
+                '\n'
+              : ''
           }`,
         }
         let response = await this.$axios

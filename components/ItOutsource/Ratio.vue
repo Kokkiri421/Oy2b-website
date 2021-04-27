@@ -22,7 +22,7 @@
       </h4>
       <div class="info">
         <div class="price">
-          <p v-if="ratioType === 'ratio'" class="normal-price">
+          <p v-if="ratioType === 'ratio' && price > 0" class="normal-price">
             {{ Math.floor(price * 1.1) }}&nbsp;₽
           </p>
           <p class="discount-price">{{ price }}&nbsp;₽</p>
@@ -51,6 +51,7 @@
         @onClick="showModal"
         v-if="ratioType === 'ratio'"
         :price="price"
+        :calculator-info="calculatorInfo"
       />
       <sysadmin-salary-modal v-else :sysadmin-count="sysadminCount" />
     </modal-window>
@@ -129,6 +130,10 @@ export default {
     sysadminCount: {
       type: Number,
       required: false,
+    },
+    calculatorInfo: {
+      type: Object,
+      default: null,
     },
   },
 }
