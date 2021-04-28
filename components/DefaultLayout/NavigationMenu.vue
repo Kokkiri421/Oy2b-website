@@ -8,7 +8,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/internet"
-                >Интернет до&nbsp;10&nbsp;Гбит/с</NuxtLink
+                ><span>Интернет до&nbsp;10&nbsp;Гбит/с</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
@@ -16,25 +16,28 @@
                 class="underline-animated-link nuxtlink"
                 to="/service/wi-fi"
               >
-                Wi-Fi для бизнеса
+                <span>Wi-Fi для бизнеса</span>
               </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/telefoniya"
-                >Телефония</NuxtLink
+                ><span>Телефония</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
-              <NuxtLink class="nuxtlink" to="/service/service-it-out">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/service-it-out"
+              >
                 <icon
                   :icon-name="'flame-icon-left'"
                   class="icon icon-left"
                   :view-box="'0 0 611.999 611.999'"
                 >
                   <flame-icon /> </icon
-                ><span class="underline-animated-link">IT Аутсорсинг</span>
+                ><span>IT Аутсорсинг</span>
                 <icon
                   :icon-name="'flame-icon-right'"
                   class="icon icon-right"
@@ -48,7 +51,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/udalennyy-ofis"
-                >Виртуальные сервисы</NuxtLink
+                ><span>Виртуальные сервисы</span></NuxtLink
               >
             </li>
 
@@ -56,7 +59,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/videonablyudenie"
-                >Видеонаблюдение</NuxtLink
+                ><span>Видеонаблюдение</span></NuxtLink
               >
             </li>
             <!--            <li class="list-item" @click="onClick">-->
@@ -70,14 +73,14 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/dop-uslugi"
-                >Операторам</NuxtLink
+                ><span>Операторам</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/ip-adresa"
-                >IP Адреса</NuxtLink
+                ><span>IP Адреса</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
@@ -85,21 +88,21 @@
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/reshenie-dlya-horeca"
               >
-                HoReCa</NuxtLink
+                <span>HoReCa</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh"
-                >Ритейл</NuxtLink
+                ><span>Ритейл</span></NuxtLink
               >
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma"
-                >Туризм</NuxtLink
+                ><span>Туризм</span></NuxtLink
               >
             </li>
           </ul>
@@ -109,7 +112,7 @@
           <ul class="navigation-menu__list">
             <li class="list-item" @click="onClick">
               <NuxtLink class="underline-animated-link nuxtlink" to="/company">
-                О компании
+                <span>О компании</span>
               </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
@@ -117,12 +120,12 @@
                 class="underline-animated-link nuxtlink"
                 to="/vacancies"
               >
-                Вакансии
+                <span>Вакансии</span>
               </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
-                Контакты
+                <span>Контакты</span>
               </NuxtLink>
             </li>
           </ul>
@@ -282,12 +285,14 @@ export default {
     margin: 0;
 
     .list-item {
+      display: flex;
       font-size: 1.5em;
       line-height: normal;
       color: #000;
       list-style-type: none;
       margin-bottom: 0.9em;
       .nuxtlink {
+        width: 100%;
         &:hover {
           .icon {
             fill: #ff9d00;
@@ -360,11 +365,13 @@ export default {
   &:hover {
     color: #d81428;
   }
-  &:before {
-    background: #d81428;
-  }
-  &:after {
-    background: #d81428;
+  span {
+    &:before {
+      background: #d81428;
+    }
+    &:after {
+      background: #d81428;
+    }
   }
 }
 </style>

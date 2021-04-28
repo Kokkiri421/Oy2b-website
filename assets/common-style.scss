@@ -150,38 +150,46 @@ body {
 }
 .underline-animated-link {
   display: inline;
-  position: relative;
-  &:before {
-    background: #fff;
-    bottom: 0;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    left: 0;
+  span {
+    position: relative;
+    &:before {
+      background: #fff;
+      bottom: 0;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      left: 0;
 
-    position: absolute;
+      position: absolute;
 
-    transition: width 0.3s ease-out;
-    width: 0;
+      transition: width 0.3s ease-out;
+      width: 0;
+    }
+    &:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      right: 0;
+      position: absolute;
+      background: #fff;
+      transition: width 0.3s ease-out;
+      width: 0;
+    }
   }
-  &:hover:before {
-    width: 50%;
+  &:hover {
+    span {
+
+      &:before {
+        width: 50%;
+      }
+      &:after {
+        width: 50%;
+      }
+    }
   }
-  &:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    right: 0;
-    position: absolute;
-    background: #fff;
-    transition: width 0.3s ease-out;
-    width: 0;
-  }
-  &:hover:after {
-    width: 50%;
-  }
+
 }
 .page-content {
   z-index: 1;

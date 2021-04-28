@@ -272,6 +272,7 @@ export default {
             margin: 1em 0 0;
             flex-basis: calc(50% - 0.5em);
             &:nth-child(1) {
+              margin: 0;
               flex-basis: 100%;
             }
             &:nth-child(2) {
@@ -293,9 +294,7 @@ export default {
 
       &__prefix {
         margin-bottom: 1em;
-        @include _950() {
-          margin-bottom: 0;
-        }
+
         @include _400() {
           font-size: 0.9em;
         }

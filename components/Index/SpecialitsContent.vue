@@ -17,7 +17,7 @@
           <template v-slot:header>Реализовываем</template>
           <template v-slot:description
             >Удобную и надёжную инфраструктуру любой сложности
-            с&nbsp;круглосуточной поддержкой.</template
+            с&nbsp;круглосуточной поддержкой</template
           >
         </advantage-block>
         <advantage-block>

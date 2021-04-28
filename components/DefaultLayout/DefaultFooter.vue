@@ -17,7 +17,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/internet"
-                >Интернет до 10Гбит/с</NuxtLink
+                ><span>Интернет до 10Гбит/с</span></NuxtLink
               >
             </li>
             <li class="list-item">
@@ -25,14 +25,14 @@
                 class="underline-animated-link nuxtlink"
                 to="/service/wi-fi"
               >
-                Wi-Fi для бизнеса
+                <span>Wi-Fi для бизнеса</span>
               </NuxtLink>
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/telefoniya"
-                >Телефония</NuxtLink
+                ><span>Wi-Fi для бизнеса</span></NuxtLink
               >
             </li>
             <li class="list-item">
@@ -44,28 +44,30 @@
                 >
                   <flame-icon />
                 </icon>
-                <span class="underline-animated-link">IT аутсорсинг</span>
+                <span class="underline-animated-link"
+                  ><span>IT аутсорсинг</span></span
+                >
               </NuxtLink>
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/udalennyy-ofis"
-                >Виртуальные сервисы</NuxtLink
+                ><span>Виртуальные сервисы</span></NuxtLink
               >
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/videonablyudenie"
-                >Видеонаблюдение</NuxtLink
+                ><span>Видеонаблюдение</span></NuxtLink
               >
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/oblachnye-resheniya"
-                >Облачные решения</NuxtLink
+                ><span>Облачные решения</span></NuxtLink
               >
             </li>
 
@@ -73,21 +75,21 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/dop-uslugi"
-                >Операторам</NuxtLink
+                ><span>Операторам</span></NuxtLink
               >
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/ip-adresa"
-                >IP Адреса</NuxtLink
+                ><span>IP Адреса</span></NuxtLink
               >
             </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/kompleksnye-resheniya"
-                >Отрасли</NuxtLink
+                ><span>Отрасли</span></NuxtLink
               >
             </li>
           </ul>
@@ -117,7 +119,7 @@
         </div>
         <div class="contacts">
           <NuxtLink class="underline-animated-link nuxtlink" to="/contacts">
-            Контакты
+            <span>Контакты</span>
           </NuxtLink>
         </div>
       </div>
@@ -303,11 +305,13 @@ export default {
   &:hover {
     color: #d81428;
   }
-  &:before {
-    background: #d81428;
-  }
-  &:after {
-    background: #d81428;
+  span {
+    &:before {
+      background: #d81428;
+    }
+    &:after {
+      background: #d81428;
+    }
   }
 }
 
