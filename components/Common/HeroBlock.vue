@@ -21,7 +21,6 @@
           <p class="form-success-message" v-else-if="success">
             Заявка успешно отправлена
           </p>
-          <p class="form-placeholder-message" v-else></p>
           <form class="hero-block-form" @submit="checkForm">
             <pretty-input
               :name="'company'"
@@ -210,6 +209,7 @@ export default {
 
       &__description {
         margin-bottom: 1em;
+        line-height: 1.5em;
         @include _400() {
           font-size: 0.9em;
         }
@@ -233,8 +233,8 @@ export default {
         flex-direction: row;
         margin-bottom: 1em;
         @include _950() {
-          display: block;
           width: 100%;
+          flex-wrap: wrap;
         }
 
         &__item {
@@ -247,9 +247,14 @@ export default {
           }
 
           @include _950() {
-            display: block;
-            margin: 1em 0;
-            width: 100%;
+            margin: 1em 0 0;
+            flex-basis: calc(50% - 0.5em);
+            &:nth-child(1) {
+              flex-basis: 100%;
+            }
+            &:nth-child(2) {
+              margin-right: 1em;
+            }
           }
 
           button {
@@ -260,6 +265,9 @@ export default {
 
       &__prefix {
         margin-bottom: 1em;
+        @include _950() {
+          margin-bottom: 0;
+        }
         @include _400() {
           font-size: 0.9em;
         }
