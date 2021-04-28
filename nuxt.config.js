@@ -38,7 +38,18 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    // '@nuxtjs/gtm',
   ],
+  // gtm: {
+  //   id: 'GTM-T9VCHD3',
+  //   autoInit: true,
+  //   respectDoNotTrack: true,
+  //
+  //   scriptId: 'gtm-script',
+  //   scriptDefer: false,
+  //   scriptURL: 'https://www.googletagmanager.com/gtm.js?id=GTM-T9VCHD3',
+  //   crossOrigin: false,
+  // },
   axios: {
     // extra config e.g
     headers: { Authorization: 'Basic FD566FDA9F77376AADBF7A47EA5D9' },

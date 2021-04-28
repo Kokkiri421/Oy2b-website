@@ -57,7 +57,7 @@
                 (defaultScrollPosition > 0 && scrollPosition === null) ||
                 defaultColored,
             }"
-            class="phone__link"
+            class="phone__link header-tel"
             >+7 (812) 600-2030</a
           >
         </div>
