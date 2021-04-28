@@ -200,61 +200,52 @@
           <!--          </p>-->
         </div>
         <div class="price-form-button">
-          <button
-            class="dialog-button"
-            v-if="!isVisiblePriceForm"
-            @click="setVisiblePriceForm"
-          >
-            Рассчитать стоимость
-          </button>
-          <transition name="fade">
-            <div v-if="isVisiblePriceForm" class="form-container" ref="order">
-              <p class="form-error-message" v-if="errors.length > 0">
-                Заполните обязательные поля
-              </p>
-              <p class="form-success-message" v-else-if="success">
-                Заявка успешно отправлена
-              </p>
-              <form class="name-phone-company-form" @submit="checkForm">
-                <pretty-input
-                  :name="'name'"
-                  :placeholder="'Имя'"
-                  class="name-phone-company-form__item"
-                  :value="name"
-                  @onInput="setName"
-                  :error="errors.includes('name')"
-                  :white-bg="true"
-                ></pretty-input>
-                <pretty-input
-                  :name="'phone'"
-                  :placeholder="'Телефон'"
-                  class="name-phone-company-form__item"
-                  :value="phone"
-                  @onInput="setPhone"
-                  :error="errors.includes('phone')"
-                  :white-bg="true"
-                ></pretty-input>
-                <pretty-input
-                  :name="'company'"
-                  :placeholder="'Компания'"
-                  class="name-phone-company-form__item"
-                  :value="company"
-                  @onInput="setCompany"
-                  :error="errors.includes('company')"
-                  :white-bg="true"
-                ></pretty-input>
-                <div class="name-phone-company-form__item">
-                  <button class="dialog-button">
-                    <div class="shining-button1"></div>
-                    Отправить
-                  </button>
-                </div>
-              </form>
-              <div class="price__privacy">
-                <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
+          <div class="form-container" ref="order">
+            <p class="form-error-message" v-if="errors.length > 0">
+              Заполните обязательные поля
+            </p>
+            <p class="form-success-message" v-else-if="success">
+              Заявка успешно отправлена
+            </p>
+            <form class="name-phone-company-form" @submit="checkForm">
+              <pretty-input
+                :name="'name'"
+                :placeholder="'Имя'"
+                class="name-phone-company-form__item"
+                :value="name"
+                @onInput="setName"
+                :error="errors.includes('name')"
+                :white-bg="true"
+              ></pretty-input>
+              <pretty-input
+                :name="'phone'"
+                :placeholder="'Телефон'"
+                class="name-phone-company-form__item"
+                :value="phone"
+                @onInput="setPhone"
+                :error="errors.includes('phone')"
+                :white-bg="true"
+              ></pretty-input>
+              <pretty-input
+                :name="'company'"
+                :placeholder="'Компания'"
+                class="name-phone-company-form__item"
+                :value="company"
+                @onInput="setCompany"
+                :error="errors.includes('company')"
+                :white-bg="true"
+              ></pretty-input>
+              <div class="name-phone-company-form__item">
+                <button class="dialog-button">
+                  <div class="shining-button1"></div>
+                  Рассчитать стоимость
+                </button>
               </div>
+            </form>
+            <div class="price__privacy">
+              <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
             </div>
-          </transition>
+          </div>
         </div>
       </div>
     </div>
@@ -391,7 +382,7 @@ export default {
 .form-container {
   width: 100%;
   border-radius: 6px;
-
+  margin-top: 1em;
   //margin: 3em 0;
   @include _650 {
   }

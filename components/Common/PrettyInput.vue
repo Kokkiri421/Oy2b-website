@@ -112,7 +112,7 @@ export default {
     min-height: 3.2em;
     box-sizing: border-box;
     &__white-bg {
-      outline: #ddd auto 1px;
+      outline: #dfdfdf auto 1px;
     }
     resize: none;
     font: 400 1em/1.1em Montserrat, sans-serif;
