@@ -92,8 +92,9 @@ export default {
         form.append('surname', fullname[1] || '.')
         form.append('phone', this.phone)
         form.append('cv', this.cv)
+
         let response = await this.$axios
-          .post('http://89.104.118.224:3000/vacancy', form, {
+          .post(process.env.CV_LINK, form, {
             headers: {
               'Content-Type': 'multipart/form-data',
             },

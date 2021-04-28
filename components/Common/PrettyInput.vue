@@ -4,9 +4,13 @@
     <input
       :type="type"
       class="form-input"
-      :class="{ 'form-input__error': error && !isCustomized }"
+      :class="{
+        'form-input__error': error && !isCustomized,
+        'form-input__white-bg': whiteBg,
+      }"
       ref="pretty-input"
       :name="name"
+      :inputmode="name === 'phone' ? 'numeric' : ''"
       maxlength="32"
       v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
       @focus="
@@ -72,6 +76,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    whiteBg: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
     checkCustomized(e) {
@@ -103,6 +111,9 @@ export default {
     line-height: 1.6em;
     min-height: 3.2em;
     box-sizing: border-box;
+    &__white-bg {
+      outline: #ddd auto 1px;
+    }
     resize: none;
     font: 400 1em/1.1em Montserrat, sans-serif;
     &:focus {

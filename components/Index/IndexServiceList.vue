@@ -122,20 +122,20 @@
             >
           </li>
         </animate-on-viewport>
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <NuxtLink
-              class="service-button__link nuxtlink"
-              to="/service/oblachnye-resheniya"
-              >Облачные решения</NuxtLink
-            >
-          </li>
-        </animate-on-viewport>
+        <!--        <animate-on-viewport>-->
+        <!--          <li-->
+        <!--            class="service-button"-->
+        <!--            slot-scope="item"-->
+        <!--            :is-animated="item.isAnimated"-->
+        <!--            :class="{ animated: item.isAnimated }"-->
+        <!--          >-->
+        <!--            <NuxtLink-->
+        <!--              class="service-button__link nuxtlink"-->
+        <!--              to="/service/oblachnye-resheniya"-->
+        <!--              >Облачные решения</NuxtLink-->
+        <!--            >-->
+        <!--          </li>-->
+        <!--        </animate-on-viewport>-->
         <animate-on-viewport>
           <li
             class="service-button"
@@ -297,7 +297,7 @@ export default {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
-$n: 10;
+$n: 11;
 
 @for $i from 1 through $n {
   .animated-element:nth-child(#{$i}) {

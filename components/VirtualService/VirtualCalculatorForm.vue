@@ -200,62 +200,63 @@
           <!--          </p>-->
         </div>
         <div class="price-form-button">
-          <button class="dialog-button" @click="setVisiblePriceForm">
+          <button
+            class="dialog-button"
+            v-if="!isVisiblePriceForm"
+            @click="setVisiblePriceForm"
+          >
             Рассчитать стоимость
           </button>
+          <transition name="fade">
+            <div v-if="isVisiblePriceForm" class="form-container" ref="order">
+              <p class="form-error-message" v-if="errors.length > 0">
+                Заполните обязательные поля
+              </p>
+              <p class="form-success-message" v-else-if="success">
+                Заявка успешно отправлена
+              </p>
+              <form class="name-phone-company-form" @submit="checkForm">
+                <pretty-input
+                  :name="'name'"
+                  :placeholder="'Имя'"
+                  class="name-phone-company-form__item"
+                  :value="name"
+                  @onInput="setName"
+                  :error="errors.includes('name')"
+                  :white-bg="true"
+                ></pretty-input>
+                <pretty-input
+                  :name="'phone'"
+                  :placeholder="'Телефон'"
+                  class="name-phone-company-form__item"
+                  :value="phone"
+                  @onInput="setPhone"
+                  :error="errors.includes('phone')"
+                  :white-bg="true"
+                ></pretty-input>
+                <pretty-input
+                  :name="'company'"
+                  :placeholder="'Компания'"
+                  class="name-phone-company-form__item"
+                  :value="company"
+                  @onInput="setCompany"
+                  :error="errors.includes('company')"
+                  :white-bg="true"
+                ></pretty-input>
+                <div class="name-phone-company-form__item">
+                  <button class="dialog-button">
+                    <div class="shining-button1"></div>
+                    Отправить
+                  </button>
+                </div>
+              </form>
+              <div class="price__privacy">
+                <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
+              </div>
+            </div>
+          </transition>
         </div>
       </div>
-      <transition name="fade">
-        <div v-if="isVisiblePriceForm" class="form-container" ref="order">
-          <div class="form-container__top">
-            <h4 class="name-phone-company-form__header">
-              Рассчитать стоимость
-            </h4>
-          </div>
-
-          <p class="form-error-message" v-if="errors.length > 0">
-            Заполните обязательные поля
-          </p>
-          <p class="form-success-message" v-else-if="success">
-            Заявка успешно отправлена
-          </p>
-          <form class="name-phone-company-form" @submit="checkForm">
-            <pretty-input
-              :name="'name'"
-              :placeholder="'Имя'"
-              class="name-phone-company-form__item"
-              :value="name"
-              @onInput="setName"
-              :error="errors.includes('name')"
-            ></pretty-input>
-            <pretty-input
-              :name="'phone'"
-              :placeholder="'Телефон'"
-              class="name-phone-company-form__item"
-              :value="phone"
-              @onInput="setPhone"
-              :error="errors.includes('phone')"
-            ></pretty-input>
-            <pretty-input
-              :name="'company'"
-              :placeholder="'Компания'"
-              class="name-phone-company-form__item"
-              :value="company"
-              @onInput="setCompany"
-              :error="errors.includes('company')"
-            ></pretty-input>
-            <div class="name-phone-company-form__item">
-              <button class="dialog-button">
-                <div class="shining-button1"></div>
-                Отправить
-              </button>
-            </div>
-          </form>
-          <div class="price__privacy">
-            <NuxtLink to="/privacy/">политика конфиденциальности</NuxtLink>
-          </div>
-        </div>
-      </transition>
     </div>
   </div>
 </template>
@@ -342,10 +343,10 @@ export default {
           }\n`,
         }
         let responseBot = await this.$axios
-          .post('http://87.249.36.157:3005/ticket', body)
+          .post(process.env.BOT_LINK, body)
           .then((res) => console.log(res.data))
         let response = await this.$axios
-          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .post(process.env.CRM_LINK, body)
           //.post('http://89.104.118.224:3000/ticket', body)
           .then((res) => console.log(res.data))
         await this.setSuccess()
@@ -381,9 +382,9 @@ export default {
 @import '~/assets/colors';
 
 .form-container {
-  background-color: $light-blue-color;
+  width: 100%;
   border-radius: 6px;
-  padding: 1em;
+
   //margin: 3em 0;
   @include _650 {
   }
@@ -408,10 +409,11 @@ export default {
     }
 
     &__error {
-      border-color: $red-color1 !important;
+      border-color: black !important;
     }
 
     &__item {
+      border-color: red;
       vertical-align: top;
       margin: 0 1em 0 0;
       width: calc(25% - 0.75em);

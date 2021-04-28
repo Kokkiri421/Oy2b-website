@@ -115,10 +115,10 @@ export default {
           }\n`,
         }
         let responseBot = await this.$axios
-          .post('http://87.249.36.157:3005/ticket', body)
+          .post(process.env.BOT_LINK, body)
           .then((res) => console.log(res.data))
         let response = await this.$axios
-          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
+          .post(process.env.CRM_LINK, body)
           .then((res) => console.log(res.data))
         await this.setSuccess()
         this.name = ''
