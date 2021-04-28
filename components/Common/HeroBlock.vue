@@ -41,7 +41,7 @@
             <div class="hero-block-form__item">
               <button class="dialog-button" :disabled="success">
                 <div class="shining-button"></div>
-                Оставить заявку
+                {{ isMobile ? 'Отправить' : 'Оставить заявку' }}
               </button>
             </div>
           </form>
@@ -71,6 +71,7 @@ export default {
       errors: [],
       success: false,
       isClicked: false,
+      isMobile: false,
     }
   },
   components: {
@@ -89,6 +90,13 @@ export default {
     },
   },
   methods: {
+    updateSize() {
+      if (window.innerWidth <= 600) {
+        return (this.isMobile = true)
+      } else {
+        return (this.isMobile = false)
+      }
+    },
     scrollDown() {
       this.$emit('onClick')
     },
@@ -143,6 +151,14 @@ export default {
       this.success = true
       setTimeout(() => (this.success = false), 5000)
     },
+  },
+  mounted() {
+    this.updateSize()
+    window.addEventListener('resize', this.updateSize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('click', this.hideMenuOnClick)
+    window.removeEventListener('resize', this.updateSize)
   },
 }
 </script>
@@ -254,6 +270,12 @@ export default {
             }
             &:nth-child(2) {
               margin-right: 1em;
+            }
+          }
+          @include _400() {
+            .dialog-button {
+              padding-right: 0;
+              padding-left: 0;
             }
           }
 

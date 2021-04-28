@@ -5,17 +5,17 @@
       <template v-slot:description>
         <div class="description">
           <p class="article">
-            Думаете начать эксплуатировать сторонние мощности?
-          </p>
-          <p class="article">
+            Думаете начать эксплуатировать сторонние мощности?<br />
             Используйте наши&nbsp;— сервера Dell, панели управления Plesk,
             системы виртуализации от&nbsp;VMware, системы хранения данных
             NetApp, резервирование от&nbsp;Veeam Software.
           </p>
-          <p class="article">
-            Облачные сервисы, хостинг, аренда серверов&nbsp;— мы&nbsp;всё
-            делаем. Круглосуточная поддержка по&nbsp;первому звонку.
-          </p>
+          <span class="dn-600">
+            <p class="article">
+              Облачные сервисы, хостинг, аренда серверов&nbsp;— мы&nbsp;всё
+              делаем. Круглосуточная поддержка по&nbsp;первому звонку.
+            </p>
+          </span>
         </div>
       </template>
       <template v-slot:form-prefix>
