@@ -539,6 +539,7 @@ export default {
   },
   methods: {
     showModal() {
+      dataLayer.push({ event: 'zayavka_tarif' })
       this.isModalShown = !this.isModalShown
     },
     changeExpanded: function () {

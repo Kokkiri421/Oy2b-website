@@ -114,16 +114,23 @@ export default {
             this.type === 'ip' ? 'ИП' : 'Юр. Лицо'
           }\n`,
         }
-        let responseBot = await this.$axios
-          .post(process.env.BOT_LINK, body)
-          .then((res) => console.log(res.data))
+        let gtmName = this.$store.state.gtmNames[this.$route.path]
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
-          .then((res) => console.log(res.data))
-        await this.setSuccess()
-        this.name = ''
-        this.phone = ''
-        this.company = ''
+          // .then((res) => console.log(res.data))
+          .then(() => dataLayer.push({ event: gtmName }))
+          .finally(
+            async () =>
+              await this.$axios
+                .post(process.env.BOT_LINK, body)
+                // .then((res) => console.log(res.data))
+                .then(async () => {
+                  await this.setSuccess()
+                  this.phone = ''
+                  this.company = ''
+                  this.name = ''
+                })
+          )
         return true
       }
       console.log(this.errors)

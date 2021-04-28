@@ -15,6 +15,24 @@ export const state = () => ({
       'Решения для отелей, гостиниц и сферы туризма',
     '/service/dop-uslugi': 'Услуги операторам связи',
     '/vacancies': 'Вакансии',
-    '/': 'Комплексные услуги связи',
+    '/': 'Главная',
+  },
+  gtmNames: {
+    '/service/wi-fi': 'zayavka-wi-fi',
+    '/service/internet': 'zayavka-internet',
+    '/service/service-it-out': 'zayavka_glavn',
+    '/service/telefoniya': 'zayavka-telefoniya',
+    '/service/udalennyy-ofis': 'udalennyy-ofis',
+    '/service/videonablyudenie': 'zayavka-videonablyudenie',
+    '/service/oblachnye-resheniya': 'zayavka-datacenter',
+    '/service/ip-adresa': 'zayavka-datacenter',
+    '/service/kompleksnye-resheniya/reshenie-dlya-horeca':
+      'zayavka-kompleksnye-resheniya',
+    '/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh':
+      'zayavka-kompleksnye-resheniya',
+    '/service/kompleksnye-resheniya/resheniya-dlya-sfery-turizma':
+      'zayavka-kompleksnye-resheniya',
+    '/service/dop-uslugi': 'zayavka-operatoram',
+    '/': 'zayavka_glavn',
   },
 })
