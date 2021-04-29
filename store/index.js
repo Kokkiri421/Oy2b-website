@@ -20,12 +20,12 @@ export const state = () => ({
   gtmNames: {
     '/service/wi-fi': 'zayavka-wi-fi',
     '/service/internet': 'zayavka-internet',
-    '/service/service-it-out': 'zayavka_glavn',
+    '/service/service-it-out': 'zayavka-outsorce',
     '/service/telefoniya': 'zayavka-telefoniya',
     '/service/udalennyy-ofis': 'udalennyy-ofis',
     '/service/videonablyudenie': 'zayavka-videonablyudenie',
     '/service/oblachnye-resheniya': 'zayavka-datacenter',
-    '/service/ip-adresa': 'zayavka-datacenter',
+    '/service/ip-adresa': ' zayavka-ip',
     '/service/kompleksnye-resheniya/reshenie-dlya-horeca':
       'zayavka-kompleksnye-resheniya',
     '/service/kompleksnye-resheniya/reshenie-dlya-magazinov-i-tochek-prodazh':
