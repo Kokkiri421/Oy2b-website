@@ -13,6 +13,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
@@ -40,6 +41,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
@@ -67,6 +69,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="virtual-server-count"
@@ -96,6 +99,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="net-count"
@@ -123,6 +127,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
@@ -152,6 +157,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  pattern="[0-9]*"
                   inputmode="numeric"
                   class="input-number input-label"
                   name="phone-count"
