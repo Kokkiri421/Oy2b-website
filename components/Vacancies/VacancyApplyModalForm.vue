@@ -20,6 +20,7 @@
         :error="errors.includes('name')"
       ></pretty-input>
       <pretty-input
+        :type="'tel'"
         :name="'phone'"
         :placeholder="'Телефон'"
         class="modal-form__item"
@@ -99,7 +100,6 @@ export default {
               'Content-Type': 'multipart/form-data',
             },
           })
-          .then((res) => console.log(res.data))
           .then(() => {
             this.phone = ''
             this.name = ''
@@ -108,7 +108,6 @@ export default {
           })
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

@@ -1,8 +1,8 @@
 <template>
-  <!--  -->
+  <!-- :inputmode="name === 'phone' ? 'numeric' : ''" -->
   <label class="pretty-input">
     <input
-      :type="type"
+      :type="type === 'phone' ? 'tel' : type"
       class="form-input"
       :class="{
         'form-input__error': error && !isCustomized,
@@ -10,7 +10,6 @@
       }"
       ref="pretty-input"
       :name="name"
-      :inputmode="name === 'phone' ? 'numeric' : ''"
       maxlength="32"
       v-mask="name === 'phone' ? '+7(###)###-##-##' : ''"
       @focus="

@@ -4,7 +4,7 @@
       <div class="call-us-block__content">
         <h4>
           Позвоните нам
-          <a href="tel:+78126002030" class="phone"
+          <a href="tel:+78126002030" class="phone header-tel"
             >+7(812)&nbsp;600&#8209;20&#8209;30</a
           >
         </h4>

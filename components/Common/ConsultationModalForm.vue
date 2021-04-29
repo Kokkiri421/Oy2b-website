@@ -17,6 +17,7 @@
         :error="errors.includes('name')"
       ></pretty-input>
       <pretty-input
+        :type="'tel'"
         :name="'phone'"
         :placeholder="'Телефон'"
         class="modal-form__item"
@@ -117,13 +118,13 @@ export default {
         let gtmName = this.$store.state.gtmNames[this.$route.path]
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
-          // .then((res) => console.log(res.data))
+
           .then(() => dataLayer.push({ event: gtmName }))
           .finally(
             async () =>
               await this.$axios
                 .post(process.env.BOT_LINK, body)
-                // .then((res) => console.log(res.data))
+
                 .then(async () => {
                   await this.setSuccess()
                   this.phone = ''
@@ -133,7 +134,6 @@ export default {
           )
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

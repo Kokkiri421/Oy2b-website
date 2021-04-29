@@ -32,6 +32,7 @@
             ></pretty-input>
             <pretty-input
               :name="'phone'"
+              :type="'tel'"
               :placeholder="'Телефон'"
               class="hero-block-form__item"
               :value="phone"
@@ -129,13 +130,11 @@ export default {
 
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
-          // .then((res) => console.log(res.data))
           .then(() => dataLayer.push({ event: gtmName }))
           .finally(
             async () =>
               await this.$axios
                 .post(process.env.BOT_LINK, body)
-                // .then((res) => console.log(res.data))
                 .then(async () => {
                   await this.setSuccess()
                   this.phone = ''
@@ -145,7 +144,6 @@ export default {
           )
         return true
       }
-      console.log(this.errors)
     },
     setCompany(e) {
       this.company = e.target.value

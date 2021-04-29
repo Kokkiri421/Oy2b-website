@@ -10,6 +10,7 @@
             </div>
             <div class="calculator-type__slider">
               <input
+                inputmode="numeric"
                 type="number"
                 class="input-number input-label"
                 name="сpu-count"
@@ -38,6 +39,7 @@
             </div>
             <div class="calculator-type__slider">
               <input
+                inputmode="numeric"
                 type="number"
                 class="input-number input-label"
                 name="ram-count"
@@ -66,6 +68,7 @@
             </div>
             <div class="calculator-type__slider">
               <input
+                inputmode="numeric"
                 type="number"
                 class="input-number input-label"
                 name="ssd-count"
@@ -77,6 +80,7 @@
               />
               <input
                 type="range"
+                inputmode="numeric"
                 class="input-slider ssd-count"
                 id="ssd-count"
                 name="ssd-count"
@@ -96,6 +100,7 @@
             <div class="calculator-type__slider">
               <input
                 type="number"
+                inputmode="numeric"
                 class="input-number input-label"
                 name="hdd-count"
                 min="0"
@@ -220,6 +225,7 @@
               <pretty-input
                 :name="'phone'"
                 :placeholder="'Телефон'"
+                :type="'tel'"
                 class="name-phone-company-form__item"
                 :value="phone"
                 @onInput="setPhone"
@@ -336,13 +342,11 @@ export default {
         let gtmName = this.$store.state.gtmNames[this.$route.path]
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
-          // .then((res) => console.log(res.data))
           .then(() => dataLayer.push({ event: gtmName }))
           .finally(
             async () =>
               await this.$axios
                 .post(process.env.BOT_LINK, body)
-                // .then((res) => console.log(res.data))
                 .then(async () => {
                   await this.setSuccess()
                   this.phone = ''
@@ -352,7 +356,6 @@ export default {
           )
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

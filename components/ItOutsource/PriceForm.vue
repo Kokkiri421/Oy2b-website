@@ -33,6 +33,7 @@
         ></pretty-input>
         <pretty-input
           :name="'phone'"
+          :type="'tel'"
           :placeholder="'Телефон'"
           class="name-phone-company-form__item"
           :value="phone"
@@ -112,19 +113,14 @@ export default {
           },
           description: `Тип формы: ${routename}. Рассчёт стоимости работ\nКопмания: ${this.company}`,
         }
-        let responseBot = await this.$axios
-          .post(process.env.BOT_LINK, body)
-          .then((res) => console.log(res.data))
-        let response = await this.$axios
-          .post(process.env.CRM_LINK, body)
-          //.post('http://89.104.118.224:3000/ticket', body)
-          .then((res) => console.log(res.data))
+        let responseBot = await this.$axios.post(process.env.BOT_LINK, body)
+        let response = await this.$axios.post(process.env.CRM_LINK, body)
+        //.post('http://89.104.118.224:3000/ticket', body)
         await this.setSuccess()
         this.phone = ''
         this.company = ''
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

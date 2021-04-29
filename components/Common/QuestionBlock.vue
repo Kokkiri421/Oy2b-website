@@ -116,12 +116,12 @@ export default {
           },
           description: `Тип формы: Обсудить проект\nКомпания: ${this.company}\n, Вопрос: ${this.userQuestion}\n`,
         }
-        let response = await this.$axios
-          .post('https://api-oycrm.oyster.su/site/tickets/v2', body)
-          .then((res) => console.log(res.data))
+        let response = await this.$axios.post(
+          'https://api-oycrm.oyster.su/site/tickets/v2',
+          body
+        )
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

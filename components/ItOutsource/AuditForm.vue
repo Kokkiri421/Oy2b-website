@@ -71,10 +71,8 @@ export default {
         this.errors.push('company')
       }
       if (this.errors.length === 0) {
-        console.log('question form')
         return true
       }
-      console.log(this.errors)
     },
     setName(e) {
       this.name = e.target.value

@@ -13,6 +13,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
                   min="0"
@@ -39,6 +40,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
                   min="0"
@@ -65,6 +67,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="virtual-server-count"
                   min="0"
@@ -93,6 +96,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="net-count"
                   min="0"
@@ -119,6 +123,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="computer-count"
                   min="0"
@@ -147,6 +152,7 @@
               <div class="calculator-type__slider">
                 <input
                   type="number"
+                  inputmode="numeric"
                   class="input-number input-label"
                   name="phone-count"
                   min="0"
@@ -295,18 +301,7 @@ export default {
     //   )
     // },
   },
-  methods: {
-    // changeField: function (e, field, max) {
-    //   e.target.value = e.target.value.replace(/[^0-9]/g, '')
-    //   if (e.target.value > max) {
-    //     e.target.value = max
-    //   } else if (e.target.value < 0) {
-    //     e.target.value = 0
-    //   }
-    //   field = e.target.value
-    //   console.log(field)
-    // },
-  },
+  methods: {},
   mounted() {},
 }
 </script>
