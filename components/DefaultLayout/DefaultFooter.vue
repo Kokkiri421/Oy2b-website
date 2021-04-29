@@ -32,7 +32,7 @@
               <NuxtLink
                 class="underline-animated-link nuxtlink"
                 to="/service/telefoniya"
-                ><span>Wi-Fi для бизнеса</span></NuxtLink
+                ><span>Телефония</span></NuxtLink
               >
             </li>
             <li class="list-item">

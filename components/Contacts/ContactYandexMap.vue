@@ -40,7 +40,6 @@ export default {
   },
   components: { yandexMap, ymapMarker },
   mounted() {
-    console.log(1234566576)
     loadYmap({ apiKey: '9f84fb3b-4b31-4a89-91f0-df9753794a0f' }).then(() => {
       this.isMounted = true
     })
@@ -48,7 +47,7 @@ export default {
 }
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import 'assets/media_mixin';
 .ymap-contact-container {
   height: inherit;
