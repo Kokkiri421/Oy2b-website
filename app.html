@@ -10,13 +10,16 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-T9VCHD3');
+      s = document.createElement('script');
+      s.src = '//cdn.callibri.ru/callibri.js';
+      s.async = true;
+      document.body.appendChild(s);
     }
-    gtm()
-    fired = true
+
     window.addEventListener('load', async() => {
       if (fired === false) {
         fired = true;
-        await setTimeout(() => gtm(),0)
+        await setTimeout(() => gtm(),2000)
       }
     });
     window.addEventListener('beforeunload', async() => {
@@ -79,6 +82,5 @@
 <!-- End Google Tag Manager (noscript) -->
 <!--<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a[b]=a[b]||function(){(a[b].a=a[b].a||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(42010699,"init",{id:42010699,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});</script>-->
 {{ APP }}
-<script type="text/javascript" id="" charset="utf-8" src="//cdn.callibri.ru/callibri.js" ></script>
 </body>
 </html>

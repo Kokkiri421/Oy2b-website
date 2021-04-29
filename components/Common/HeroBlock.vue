@@ -71,7 +71,7 @@ export default {
       errors: [],
       success: false,
       isClicked: false,
-      isMobile: false,
+      isMobile: true,
     }
   },
   components: {
