@@ -51,6 +51,7 @@
         @onClick="showModal"
         v-if="ratioType === 'ratio'"
         :price="price"
+        :tarif="true"
         :calculator-info="calculatorInfo"
       />
       <sysadmin-salary-modal v-else :sysadmin-count="sysadminCount" />

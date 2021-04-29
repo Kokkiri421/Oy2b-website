@@ -54,6 +54,7 @@ export default {
   props: {
     price: { type: Number, default: 0 },
     calculatorInfo: { type: Object, default: null },
+    tarif: { type: Boolean },
   },
   methods: {
     async checkForm(e) {
@@ -112,7 +113,9 @@ export default {
               : ''
           }`,
         }
-        let gtmName = this.$store.state.gtmNames[this.$route.path]
+        let gtmName = this.tarif
+          ? 'zayavka_tarif'
+          : this.$store.state.gtmNames[this.$route.path]
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
           // .then((res) => console.log(res.data))
@@ -129,6 +132,7 @@ export default {
                   this.name = ''
                 })
           )
+        return true
       }
       console.log(this.errors)
     },

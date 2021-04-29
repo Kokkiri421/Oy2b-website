@@ -2,55 +2,67 @@
 <!--[if IE 9]><html class="lt-ie9 ie9" {{ HTML_ATTRS }}><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html {{ HTML_ATTRS }}><!--<![endif]-->
 <head {{ HEAD_ATTRS }}>
-  <script>
-    var fired = false;
-    window.addEventListener('scroll', () => {
+  <script async >
+    let fired = false;
+    function gtm() {
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-T9VCHD3');
+    }
+    window.addEventListener('load', async() => {
       if (fired === false) {
         fired = true;
-
-        setTimeout(() => {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-T9VCHD3');
-        }, 100)
+        await setTimeout(() => gtm(),0)
       }
     });
-    window.addEventListener('click', () => {
+    window.addEventListener('beforeunload', async() => {
       if (fired === false) {
         fired = true;
-
-        setTimeout(() => {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-T9VCHD3');
-        }, 100)
+        await gtm()
+        //await setTimeout(() => gtm(),100)
       }
     });
-    window.addEventListener('resize', () => {
+    window.addEventListener('scroll', async() => {
       if (fired === false) {
         fired = true;
-
-        setTimeout(() => {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-T9VCHD3');
-        }, 100)
+        await gtm()
+        //await setTimeout(() => gtm(),100)
+      }
+    });
+    window.addEventListener('click', async() => {
+      if (fired === false) {
+        fired = true;
+        await gtm()
+      }
+    });
+    window.addEventListener('resize', async() => {
+      if (fired === false) {
+        fired = true;
+        await gtm()
       }
     });
 </script>
-  <!-- Google Tag Manager -->
-<!--  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
-<!--      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
-<!--    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
-<!--    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
-<!--  })(window,document,'script','dataLayer','GTM-N3FD3DZ');</script>-->
-  <!-- End Google Tag Manager -->
+<!--   Google Tag Manager-->
+<!--  <script>-->
+<!--    var fired = false;-->
+<!--    window.addEventListener('scroll', () => {-->
+<!--      if (fired === false) {-->
+<!--        fired = true;-->
+
+<!--        setTimeout(() => {-->
+<!--          ((function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
+<!--              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
+<!--            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
+<!--            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+<!--          })(window,document,'script','dataLayer','GTM-N3FD3DZ'));-->
+<!--        }, 100)-->
+<!--      }-->
+<!--    });-->
+
+<!--    </script>-->
+<!--   End Google Tag Manager-->
   {{ HEAD }}
 </head>
 <body {{ BODY_ATTRS }}>

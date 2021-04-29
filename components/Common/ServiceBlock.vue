@@ -6,11 +6,12 @@
       :style="{
         cursor: type === 'block' ? 'default' : 'pointer',
       }"
-      :class="[
-        this.isLeftAlign ? 'left' : 'right',
-        this.isGrey ? 'grey' : 'blue',
-      ]"
+      :class="[this.isGrey ? 'grey' : 'blue']"
     >
+      <div
+        class="content-block-background"
+        :class="[this.isLeftAlign ? 'content-block-background__left' : '']"
+      ></div>
       <div class="content-block__header">
         <h4 class="header-content">
           <span :class="{ order: type === 'order', link: type === 'link' }"
@@ -104,7 +105,42 @@ export default {
   page-break-inside: avoid;
   column-fill: balance;
   padding-bottom: 1em;
+  @include _950() {
+    margin-right: -4em;
+    margin-left: -4em;
+  }
+  @include _900() {
+    margin-right: -2em;
+    margin-left: -2em;
+  }
+  @include _600() {
+    margin-right: -1em;
+    margin-left: -1em;
+  }
+  .content-block-background {
+    position: absolute;
+    content: '';
+    height: 100%;
+    background-color: inherit;
+    width: 50vw;
+    top: 0;
+    z-index: -1;
+    left: 6px;
+    @include _950() {
+      //position: absolute;
+      //left: 50%;
+      //transform: translateX(-50%);
+      //height: 100%;
+      //width: 100vw;
+      //z-index: -1;
+      display: none;
+    }
+    &__left {
+      left: calc(-50vw + 6px);
+    }
+  }
   .content-block {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -115,8 +151,20 @@ export default {
     padding: 1em;
     box-sizing: border-box;
 
-    @include _480() {
-      padding: 1em 1.25em 1.5em;
+    @include _950() {
+      padding-right: 5em;
+      padding-left: 5em;
+      border-radius: 0;
+    }
+    @include _900() {
+      padding-right: 3em;
+      padding-left: 3em;
+      border-radius: 0;
+    }
+    @include _600() {
+      padding-right: 2em;
+      padding-left: 2em;
+      border-radius: 0;
     }
 
     &__header {
@@ -224,42 +272,46 @@ export default {
 .expanded {
   max-height: fit-content !important;
 }
-.left {
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    background-color: $light-blue-color;
-    width: 1000%;
-    top: 0;
-    z-index: -1;
-    left: -925%;
-    @include _950() {
-      width: 100vw;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
-}
-.right {
-  position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    background-color: $light-blue-color;
-    width: 1000%;
-    top: 0;
-    z-index: -1;
-    right: -925%;
-    @include _950() {
-      width: 100vw;
-      left: 50%;
-      transform: translate(-50%, 0);
-    }
-  }
-}
+//.left {
+//  position: relative;
+//  &:before {
+//    content: '';
+//    position: absolute;
+//    height: 100%;
+//    background-color: $light-blue-color;
+//    width: 1000%;
+//    top: 0;
+//    z-index: -1;
+//    left: -925%;
+//    @include _950() {
+//      position: absolute;
+//      left: 50%;
+//      transform: translateX(-50%);
+//      top: 0;
+//      height: 100%;
+//      width: 100vw;
+//      z-index: -1;
+//    }
+//  }
+//}
+//.right {
+//  position: relative;
+//  &:before {
+//    content: '';
+//    position: absolute;
+//    height: 100%;
+//    background-color: $light-blue-color;
+//    width: 1000%;
+//    top: 0;
+//    z-index: -1;
+//    right: -925%;
+//    @include _950() {
+//      width: 100vw;
+//      left: 50%;
+//      transform: translate(-50%, 0);
+//    }
+//  }
+//}
 .grey {
   background-color: $form-bg-color !important;
   &:before {

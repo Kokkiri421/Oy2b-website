@@ -517,9 +517,6 @@
         </tbody>
       </table>
     </div>
-    <modal-window :show="isModalShown" @onClick="showModal"
-      ><TicketModalForm @onClick="showModal"
-    /></modal-window>
   </div>
 </template>
 

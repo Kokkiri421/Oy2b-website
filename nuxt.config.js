@@ -5,7 +5,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Oyster Telecom - оператор связи для бизнеса в Санкт-Петербурге. Мы предоставляем услуги доступа в интернет, объединения офисов, телефонии, организации зон wifi, виртуальной атс, хостинга и аренды каналов и волокна. Надежный B2B провайдер.',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -30,7 +35,13 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: ['@aceforth/nuxt-optimized-images'],
-
+  // render: {
+  //   bundleRenderer: {
+  //     shouldPreload: (file, type) => {
+  //       return ['font'].includes(type)
+  //     },
+  //   },
+  // },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
