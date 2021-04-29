@@ -42,8 +42,11 @@
               >
             </li>
             <li class="list-item" @click="onClick">
-              <NuxtLink class="nuxtlink" to="/service/service-it-out">
-                <span class="underline-animated-link">IT аутсорсинг</span>
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/service-it-out"
+              >
+                <span>IT аутсорсинг</span>
                 <icon
                   :icon-name="'flame-icon'"
                   class="icon"
