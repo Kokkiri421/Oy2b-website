@@ -143,11 +143,7 @@
         </p>
       </div>
     </div>
-    <modal-window
-      class="modal-window"
-      :show="isModalShown"
-      @onClick="showModal"
-    >
+    <modal-window :show="isModalShown" v-if="isModalShown" @onClick="showModal">
       <img
         class="modal-image"
         :src="require(`~/static/images/licences/${imgName}`)"

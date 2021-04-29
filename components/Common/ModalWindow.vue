@@ -52,7 +52,7 @@ export default {
   visibility: hidden;
   position: fixed;
   display: none;
-  z-index: 2000;
+  z-index: 20;
   top: 0;
   left: 0;
   width: 100%;

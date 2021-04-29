@@ -159,6 +159,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+
 .scroll_colored {
   color: #fff !important;
   stroke: #fff !important;
@@ -181,6 +182,7 @@ export default {
 
 .container {
   width: 100%;
+  position: relative;
 }
 .header {
   display: flex;
@@ -251,6 +253,7 @@ export default {
   display: flex;
   flex-direction: row;
   padding: 2px 0;
+  z-index: 0;
   .phone {
     &__link {
       display: flex;
@@ -275,7 +278,7 @@ export default {
       cursor: pointer;
       background-color: transparent;
       border: 1px solid $header-color;
-      z-index: -1;
+      z-index: 0;
       line-height: 1.6em;
 
       font-size: 0.6em;

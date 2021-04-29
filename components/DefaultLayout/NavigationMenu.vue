@@ -221,7 +221,7 @@ export default {
   overflow: auto;
   //width: calc(max-content + 10em);
   border-radius: 0 0 6px 6px;
-
+  z-index: 1;
   @include _1300 {
     margin-left: -4em;
     border-radius: 0 0 6px 0;

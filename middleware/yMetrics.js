@@ -4,8 +4,6 @@ export default function (context) {
   if (process.browser) {
     setTimeout(() => {
       if (typeof ym !== undefined) {
-        console.log(typeof ym)
-        console.log(context.route.path)
         ym(42010699, 'hit', context.route.path)
       }
     }, 200)

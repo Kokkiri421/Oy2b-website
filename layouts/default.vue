@@ -1,6 +1,7 @@
 <template>
   <div class="layout">
     <header
+      class="layout-header"
       :class="{
         scroll_colored: scrollPosition > 0,
         scroll_colored_default:
