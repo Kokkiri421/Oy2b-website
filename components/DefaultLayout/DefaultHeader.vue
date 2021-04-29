@@ -11,6 +11,7 @@
           <NuxtLink class="logo__link" :to="'/'">
             <div
               class="logo__img"
+              @click="onLogoClick"
               :class="{
                 isActive: activeMenuStatus,
                 scroll_colored_bg: scrollPosition > 0,
@@ -117,6 +118,13 @@ export default {
     },
   },
   methods: {
+    onLogoClick: function () {
+      if (this.$route.path === '/') {
+        window.scrollTo({
+          top: 0,
+        })
+      }
+    },
     updateScroll() {
       this.scrollPosition = window.scrollY
     },

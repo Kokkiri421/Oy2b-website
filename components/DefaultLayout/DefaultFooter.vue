@@ -8,6 +8,7 @@
               class="logo__img"
               src="~/static/images/header-logo.svg"
               alt="OysterTelecom"
+              @click="onLogoClick"
             />
           </NuxtLink>
         </div>
@@ -135,6 +136,15 @@ export default {
   components: {
     Icon,
     FlameIcon,
+  },
+  methods: {
+    onLogoClick: function () {
+      if (this.$route.path === '/') {
+        window.scrollTo({
+          top: 0,
+        })
+      }
+    },
   },
 }
 </script>

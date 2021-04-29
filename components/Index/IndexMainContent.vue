@@ -129,6 +129,15 @@ export default {
     align-self: baseline;
 
     .info-number {
+      &:nth-child(1) {
+        min-width: 4em;
+      }
+      &:nth-child(2) {
+        min-width: 10em;
+      }
+      &:nth-child(3) {
+        min-width: 12em;
+      }
       &__number {
         margin-bottom: 0.5em;
       }
