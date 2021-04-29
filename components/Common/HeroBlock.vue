@@ -101,9 +101,8 @@ export default {
       this.$emit('onClick')
     },
     async checkForm(e) {
-      if (this.isClicked) return
-      this.isClicked = true
       e.preventDefault()
+      if (this.success) return
       this.errors = []
       let phone = this.phone
         .replace('+7(', '')
@@ -127,6 +126,7 @@ export default {
           description: `Тип формы: ${routename}. Проверка адреса\nКомпания или адрес: ${this.company}\n`,
         }
         let gtmName = this.$store.state.gtmNames[this.$route.path]
+
         let response = await this.$axios
           .post(process.env.CRM_LINK, body)
           // .then((res) => console.log(res.data))

@@ -267,7 +267,7 @@ export default {
       cursor: pointer;
       background-color: transparent;
       border: 1px solid $header-color;
-
+      z-index: -1;
       line-height: 1.6em;
 
       font-size: 0.6em;

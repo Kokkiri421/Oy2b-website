@@ -21,14 +21,10 @@ export default {
     '~/assets/common-style.scss',
     '~/assets/media_mixin.scss',
   ],
-  render: {
-    // Setting up cache for 'static' directory - a year in milliseconds
-    // https://web.dev/uses-long-cache-ttl
-    plugins: {
-      maxAge: 60 * 60 * 24 * 365 * 1000,
-    },
-  },
 
+  router: {
+    middleware: 'yMetrics',
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/ymapPlugin.js', mode: 'client' },
