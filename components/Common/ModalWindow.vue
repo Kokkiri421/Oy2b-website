@@ -1,10 +1,10 @@
 <template>
+  <!--  v-scroll-lock="show"-->
   <div
     id="myModal"
     class="modal"
     :class="{ show: show }"
     @mousedown="clickAnywhere"
-    v-scroll-lock="show"
   >
     <div class="modal-content-wrapper">
       <div class="modal-content">
@@ -48,6 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+
 .modal {
   visibility: hidden;
   position: fixed;
@@ -62,6 +63,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+
   .modal-content-wrapper {
     z-index: 1;
     position: relative;
@@ -73,6 +75,7 @@ export default {
       padding: 1em;
     }
   }
+
   .modal-content {
     background-color: #fefefe;
     margin: auto auto;
@@ -80,6 +83,7 @@ export default {
     border-radius: 6px;
     width: fit-content;
   }
+
   .modal-close {
     cursor: pointer;
     position: absolute;
@@ -93,16 +97,19 @@ export default {
       width: 2em;
       height: 2em;
     }
+
     &:hover {
       &:before {
         background-color: #d81428;
         transform: rotate(135deg);
       }
+
       &:after {
         background-color: #d81428;
         transform: rotate(45deg);
       }
     }
+
     &:before {
       content: '';
       position: absolute;
@@ -115,6 +122,7 @@ export default {
       transform-origin: 50% 50%;
       transition: transform 0.3s ease-out, background-color 0.3s ease-out;
     }
+
     &:after {
       content: '';
       position: absolute;
@@ -129,12 +137,14 @@ export default {
     }
   }
 }
+
 .show {
   display: flex;
   visibility: visible;
   opacity: 1;
   z-index: 199;
 }
+
 .closeBg {
   @include _700() {
     background-color: rgba(0, 0, 0, 0.6);

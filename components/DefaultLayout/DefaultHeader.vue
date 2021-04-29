@@ -182,7 +182,6 @@ export default {
 
 .container {
   width: 100%;
-  position: relative;
 }
 .header {
   display: flex;

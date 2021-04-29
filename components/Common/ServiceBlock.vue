@@ -7,6 +7,7 @@
         cursor: type === 'block' ? 'default' : 'pointer',
       }"
       :class="[this.isGrey ? 'grey' : 'blue']"
+      @click="showModal(true)"
     >
       <div
         class="content-block-background"
@@ -75,8 +76,9 @@ export default {
     // scrollDown() {
     //   this.$emit('onClick')
     // },
-    showModal() {
-      if (this.type === 'block') return
+    showModal(desktopOnly = false) {
+      if (this.type === 'block' || (desktopOnly && window.innerWidth <= 480))
+        return
       this.isModalShown = !this.isModalShown
     },
     setAlign() {
