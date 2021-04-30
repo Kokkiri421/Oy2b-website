@@ -96,7 +96,7 @@ export default {
       if (!this.name) {
         this.errors.push('name')
       }
-      if (!this.phone) {
+      if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       }
       if (this.errors.length === 0) {

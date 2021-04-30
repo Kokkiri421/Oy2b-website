@@ -14,7 +14,7 @@
                 type="number"
                 class="input-number input-label"
                 name="сpu-count"
-                min="0"
+                min="1"
                 max="30"
                 step="1"
                 v-model="cpuCount"
@@ -25,7 +25,7 @@
                 class="input-slider cpu-count"
                 id="сpu-count"
                 name="сpu-count"
-                min="0"
+                min="1"
                 max="30"
                 v-model="cpuCount"
                 @change="changeField($event, cpuCount, 30)"
@@ -43,7 +43,7 @@
                 type="number"
                 class="input-number input-label"
                 name="ram-count"
-                min="0"
+                min="1"
                 max="64"
                 step="1"
                 v-model="ramCount"
@@ -54,7 +54,7 @@
                 class="input-slider ram-count"
                 id="ram-count"
                 name="ram-count"
-                min="0"
+                min="1"
                 max="64"
                 v-model="ramCount"
                 @change="changeField($event, ramCount, 64)"
@@ -270,7 +270,7 @@ export default {
       ramCount: 16,
       ssdCount: 50,
       hddCount: 1000,
-      type: 0,
+      type: 7,
       name: '',
       phone: '',
       company: '',

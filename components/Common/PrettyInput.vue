@@ -101,6 +101,8 @@ export default {
 .pretty-input {
   position: relative;
   display: inline-block;
+
+  border-radius: 4px;
   .form-input {
     appearance: none;
     padding: 0.8em 1em;
@@ -110,16 +112,18 @@ export default {
     line-height: 1.6em;
     min-height: 3.2em;
     box-sizing: border-box;
+    &__error {
+      outline: $red-color1 auto 1px;
+    }
     &__white-bg {
-      outline: #dfdfdf auto 1px;
+      border: 1px solid #dfdfdf;
     }
     resize: none;
     font: 400 1em/1.1em Montserrat, sans-serif;
     &:focus {
+      outline: $text-color auto 1px;
     }
-    &__error {
-      outline: $red-color1 auto 1px;
-    }
+
     &__placeholder {
       position: absolute;
       line-height: 1.6em;
