@@ -94,7 +94,7 @@ export default {
   @include _950() {
   }
   @include _600() {
-    margin-top: -2em;
+    margin-top: -3em;
   }
 }
 .company-info {
