@@ -203,16 +203,6 @@
             </div>
           </div>
         </div>
-        <div class="calculator__privacy">
-          <p class="privacy">
-            *Минимальная стоимость обслуживания - 5000р&nbsp;в&nbsp;месяц
-          </p>
-          <p class="privacy">
-            **Конечная стоимость рассчитывается на&nbsp;основании
-            технического&nbsp;аудита
-          </p>
-          <p class="privacy">***Видеонаблюдение рассчитывается отдельно</p>
-        </div>
       </div>
 
       <ratio-form
@@ -224,6 +214,16 @@
         :sysadminCount="sysadminCount"
         :calculator-info="getCalculatorInfo"
       ></ratio-form>
+      <div class="calculator__privacy">
+        <p class="privacy">
+          *Минимальная стоимость обслуживания - 5000р&nbsp;в&nbsp;месяц
+        </p>
+        <p class="privacy">
+          **Конечная стоимость рассчитывается на&nbsp;основании
+          технического&nbsp;аудита
+        </p>
+        <p class="privacy">***Видеонаблюдение рассчитывается отдельно</p>
+      </div>
     </div>
   </div>
 </template>
@@ -320,11 +320,15 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    flex-wrap: wrap;
     @include _1300() {
       flex-direction: column;
       justify-content: flex-start;
     }
+  }
+  &__calculator {
+    order: 3;
+    flex-basis: 100%;
   }
   &__container {
     flex-grow: 1;
@@ -356,7 +360,7 @@ export default {
   @include _1300() {
     margin-right: 0;
     margin-bottom: 1em;
-    height: fit-content;
+    height: min-content;
   }
   @include _600() {
     padding: 20px;
@@ -544,9 +548,15 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  @include _1300() {
+    margin-bottom: 0 !important;
+  }
 }
 .switch-type {
   justify-content: flex-start;
+  @include _1300() {
+    margin-bottom: 0 !important;
+  }
   &:nth-last-child(-n + 1) {
     margin-left: 1em;
     .calculator-type__header {

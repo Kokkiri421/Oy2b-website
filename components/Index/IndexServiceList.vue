@@ -1,6 +1,6 @@
 <template>
   <div class="company-services">
-    <h4>Услуги связи и ИТ сервисы в Санкт‑Петербурге</h4>
+    <h4 v-if="!isMobile">Услуги связи и ИТ сервисы в Санкт‑Петербурге</h4>
     <div class="service-buttons">
       <ul class="service-button-list">
         <animate-on-viewport>
@@ -200,8 +200,11 @@ import FlameIcon from '~/components/Icons/FlameIcon'
 
 export default {
   data() {
-    return {}
+    return {
+      isMobile: true,
+    }
   },
+
   components: {
     Icon,
     WifiIcon,
@@ -216,12 +219,30 @@ export default {
     AnimateOnViewport,
     FlameIcon,
   },
+
+  methods: {
+    updateSize() {
+      if (window.innerWidth <= 600) {
+        return (this.isMobile = true)
+      } else {
+        return (this.isMobile = false)
+      }
+    },
+  },
+  mounted() {
+    this.updateSize()
+    window.addEventListener('resize', this.updateSize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateSize)
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 @import '~/assets/colors';
+
 .company-services {
   h4 {
     margin: 0;

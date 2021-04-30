@@ -585,6 +585,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: 'Соглашение на обработку персональных данных',
+    }
+  },
   layout: 'documentLayout',
 }
 </script>

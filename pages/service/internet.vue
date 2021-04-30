@@ -184,6 +184,19 @@ import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
+  head() {
+    return {
+      title: 'Интернет до 10Гбит/с для юридических лиц в Санкт-Петербурге',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Интернет для бизнеса в Санкт-Петербурге. Провайдер Oyster Telecom предлагает услуги по подключению интернета для юридических лиц в Санкт-Петербурге. Работаем быстро. От заявки до подключения — 3 дня!',
+        },
+      ],
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,

@@ -96,7 +96,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Соглашение на обработку персональных данных',
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>

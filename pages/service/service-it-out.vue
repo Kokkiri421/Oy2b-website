@@ -265,6 +265,11 @@ import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 
 export default {
+  head() {
+    return {
+      title: 'IT Аутсорсинг',
+    }
+  },
   data() {
     return {
       computerCount: 10,

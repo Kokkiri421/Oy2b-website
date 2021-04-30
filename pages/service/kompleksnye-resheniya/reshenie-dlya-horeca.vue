@@ -231,6 +231,19 @@ import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
+  head() {
+    return {
+      title: 'Решение для HoReCa для бизнеса от компании Oyster Telecom',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Комплексные решения услуг связи для бизнеса от провайдера Oyster Telecom. Оставляйте заявку и мы подготовим решение для вашего бизнеса!',
+        },
+      ],
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,

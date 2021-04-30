@@ -182,6 +182,11 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 
 export default {
+  head() {
+    return {
+      title: 'IP Адреса',
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,

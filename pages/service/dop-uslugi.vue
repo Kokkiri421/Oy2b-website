@@ -223,6 +223,19 @@ export default {
     CallUsBlock,
     PriceForm,
   },
+  head() {
+    return {
+      title: 'Услуги Операторам связи в Санкт-Петербурге',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Аренда каналов связи и оптоволокна в Санкт-Петербурге. Провайдер Oyster Telecom предлагает услуги операторам связи в Санкт-Петербурге: аренда оптоволокна и каналов связи, проброс трафика и другие услуги. Обращайтесь по нашим телефонам или оставьте заявку на сайте!',
+        },
+      ],
+    }
+  },
   methods: {
     scrollToServices: function () {
       window.scrollTo({

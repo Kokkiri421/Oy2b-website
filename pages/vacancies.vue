@@ -447,6 +447,18 @@
 import ModalWindow from '~/components/Common/ModalWindow'
 import VacancyApplyModalForm from '~/components/Vacancies/VacancyApplyModalForm.vue'
 export default {
+  head() {
+    return {
+      title: 'Вакансии Oyster Telecom',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Информация о провайдере Oyster Telecom.',
+        },
+      ],
+    }
+  },
   data() {
     return {
       expanded: Array(6).fill(false),

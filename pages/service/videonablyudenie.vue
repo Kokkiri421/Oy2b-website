@@ -264,6 +264,19 @@ import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
+  head() {
+    return {
+      title: 'Видеонаблюдение для бизнеса в Санкт-Петербурге',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Заказать услуги видеонаблюдения для бизнеса в Санкт-Петербурге от компании Oyster Telecom. Быстрая настройка!',
+        },
+      ],
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,

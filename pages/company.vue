@@ -156,6 +156,18 @@
 <script>
 import ModalWindow from '~/components/Common/ModalWindow'
 export default {
+  head() {
+    return {
+      title: 'О компании Oyster Telecom',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Информация о провайдере Oyster Telecom.',
+        },
+      ],
+    }
+  },
   data() {
     return {
       isModalShown: false,

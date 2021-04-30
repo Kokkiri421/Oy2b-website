@@ -1781,7 +1781,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'SLA Oyster Telecom',
+    }
+  },
+}
 </script>
 
 <style lang="scss" scoped>

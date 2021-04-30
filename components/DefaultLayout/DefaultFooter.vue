@@ -97,7 +97,7 @@
         </div>
       </div>
       <div class="footer-bottom footer-item smallfont-400">
-        <div class="copy">© 2021 Oyster Telecom</div>
+        <div class="copy">© 2000-2021 Oyster Telecom</div>
         <div class="social">
           <div class="social-network instagram">
             <a

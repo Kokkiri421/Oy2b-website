@@ -276,6 +276,11 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 import VirtualCalculatorForm from '~/components/VirtualService/VirtualCalculatorForm'
 export default {
+  head() {
+    return {
+      title: 'Виртуальные сервисы',
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,

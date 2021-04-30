@@ -85,6 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
+
 .main-content {
   width: 100%;
 
@@ -92,7 +93,8 @@ export default {
   flex-direction: column;
   @include _950() {
   }
-  @include _640() {
+  @include _600() {
+    margin-top: -2em;
   }
 }
 .company-info {

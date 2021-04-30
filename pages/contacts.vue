@@ -78,6 +78,18 @@ import ContactYandexMap from '~/components/Contacts/ContactYandexMap'
 
 export default {
   //layout: 'documentLayout',
+  head() {
+    return {
+      title: 'Контакты Oyster Telecom',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Контакты компании Oyster Telecom.',
+        },
+      ],
+    }
+  },
   data() {
     return {
       windowWidth: false,

@@ -258,6 +258,19 @@ import SlaBlock from '~/components/ItOutsource/SlaBlock'
 import CallUsBlock from '~/components/Index/CallUsBlock'
 import PriceForm from '~/components/ItOutsource/PriceForm'
 export default {
+  head() {
+    return {
+      title: 'Wi-Fi для бизнеса в Санкт-Петербурге',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Wi-Fi для бизнеса в Санкт-Петербурге. Провайдер Oyster Telecom предлагает услуги по подключению Wi-Fi для бизнеса в любых местах: офис, ресторан, гостиница. Быстрое подключение и отличные цены! Оставляйте заявки на подключение!',
+        },
+      ],
+    }
+  },
   components: {
     HeroBlock,
     ServiceBlock,
