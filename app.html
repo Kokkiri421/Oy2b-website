@@ -4,6 +4,7 @@
 <head {{ HEAD_ATTRS }}>
   <script async >
     let fired = false;
+    let firedLoad = false;
     function gtm() {
       // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -21,33 +22,46 @@
       s.async = true;
       document.body.appendChild(s);
     }
-
-    window.addEventListener('load', async() => {
-      if (fired === false) {
-        fired = true;
-        await setTimeout(() => gtm(),2000)
-      }
-    });
-    window.addEventListener('beforeunload', async() => {
+    window.addEventListener('click', async() => {
       if (fired === false) {
         fired = true;
         await gtm()
+        //await setTimeout(() => ym(42010699, 'hit', window.location.pathname),200)
+      }
+    });
+    window.addEventListener('load', () => {
+      setTimeout(async () => {
+        if (fired === false) {
+          fired = true;
+          await gtm()
+        }
+      },2000)
+
+    });
+    // window.addEventListener('mousemove', async() => {
+    //   if (fired === false) {
+    //     fired = true;
+    //     await gtm()
+    //     //await setTimeout(() => gtm(),100)
+    //   }
+    // });
+    window.addEventListener('beforeunload', async() => {
+      if (fired === false) {
+
+        await gtm()
+        fired = true;
         //await setTimeout(() => gtm(),100)
       }
     });
     window.addEventListener('scroll', async() => {
       if (fired === false) {
-        fired = true;
+
         await gtm()
+        fired = true;
         //await setTimeout(() => gtm(),100)
       }
     });
-    window.addEventListener('click', async() => {
-      if (fired === false) {
-        fired = true;
-        await gtm()
-      }
-    });
+
     window.addEventListener('resize', async() => {
       if (fired === false) {
         fired = true;
