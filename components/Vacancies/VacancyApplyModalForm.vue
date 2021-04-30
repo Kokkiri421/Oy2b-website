@@ -30,7 +30,7 @@
       ></pretty-input>
       <pretty-input
         :name="'cv'"
-        :placeholder="'Загрузить резюме'"
+        :placeholder="'Загрузить резюме (до 5 Мб)'"
         :type="'file'"
         :file="cv ? cv.name : null"
         class="modal-form__item"
