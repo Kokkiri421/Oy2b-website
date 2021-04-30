@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="legal-page">
+    <div class="legal-page page-content">
       <h5 class="header">
         Политика в&nbsp;области обработки и&nbsp;обеспечения безопасности
         персональных данных
@@ -590,7 +590,6 @@ export default {
       title: 'Соглашение на обработку персональных данных',
     }
   },
-  layout: 'documentLayout',
 }
 </script>
 

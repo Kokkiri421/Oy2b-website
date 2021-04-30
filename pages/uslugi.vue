@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="legal-page">
+    <div class="legal-page page-content">
       <h5 class="header">Термины и&nbsp;определения услуг</h5>
       <ol class="legal-page__content page-content-block">
         <li>

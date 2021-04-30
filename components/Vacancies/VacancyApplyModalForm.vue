@@ -2,10 +2,11 @@
   <div class="modal-form">
     <h4 class="modal-form__header">Откликнуться на&nbsp;вакансию</h4>
     <p class="form-error-message" v-if="errors.length > 0">
-      Заполните обязательные поля
-    </p>
-    <p class="form-error-message" v-else-if="errors.length > 0">
-      Заполните обязательные поля
+      {{
+        errors.includes('cv size')
+          ? 'Слишком большой размер резюме'
+          : 'Заполните обязательные поля'
+      }}
     </p>
     <p class="form-success-message" v-else-if="success">
       Заявка успешно отправлена
@@ -81,8 +82,11 @@ export default {
       if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
       }
-      if (!this.cv || this.cv.size > 5015055) {
+      if (!this.cv) {
         this.errors.push('cv')
+      }
+      if (this.cv.size > 5015055) {
+        this.errors.push('cv size')
       }
 
       if (this.errors.length === 0) {
