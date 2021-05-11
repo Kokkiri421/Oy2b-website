@@ -4,7 +4,7 @@
       <default-header :default-colored="false" />
     </header>
     <div class="flex-grow-1 content"><Nuxt /></div>
-    <footer class="flex-grow-1" ref="footer">
+    <footer ref="footer">
       <default-footer />
     </footer>
     <div class="lines">

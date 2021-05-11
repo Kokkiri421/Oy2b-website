@@ -62,6 +62,7 @@ export default {
 @import '~/assets/common-style';
 
 .layout {
+  min-height: 100vh;
   height: 100%;
   position: relative;
   overflow: hidden;
