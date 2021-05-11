@@ -189,14 +189,18 @@
                   Обслуживание видеонаблюдения
                 </div>
                 <label class="calculator-type__switch">
-                  <input type="checkbox" :checked="cctv" />
+                  <input type="checkbox" :checked="cctv" @click="changeCCTV" />
                   <span class="slider round"></span>
                 </label>
               </div>
               <div class="calculator-type switch-type">
                 <div class="calculator-type__header">Точки доступа</div>
                 <label class="calculator-type__switch">
-                  <input type="checkbox" :checked="accessPoints" />
+                  <input
+                    type="checkbox"
+                    :checked="accessPoints"
+                    @click="changeAccessPoints"
+                  />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -255,6 +259,7 @@ export default {
     changeOfficeEquipmentCount: { type: Function, required: true },
     changePhoneCount: { type: Function, required: true },
     changeCCTV: { type: Function, required: true },
+    changeAccessPoints: { type: Function, required: true },
     basicPrice: { type: Number, required: true },
     standardPrice: { type: Number, required: true },
     sysadminPrice: { type: Number, required: true },
