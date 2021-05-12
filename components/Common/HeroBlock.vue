@@ -115,7 +115,8 @@ export default {
       }
       if (!this.phone || phone.length !== 10) {
         this.errors.push('phone')
-      } else if (this.errors.length === 0) {
+      }
+      if (this.errors.length === 0) {
         let routename = this.$store.state.routeNames[this.$route.path]
         let body = {
           dev: process.env.APP_ENV === 'dev',

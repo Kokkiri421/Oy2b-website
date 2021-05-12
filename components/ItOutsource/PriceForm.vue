@@ -8,12 +8,6 @@
         <h4 class="name-phone-company-form__header">
           Давайте прямо сейчас рассчитаем стоимость работ
         </h4>
-        <!--        <div class="image-container">-->
-        <!--          <img-->
-        <!--            class="image"-->
-        <!--            src="~/static/images/block-images/calculator.png"-->
-        <!--          />-->
-        <!--        </div>-->
       </div>
 
       <p class="form-error-message" v-if="errors.length > 0">
@@ -111,14 +105,23 @@ export default {
             surname: fullname[1] || '.',
             phones: [{ phone: phone }],
           },
-          description: `Тип формы: ${routename}. Рассчёт стоимости работ\nКопмания: ${this.company}`,
+          description: `Тип формы: ${routename}. Рассчёт стоимости работ\nКомпания или адрес: ${this.company}\n`,
         }
-        let responseBot = await this.$axios.post(process.env.BOT_LINK, body)
-        let response = await this.$axios.post(process.env.CRM_LINK, body)
-        //.post('http://89.104.118.224:3000/ticket', body)
-        await this.setSuccess()
-        this.phone = ''
-        this.company = ''
+        let gtmName = this.$store.state.gtmNames[this.$route.path]
+        let response = await this.$axios
+          .post(process.env.CRM_LINK, body)
+          .then(() => dataLayer.push({ event: gtmName }))
+          .finally(
+            async () =>
+              await this.$axios
+                .post(process.env.BOT_LINK, body)
+                .then(async () => {
+                  await this.setSuccess()
+                  this.phone = ''
+                  this.company = ''
+                  this.name = ''
+                })
+          )
         return true
       }
     },
