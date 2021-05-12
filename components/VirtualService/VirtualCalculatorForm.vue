@@ -285,8 +285,8 @@ export default {
   computed: {
     chromeProgress() {
       return {
-        '--cpu-progress': `${this.cpuCount * (100 / 30)}%`,
-        '--ram-progress': `${this.ramCount * (100 / 64)}%`,
+        '--cpu-progress': `${(this.cpuCount - 1) * (100 / 29)}%`,
+        '--ram-progress': `${(this.ramCount - 1) * (100 / 63)}%`,
         '--ssd-progress': `${this.ssdCount * (100 / 300)}%`,
         '--hdd-progress': `${this.hddCount * (100 / 4000)}%`,
       }
