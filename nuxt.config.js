@@ -52,7 +52,30 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
+    '@nuxtjs/robots',
     // '@nuxtjs/gtm',
+  ],
+  robots: [
+    {
+      UserAgent: 'Yandex',
+      Disallow: () => '/sla001' 
+    },
+    {
+      UserAgent: 'Yandex',
+      Disallow: () => '/legal' 
+    },
+    {
+      UserAgent: 'Yandex',
+      Disallow: () => '/privacy' 
+    },
+    {
+      UserAgent: 'Yandex',
+      Disallow: () => '/wifiok' 
+    },
+    {
+      UserAgent: 'Yandex',
+      Disallow: () => '/case' 
+    },
   ],
   // gtm: {
   //   id: 'GTM-T9VCHD3',
