@@ -57,24 +57,24 @@ export default {
   ],
   robots: [
     {
-      UserAgent: 'Yandex',
+      UserAgent: '*',
       Disallow: () => '/sla001' 
     },
     {
-      UserAgent: 'Yandex',
+      UserAgent: '*',
       Disallow: () => '/legal' 
     },
     {
-      UserAgent: 'Yandex',
+      UserAgent: '*',
       Disallow: () => '/privacy' 
     },
     {
-      UserAgent: 'Yandex',
+      UserAgent: '*',
       Disallow: () => '/wifiok' 
     },
     {
-      UserAgent: 'Yandex',
-      Disallow: () => '/case' 
+      UserAgent: '*',
+      Disallow: () => '/service/cases' 
     },
   ],
   // gtm: {
