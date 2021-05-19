@@ -26,4 +26,4 @@ deploy:
     - oy2b_site
   script:
     - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password kiX652QTKrkwozM3Twa6
-    - cd /srv/docker; docker-compose pull; docker-compose up -d oy2b-site
+    - cd /srv/docker; docker-compose pull oy2b-site; docker-compose up -d oy2b-site
