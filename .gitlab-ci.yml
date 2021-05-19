@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 before_script:
   - docker info
