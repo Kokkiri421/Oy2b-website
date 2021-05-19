@@ -7,10 +7,21 @@ before_script:
 build:
   stage: build
   only:
-    - master
+    refs:
+      - master
   tags:
     - builder
   script:
-    - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password SMEysWpx443xPzxok92y
-    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest .
+    - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password kiX652QTKrkwozM3Twa6
+    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest . --target=production
     - docker push gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - master
+  tags:
+    - oy2b_site
+  script:
+    - ls /srv
