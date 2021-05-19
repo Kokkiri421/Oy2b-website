@@ -14,7 +14,7 @@ build:
     - builder
   script:
     - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password kiX652QTKrkwozM3Twa6
-    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest . --target=production
+    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest .
     - docker push gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest
 
 deploy:
