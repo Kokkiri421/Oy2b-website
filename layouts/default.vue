@@ -50,7 +50,6 @@ export default {
   },
   computed: {},
   mounted() {
-    console.log(123)
     setTimeout(() => {}, 5000)
     this.defaultScrollPosition = window.scrollY
 
