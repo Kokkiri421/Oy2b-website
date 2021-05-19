@@ -25,4 +25,4 @@ deploy:
   tags:
     - oy2b_site
   script:
-    - ls /srv
+    - cd /srv/docker; docker-compose pull; docker-compose up -d oy2b-site
