@@ -1,0 +1,16 @@
+stages:
+  - build
+
+before_script:
+  - docker info
+
+build:
+  stage: build
+  only:
+    - master
+  tags:
+    - builder
+  script:
+    - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password SMEysWpx443xPzxok92y
+    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest .
+    - docker push gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest
