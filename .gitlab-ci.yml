@@ -1,12 +1,13 @@
 stages:
-  - build
-  - deploy
+  - build_prod
+  - deploy_prod
+  - build_dev
 
 before_script:
   - docker info
 
-build:
-  stage: build
+build_prod:
+  stage: build_prod
   only:
     refs:
       - master
@@ -17,8 +18,8 @@ build:
     - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest .
     - docker push gitlab.labilab.ru:5050/e.fishev/oy2b-app:latest
 
-deploy:
-  stage: deploy
+deploy_prod:
+  stage: deploy_prod
   only:
     refs:
       - master
@@ -27,3 +28,16 @@ deploy:
   script:
     - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password kiX652QTKrkwozM3Twa6
     - cd /srv/docker; docker-compose pull oy2b-site; docker-compose up -d oy2b-site
+
+build_dev:
+  stage: build_dev
+  only:
+    refs:
+      - dev
+  tags:
+    - builder
+  script:
+    - docker login gitlab.labilab.ru:5050 --username gitlab-runner --password kiX652QTKrkwozM3Twa6
+    - docker build -t gitlab.labilab.ru:5050/e.fishev/oy2b-app:dev .
+    - docker push gitlab.labilab.ru:5050/e.fishev/oy2b-app:dev
+
