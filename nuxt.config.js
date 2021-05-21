@@ -58,25 +58,25 @@ export default {
   robots: [
     {
       UserAgent: '*',
-      Disallow: () => '/sla001' 
+      Disallow: () => ['/sla001/','/legal/', '/privacy' ,'/wifiok/' ,'/service/cases/' ]
     },
-    {
-      UserAgent: '*',
-      Disallow: () => '/legal' 
-    },
-    {
-      UserAgent: '*',
-      Disallow: () => '/privacy' 
-    },
-    {
-      UserAgent: '*',
-      Disallow: () => '/wifiok' 
-    },
-    {
-      UserAgent: '*',
-      Disallow: () => '/service/cases' 
-    },
-  ],
+  //   {
+  //     UserAgent: '*',
+  //     Disallow: () => '/legal' 
+  //   },
+  //   {
+  //     UserAgent: '*',
+  //     Disallow: () => '/privacy' 
+  //   },
+  //   {
+  //     UserAgent: '*',
+  //     Disallow: () => '/wifiok' 
+  //   },
+  //   {
+  //     UserAgent: '*',
+  //     Disallow: () => '/service/cases' 
+  //   },
+  // ],
   // gtm: {
   //   id: 'GTM-T9VCHD3',
   //   autoInit: true,
