@@ -58,7 +58,7 @@ export default {
   robots: [
     {
       UserAgent: '*',
-      Disallow: () => ['/sla001/','/legal/', '/privacy' ,'/wifiok/' ,'/service/cases/' ]
+      Disallow: () => ['/sla001/','/legal/', '/privacy/' ,'/wifiok/' ,'/service/cases/','/sla001','/legal', '/privacy' ,'/wifiok' ,'/service/cases' ]
     },
   //   {
   //     UserAgent: '*',
