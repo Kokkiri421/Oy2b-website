@@ -165,7 +165,7 @@
           </p>
         </div>
 
-        <telephony-table class="telephony-table"></telephony-table>
+        <telephony-table class="telephony-table" v-if="isVisibleTable"></telephony-table>
         <p class="service-message page-content-block">
           <icon :icon-name="'rouble-icon'" class="icon">
             <rouble-icon />
@@ -232,7 +232,9 @@ import PriceForm from '~/components/ItOutsource/PriceForm'
 
 export default {
   data() {
-    return {}
+    return {
+      isVisibleTable : false,
+    }
   },
   head() {
     return {
@@ -262,6 +264,9 @@ export default {
   },
 
   methods: {
+    showTable: function() {
+      this.isVisibleTable = true;
+    },
     scrollToServices: function () {
       window.scrollTo({
         top:
@@ -281,6 +286,15 @@ export default {
       })
     },
   },
+  mounted() {
+    setTimeout(() => {
+      this.showTable()
+    }, 100);
+  },
+  beforeDestroy() {
+    
+  },
+  
 }
 </script>
 
