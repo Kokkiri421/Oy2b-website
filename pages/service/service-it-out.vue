@@ -58,6 +58,7 @@
                 <li>Создание новых рабочих мест</li>
                 <li>Модернизация оборудования</li>
               </ul>
+              <p class="article">В обслуживание рабочих мест входит настройка Оргтехники и IP Телефонных аппаратов</p>
             </template>
             <template v-slot:button>
               <button class="dialog-button">Заказать</button>
