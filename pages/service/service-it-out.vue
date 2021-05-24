@@ -373,7 +373,7 @@ export default {
         this.serverCount * 2600 +
         this.virtualServerCount * 1600 +
         this.netCount * 680 +
-        this.accessPoints * 260
+        this.officeEquipmentCount * 260
       if (this.computerCount >= 60) {
         this.discount = 30
       } else if (this.computerCount >= 40 || this.serverCount >= 4) {
@@ -395,7 +395,7 @@ export default {
         this.serverCount * 2600 +
         this.virtualServerCount * 1600 +
         this.netCount * 680 +
-        this.accessPoints * 260
+        this.officeEquipmentCount * 260
 
       if (price === 0) return price
       price =

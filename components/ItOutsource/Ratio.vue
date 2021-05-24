@@ -6,12 +6,12 @@
     <div class="main-info">
       <h4
         class="header"
-        :class="{ employee: ratioType === 'employee' }"
+        :class="{ employee: ratioType === 'employee1' }"
         @click="showContent"
       >
         <span>{{ header }}</span>
         <icon
-          v-if="ratioType === 'ratio'"
+          v-if="true"
           :icon-name="'expand-icon'"
           class="expand-icon"
           :class="{ rotate: isContentShown }"
@@ -27,7 +27,7 @@
           </p>
           <p class="discount-price">{{ price }}&nbsp;₽</p>
         </div>
-        <button class="dialog-button" @click="showModal">
+        <button class="dialog-button" @click="onClickButton(false)">
           {{ buttonText }}
         </button>
       </div>
@@ -40,7 +40,7 @@
           <div class="price">
             <p class="discount-price">{{ price }}&nbsp;₽</p>
           </div>
-          <button class="dialog-button" @click="showModal">
+          <button class="dialog-button" @click="onClickButton(true)">
             {{ buttonText }}
           </button>
         </div>
@@ -83,20 +83,31 @@ export default {
     SysadminSalaryModal,
   },
   methods: {
+    onClickButton(i) {
+      if (i) return
+      if (this.ratioType === 'employee' ) {
+        this.showContent()
+      } else {
+        this.showModal()
+      }
+    },
     showModal() {
       this.isModalShown = !this.isModalShown
     },
     showContent() {
-      if (this.ratioType !== 'ratio') return
+      // if (this.ratioType !== 'ratio') return
       if (!this.isContentShown) {
+        this.isContentShown = true
         this.scrollYcoord = window.scrollY
-      } else if (this.scrollYcoord < window.scrollY) {
-        window.scrollTo({
-          top: this.scrollYcoord,
-          behavior: 'smooth',
-        })
+      } else {
+        if (this.scrollYcoord < window.scrollY) {
+          window.scrollTo({
+            top: this.scrollYcoord,
+            behavior: 'smooth',
+          })
+        }
+        this.isContentShown = false
       }
-      this.isContentShown = !this.isContentShown
     },
   },
   props: {
