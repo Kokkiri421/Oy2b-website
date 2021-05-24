@@ -99,7 +99,7 @@
           :discount="discount"
           :sysadmin-count="sysadminCount"
           :ratioType="'employee'"
-          :header="'Штатный айтишник'"
+          :header="'Штатный сотрудник'"
           :button-text="'Почему дорого?'"
           id="slide-3"
         >
