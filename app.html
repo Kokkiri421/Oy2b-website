@@ -1,107 +1,132 @@
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie9 ie9" {{ HTML_ATTRS }}><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html {{ HTML_ATTRS }}><!--<![endif]-->
-<head {{ HEAD_ATTRS }}>
-  <script async >
-    let fired = false;
-    let firedLoad = false;
-    function gtm() {
-      // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      //   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      //   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      // })(window,document,'script','dataLayer','GTM-N3FD3DZ')
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-T9VCHD3');
+  <head {{ HEAD_ATTRS }}>
+    <script async>
+      let fired = false
+      function gtm() {
+        // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        //   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        //   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        // })(window,document,'script','dataLayer','GTM-N3FD3DZ')
 
-      // s = document.createElement('script');
-      // s.src = '//cdn.callibri.ru/callibri.js';
-      // s.async = true;
-      // document.body.appendChild(s);
-    }
-    window.addEventListener('click', async() => {
-      if (fired === false) {
-        fired = true;
-        await gtm()
-        await setTimeout(() => ym(42010699, 'hit', window.location.pathname),200)
+        //gtm
+        ;(function (w, d, s, l, i) {
+          w[l] = w[l] || []
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : ''
+          j.async = true
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+          f.parentNode.insertBefore(j, f)
+        })(window, document, 'script', 'dataLayer', 'GTM-T9VCHD3')
+        //pixel
+        // ;(function (d, w) {
+        //   var n = d.getElementsByTagName('script')[0],
+        //     s = d.createElement('script'),
+        //     f = function () {
+        //       n.parentNode.insertBefore(s, n)
+        //     }
+        //   s.type = 'text/javascript'
+        //   s.async = true
+        //   s.src =
+        //     'https://qoopler.ru/index.php?ref=' +
+        //     d.referrer +
+        //     '&cookie=' +
+        //     encodeURIComponent(document.cookie)
+
+        //   if (w.opera == '[object Opera]') {
+        //     d.addEventListener('DOMContentLoaded', f, false)
+        //   } else {
+        //     f()
+        //   }
+        // })(document, window)
       }
-    });
-    window.addEventListener('load', () => {
-      setTimeout(async () => {
+      window.addEventListener('click', async () => {
         if (fired === false) {
-          fired = true;
+          fired = true
+          await gtm()
+          await setTimeout(() => {
+            if (window.location.pathname !== '/wifiok')
+              ym(42010699, 'hit', window.location.pathname)
+          }, 200)
+        }
+      })
+      window.addEventListener('load', () => {
+        setTimeout(async () => {
+          if (fired === false) {
+            fired = true
+            await gtm()
+          }
+        }, 2000)
+      })
+      // window.addEventListener('mousemove', async() => {
+      //   if (fired === false) {
+      //     fired = true;
+      //     await gtm()
+      //     //await setTimeout(() => gtm(),100)
+      //   }
+      // });
+      window.addEventListener('beforeunload', async () => {
+        if (fired === false) {
+          await gtm()
+          fired = true
+          //await setTimeout(() => gtm(),100)
+        }
+      })
+      window.addEventListener('scroll', async () => {
+        if (fired === false) {
+          await gtm()
+          fired = true
+          //await setTimeout(() => gtm(),100)
+        }
+      })
+
+      window.addEventListener('resize', async () => {
+        if (fired === false) {
+          fired = true
           await gtm()
         }
-      },2000)
+      })
+    </script>
+    <!--   Google Tag Manager-->
+    <!--  <script>-->
+    <!--    var fired = false;-->
+    <!--    window.addEventListener('scroll', () => {-->
+    <!--      if (fired === false) {-->
+    <!--        fired = true;-->
 
-    });
-    // window.addEventListener('mousemove', async() => {
-    //   if (fired === false) {
-    //     fired = true;
-    //     await gtm()
-    //     //await setTimeout(() => gtm(),100)
-    //   }
-    // });
-    window.addEventListener('beforeunload', async() => {
-      if (fired === false) {
+    <!--        setTimeout(() => {-->
+    <!--          ((function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
+    <!--              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
+    <!--            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
+    <!--            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+    <!--          })(window,document,'script','dataLayer','GTM-N3FD3DZ'));-->
+    <!--        }, 100)-->
+    <!--      }-->
+    <!--    });-->
 
-        await gtm()
-        fired = true;
-        //await setTimeout(() => gtm(),100)
-      }
-    });
-    window.addEventListener('scroll', async() => {
-      if (fired === false) {
+    <!--    </script>-->
+    <!--   End Google Tag Manager-->
+    {{ HEAD }}
+    <meta
+      name="facebook-domain-verification"
+      content="myb1t7gx7vdmflkrr15um7lo5j7ayu"
+    />
+  </head>
+  <body {{ BODY_ATTRS }}>
+    <!-- Google Tag Manager (noscript) -->
+    <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3FD3DZ"-->
+    <!--                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9VCHD3"-->
+    <!--                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
 
-        await gtm()
-        fired = true;
-        //await setTimeout(() => gtm(),100)
-      }
-    });
-
-    window.addEventListener('resize', async() => {
-      if (fired === false) {
-        fired = true;
-        await gtm()
-      }
-    });
-</script>
-<!--   Google Tag Manager-->
-<!--  <script>-->
-<!--    var fired = false;-->
-<!--    window.addEventListener('scroll', () => {-->
-<!--      if (fired === false) {-->
-<!--        fired = true;-->
-
-<!--        setTimeout(() => {-->
-<!--          ((function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
-<!--              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
-<!--            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
-<!--            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
-<!--          })(window,document,'script','dataLayer','GTM-N3FD3DZ'));-->
-<!--        }, 100)-->
-<!--      }-->
-<!--    });-->
-
-<!--    </script>-->
-<!--   End Google Tag Manager-->
-  {{ HEAD }}
-  <meta name="facebook-domain-verification" content="myb1t7gx7vdmflkrr15um7lo5j7ayu" />
-</head>
-<body {{ BODY_ATTRS }}>
-<!-- Google Tag Manager (noscript) -->
-<!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N3FD3DZ"-->
-<!--                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
-<!-- End Google Tag Manager (noscript) -->
-<!-- Google Tag Manager (noscript) -->
-<!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9VCHD3"-->
-<!--                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
-
-<!-- End Google Tag Manager (noscript) -->
-<!--<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a[b]=a[b]||function(){(a[b].a=a[b].a||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(42010699,"init",{id:42010699,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});</script>-->
-{{ APP }}
-</body>
+    <!-- End Google Tag Manager (noscript) -->
+    <!--<script type="text/javascript" id="">(function(a,e,f,g,b,c,d){a[b]=a[b]||function(){(a[b].a=a[b].a||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(42010699,"init",{id:42010699,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});</script>-->
+    {{ APP }}
+  </body>
 </html>

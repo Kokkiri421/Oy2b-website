@@ -9,7 +9,7 @@
           </h4>
           <div class="calculator-form__data" :style="chromeProgress">
             <div class="calculator-type">
-              <div class="calculator-type__header">Компьютеры</div>
+              <div class="calculator-type__header">Рабочие места</div>
               <div class="calculator-type__slider">
                 <input
                   type="number"
@@ -123,7 +123,7 @@
               </div>
             </div>
             <div class="calculator-type">
-              <div class="calculator-type__header">Оргтехника</div>
+              <div class="calculator-type__header">Точки доступа</div>
               <div class="calculator-type__slider">
                 <input
                   type="number"
@@ -152,7 +152,7 @@
                 >
               </div>
             </div>
-            <div class="calculator-type">
+            <!-- <div class="calculator-type">
               <div class="calculator-type__header">IP телефоны</div>
               <div class="calculator-type__slider">
                 <input
@@ -181,7 +181,7 @@
                   >100</label
                 >
               </div>
-            </div>
+            </div> -->
 
             <div class="calculator-type switches">
               <div class="calculator-type switch-type">
@@ -193,7 +193,7 @@
                   <span class="slider round"></span>
                 </label>
               </div>
-              <div class="calculator-type switch-type">
+              <!-- <div class="calculator-type switch-type">
                 <div class="calculator-type__header">Точки доступа</div>
                 <label class="calculator-type__switch">
                   <input
@@ -203,7 +203,7 @@
                   />
                   <span class="slider round"></span>
                 </label>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -227,6 +227,7 @@
           технического&nbsp;аудита
         </p>
         <p class="privacy">***Видеонаблюдение рассчитывается отдельно</p>
+        <p class="privacy">****В обслуживание рабочих мест входит настройка Оргтехники и IP Телефонных аппаратов</p>
       </div>
     </div>
   </div>
@@ -562,7 +563,7 @@ export default {
   @include _1300() {
     margin-bottom: 0 !important;
   }
-  &:nth-last-child(-n + 1) {
+  &:nth-child(2) {
     margin-left: 1em;
     .calculator-type__header {
       min-width: fit-content !important;

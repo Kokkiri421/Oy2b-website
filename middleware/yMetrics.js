@@ -4,7 +4,8 @@ export default function (context) {
   if (process.browser) {
     if (typeof ym === 'function') {
       setTimeout(async () => {
-        await ym(42010699, 'hit', context.route.path)
+       {await ym(42010699, 'hit', context.route.path)}
+        console.log(1234)
       }, 0)
     }
   }

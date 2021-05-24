@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper">
+  <div class="wifi-ok-page"  v-scroll-lock="true">
+    <div class="wrapper">
     <div class="wi-fi-message">
       <svg
         version="1.1"
@@ -15,8 +16,9 @@
         <circle style="fill: #25ae88" cx="25" cy="25" r="25"></circle>
         <polyline points="38,15 22,33 12,25 "></polyline>
       </svg>
-      <h4>Вы успешно авторизованы в сети Oyster&nbsp;Telecom</h4>
+      <h4>Вы успешно авторизованы в&nbsp;сети Oyster&nbsp;Telecom</h4>
     </div>
+  </div>
   </div>
 </template>
 
@@ -27,10 +29,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.wifi-ok-page {
+  width: 100%;
+  height: 100vh;
+}
 .wrapper {
   height: 100%;
   flex-grow: 1;
   display: flex;
+  position: relative;
+
+  box-sizing: border-box;
 }
 .wi-fi-message {
   svg {
@@ -45,11 +54,14 @@ export default {
     margin-bottom: 1em;
   }
 
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: absolute;
+   left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
 }
 </style>

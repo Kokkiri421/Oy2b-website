@@ -109,6 +109,12 @@
                 <li>Проектирование сетей</li>
                 <li>Организация связи между отдельными подразделениями</li>
               </ul>
+              <p class="article">
+                Доверяя комплексное обслуживание корпоративных сетей техническим
+                специалистам Oyster Telecom с совокупным релевантным опытом в
+                телекоммуникациях более 21 года, вы можете быть уверены в
+                качественном непрерывном сервисе B2B уровня.
+              </p>
             </template>
             <template v-slot:button>
               <button class="dialog-button">Заказать</button>
@@ -373,7 +379,7 @@ export default {
         this.serverCount * 2600 +
         this.virtualServerCount * 1600 +
         this.netCount * 680 +
-        this.accessPoints * 260
+        this.officeEquipmentCount * 260
       if (this.computerCount >= 60) {
         this.discount = 30
       } else if (this.computerCount >= 40 || this.serverCount >= 4) {
@@ -395,7 +401,7 @@ export default {
         this.serverCount * 2600 +
         this.virtualServerCount * 1600 +
         this.netCount * 680 +
-        this.accessPoints * 260
+        this.officeEquipmentCount * 260
 
       if (price === 0) return price
       price =
