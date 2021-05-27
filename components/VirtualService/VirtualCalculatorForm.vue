@@ -331,7 +331,7 @@ export default {
             surname: fullname[1] || '.',
             phones: [{ phone: phone }],
           },
-          description: `Тип формы: ${routename}. Стоимость виртуального сервера\nКопмания: ${
+          description: `Тип формы: ${routename}. Стоимость виртуального сервера\nКомпания: ${
             this.company
           }\nЯдра процессора: ${this.cpuCount}\nОЗУ: ${this.ramCount}gb\nSSD: ${
             this.ssdCount
