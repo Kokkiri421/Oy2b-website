@@ -96,7 +96,7 @@ export default {
         let fullname = this.name.split(' ')
         let routename = this.$store.state.routeNames[this.$route.path]
         let body = {
-          dev: true,
+          dev: process.env.APP_ENV === 'dev',
           contact: {
             name: fullname[0],
             surname: fullname[1] || '.',

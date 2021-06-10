@@ -109,6 +109,7 @@ export default {
       if (this.errors.length === 0) {
         let fullname = this.name.split(' ')
         let body = {
+          dev:process.env.APP_ENV === 'dev',
           contact: {
             name: fullname[0],
             surname: fullname[1] || '.',
