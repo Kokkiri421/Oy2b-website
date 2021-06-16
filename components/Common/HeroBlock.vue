@@ -198,6 +198,7 @@ export default {
       height: 100%;
       position: relative;
       &__content {
+        position: absolute;
         bottom: 0px;
         right: 0px;
       }
