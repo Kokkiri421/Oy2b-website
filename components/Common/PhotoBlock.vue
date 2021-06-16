@@ -1,7 +1,8 @@
 <template>
   <div class="photo-block">
     <div class="photo-block__img">
-      <img src="~/static/portraits/roman.png" class="img1"/>
+      <img src="~/static/portraits/roman.png" class="img img1"/>
+      <img src="~/static/portraits/roman.png" class="img img2"/>
     </div>
     <div class="photo-block__description">
       <img src="~/static/portraits/roman.png" />
@@ -15,10 +16,11 @@
   width: 600px;
   height: 600px;
   &__img {
-    .img1 {
-      width: 300px;
+    .img {
+      width: 400px;
       height: 500px;
     }
+    
     width: 600px;
     height: 500px;
   }
