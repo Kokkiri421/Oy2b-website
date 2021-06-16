@@ -218,8 +218,8 @@ export default {
     justify-content: space-around;
     position: absolute;
     top: 450px;
-    right: 0px;
-    .descrption1 {
+    right: 50px;
+    .description1 {
       margin-top: 100px;
     }
   }
