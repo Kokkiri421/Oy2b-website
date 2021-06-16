@@ -15,6 +15,7 @@
 .photo-block {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   width: 500px;
   height: 600px;
