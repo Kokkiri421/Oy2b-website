@@ -211,7 +211,7 @@ export default {
     }
   }
   .employee {
-    @include _1920() {
+    @include _1700() {
       display: none !important;
     }
   }
