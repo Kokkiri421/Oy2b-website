@@ -1,7 +1,7 @@
 <template>
   <div class="photo-block">
     <div class="photo-block__img">
-      <img src="~/static/portraits/index.png" class="img"/>
+      
     </div>
     <div class="photo-block__description">
       

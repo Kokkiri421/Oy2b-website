@@ -17,7 +17,7 @@
         
       </template>
       <template v-slot:photo>
-        <photo-block/>
+        <img src="~/static/portraits/index.png" class="employee-photo"/>
       </template>
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
