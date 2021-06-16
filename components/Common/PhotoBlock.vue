@@ -1,8 +1,8 @@
 <template>
   <div class="photo-block">
     <div class="photo-block__img">
-      <img src="~/static/portraits/roman.png" class="img img1"/>
-      <img src="~/static/portraits/roman.png" class="img img2"/>
+      <img src="~/static/portraits/roman.png" class="img img__1"/>
+      <img src="~/static/portraits/roman.png" class="img img__2"/>
     </div>
     <div class="photo-block__description">
       <img src="~/static/portraits/roman.png" />
@@ -13,19 +13,21 @@
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .photo-block {
-  width: 600px;
+  width: 500px;
   height: 600px;
   &__img {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
     .img {
       width: 400px;
       height: 500px;
+      &__1 {
+        left: 0%;
+      }
+      &__2 {
+        right: 0%;
+      }
     }
     
-    width: 600px;
+    width: 500px;
     height: 500px;
   }
 }
