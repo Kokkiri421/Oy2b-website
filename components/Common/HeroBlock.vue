@@ -210,6 +210,11 @@ export default {
       }
     }
   }
+  .employee {
+    @include _1450() {
+      display: none;
+    }
+  }
   .employee-description {
     width: 350px;
     height: 200px;
@@ -217,7 +222,7 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
-    top: 400px;
+    top: 425px;
     right: 0px;
     .description1 {
       margin-top: 100px;

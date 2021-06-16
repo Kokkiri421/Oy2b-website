@@ -14,6 +14,11 @@
   }
 }
 
+@mixin _1450 {
+  @media (max-width: 1450px){
+    @content;
+  }
+}
 @mixin _1366 {
   @media (max-width: 1366px){
     @content;
