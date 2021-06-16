@@ -212,7 +212,7 @@ export default {
   }
   .employee {
     @include _1450() {
-      display: none;
+      display: none !important;
     }
   }
   .employee-description {
