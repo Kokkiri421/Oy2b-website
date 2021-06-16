@@ -13,6 +13,7 @@
           пространств, телефония, IP видеонаблюдение и нейросетевая аналитика,
           прокладка и обслуживание оптоволоконной инфраструктуры.
         </div>
+        <photo-block/>
       </template>
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
@@ -63,7 +64,7 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import Icon from '~/components/Icons/Icon'
 import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 import AnalysisForm from '~/components/Common/AnalysisForm'
-
+import PhotoBlock from '`/components/Common/PhotoBlock'
 export default {
   data() {
     return {
@@ -85,6 +86,7 @@ export default {
     Icon,
     MenuArrowIcon,
     AnalysisForm,
+    PhotoBlock,
   },
 
   methods: {
