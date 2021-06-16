@@ -16,15 +16,18 @@
   width: 500px;
   height: 600px;
   &__img {
-    display: flex;
-  
-    justify-content: space-between;
-    padding-left: 1.5rem;
+    position: relative;
     .img {
+      position: absolute;
+      top: 0;
       width: 400px;
       height: 500px;
-      flex-basis: 400px;
-      margin-left: -1.5rem;
+      &__1 {
+        left: 0;
+      }
+      &__2 {
+        right: 0;
+      }
     }
 
     width: 500px;
