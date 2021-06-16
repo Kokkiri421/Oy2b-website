@@ -16,7 +16,7 @@
         </div>
         
       </template>
-      <template v-slot:photo-block>
+      <template v-slot:photo>
         <photo-block/>
       </template>
       <template v-slot:form-prefix>
