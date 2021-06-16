@@ -38,13 +38,13 @@
                 <animate-on-viewport>
                   <running-number
                     slot-scope="item"
-                    :number="1400"
+                    :number="34"
                     :is-animated="item.isAnimated"
                     :is-integer="true"
                   />
                 </animate-on-viewport>
               </div>
-              <div class="info-number__category">км. оптоволокна</div>
+              <div class="info-number__category">IT специалиста</div>
             </div>
             <div class="info-number">
               <div class="info-number__number">

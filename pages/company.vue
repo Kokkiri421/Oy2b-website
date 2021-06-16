@@ -158,7 +158,7 @@ import ModalWindow from '~/components/Common/ModalWindow'
 export default {
   head() {
     return {
-      title: 'О компании Oyster Telecom',
+      // title: 'О компании Oyster Telecom',
       meta: [
         {
           hid: 'description',
