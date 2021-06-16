@@ -15,8 +15,10 @@
   &__img {
     .img1 {
       width: 300px;
-      height: 600px;
+      height: 500px;
     }
+    width: 600px;
+    height: 500px;
   }
 }
 </style>
