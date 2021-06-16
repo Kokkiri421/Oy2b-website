@@ -218,7 +218,8 @@ export default {
     justify-content: space-between;
     position: absolute;
     background: red;
-    
+    top: 600px;
+    right: 0px;
   }
   .wrapper {
     height: 100%;
