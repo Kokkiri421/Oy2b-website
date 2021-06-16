@@ -20,10 +20,12 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    padding-left: 1.5rem;
     .img {
       width: 400px;
       height: 500px;
       flex-basis: 400px;
+      margin-left: -1.5rem;
     }
 
     width: 500px;
