@@ -14,8 +14,8 @@
 .photo-block {
   &__img {
     .img1 {
-      width: 200px;
-      height: 800px;
+      width: 300px;
+      height: 600px;
     }
   }
 }
