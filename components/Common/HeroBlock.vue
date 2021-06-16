@@ -206,7 +206,7 @@ export default {
         display: flex;
         position: absolute;
         bottom: -100px;
-        right: 200px;
+        right: 400px;
       }
     }
   }
@@ -223,7 +223,7 @@ export default {
     justify-content: space-around;
     position: absolute;
     top: 450px;
-    right: 0px;
+    right: 200px;
     .description1 {
       margin-top: 100px;
     }
