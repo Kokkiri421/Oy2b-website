@@ -215,10 +215,9 @@ export default {
     height: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     position: absolute;
-    background: red;
-    top: 600px;
+    top: 550px;
     right: 0px;
   }
   .wrapper {
