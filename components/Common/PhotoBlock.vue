@@ -17,8 +17,7 @@
   height: 600px;
   &__img {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+  
     justify-content: space-between;
     padding-left: 1.5rem;
     .img {
