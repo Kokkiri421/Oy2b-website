@@ -222,7 +222,7 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
-    top: 425px;
+    top: 450px;
     right: 0px;
     .description1 {
       margin-top: 100px;
