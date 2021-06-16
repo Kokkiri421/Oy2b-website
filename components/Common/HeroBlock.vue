@@ -211,14 +211,17 @@ export default {
     }
   }
   .employee-description {
-    width: 400px;
-    height: 100px;
+    width: 350px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
-    top: 550px;
+    top: 450px;
     right: 0px;
+    .descrption1 {
+      margin-top: 100px;
+    }
   }
   .wrapper {
     height: 100%;
