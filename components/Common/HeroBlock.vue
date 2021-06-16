@@ -211,7 +211,7 @@ export default {
     }
   }
   .employee {
-    @include _1450() {
+    @include _1920() {
       display: none !important;
     }
   }
@@ -222,10 +222,10 @@ export default {
     flex-direction: row;
     justify-content: space-around;
     position: absolute;
-    top: 450px;
+    top: 550px;
     right: 200px;
     .description1 {
-      margin-top: 100px;
+      margin-top: 75px;
     }
   }
   .wrapper {
