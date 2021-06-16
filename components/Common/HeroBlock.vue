@@ -197,10 +197,12 @@ export default {
       width: 100%;
       height: 100%;
       position: relative;
+      
       &__content {
+        display: flex;
         position: absolute;
-        bottom: 0px;
-        right: 100px;
+        bottom: -100px;
+        right: 200px;
       }
     }
   }
