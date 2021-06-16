@@ -9,6 +9,7 @@
           </h1>
           <div class="hero-block-top__description">
             <slot name="description"></slot>
+            <slot name="photo"></slot>
           </div>
         </div>
         <div v-if="!userForm" class="hero-block-form-container">
@@ -231,6 +232,9 @@ export default {
       &__description {
         margin-bottom: 1em;
         line-height: 1.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         @include _400() {
           font-size: 0.9em;
         }

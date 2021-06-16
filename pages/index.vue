@@ -14,6 +14,9 @@
           прокладка и обслуживание оптоволоконной инфраструктуры.
           
         </div>
+        
+      </template>
+      <template v-slot:photo-block>
         <photo-block/>
       </template>
       <template v-slot:form-prefix>
