@@ -2,7 +2,9 @@
   <div class="hero-block">
     <div class="hero-block__background">
       <div class="photo-block">
-        <slot name="photo" class="photo-block__content"></slot>
+        <div class="photo-block__content">
+          <slot name="photo" ></slot>
+        </div>
       </div>
     </div>
     <div class="wrapper">
