@@ -1,8 +1,8 @@
 <template>
   <div class="hero-block">
     <div class="hero-block__background">
-      <div class="photo-block">
-        <div class="photo-block__content">
+      <div class="bg-photo">
+        <div class="bg-photo__content">
           <slot name="photo" ></slot>
         </div>
       </div>
@@ -193,7 +193,7 @@ export default {
     right: -150px;
     background-color: $light-blue-color;
     z-index: -1;
-    .photo-block {
+    .bg-photo {
       width: 100%;
       height: 100%;
       position: relative;
