@@ -180,8 +180,8 @@ export default {
   box-sizing: border-box;
   &__background {
     //position: absolute;
-    width: 2080px;
-    height: 1078px;
+    // width: 2080px;
+    // height: 1078px;
     mask: url('~/static/images/backgrounds/bg.svg') no-repeat center;
     //////
     top: -450px;
