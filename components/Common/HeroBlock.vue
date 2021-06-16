@@ -1,11 +1,15 @@
 <template>
   <div class="hero-block">
     <div class="hero-block__background">
-      <div class="bg-photo">
+      <div class="employee bg-photo">
         <div class="bg-photo__content">
           <slot name="photo" ></slot>
         </div>
       </div>
+    </div>
+    <div class="employee employee-description">
+      <slot name="descritption1" ></slot>
+      <slot name="descritption2" ></slot>
     </div>
     <div class="wrapper">
       <div class="hero-block-content">
@@ -205,6 +209,15 @@ export default {
         right: 200px;
       }
     }
+  }
+  .employee-description {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: -100px;
+    right: 200px;
   }
   .wrapper {
     height: 100%;

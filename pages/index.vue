@@ -19,6 +19,16 @@
       <template v-slot:photo>
         <img src="~/static/portraits/index.png" class="employee-photo"/>
       </template>
+      <template v-slot:description1>
+        Чернега Роман<br/>
+        Founder<br/>
+        CEO<br/>
+      </template>
+      <template v-slot:description2>
+        Чернега Иван<br/>
+        Co-Founder<br/>
+        CEO<br/>
+      </template>
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
       </template>
@@ -68,7 +78,6 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import Icon from '~/components/Icons/Icon'
 import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 import AnalysisForm from '~/components/Common/AnalysisForm'
-import PhotoBlock from '~/components/Common/PhotoBlock'
 export default {
   data() {
     return {
@@ -90,7 +99,6 @@ export default {
     Icon,
     MenuArrowIcon,
     AnalysisForm,
-    PhotoBlock,
   },
 
   methods: {
