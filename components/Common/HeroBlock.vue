@@ -212,12 +212,13 @@ export default {
   }
   .employee-description {
     width: 400px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     position: absolute;
-    bottom: -100px;
-    right: 200px;
+    background: red;
+    
   }
   .wrapper {
     height: 100%;
