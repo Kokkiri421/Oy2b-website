@@ -12,15 +12,15 @@
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .photo-block {
-  width: 500px;
+  width: 400px;
   height: 600px;
   &__img {
     .img {
       width: 100%;
       height: 100%;
     }
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 600px;
   }
 }
 </style>
