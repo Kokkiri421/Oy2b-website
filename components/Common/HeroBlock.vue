@@ -1,7 +1,9 @@
 <template>
   <div class="hero-block">
     <div class="hero-block__background">
-      <slot name="photo" class="photo-block"></slot>
+      <div class="photo-block">
+        <slot name="photo" class="photo-block__content"></slot>
+      </div>
     </div>
     <div class="wrapper">
       <div class="hero-block-content">
@@ -190,8 +192,13 @@ export default {
     background-color: $light-blue-color;
     z-index: -1;
     .photo-block {
-      bottom: 0px;
-      right: 0px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      &__content {
+        bottom: 0px;
+        right: 0px;
+      }
     }
   }
   .wrapper {
