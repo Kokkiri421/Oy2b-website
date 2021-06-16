@@ -200,7 +200,7 @@ export default {
       &__content {
         position: absolute;
         bottom: 0px;
-        right: 0px;
+        right: 100px;
       }
     }
   }
