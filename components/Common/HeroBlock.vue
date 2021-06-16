@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="employee employee-description">
-      <slot name="descritption1" ></slot>
-      <slot name="descritption2" ></slot>
+      <slot name="description1" ></slot>
+      <slot name="description2" ></slot>
     </div>
     <div class="wrapper">
       <div class="hero-block-content">
