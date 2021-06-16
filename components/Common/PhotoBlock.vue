@@ -12,6 +12,8 @@
 <style lang="scss" scoped>
 @import '~/assets/media_mixin';
 .photo-block {
+  width: 600px;
+  height: 600px;
   &__img {
     .img1 {
       width: 300px;
