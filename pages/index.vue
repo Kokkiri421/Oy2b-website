@@ -65,7 +65,7 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import Icon from '~/components/Icons/Icon'
 import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 import AnalysisForm from '~/components/Common/AnalysisForm'
-import PhotoBlock from '`/components/Common/PhotoBlock'
+import PhotoBlock from '~/components/Common/PhotoBlock'
 export default {
   data() {
     return {
