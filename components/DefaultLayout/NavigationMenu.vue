@@ -7,6 +7,27 @@
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
+                to="/service/service-it-out"
+              >
+                <icon
+                  :icon-name="'flame-icon-left'"
+                  class="icon icon-left"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon /> </icon
+                ><span>IT Аутсорсинг</span>
+                <icon
+                  :icon-name="'flame-icon-right'"
+                  class="icon icon-right"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon />
+                </icon>
+              </NuxtLink>
+            </li>
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
                 to="/service/internet"
                 ><span>Интернет до&nbsp;10&nbsp;Гбит/с</span></NuxtLink
               >
@@ -26,27 +47,7 @@
                 ><span>Телефония</span></NuxtLink
               >
             </li>
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
-                to="/service/service-it-out"
-              >
-                <icon
-                  :icon-name="'flame-icon-left'"
-                  class="icon icon-left"
-                  :view-box="'0 0 611.999 611.999'"
-                >
-                  <flame-icon /> </icon
-                ><span>IT Аутсорсинг</span>
-                <icon
-                  :icon-name="'flame-icon-right'"
-                  class="icon icon-right"
-                  :view-box="'0 0 611.999 611.999'"
-                >
-                  <flame-icon />
-                </icon>
-              </NuxtLink>
-            </li>
+
             <li class="list-item" @click="onClick">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
