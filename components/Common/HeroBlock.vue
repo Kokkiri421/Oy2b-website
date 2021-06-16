@@ -1,60 +1,61 @@
 <template>
   <div class="hero-block">
-    <div class="hero-block__background"></div>
-    <div class="wrapper">
-      <div class="hero-block-content">
-        <div class="hero-block-top">
-          <h1 class="hero-block-top__header">
-            <slot name="header"></slot>
-          </h1>
-          <div class="hero-block-top__description">
-            <slot name="description"></slot>
-            <slot name="photo"></slot>
-          </div>
-        </div>
-        <div v-if="!userForm" class="hero-block-form-container">
-          <div class="hero-block-form-container__prefix">
-            <slot name="form-prefix"></slot>
-          </div>
-          <p class="form-error-message" v-if="errors.length > 0">
-            Заполните обязательные поля
-          </p>
-          <p class="form-success-message" v-else-if="success">
-            Заявка успешно отправлена
-          </p>
-          <form class="hero-block-form" @submit="checkForm">
-            <pretty-input
-              :name="'company'"
-              :placeholder="'Организация или Адрес'"
-              class="hero-block-form__item"
-              :value="company"
-              @onInput="setCompany"
-              :error="errors.includes('company')"
-            ></pretty-input>
-            <pretty-input
-              :name="'phone'"
-              :type="'tel'"
-              :placeholder="'Телефон'"
-              class="hero-block-form__item"
-              :value="phone"
-              @onInput="setPhone"
-              :error="errors.includes('phone')"
-            ></pretty-input>
-            <div class="hero-block-form__item">
-              <button class="dialog-button" :disabled="success">
-                <div class="shining-button"></div>
-                {{ isMobile ? 'Отправить' : 'Оставить заявку' }}
-              </button>
+    <div class="hero-block__background">
+      <div class="wrapper">
+        <div class="hero-block-content">
+          <div class="hero-block-top">
+            <h1 class="hero-block-top__header">
+              <slot name="header"></slot>
+            </h1>
+            <div class="hero-block-top__description">
+              <slot name="description"></slot>
+              <slot name="photo"></slot>
             </div>
-          </form>
-          <div class="hero-block-form-container__legal">
-            <NuxtLink to="/legal/">Политика конфиденциальности</NuxtLink>
           </div>
+          <div v-if="!userForm" class="hero-block-form-container">
+            <div class="hero-block-form-container__prefix">
+              <slot name="form-prefix"></slot>
+            </div>
+            <p class="form-error-message" v-if="errors.length > 0">
+              Заполните обязательные поля
+            </p>
+            <p class="form-success-message" v-else-if="success">
+              Заявка успешно отправлена
+            </p>
+            <form class="hero-block-form" @submit="checkForm">
+              <pretty-input
+                :name="'company'"
+                :placeholder="'Организация или Адрес'"
+                class="hero-block-form__item"
+                :value="company"
+                @onInput="setCompany"
+                :error="errors.includes('company')"
+              ></pretty-input>
+              <pretty-input
+                :name="'phone'"
+                :type="'tel'"
+                :placeholder="'Телефон'"
+                class="hero-block-form__item"
+                :value="phone"
+                @onInput="setPhone"
+                :error="errors.includes('phone')"
+              ></pretty-input>
+              <div class="hero-block-form__item">
+                <button class="dialog-button" :disabled="success">
+                  <div class="shining-button"></div>
+                  {{ isMobile ? 'Отправить' : 'Оставить заявку' }}
+                </button>
+              </div>
+            </form>
+            <div class="hero-block-form-container__legal">
+              <NuxtLink to="/legal/">Политика конфиденциальности</NuxtLink>
+            </div>
+          </div>
+          <div v-else>
+            <slot name="user-form"></slot>
+          </div>
+          <!--        <img class="photo" src="~/static/images/123.png" />-->
         </div>
-        <div v-else>
-          <slot name="user-form"></slot>
-        </div>
-        <!--        <img class="photo" src="~/static/images/123.png" />-->
       </div>
     </div>
   </div>
@@ -178,7 +179,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   &__background {
-    position: absolute;
+    //position: absolute;
     width: 2080px;
     height: 1078px;
     mask: url('~/static/images/backgrounds/bg.svg') no-repeat center;
