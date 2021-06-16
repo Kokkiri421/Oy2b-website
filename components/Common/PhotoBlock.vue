@@ -16,6 +16,10 @@
   width: 600px;
   height: 600px;
   &__img {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     .img {
       width: 400px;
       height: 500px;
