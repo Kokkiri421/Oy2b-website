@@ -206,7 +206,7 @@ export default {
         display: flex;
         position: absolute;
         bottom: -100px;
-        right: 0;
+        right: 4em;
       }
     }
   }
