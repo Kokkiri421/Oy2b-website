@@ -27,7 +27,7 @@
       <template v-slot:description2>
         Чернега Иван<br/>
         Co-Founder<br/>
-        CEO<br/>
+        CFO<br/>
       </template>
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
