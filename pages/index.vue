@@ -2,7 +2,7 @@
   <div class="container">
     <hero-block :is-anchor="false">
       <template v-slot:header>
-        Комплексные услуги связи и&nbsp;IT&nbsp;сервисы
+        Сократите расходы на услуги связи и IT Аутсорсинг&nbsp;до&nbsp;30%!
       </template>
       <template v-slot:description>
         <div class="description dn-600">
