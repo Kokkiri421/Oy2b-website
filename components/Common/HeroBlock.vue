@@ -1,7 +1,7 @@
 <template>
   <div class="hero-block">
     <div class="hero-block__background">
-      <div class="employee bg-photo">
+      <div class="wrapper employee bg-photo">
         <div class="bg-photo__content">
           <slot name="photo" ></slot>
         </div>
