@@ -19,6 +19,21 @@
       >
         <template v-slot:menu
           ><ul class="desktop-menu__list" @click="onClick">
+            <li class="list-item" @click="onClick">
+              <NuxtLink
+                class="underline-animated-link nuxtlink"
+                to="/service/service-it-out"
+              >
+                <span>IT аутсорсинг</span>
+                <icon
+                  :icon-name="'flame-icon'"
+                  class="icon"
+                  :view-box="'0 0 611.999 611.999'"
+                >
+                  <flame-icon />
+                </icon>
+              </NuxtLink>
+            </li>
             <li class="list-item">
               <NuxtLink
                 class="underline-animated-link nuxtlink"
@@ -40,21 +55,6 @@
                 to="/service/telefoniya"
                 ><span>Телефония</span></NuxtLink
               >
-            </li>
-            <li class="list-item" @click="onClick">
-              <NuxtLink
-                class="underline-animated-link nuxtlink"
-                to="/service/service-it-out"
-              >
-                <span>IT аутсорсинг</span>
-                <icon
-                  :icon-name="'flame-icon'"
-                  class="icon"
-                  :view-box="'0 0 611.999 611.999'"
-                >
-                  <flame-icon />
-                </icon>
-              </NuxtLink>
             </li>
             <li class="list-item" @click="onClick">
               <NuxtLink

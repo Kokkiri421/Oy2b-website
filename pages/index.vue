@@ -6,13 +6,28 @@
       </template>
       <template v-slot:description>
         <div class="description dn-600">
-          Телекоммуникационные услуги и сервисы для компаний с высоким
-          трафиком.<br />
-          Доступ в интернет, прокладка и обслуживание оптоволоконной
-          инфраструктуры, организация корпоративных wi-fi пространств,
-          телефония, IP видеонаблюдение и нейросетевая аналитика, виртуализация
-          и перенос бизнеса в облако.
+          Непрерывные услуги связи и надежные IT сервисы для бизнеса в
+          Санкт-Петербурге.<br />
+          Аутсорсинг IT инфраструктуры, Виртуализация и перенос бизнеса в
+          облако, Доступ в интернет, организация корпоративных wi-fi
+          пространств, телефония, IP видеонаблюдение и нейросетевая аналитика,
+          прокладка и обслуживание оптоволоконной инфраструктуры.
+          
         </div>
+        
+      </template>
+      <template v-slot:photo>
+        <img src="~/static/portraits/index.png" class="employee-photo"/>
+      </template>
+      <template v-slot:description1>
+        Чернега Роман<br/>
+        Founder<br/>
+        CEO<br/>
+      </template>
+      <template v-slot:description2>
+        Чернега Иван<br/>
+        Co-Founder<br/>
+        CFO<br/>
       </template>
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
@@ -63,7 +78,6 @@ import CallUsBlock from '~/components/Index/CallUsBlock'
 import Icon from '~/components/Icons/Icon'
 import MenuArrowIcon from '~/components/Icons/MenuArrowIcon'
 import AnalysisForm from '~/components/Common/AnalysisForm'
-
 export default {
   data() {
     return {

@@ -10,8 +10,7 @@
               придерживаться высоких стандартов качества услуг и сервисов.
             </p>
             <p class="article dn-600">
-              Занимаемся сервисами Wi-Fi и видеоаналитики, виртуализацией,
-              аутсорсингом офисной техники и серверов.
+              Профессионально занимаемся Аутсорсингом офисной техники серверов, сервисами Wi-Fi и видеоаналитики, виртуализацией и миграцией бизнеса в облако.
             </p>
             <p class="article dn-600">
               Готовы разработать для вас индивидуальное решение , в соответствии
@@ -38,13 +37,13 @@
                 <animate-on-viewport>
                   <running-number
                     slot-scope="item"
-                    :number="1400"
+                    :number="34"
                     :is-animated="item.isAnimated"
                     :is-integer="true"
                   />
                 </animate-on-viewport>
               </div>
-              <div class="info-number__category">км. оптоволокна</div>
+              <div class="info-number__category">IT специалиста</div>
             </div>
             <div class="info-number">
               <div class="info-number__number">

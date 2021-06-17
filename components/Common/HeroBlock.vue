@@ -1,6 +1,16 @@
 <template>
   <div class="hero-block">
-    <div class="hero-block__background"></div>
+    <div class="hero-block__background">
+      <div class="wrapper employee bg-photo">
+        <div class="bg-photo__content">
+          <slot name="photo" ></slot>
+        </div>
+      </div>
+    </div>
+    <div class="employee employee-description">
+      <div class="description1"><slot name="description1" ></slot></div>
+      <div class="description2"><slot name="description2" ></slot></div>
+    </div>
     <div class="wrapper">
       <div class="hero-block-content">
         <div class="hero-block-top">
@@ -9,6 +19,7 @@
           </h1>
           <div class="hero-block-top__description">
             <slot name="description"></slot>
+            
           </div>
         </div>
         <div v-if="!userForm" class="hero-block-form-container">
@@ -186,6 +197,37 @@ export default {
     right: -150px;
     background-color: $light-blue-color;
     z-index: -1;
+    .bg-photo {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      
+      &__content {
+        display: flex;
+        position: absolute;
+        bottom: -100px;
+        right: 4em;
+      }
+    }
+  }
+  .employee {
+    display: none !important;
+    @include _1700() {
+      display: none !important;
+    }
+  }
+  .employee-description {
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    top: 550px;
+    right: 200px;
+    .description1 {
+      margin-top: 75px;
+    }
   }
   .wrapper {
     height: 100%;
@@ -231,6 +273,9 @@ export default {
       &__description {
         margin-bottom: 1em;
         line-height: 1.5em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
         @include _400() {
           font-size: 0.9em;
         }

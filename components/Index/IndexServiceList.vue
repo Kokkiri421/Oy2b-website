@@ -12,6 +12,29 @@
           >
             <NuxtLink
               class="service-button__link nuxtlink"
+              to="/service/service-it-out"
+            >
+              <icon
+                :icon-name="'flame-icon'"
+                class="service-button__icon"
+                :view-box="'0 0 611.999 611.999'"
+              >
+                <flame-icon />
+              </icon>
+
+              <b>IT аутсорсинг</b>
+            </NuxtLink>
+          </li>
+        </animate-on-viewport>
+        <animate-on-viewport>
+          <li
+            class="service-button"
+            slot-scope="item"
+            :is-animated="item.isAnimated"
+            :class="{ animated: item.isAnimated }"
+          >
+            <NuxtLink
+              class="service-button__link nuxtlink"
               to="/service/internet"
               >Интернет до 10Гбит/с</NuxtLink
             >
@@ -43,29 +66,7 @@
             >
           </li>
         </animate-on-viewport>
-        <animate-on-viewport>
-          <li
-            class="service-button"
-            slot-scope="item"
-            :is-animated="item.isAnimated"
-            :class="{ animated: item.isAnimated }"
-          >
-            <NuxtLink
-              class="service-button__link nuxtlink"
-              to="/service/service-it-out"
-            >
-              <icon
-                :icon-name="'flame-icon'"
-                class="service-button__icon"
-                :view-box="'0 0 611.999 611.999'"
-              >
-                <flame-icon />
-              </icon>
-
-              IT аутсорсинг
-            </NuxtLink>
-          </li>
-        </animate-on-viewport>
+        
         <animate-on-viewport>
           <li
             class="service-button"
