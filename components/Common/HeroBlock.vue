@@ -1,10 +1,12 @@
 <template>
   <div class="hero-block">
     <div class="hero-block__background">
-      <div class="wrapper employee bg-photo">
+      <div class="bg-test">
+        <div class="wrapper employee bg-photo">
         <div class="bg-photo__content">
           <slot name="photo" ></slot>
         </div>
+      </div>
       </div>
     </div>
     <div class="employee employee-description">
@@ -209,6 +211,11 @@ export default {
         right: 4em;
       }
     }
+  }
+  .bg-test {
+    position: absolute;
+    width: 100%;
+    right: -150px;
   }
   .employee {
     @include _1700() {
