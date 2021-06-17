@@ -2,7 +2,7 @@
   <div class="container">
     <hero-block :is-anchor="false">
       <template v-slot:header>
-        Сократите расходы на связь и IT Аутсорсинг&nbsp;до&nbsp;30%!
+        Сократите расходы на связь и&nbsp;IT Аутсорсинг&nbsp;до&nbsp;30%!
       </template>
       <template v-slot:description>
         <div class="description dn-600">
