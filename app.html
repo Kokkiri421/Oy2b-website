@@ -30,8 +30,7 @@
           fired = true
           await gtm()
           await setTimeout(() => {
-            if (window.location.pathname !== '/wifiok')
-              ym(42010699, 'hit', window.location.pathname)
+            ym(42010699, 'hit', window.location.pathname)
           }, 200)
         }
       })
@@ -41,7 +40,7 @@
             fired = true
             await gtm()
           }
-        }, 2000)
+        }, 4000)
       })
       // window.addEventListener('mousemove', async() => {
       //   if (fired === false) {

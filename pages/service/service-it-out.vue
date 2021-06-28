@@ -22,7 +22,7 @@
           </p>
         </div>
       </template>
-       <template v-slot:photo>
+      <!-- <template v-slot:photo>
         <img src="~/static/portraits/it-outsource.png" class="employee-photo"/>
       </template>
       <template v-slot:description1>
@@ -34,7 +34,7 @@
         Миланич Павел<br/>
         Специалист отдела<br/>
         IT Аутсорсинга<br/>
-      </template>
+      </template> -->
       <template v-slot:user-form>
         <div class="hero-block__user-form">
           <button class="dialog-button" @click="scrollToOrder">
