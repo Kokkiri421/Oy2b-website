@@ -16,7 +16,7 @@
         </div>
         
       </template>
-      <template v-slot:photo>
+      <!-- <template v-slot:photo>
         <img src="~/static/portraits/index.png" class="employee-photo"/>
       </template>
       <template v-slot:description1>
@@ -28,7 +28,7 @@
         Чернега Иван<br/>
         Co-Founder<br/>
         CFO<br/>
-      </template>
+      </template> -->
       <template v-slot:form-prefix>
         Проверьте возможность подключения:
       </template>
