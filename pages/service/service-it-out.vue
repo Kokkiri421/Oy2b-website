@@ -382,11 +382,11 @@ export default {
   computed: {
     basicPrice() {
       let price =
-        this.computerCount * 900 +
-        this.serverCount * 2600 +
-        this.virtualServerCount * 1600 +
-        this.netCount * 680 +
-        this.officeEquipmentCount * 260
+        this.computerCount * 700 +
+        this.serverCount * 2200 +
+        this.virtualServerCount * 1200 +
+        this.netCount * 600 +
+        this.officeEquipmentCount * 200
       if (this.computerCount >= 60) {
         this.discount = 30
       } else if (this.computerCount >= 40 || this.serverCount >= 4) {
@@ -404,18 +404,18 @@ export default {
     },
     standardPrice() {
       let price =
-        this.computerCount * 900 +
-        this.serverCount * 2600 +
-        this.virtualServerCount * 1600 +
-        this.netCount * 680 +
-        this.officeEquipmentCount * 260
+        this.computerCount * 700 +
+        this.serverCount * 2200 +
+        this.virtualServerCount * 1200 +
+        this.netCount * 600 +
+        this.officeEquipmentCount * 200
 
       if (price === 0) return price
       price =
         price - price * (this.discount / 100) > 5000
           ? price - price * (this.discount / 100)
           : 5000
-      return Math.round(price * 0.35 > 5000 ? price * 1.35 : price + 5000)
+      return Math.round(price * 0.4 > 5000 ? price * 1.4 : price + 5000)
     },
     sysadminPrice() {
       if (this.computerCount >= 50 && this.serverCount >= 4) {
