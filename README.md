@@ -1,5 +1,7 @@
 # oy2b-app
 
+Source code for https://oy2b.ru/
+
 ## Build Setup
 
 ```bash
